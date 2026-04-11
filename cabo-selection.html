@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Cabo Selection — Point Me to Paradise Travel</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%2375AFB1'/><text y='72' x='50' text-anchor='middle' font-size='62' font-family='Georgia,serif' font-weight='bold' fill='%23DAC396'>P</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal:       #75AFB1;
+    --teal-dark:  #5a9092;
+    --gold:       #DAC396;
+    --gold-dark:  #c4a97a;
+    --pale:       #C4E4E1;
+    --cream:      #F5EFE0;
+    --dark:       #2C2C2C;
+    --mid:        #5a5a5a;
+    --light-bg:   #f9f5ec;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--dark); min-height: 100vh; display: flex; flex-direction: column; }
+
+  /* Header */
+  header { background: var(--teal); padding: 26px 40px 20px; display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 12px; position: relative; }
+  header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: var(--gold); }
+  .agency-name { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: #fff; }
+  .tagline { font-size: 11px; color: var(--pale); font-style: italic; margin-top: 3px; }
+  .advisor-info { text-align: right; color: var(--pale); font-size: 11.5px; line-height: 1.8; }
+  .advisor-info strong { color: #fff; font-weight: 500; }
+
+  /* Main */
+  main { flex: 1; max-width: 860px; margin: 0 auto; padding: 44px 20px 60px; width: 100%; }
+  .page-title { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 400; color: var(--teal-dark); text-align: center; line-height: 1.2; }
+  .page-subtitle { text-align: center; color: var(--mid); font-size: 13.5px; font-weight: 300; margin-top: 8px; margin-bottom: 10px; letter-spacing: 0.04em; }
+
+  /* Flights */
+  .flights-bar { background: var(--pale); border-radius: 10px; padding: 16px 22px; margin-bottom: 30px; display: grid; grid-template-columns: 1fr auto 1fr; gap: 10px; align-items: center; }
+  .flight-block { font-size: 12.5px; }
+  .flight-block .dir { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 3px; }
+  .flight-block .airline { font-weight: 500; }
+  .flight-block .route { color: var(--mid); font-size: 11.5px; margin-top: 2px; }
+  .flight-block.right { text-align: right; }
+  .flight-divider { text-align: center; color: var(--teal); font-size: 22px; }
+  @media(max-width:540px){ .flights-bar { grid-template-columns: 1fr; } .flight-block.right { text-align: left; } .flight-divider { display: none; } }
+
+  /* Section label */
+  .section-label { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 14px; padding-bottom: 8px; border-bottom: 2px solid var(--pale); }
+
+  /* Option cards */
+  .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 10px; }
+  @media(max-width:620px){ .options-grid { grid-template-columns: 1fr; } }
+
+  .option-card { border: 2.5px solid #ddd; border-radius: 14px; background: #fff; cursor: pointer; transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s; overflow: hidden; position: relative; user-select: none; }
+  .option-card:hover { border-color: var(--teal); box-shadow: 0 6px 24px rgba(117,175,177,0.16); transform: translateY(-2px); }
+  .option-card.selected { border-color: var(--teal); box-shadow: 0 8px 30px rgba(117,175,177,0.25); }
+  .option-card.selected .card-head { background: var(--teal); }
+  .option-card.selected .card-head .opt-tag,
+  .option-card.selected .card-head .hotel-name { color: #fff; }
+  .option-card.selected .card-head .hotel-sub { color: var(--pale); }
+
+  .check-badge { position: absolute; top: 12px; right: 12px; width: 28px; height: 28px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 0; transform: scale(0.5); transition: opacity 0.2s, transform 0.25s cubic-bezier(.34,1.56,.64,1); z-index: 2; pointer-events: none; }
+  .option-card.selected .check-badge { opacity: 1; transform: scale(1); }
+  .check-badge svg { width: 14px; height: 14px; }
+
+  .card-head { background: var(--pale); padding: 16px 18px 12px; transition: background 0.2s; }
+  .opt-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 5px; transition: color 0.2s; }
+  .hotel-name { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 600; color: var(--dark); line-height: 1.2; transition: color 0.2s; }
+  .hotel-sub { font-size: 11px; color: var(--mid); margin-top: 3px; transition: color 0.2s; }
+
+  .card-body { padding: 14px 18px 16px; }
+  .savings-badge { background: var(--gold); border-radius: 6px; padding: 6px 10px; margin-bottom: 12px; font-size: 11.5px; font-weight: 600; color: var(--dark); }
+  .savings-badge span { font-weight: 300; font-size: 11px; }
+
+  .detail-row { display: flex; justify-content: space-between; align-items: baseline; padding: 6px 0; border-bottom: 1px solid #f2f2f2; font-size: 12.5px; gap: 8px; }
+  .detail-row:last-child { border-bottom: none; }
+  .dl { color: var(--mid); font-weight: 300; white-space: nowrap; }
+  .dv { font-weight: 500; color: var(--dark); text-align: right; }
+  .dv.price { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--teal-dark); }
+
+  /* Expand toggle */
+  .expand-toggle { width: 100%; background: none; border: none; border-top: 1px solid #ebebeb; padding: 10px 18px; text-align: left; font-family: 'Jost', sans-serif; font-size: 11.5px; color: var(--teal-dark); cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 500; letter-spacing: 0.03em; }
+  .expand-toggle:hover { background: #f8f8f8; }
+  .expand-toggle .arrow { transition: transform 0.2s; font-size: 12px; }
+  .expand-toggle.open .arrow { transform: rotate(180deg); }
+
+  .expandable { display: none; padding: 14px 18px 16px; border-top: 1px solid #f0f0f0; background: var(--light-bg); }
+  .expandable.open { display: block; }
+
+  .det-title { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal-dark); margin-bottom: 8px; margin-top: 14px; }
+  .det-title:first-child { margin-top: 0; }
+
+  .blist { list-style: none; padding: 0; }
+  .blist li { font-size: 12px; color: var(--dark); padding: 3px 0 3px 16px; position: relative; line-height: 1.5; }
+  .blist li::before { content: ''; position: absolute; left: 0; top: 9px; width: 6px; height: 6px; border-radius: 50%; background: var(--teal); }
+  .blist.gold li::before { background: var(--gold-dark); }
+
+  .perk-terms { font-size: 10.5px; color: var(--mid); font-style: italic; margin-top: 10px; line-height: 1.6; padding-top: 8px; border-top: 1px solid #e8e8e8; }
+  .small-note { font-size: 11px; color: var(--mid); font-style: italic; margin-top: 8px; line-height: 1.6; }
+
+  .select-prompt { text-align: center; font-size: 11.5px; color: var(--mid); margin: 10px 0 28px; font-style: italic; }
+
+  /* Form */
+  .form-card { background: #fff; border-radius: 14px; padding: 30px 30px 26px; border: 1px solid #e8e8e8; margin-bottom: 24px; }
+  .form-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--teal-dark); margin-bottom: 4px; }
+  .form-subtitle { font-size: 12.5px; color: var(--mid); margin-bottom: 18px; font-weight: 300; }
+
+  .selected-display { background: var(--pale); border-radius: 8px; padding: 10px 14px; font-size: 12.5px; font-weight: 500; color: var(--teal-dark); margin-bottom: 18px; display: none; align-items: center; gap: 8px; }
+  .selected-display.show { display: flex; }
+
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+  @media(max-width:500px){ .field-row { grid-template-columns: 1fr; } }
+  .field { display: flex; flex-direction: column; gap: 5px; }
+  .field.full { grid-column: 1 / -1; }
+
+  label { font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); }
+  input[type="text"], input[type="email"], textarea { border: 1.5px solid #ddd; border-radius: 8px; padding: 10px 13px; font-family: 'Jost', sans-serif; font-size: 14px; color: var(--dark); background: #fafafa; transition: border-color 0.2s, box-shadow 0.2s; outline: none; width: 100%; }
+  input:focus, textarea:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(117,175,177,0.12); background: #fff; }
+  textarea { resize: vertical; min-height: 80px; }
+
+  .submit-btn { width: 100%; padding: 15px; background: var(--teal); color: #fff; border: none; border-radius: 10px; font-family: 'Jost', sans-serif; font-size: 14.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: background 0.2s, transform 0.15s, box-shadow 0.2s; margin-top: 6px; }
+  .submit-btn:hover { background: var(--teal-dark); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(117,175,177,0.3); }
+  .submit-btn:active { transform: translateY(0); }
+  .submit-btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; box-shadow: none; }
+
+  .error-msg { background: #fff3f3; border: 1px solid #f5c6c6; color: #b94a4a; border-radius: 8px; padding: 11px 14px; font-size: 13px; margin-bottom: 14px; display: none; }
+  .error-msg.show { display: block; }
+
+  /* Success */
+  #successScreen { display: none; text-align: center; padding: 70px 20px; }
+  #successScreen.show { display: block; }
+  .success-icon { width: 70px; height: 70px; background: var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 22px; }
+  .success-icon svg { width: 34px; height: 34px; }
+  .success-title { font-family: 'Cormorant Garamond', serif; font-size: 34px; color: var(--teal-dark); margin-bottom: 12px; }
+  .success-msg { color: var(--mid); font-size: 15px; line-height: 1.8; }
+
+  /* Footer */
+  footer { background: var(--teal); padding: 16px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  footer .fl { color: #fff; font-size: 12px; font-weight: 500; }
+  footer .fr { color: var(--pale); font-size: 11px; font-style: italic; }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="agency-name">Point Me to Paradise Travel</div>
+    <div class="tagline">Custom. Curated. Yours.</div>
+  </div>
+  <div class="advisor-info">
+    <strong>Christina Garcia, Travel Advisor</strong><br>
+    <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1b58736972686f72757a5b4b7472756f567e4f744b7a697a7f72687e35787476">[email&#160;protected]</a><br>
+    (281) 229-0862
+  </div>
+</header>
+
+<main>
+<div id="formContent">
+
+  <h1 class="page-title">Your Cabo San Lucas Getaway</h1>
+  <p class="page-subtitle">October 10 &ndash; 17, 2026 &nbsp;&middot;&nbsp; Southwest Airlines roundtrip from Houston Hobby (HOU)</p>
+
+  <!-- Flights -->
+  <div class="flights-bar">
+    <div class="flight-block">
+      <div class="dir">Departing</div>
+      <div class="airline">Southwest Airlines #880 &nbsp;&middot;&nbsp; CHOICE Coach</div>
+      <div class="route">Sat, Oct 10 &nbsp;|&nbsp; 9:00 AM HOU &rarr; 9:50 AM SJD &nbsp;|&nbsp; 2hr 50min</div>
+    </div>
+    <div class="flight-divider">&#8597;</div>
+    <div class="flight-block right">
+      <div class="dir">Returning</div>
+      <div class="airline">Southwest Airlines #881 &nbsp;&middot;&nbsp; CHOICE Coach</div>
+      <div class="route">Sat, Oct 17 &nbsp;|&nbsp; 1:35 PM SJD &rarr; 6:00 PM HOU &nbsp;|&nbsp; 2hr 25min</div>
+    </div>
+  </div>
+
+  <div class="section-label">Choose Your Resort &mdash; Click a Card to Select</div>
+
+  <div class="options-grid">
+
+    <!-- Card 1: Breathless -->
+    <div class="option-card" id="card1" role="button" tabindex="0" aria-pressed="false">
+      <div class="check-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div class="card-head">
+        <div class="opt-tag">Option 1 &nbsp;&middot;&nbsp; 5-Star &nbsp;&middot;&nbsp; Adults Only</div>
+        <div class="hotel-name">Breathless Cabo San Lucas</div>
+        <div class="hotel-sub">Resort &amp; Spa &nbsp;&middot;&nbsp; Unlimited-Luxury All-Inclusive</div>
+      </div>
+      <div class="card-body">
+        <div class="savings-badge">$200 Instant Savings <span>applied to this booking</span></div>
+        <div class="detail-row"><span class="dl">Room</span><span class="dv">Allure Suite, King Marina View</span></div>
+        <div class="detail-row"><span class="dl">Guests</span><span class="dv">2 Adults</span></div>
+        <div class="detail-row"><span class="dl">Deposit Due</span><span class="dv">$1,838.32 by Apr 10, 2026</span></div>
+        <div class="detail-row"><span class="dl">Full Payment</span><span class="dv">August 26, 2026</span></div>
+        <div class="detail-row"><span class="dl">Total Price</span><span class="dv price">$5,461.43</span></div>
+      </div>
+      <button class="expand-toggle" id="toggle1" type="button">
+        View Full Inclusions &amp; Details <span class="arrow">&#9660;</span>
+      </button>
+      <div class="expandable" id="details1">
+        <div class="det-title">Unlimited-Luxury Inclusions</div>
+        <ul class="blist">
+          <li>Limitless gourmet a la carte dining &mdash; no reservations required</li>
+          <li>Unlimited international &amp; domestic top-shelf spirits</li>
+          <li>Unlimited natural fruit juices and soft drinks</li>
+          <li>24-hour room and concierge services</li>
+          <li>Pool and beach wait service</li>
+          <li>Daily refreshed mini-bar (soft drinks, juice, bottled water &amp; beer)</li>
+          <li>Daily maid service</li>
+          <li>Endless daytime activities &amp; live nightly entertainment</li>
+          <li>Theme parties, oceanfront bars &amp; entertainment venues</li>
+          <li>No wristbands required</li>
+          <li>All taxes and gratuities included</li>
+        </ul>
+        <div class="det-title">Free Perks &mdash; Included with This Booking</div>
+        <ul class="blist gold">
+          <li>One (1) in-room breakfast with sparkling wine (per room/per stay)</li>
+          <li>25% discount on Spa Services (per person/per stay &mdash; max 2 adults per room)</li>
+          <li>One (1) complimentary bottle of wine, sparkling wine, rum, or tequila (hotel&rsquo;s choice)</li>
+          <li>10% off cabana rental &mdash; one cabana per day</li>
+          <li>10% off spa services</li>
+          <li>Save up to 25% on your stay &mdash; discount already reflected in rates</li>
+          <li>Standard amenities set &amp; welcome letter upon arrival</li>
+        </ul>
+        <div class="perk-terms">Perk terms: Spa discount applies to treatments only, not products. Amenities subject to availability. Cannot be combined with other on-property offers. All services should be arranged with the concierge after check-in. Blackout dates: December 21 &ndash; January 4 each year.</div>
+        <div class="det-title">Pricing Breakdown</div>
+        <ul class="blist">
+          <li>Package Base Price (2 Adults): $5,536.88</li>
+          <li>Promotion Savings (APRILSHOWERS26): &minus;$75.45</li>
+          <li>Airport Transfers: Included with hotel</li>
+          <li><strong>Total (includes taxes &amp; fees): $5,461.43</strong></li>
+        </ul>
+        <div class="det-title">Hotel Advisory</div>
+        <p class="small-note">Student groups (Spring Breakers) are not permitted. The hotel reserves the right to deny lodging to reservations traveling without a responsible adult in each room.</p>
+      </div>
+    </div>
+
+    <!-- Card 2: Pueblo Bonito -->
+    <div class="option-card" id="card2" role="button" tabindex="0" aria-pressed="false">
+      <div class="check-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <div class="card-head">
+        <div class="opt-tag">Option 2 &nbsp;&middot;&nbsp; 4.5-Star &nbsp;&middot;&nbsp; Beachfront</div>
+        <div class="hotel-name">Pueblo Bonito Los Cabos</div>
+        <div class="hotel-sub">Beach Resort &nbsp;&middot;&nbsp; All-Inclusive &nbsp;&middot;&nbsp; Medano Beach</div>
+      </div>
+      <div class="card-body">
+        <div class="detail-row"><span class="dl">Room</span><span class="dv">Luxury Suite, Ocean View</span></div>
+        <div class="detail-row"><span class="dl">Guests</span><span class="dv">2 Adults</span></div>
+        <div class="detail-row"><span class="dl">Deposit Due</span><span class="dv">$1,838.32 by Apr 10, 2026</span></div>
+        <div class="detail-row"><span class="dl">Full Payment</span><span class="dv">August 26, 2026</span></div>
+        <div class="detail-row"><span class="dl">Pay in Destination</span><span class="dv">$16.09 (collected locally)</span></div>
+        <div class="detail-row"><span class="dl">Total Price</span><span class="dv price">$5,628.01</span></div>
+      </div>
+      <button class="expand-toggle" id="toggle2" type="button">
+        View Full Inclusions &amp; Details <span class="arrow">&#9660;</span>
+      </button>
+      <div class="expandable" id="details2">
+        <div class="det-title">All-Inclusive Program</div>
+        <ul class="blist">
+          <li>All meals and snacks throughout the day</li>
+          <li>Unlimited beverages &amp; select international spirits</li>
+          <li>Non-motorized water sports</li>
+          <li>Daily activities and entertainment</li>
+          <li>Airport transfers (roundtrip, included with hotel)</li>
+          <li>All taxes and gratuities included</li>
+        </ul>
+        <p class="small-note">Full amenity details provided by the resort at check-in. Redemption information will be provided upon arrival.</p>
+        <div class="det-title">Promotions Applied</div>
+        <ul class="blist gold">
+          <li>Promotion Code APRILSHOWERS26: &minus;$79.18 savings already reflected in rate</li>
+        </ul>
+        <div class="det-title">Pricing Breakdown</div>
+        <ul class="blist">
+          <li>Package Base Price (2 Adults): $5,691.10</li>
+          <li>Promotion Savings (APRILSHOWERS26): &minus;$79.18</li>
+          <li>Airport Transfers: Included with hotel</li>
+          <li>Pay in Destination (collected locally): $16.09</li>
+          <li><strong>Total (includes taxes &amp; fees): $5,628.01</strong></li>
+        </ul>
+        <p class="small-note">Pay in Destination charges may fluctuate based on exchange rates at time of travel.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="select-prompt">&#8593; Click a card to select your option, then complete the form below.</p>
+
+  <!-- Contact form -->
+  <form class="form-card" id="selectionForm" method="POST">
+    <div class="form-title">Your Contact Information</div>
+    <p class="form-subtitle">Fill in your details and submit &mdash; Christina will be in touch right away.</p>
+
+    <div class="selected-display" id="selectedDisplay">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#75AFB1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span id="selectedText"></span>
+    </div>
+
+    <input type="hidden" name="Selected Option" id="hiddenSelection" value="">
+    <input type="hidden" name="Quote" value="Cabo San Lucas — October 10-17, 2026">
+
+    <div class="field-row">
+      <div class="field"><label for="firstName">First Name</label><input type="text" id="firstName" name="First Name" required placeholder="Jane"></div>
+      <div class="field"><label for="lastName">Last Name</label><input type="text" id="lastName" name="Last Name" required placeholder="Smith"></div>
+    </div>
+    <div class="field-row">
+      <div class="field full"><label for="email">Email Address</label><input type="email" id="email" name="email" required placeholder="jane@email.com"></div>
+    </div>
+    <div class="field-row">
+      <div class="field full"><label for="phone">Phone Number (optional)</label><input type="text" id="phone" name="Phone" placeholder="(555) 555-5555"></div>
+    </div>
+    <div class="field-row" style="margin-bottom:20px;">
+      <div class="field full"><label for="notes">Questions or Notes (optional)</label><textarea id="notes" name="Notes" placeholder="Anything you'd like Christina to know..."></textarea></div>
+    </div>
+
+    <div class="error-msg" id="errorMsg">Please click one of the resort cards above to make your selection before submitting.</div>
+    <button type="submit" class="submit-btn" id="submitBtn">Submit My Selection</button>
+  </form>
+
+</div>
+
+<!-- Success -->
+<div id="successScreen">
+  <div class="success-icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+  </div>
+  <h2 class="success-title">You&rsquo;re all set!</h2>
+  <p class="success-msg">
+    Thank you &mdash; Christina has received your selection and will be in touch shortly<br>
+    to confirm your booking and walk you through the next steps.<br><br>
+    <strong>Questions in the meantime?</strong><br>
+    <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e1a28993889295888f80a1b18e888f95ac84b58eb180938085889284cf828e8c">[email&#160;protected]</a> &nbsp;&middot;&nbsp; (281) 229-0862
+  </p>
+</div>
+
+</main>
+
+<footer>
+  <div class="fl">Point Me to Paradise Travel &nbsp;&middot;&nbsp; Christina Garcia, Travel Advisor</div>
+  <div class="fr">Prices and availability are subject to change until booked.</div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  var selectedOption = null;
+
+  var optionLabels = [
+    'Option 1 \u2014 Breathless Cabo San Lucas Resort & Spa | Allure Suite King Marina View | $5,461.43',
+    'Option 2 \u2014 Pueblo Bonito Los Cabos Beach Resort | Luxury Suite Ocean View | $5,628.01'
+  ];
+
+  // Card click handlers
+  document.getElementById('card1').addEventListener('click', function(e) {
+    if (e.target.closest('.expand-toggle') || e.target.closest('.expandable')) return;
+    selectOption(1);
+  });
+  document.getElementById('card2').addEventListener('click', function(e) {
+    if (e.target.closest('.expand-toggle') || e.target.closest('.expandable')) return;
+    selectOption(2);
+  });
+
+  // Expand toggle handlers — separate from card selection
+  document.getElementById('toggle1').addEventListener('click', function(e) {
+    e.stopPropagation();
+    toggleDetails('details1', 'toggle1');
+  });
+  document.getElementById('toggle2').addEventListener('click', function(e) {
+    e.stopPropagation();
+    toggleDetails('details2', 'toggle2');
+  });
+
+  function selectOption(num) {
+    selectedOption = num;
+    document.getElementById('card1').classList.toggle('selected', num === 1);
+    document.getElementById('card2').classList.toggle('selected', num === 2);
+    document.getElementById('card1').setAttribute('aria-pressed', num === 1 ? 'true' : 'false');
+    document.getElementById('card2').setAttribute('aria-pressed', num === 2 ? 'true' : 'false');
+    document.getElementById('hiddenSelection').value = optionLabels[num - 1];
+    document.getElementById('selectedText').textContent = 'Selected: ' + (num === 1 ? 'Breathless Cabo San Lucas (Option 1)' : 'Pueblo Bonito Los Cabos Beach Resort (Option 2)');
+    document.getElementById('selectedDisplay').classList.add('show');
+    document.getElementById('errorMsg').classList.remove('show');
+  }
+
+  function toggleDetails(panelId, toggleId) {
+    var panel = document.getElementById(panelId);
+    var btn   = document.getElementById(toggleId);
+    panel.classList.toggle('open');
+    btn.classList.toggle('open');
+  }
+
+  // Keyboard support
+  ['card1','card2'].forEach(function(id) {
+    document.getElementById(id).addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        selectOption(id === 'card1' ? 1 : 2);
+      }
+    });
+  });
+
+  // Form submit
+  document.getElementById('selectionForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    if (!selectedOption) {
+      document.getElementById('errorMsg').classList.add('show');
+      document.querySelector('.options-grid').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+    var btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Sending\u2026';
+    try {
+      var res = await fetch('https://usebasin.com/f/5e520075d744', {
+        method: 'POST',
+        body: new FormData(this),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        document.getElementById('formContent').style.display = 'none';
+        document.getElementById('successScreen').classList.add('show');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        btn.disabled = false;
+       
