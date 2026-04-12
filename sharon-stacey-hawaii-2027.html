@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hawaii Pre-Cruise Stay | Sharon & Stacey | Point Me to Paradise Travel</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--teal:#75AFB1;--gold:#DAC396;--pale-teal:#C4E4E1;--cream:#F5EFE0;--white:#FFFFFF;--dark:#2C2C2C;--mid:#5a5a5a;--border:#d4c9a8;--green:#2E7D32;--green-bg:#E8F5E9;--blue:#1565C0;--blue-bg:#E3F2FD;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--dark);font-size:14px;line-height:1.6;}
+.site-header{background:var(--teal);}
+.header-inner{max-width:900px;margin:0 auto;padding:22px 24px 18px;}
+.header-agency{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--white);}
+.header-tagline{font-size:11px;color:var(--pale-teal);letter-spacing:2px;text-transform:uppercase;margin-top:3px;}
+.header-agent{font-size:12px;color:rgba(255,255,255,0.85);margin-top:6px;}
+.gold-bar{height:4px;background:var(--gold);}
+.hero{max-width:900px;margin:0 auto;padding:36px 24px 0;text-align:center;}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:var(--teal);}
+.hero .subtitle{font-size:12px;color:var(--mid);letter-spacing:1.5px;text-transform:uppercase;margin-top:8px;}
+.hero .intro{max-width:660px;margin:14px auto 0;font-size:13.5px;color:var(--mid);line-height:1.7;}
+.section-label{max-width:900px;margin:30px auto 12px;padding:0 24px;}
+.section-label h2{font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);border-bottom:1.5px solid var(--gold);padding-bottom:6px;}
+.cards-wrap{max-width:900px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:620px){.cards-wrap{grid-template-columns:1fr;}}
+.hotel-card{background:var(--white);border:2.5px solid var(--border);border-radius:14px;overflow:hidden;cursor:pointer;transition:transform .18s,border-color .18s,box-shadow .18s;position:relative;display:flex;flex-direction:column;}
+.hotel-card:hover{transform:translateY(-2px);border-color:var(--teal);box-shadow:0 6px 24px rgba(117,175,177,.18);}
+.hotel-card.selected{border-color:var(--teal);box-shadow:0 6px 28px rgba(117,175,177,.25);}
+.hotel-card.selected .card-header{background:var(--teal);}
+.hotel-card.selected .card-name,.hotel-card.selected .card-type,.hotel-card.selected .card-stars{color:var(--white)!important;}
+.hotel-card.selected .card-stars{color:var(--gold)!important;}
+.check-badge{display:none;position:absolute;top:12px;right:12px;background:var(--gold);color:var(--dark);font-size:10px;font-weight:600;letter-spacing:1px;padding:3px 9px;border-radius:20px;text-transform:uppercase;z-index:2;}
+.hotel-card.selected .check-badge{display:block;}
+.card-header{background:var(--pale-teal);padding:14px 14px 10px;transition:background .18s;}
+.card-stars{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:3px;}
+.card-name{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;color:var(--dark);line-height:1.2;}
+.card-type{font-size:11px;color:var(--mid);margin-top:2px;}
+.card-body{padding:12px 14px;flex:1;}
+.card-row{display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-bottom:1px solid #f0e8d0;gap:8px;}
+.card-row:last-child{border-bottom:none;}
+.card-row .lbl{color:var(--mid);font-weight:500;white-space:nowrap;}
+.card-row .val{color:var(--dark);font-weight:500;text-align:right;}
+.card-row .val.price{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;color:var(--teal);}
+.card-row .val.tbd{color:var(--mid);font-style:italic;font-size:11.5px;}
+.card-row .val.no-fee{color:var(--blue);font-weight:700;}
+.tag-row{margin-top:8px;display:flex;flex-wrap:wrap;gap:5px;}
+.tag{display:inline-block;font-size:10px;font-weight:600;padding:3px 8px;border-radius:4px;}
+.tag.green{background:var(--green-bg);color:var(--green);}
+.tag.gold{background:var(--gold);color:var(--dark);}
+.tag.blue{background:var(--blue-bg);color:var(--blue);}
+.tag.teal{background:var(--pale-teal);color:var(--teal);}
+.expand-btn{width:100%;background:none;border:none;border-top:1px solid #f0e8d0;padding:9px 14px;font-family:'Jost',sans-serif;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--teal);cursor:pointer;text-align:left;display:flex;align-items:center;justify-content:space-between;}
+.expand-btn:hover{background:#faf5ec;}
+.expand-btn .arrow{transition:transform .2s;}
+.expand-btn.open .arrow{transform:rotate(180deg);}
+.card-details{display:none;padding:0 14px 12px;border-top:1px solid #f0e8d0;}
+.card-details.open{display:block;}
+.card-details ul{list-style:none;padding:8px 0 0;columns:2;column-gap:10px;}
+.card-details ul li{padding:2px 0 2px 13px;position:relative;color:var(--dark);break-inside:avoid;font-size:11.5px;}
+.card-details ul li::before{content:'';position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--teal);}
+/* CALCULATOR */
+.calc-wrap{max-width:900px;margin:0 auto;padding:0 24px;}
+.calc-intro{background:var(--pale-teal);border-radius:10px;padding:13px 16px;font-size:13px;color:var(--dark);margin-bottom:16px;line-height:1.6;}
+.activity-group{background:var(--white);border:1.5px solid var(--border);border-radius:10px;margin-bottom:12px;overflow:hidden;}
+.ag-header{background:var(--pale-teal);padding:10px 16px;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--teal);}
+.activity-item{display:flex;align-items:flex-start;padding:14px 16px;border-bottom:1px solid #f5efe0;cursor:pointer;transition:background .15s;gap:12px;}
+.activity-item:last-child{border-bottom:none;}
+.activity-item:hover{background:#fdf9f2;}
+.activity-item input{width:17px;height:17px;margin-top:3px;accent-color:var(--teal);flex-shrink:0;cursor:pointer;}
+.act-info{flex:1;}
+.act-name{font-weight:600;font-size:13px;color:var(--dark);}
+.act-meta{font-size:10.5px;color:var(--teal);font-weight:600;letter-spacing:.5px;margin-top:2px;text-transform:uppercase;}
+.act-desc{font-size:11.5px;color:var(--mid);margin-top:4px;line-height:1.55;}
+.act-includes{font-size:11px;color:var(--dark);margin-top:5px;padding:6px 10px;background:#f8f3e8;border-radius:5px;line-height:1.6;}
+.act-includes strong{color:var(--teal);}
+.act-price-wrap{text-align:right;min-width:80px;flex-shrink:0;}
+.act-price{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--teal);white-space:nowrap;}
+.act-price-sub{font-size:10px;color:var(--mid);margin-top:1px;}
+.act-price.tbd{font-size:12px;font-family:'Jost',sans-serif;color:var(--mid);font-style:italic;font-weight:400;}
+/* TOTAL */
+.total-bar{max-width:900px;margin:0 auto 10px;padding:0 24px;}
+.total-box{background:var(--teal);border-radius:12px;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.total-label{color:var(--white);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;}
+.total-breakdown{color:rgba(255,255,255,.72);font-size:11.5px;margin-top:4px;}
+.total-amount{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--gold);white-space:nowrap;}
+.total-note{font-size:10px;color:rgba(255,255,255,.55);text-align:right;margin-top:2px;}
+/* SELECTION */
+.selection-display{max-width:900px;margin:0 auto;padding:0 24px;}
+.selection-box{background:var(--white);border:2px solid var(--teal);border-radius:10px;padding:14px 18px;display:none;}
+.selection-box.visible{display:block;}
+.selection-box h3{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:6px;}
+.sel-hotel{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--dark);}
+.sel-activities{font-size:12px;color:var(--mid);margin-top:5px;}
+/* FORM */
+.form-wrap{max-width:900px;margin:0 auto;padding:0 24px;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+@media(max-width:560px){.form-grid{grid-template-columns:1fr;}}
+.form-group{display:flex;flex-direction:column;gap:5px;}
+.form-group.full{grid-column:1/-1;}
+.form-group label{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--mid);}
+.form-group input,.form-group textarea{border:1.5px solid var(--border);border-radius:7px;padding:10px 13px;font-family:'Jost',sans-serif;font-size:13.5px;color:var(--dark);background:var(--white);outline:none;transition:border-color .15s;}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(117,175,177,.12);}
+.form-group textarea{resize:vertical;min-height:88px;}
+.submit-btn{width:100%;padding:16px;background:var(--teal);color:var(--white);border:none;border-radius:10px;font-family:'Jost',sans-serif;font-size:14px;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;margin-top:16px;transition:background .18s,transform .12s;}
+.submit-btn:hover{background:#5f9ea0;transform:translateY(-1px);}
+.submit-btn:disabled{background:#aac8ca;cursor:not-allowed;transform:none;}
+.form-note{text-align:center;font-size:11.5px;color:var(--mid);margin-top:10px;}
+#success-screen{display:none;max-width:900px;margin:0 auto;padding:60px 24px;text-align:center;}
+#success-screen h2{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:700;color:var(--teal);margin-bottom:12px;}
+#success-screen p{font-size:14px;color:var(--mid);max-width:480px;margin:0 auto;line-height:1.7;}
+.site-footer{background:var(--teal);margin-top:50px;padding:20px 24px;text-align:center;}
+.site-footer p{color:rgba(255,255,255,.8);font-size:11.5px;}
+.site-footer .disclaimer{color:rgba(255,255,255,.5);font-size:10.5px;margin-top:5px;font-style:italic;}
+.spacer{height:12px;}
+.req-note{max-width:900px;margin:0 auto;padding:0 24px;font-size:11.5px;color:#c0392b;font-weight:500;}
+</style>
+</head>
+<body>
+<header class="site-header">
+<div class="header-inner">
+<div class="header-agency">Point Me to Paradise Travel</div>
+<div class="header-tagline">Custom. Curated. Yours.</div>
+<div class="header-agent">Christina Garcia, Travel Advisor &nbsp;|&nbsp; <span id="hdr-email"></span> &nbsp;|&nbsp; (281) 229-0862</div>
+</div>
+</header>
+<div class="gold-bar"></div>
+
+<div class="hero">
+<h1>Your Hawaii Pre-Cruise Stay</h1>
+<div class="subtitle">Honolulu, Oahu &nbsp;|&nbsp; April 28 &ndash; May 1, 2027 &nbsp;|&nbsp; 3 Nights &nbsp;|&nbsp; 2 Guests</div>
+<p class="intro">Sharon &amp; Stacey &mdash; four handpicked hotels, your Pearl Harbor experience, and everything else you need for an unforgettable three days in Honolulu. Select your hotel, customize your itinerary, and submit below.</p>
+</div>
+
+<div id="quote-content">
+
+<!-- STEP 1: HOTELS -->
+<div class="section-label"><h2>Step 1 &mdash; Choose Your Hotel</h2></div>
+<div class="cards-wrap">
+
+<div class="hotel-card" id="card-moana" onclick="selectHotel('moana',2228,'Moana Surfrider, A Westin Resort & Spa')">
+<div class="check-badge">Selected</div>
+<div class="card-header"><div class="card-stars">5-Star Historic Luxury &mdash; Built 1901</div><div class="card-name">Moana Surfrider</div><div class="card-type">A Westin Resort &amp; Spa, Waikiki Beach</div></div>
+<div class="card-body">
+<div class="card-row"><span class="lbl">Room</span><span class="val">Banyan Deluxe, 2 Queens</span></div>
+<div class="card-row"><span class="lbl">View</span><span class="val">City View, Newly Renovated</span></div>
+<div class="card-row"><span class="lbl">Breakfast</span><span class="val">Included for 2</span></div>
+<div class="card-row"><span class="lbl">WiFi</span><span class="val">Included</span></div>
+<div class="card-row"><span class="lbl">Resort Fee</span><span class="val">$63.70 / night</span></div>
+<div class="card-row"><span class="lbl">Pay Now</span><span class="val">$2,037.12</span></div>
+<div class="card-row"><span class="lbl">Pay at Property</span><span class="val">$191.10 (resort fee + local tax)</span></div>
+<div class="card-row"><span class="lbl">3-Night Total</span><span class="val price">$2,228</span></div>
+<div class="card-row"><span class="lbl">Rating</span><span class="val">9.0 / 10 &mdash; 1,648 reviews</span></div>
+<div class="tag-row"><span class="tag green">Fully Refundable Before Apr 25</span><span class="tag gold">Newly Renovated</span><span class="tag teal">$200 F&amp;B Credit</span>
+          <span class="tag gold">Breakfast Included</span></div>
+</div>
+<button class="expand-btn" onclick="toggleDetails(event,'moana-det')">View Full Inclusions <span class="arrow">&#9660;</span></button>
+<div class="card-details" id="moana-det"><ul><li>Daily breakfast for 2</li><li>WiFi included</li><li>Outdoor pool</li><li>Full-service spa</li><li>Concierge &amp; tours</li><li>Daily housekeeping</li><li>5 restaurants on-site</li><li>Beachfront dining</li><li>Beach bar &amp; pool bar</li><li>Art gallery &amp; stores</li><li>Fitness facility</li><li>Snorkeling access</li></ul></div>
+</div>
+
+<div class="hotel-card" id="card-outrigger" onclick="selectHotel('outrigger',1580,'Outrigger Reef Waikiki Beach Resort')">
+<div class="check-badge">Selected</div>
+<div class="card-header"><div class="card-stars">4-Star Beachfront Resort &mdash; Hawaii-Owned</div><div class="card-name">Outrigger Reef</div><div class="card-type">Waikiki Beach Resort</div></div>
+<div class="card-body">
+<div class="card-row"><span class="lbl">Room</span><span class="val">2 Double Beds, 355 sq ft</span></div>
+<div class="card-row"><span class="lbl">View</span><span class="val">City View</span></div>
+<div class="card-row"><span class="lbl">Breakfast</span><span class="val">Included for 2</span></div>
+<div class="card-row"><span class="lbl">WiFi</span><span class="val">Surcharge applies</span></div>
+<div class="card-row"><span class="lbl">Pay Now</span><span class="val">$1,402.05</span></div>
+<div class="card-row"><span class="lbl">Pay at Property</span><span class="val">$178.05 (resort fee + local tax)</span></div>
+<div class="card-row"><span class="lbl">3-Night Total</span><span class="val price">$1,580</span></div>
+<div class="card-row"><span class="lbl">Rating</span><span class="val">9.0 / 10 &mdash; 3,434 reviews</span></div>
+<div class="tag-row"><span class="tag green">Fully Refundable Before Apr 25</span><span class="tag gold">10% Show Discount</span></div>
+</div>
+<button class="expand-btn" onclick="toggleDetails(event,'outrigger-det')">View Full Inclusions <span class="arrow">&#9660;</span></button>
+<div class="card-details" id="outrigger-det"><ul><li>Daily breakfast for 2</li><li>Beach towels included</li><li>Pool access 8AM&ndash;8PM</li><li>In-room coffee</li><li>Concierge &amp; tours</li><li>Duke's Waikiki Restaurant</li><li>4 restaurants + 3 bars</li><li>Blue Note jazz lounge</li><li>Snorkeling &amp; surf lessons</li><li>Beach loungers &amp; umbrellas</li><li>Daily housekeeping</li><li>10% show ticket discount</li></ul></div>
+</div>
+
+<div class="hotel-card" id="card-halekulani" onclick="selectHotel('halekulani',2449,'Halekulani Hotel')">
+<div class="check-badge">Selected</div>
+<div class="card-header"><div class="card-stars">5-Star+ Oceanfront Luxury &mdash; #1 Rated in Waikiki</div><div class="card-name">Halekulani</div><div class="card-type">House Befitting Heaven, Waikiki Beach</div></div>
+<div class="card-body">
+<div class="card-row"><span class="lbl">Room</span><span class="val">Garden Courtyard, 2 Twin Beds</span></div>
+<div class="card-row"><span class="lbl">View</span><span class="val">Garden / Courtyard View</span></div>
+<div class="card-row"><span class="lbl">Breakfast</span><span class="val">Not included ($35&ndash;$50/person)</span></div>
+<div class="card-row"><span class="lbl">WiFi</span><span class="val">Free</span></div>
+<div class="card-row"><span class="lbl">Resort Fee</span><span class="val no-fee">NONE &mdash; $0</span></div>
+<div class="card-row"><span class="lbl">3-Night Total</span><span class="val price">$2,449</span></div>
+<div class="card-row"><span class="lbl">Rating</span><span class="val">9.8 / 10 &mdash; 1,003 reviews</span></div>
+<div class="tag-row"><span class="tag green">Fully Refundable Before Apr 25</span><span class="tag blue">No Resort Fee</span><span class="tag teal">Nightly Turndown</span></div>
+</div>
+<button class="expand-btn" onclick="toggleDetails(event,'halekulani-det')">View Full Inclusions <span class="arrow">&#9660;</span></button>
+<div class="card-details" id="halekulani-det"><ul><li>Free WiFi throughout</li><li>Nightly turndown service</li><li>Beach access steps away</li><li>Heated pool + poolside bar</li><li>House Without A Key sunset</li><li>Orchids oceanfront dining</li><li>La Mer fine French dining</li><li>Lewers Lounge piano bar</li><li>L'Aperitif Cocktail Bar</li><li>Full-service spa (7 rooms)</li><li>Yoga &amp; fitness classes</li><li>Daily housekeeping</li></ul></div>
+</div>
+
+<div class="hotel-card" id="card-halepuna" onclick="selectHotel('halepuna',1206,'Halepuna Waikiki by Halekulani')">
+<div class="check-badge">Selected</div>
+<div class="card-header"><div class="card-stars">5-Star Boutique &mdash; Sister to Halekulani</div><div class="card-name">Halepuna Waikiki</div><div class="card-type">by Halekulani &mdash; Noon Checkout</div></div>
+<div class="card-body">
+<div class="card-row"><span class="lbl">Room</span><span class="val">Standard View, 2 Doubles, 312 sq ft</span></div>
+<div class="card-row"><span class="lbl">View</span><span class="val">City / Waikiki View</span></div>
+<div class="card-row"><span class="lbl">Breakfast</span><span class="val">Not included ($45&ndash;$149/person)</span></div>
+<div class="card-row"><span class="lbl">WiFi</span><span class="val">Free</span></div>
+<div class="card-row"><span class="lbl">Resort Fee</span><span class="val no-fee">Waived (to confirm)</span></div>
+<div class="card-row"><span class="lbl">3-Night Total</span><span class="val price">$1,206</span></div>
+<div class="card-row"><span class="lbl">Rating</span><span class="val">9.4 / 10 &mdash; 1,820 reviews</span></div>
+<div class="tag-row"><span class="tag green">Fully Refundable Before Apr 25</span><span class="tag teal">Noon Checkout</span><span class="tag gold">Infinity Pool + Hot Tub</span></div>
+</div>
+<button class="expand-btn" onclick="toggleDetails(event,'halepuna-det')">View Full Inclusions <span class="arrow">&#9660;</span></button>
+<div class="card-details" id="halepuna-det"><ul><li>Free WiFi throughout</li><li>Rooftop infinity pool + hot tub</li><li>Cabanas &amp; sun loungers</li><li>Beach access (short walk)</li><li>UMI by Vikram Garg restaurant</li><li>Halekulani Bakery on-site</li><li>Poolside bar</li><li>Halekulani amenities nearby</li><li>24-hr fitness center</li><li>Daily housekeeping</li><li>Resort fee waived</li><li>Noon checkout</li></ul></div>
+</div>
+
+
+<!-- ALOHILANI -->
+<div class="hotel-card" id="card-alohilani" onclick="selectHotel('alohilani',1167,'Alohilani Resort Waikiki Beach')">
+<div class="check-badge">Selected</div>
+<div class="card-header"><div class="card-stars">4-Star Beachfront Resort &mdash; Morimoto Asia On Property</div><div class="card-name">'Alohilani Resort</div><div class="card-type">Waikiki Beach &mdash; Best Value Beachfront</div></div>
+<div class="card-body">
+<div class="card-row"><span class="lbl">Room</span><span class="val">Classic Room, 2 Queens, 334 sq ft</span></div>
+<div class="card-row"><span class="lbl">View</span><span class="val">Ocean / Waikiki Views</span></div>
+<div class="card-row"><span class="lbl">Breakfast</span><span class="val">Optional add-on (+$63 for stay)</span></div>
+<div class="card-row"><span class="lbl">WiFi</span><span class="val">Free</span></div>
+<div class="card-row"><span class="lbl">Pay Now</span><span class="val">$969.08</span></div>
+<div class="card-row"><span class="lbl">Pay at Property</span><span class="val">$198.30 (resort fee + local tax + utility)</span></div>
+<div class="card-row"><span class="lbl">3-Night Total</span><span class="val price">$1,167</span></div>
+<div class="tag-row"><span class="tag green">Fully Refundable Before Apr 25</span><span class="tag gold">Morimoto Asia</span><span class="tag teal">Pool Until 10 PM</span></div>
+</div>
+<button class="expand-btn" onclick="toggleDetails(event,'alohilani-det')">View Full Inclusions <span class="arrow">&#9660;</span></button>
+<div class="card-details" id="alohilani-det"><ul><li>Free WiFi throughout</li><li>Direct beach access</li><li>Beach loungers, towels &amp; umbrellas</li><li>Pool + hot tub (8 AM&ndash;10 PM)</li><li>Cabanas &amp; poolside bar</li><li>5 restaurants on property</li><li>Morimoto Asia (Iron Chef)</li><li>Momosan Asian cuisine</li><li>Longboard Club &mdash; oceanfront</li><li>Swell Pool Bar Restaurant</li><li>Kai Coffee on-site</li><li>Pilates, yoga &amp; fitness classes</li><li>Tennis court</li><li>In-room bottled water &amp; coffee</li></ul><p style="font-size:11px;color:#5a5a5a;margin-top:8px;padding:0 2px;"><strong>Note:</strong> All fees included in $1,167 total. $969 paid at booking &mdash; $198.30 (resort fee, local tax, utility fee) paid at check-in. 2% credit card surcharge applies.</p></div>
+</div>
+
+</div><!-- /cards-wrap -->
+
+<!-- STEP 2: ACTIVITIES -->
+<div class="section-label"><h2>Step 2 &mdash; Add Experiences &amp; Transfers</h2></div>
+<div class="calc-wrap">
+<div class="calc-intro">Select your Pearl Harbor experience, any additional activities, and transfers. Prices shown are per party (2 guests). Your running total updates automatically as you choose.</div>
+
+<!-- PEARL HARBOR -->
+<div class="activity-group">
+<div class="ag-header">Pearl Harbor Experience &mdash; Choose One Option</div>
+
+<label class="activity-item">
+<input type="radio" name="ph" data-price="466" data-name="Pearl Harbor: Private Pearl Harbor + Honolulu City Tour ($466 for 2)" onchange="updateTotal()">
+<div class="act-info">
+<div class="act-name">Option 1 &mdash; Private Pearl Harbor + Honolulu City Tour</div>
+<div class="act-meta">4&ndash;5 Hours &nbsp;|&nbsp; Private Tour &nbsp;|&nbsp; Hotel Pickup &nbsp;|&nbsp; 4.8 Stars &nbsp;|&nbsp; 220 Reviews &nbsp;|&nbsp; Badge of Excellence</div>
+<div class="act-desc">The perfect balance of Pearl Harbor history and a taste of Honolulu. Your native Hawaiian guide picks you up from your hotel and takes you to Pearl Harbor with guaranteed entry to the USS Arizona Memorial &mdash; no waiting in the long standby line. Then continue to Iolani Palace, the King Kamehameha Statue, Diamond Head Lookout, and a drive past Punchbowl Cemetery. Back to your hotel by early afternoon, leaving the rest of the day free.</div>
+<div class="act-includes"><strong>Includes:</strong> USS Arizona Memorial admission (guaranteed entry), private tour, bottled water, minivan, hotel pickup &amp; drop-off, local driver-guide<br><strong>Not included:</strong> Gratuities<br><strong>Reviews say:</strong> Guide Ama (native Hawaiian) is a standout storyteller &mdash; flexible, knowledgeable, and highly recommended by 94% of travelers</div>
+</div>
+<div class="act-price-wrap"><div class="act-price">$466</div><div class="act-price-sub">for 2 guests</div></div>
+</label>
+
+<label class="activity-item">
+<input type="radio" name="ph" data-price="450" data-name="Pearl Harbor: Private Pearl Harbor + Full Island Lookouts ($450 for 2)" onchange="updateTotal()">
+<div class="act-info">
+<div class="act-name">Option 2 &mdash; Private Pearl Harbor + Full Island Lookouts</div>
+<div class="act-meta">8 Hours &nbsp;|&nbsp; Private Tour &nbsp;|&nbsp; Wheelchair Accessible &nbsp;|&nbsp; Hotel + Cruise Terminal Pickup</div>
+<div class="act-desc">The ultimate Oahu day &mdash; Pearl Harbor plus the most scenic panoramic viewpoints on the island. After the USS Arizona Memorial, your private guide takes you to Iolani Palace, King Kamehameha Statue, the breathtaking Pali Lookout overlooking the windward coast, Tantalus Lookout with sweeping Honolulu views, and Diamond Head Lookout (home to the historic Amelia Earhart marker). Includes a lunch stop in Honolulu. On embarkation day, your cruise terminal drop-off is already built in.</div>
+<div class="act-includes"><strong>Includes:</strong> USS Arizona Memorial admission, Pali Lookout admission, air-conditioned minivan, cold water/umbrellas/sunscreen, guide with camera, hotel pickup + cruise terminal drop-off<br><strong>Not included:</strong> Lunch cost, gratuities<br><strong>Note:</strong> Fully wheelchair accessible &mdash; transportation and all surfaces accessible</div>
+</div>
+<div class="act-price-wrap"><div class="act-price">$450</div><div class="act-price-sub">for 2 guests</div></div>
+</label>
+
+
+<label class="activity-item">
+<input type="radio" name="ph" data-price="0" data-name="Pearl Harbor: Self-Guided (Christina handles tickets + transfers)" onchange="updateTotal()">
+<div class="act-info">
+<div class="act-name">Option 3 &mdash; Self-Guided Pearl Harbor</div>
+<div class="act-meta">At Your Own Pace &nbsp;|&nbsp; Christina Handles All Logistics &nbsp;|&nbsp; Free Admission</div>
+<div class="act-desc">Prefer to explore Pearl Harbor at your own pace, without a guide? The USS Arizona Memorial is free to visit, but timed entry passes are limited and often sell out &mdash; especially in spring. Christina will secure your timed entry passes and arrange a private transfer to and from Pearl Harbor so you never have to think about logistics. You arrive, you explore, you come back when you're ready.</div>
+<div class="act-includes"><strong>Includes:</strong> Timed entry pass assistance (USS Arizona Memorial is free), private transfer to &amp; from Pearl Harbor<br><strong>Cost:</strong> Transfers + any small reservation fees (Christina will confirm exact total)<br><strong>Best for:</strong> Travelers who prefer to set their own pace and spend as long as they like on the grounds</div>
+</div>
+<div class="act-price-wrap"><div class="act-price tbd">Transfers + fees</div><div class="act-price-sub">Christina confirms</div></div>
+</label>
+
+</div><!-- /pearl harbor group -->
+
+<!-- OTHER EXPERIENCES -->
+<div class="activity-group">
+<div class="ag-header">Optional Add-On Experiences</div>
+
+<label class="activity-item">
+<input type="checkbox" data-price="0" data-name="Waikiki Sunset Catamaran Cruise" onchange="updateTotal()">
+<div class="act-info">
+<div class="act-name">Waikiki Sunset Catamaran Cruise</div>
+<div class="act-meta">~90 Minutes &nbsp;|&nbsp; Evening</div>
+<div class="act-desc">A leisurely sail along the Waikiki coastline with Diamond Head as your backdrop. Light snacks and drinks included. The perfect way to end a day of sightseeing.</div>
+</div>
+<div class="act-price-wrap"><div class="act-price tbd">Price TBD</div></div>
+</label>
+<label class="activity-item">
+<input type="checkbox" data-price="466" data-name="Private Grand Circle Island Tour of Oahu ($466 for 2)" onchange="updateTotal()">
+<div class="act-info">
+<div class="act-name">Private Grand Circle Island Tour of Oahu</div>
+<div class="act-meta">6&ndash;8 Hours &nbsp;|&nbsp; Fully Customizable &nbsp;|&nbsp; Air-Conditioned Mercedes Van &nbsp;|&nbsp; 4.9 Stars &nbsp;|&nbsp; 260 Reviews &nbsp;|&nbsp; Badge of Excellence</div>
+<div class="act-desc">The perfect second day activity after Pearl Harbor. A fully private, fully customizable tour of the entire island of Oahu in an air-conditioned Mercedes van. Your native Hawaiian guide takes you around the island at your pace &mdash; you choose your stops. Classic highlights include Diamond Head Lookout, the Halona Blowhole, the stunning Windward Coast, Byodo-In Temple nestled in the Ko'olau Mountains, the famous garlic shrimp food trucks at the North Shore, Waimea Falls, Haleiwa Town, Dole Plantation, and Green World Coffee Farm. See all of Oahu in one unforgettable day &mdash; exactly the way you want to see it.</div>
+<div class="act-includes"><strong>Includes:</strong> Private tour, bottled water, hotel pickup &amp; drop-off, air-conditioned Mercedes van, parking fees, native Hawaiian driver-guide<br><strong>Not included:</strong> Entrance fees ($3&ndash;$25 per stop), lunch, gratuities<br><strong>Note:</strong> Not wheelchair accessible. Recommended for Day 2 &mdash; perfect complement to a Pearl Harbor Day 1.</div>
+</div>
+<div class="act-price-wrap"><div class="act-price">$466</div><div class="act-price-sub">for 2 guests</div></div>
+</label>
+</div>
+
+<!-- TRANSFERS -->
+<div class="activity-group">
+<div class="ag-header">Getting Around &mdash; Transfers &amp; Car Rental</div>
+
+<label class="activity-item">
+<input type="checkbox" data-price="0" data-name="Rental Car (3 days) - Christina arranges" onchange="updateTotal()">
+<div class="act-info">
+<div class="act-name">Rental Car &mdash; 3 Days, Christina Arranges</div>
+<div class="act-meta">Maximum Flexibility &nbsp;|&nbsp; Explore Oahu On Your Schedule</div>
+<div class="act-desc">Prefer total independence? A rental car gives you the freedom to come and go as you please across all three days. Perfect if you want to take Pearl Harbor at your own pace, stop wherever you like on the North Shore, or explore without a tour schedule. Christina will arrange everything. Note: if you have a rental car, individual transfers below are not needed.</div>
+<div class="act-includes"><strong>Best for:</strong> Travelers who want maximum flexibility and independence<br><strong>Not needed if:</strong> You choose Pearl Harbor Option 2 (cruise terminal dropoff included) + Grand Circle Tour (hotel pickup included)</div>
+</div>
+<div class="act-price-wrap"><div class="act-price tbd">Price TBD</div><div class="act-price-sub">Christina arranges</div></div>
+</label>
+
+<label class="activity-item">
+<input type="checkbox" data-price="0" data-name="Airport to Hotel Transfer (HNL to Waikiki)" onchange="updateTotal()">
+<div class="act-info">
+<div class="act-name">Airport to Hotel Transfer</div>
+<div class="act-meta">~30&ndash;35 Minutes &nbsp;|&nbsp; Private &nbsp;|&nbsp; Arrival Day</div>
+<div class="act-desc">Private transfer from Daniel K. Inouye International Airport (HNL) to your Waikiki hotel on April 28. Luggage assistance included.</div>
+</div>
+<div class="act-price-wrap"><div class="act-price tbd">Price TBD</div></div>
+</label>
+
+<label class="activity-item">
+<input type="checkbox" data-price="0" data-name="Hotel to Cruise Terminal Transfer (May 1)" onchange="updateTotal()">
+<div class="act-info">
+<div class="act-name">Hotel to Cruise Terminal Transfer</div>
+<div class="act-meta">May 1, 2027 &nbsp;|&nbsp; Private &nbsp;|&nbsp; Departure Day</div>
+<div class="act-desc">Private transfer from your Waikiki hotel to the Honolulu cruise terminal on embarkation day. Luggage assistance included. Already included if you choose Pearl Harbor Option 2 (Private Island Lookouts).</div>
+</div>
+<div class="act-price-wrap"><div class="act-price tbd">Price TBD</div></div>
+</label>
+
+</div>
+
+</div><!-- /calc-wrap -->
+
+<!-- RUNNING TOTAL -->
+<div class="total-bar">
+<div class="total-box">
+<div><div class="total-label">Your Estimated Total</div><div class="total-breakdown" id="total-breakdown">Select a hotel to begin</div></div>
+<div><div class="total-amount" id="total-amount">$0</div><div class="total-note">TBD items confirmed by Christina</div></div>
+</div>
+</div>
+
+<!-- SELECTION SUMMARY -->
+<div class="selection-display">
+<div class="selection-box" id="selection-summary">
+<h3>Your Current Selection</h3>
+<div class="sel-hotel" id="sel-hotel-name">-</div>
+<div class="sel-activities" id="sel-activities-list"></div>
+</div>
+</div>
+<div class="spacer"></div>
+
+<!-- STEP 3: FORM -->
+<div class="section-label"><h2>Step 3 &mdash; Submit Your Selection</h2></div>
+<div class="req-note">* Please select a hotel option before submitting.</div>
+<div class="spacer"></div>
+<div class="form-wrap">
+<form id="quote-form">
+<input type="hidden" name="access_key" value="7b40d437-1004-48e2-9031-171a8b0ef4f1">
+<input type="hidden" name="subject" id="form-subject" value="Hawaii Quote Selection - Sharon & Stacey">
+<input type="hidden" name="from_name" value="PMTP Quote System">
+<input type="hidden" name="Selected Hotel" id="hidden-hotel" value="">
+<input type="hidden" name="Selected Activities" id="hidden-activities" value="">
+<input type="hidden" name="Estimated Total" id="hidden-total" value="">
+<input type="hidden" name="Quote" value="Sharon Crowder & Stacey Manning | Hawaii Pre-Cruise | April 28-May 1 2027">
+<input type="checkbox" name="botcheck" style="display:none">
+<div class="form-grid">
+<div class="form-group"><label>First Name *</label><input type="text" name="First Name" placeholder="Sharon" required></div>
+<div class="form-group"><label>Last Name *</label><input type="text" name="Last Name" placeholder="Crowder" required></div>
+<div class="form-group"><label>Email Address *</label><input type="email" name="email" placeholder="your@email.com" required></div>
+<div class="form-group"><label>Phone (optional)</label><input type="tel" name="Phone" placeholder="(555) 000-0000"></div>
+<div class="form-group full"><label>Notes or Questions (optional)</label><textarea name="Notes" placeholder="Any questions, special requests, or notes for Christina..."></textarea></div>
+</div>
+<button type="submit" class="submit-btn" id="submit-btn">Submit My Selection</button>
+<div class="form-note">Your selection goes directly to Christina. She'll be in touch within 24 hours to confirm details and next steps.</div>
+</form>
+</div>
+</div><!-- /quote-content -->
+
+<div id="success-screen">
+<h2>Selection Received!</h2>
+<p>Thank you, Sharon &amp; Stacey! Christina has received your selection and will be in touch within 24 hours. A low deposit of $200&ndash;$500 will lock in your hotel and activities &mdash; balance is due closer to your departure date.<br><br><strong>Point Me to Paradise Travel</strong><br>Custom. Curated. Yours.</p>
+</div>
+
+<footer class="site-footer">
+<p>Point Me to Paradise Travel &nbsp;|&nbsp; Christina Garcia, Travel Advisor &nbsp;|&nbsp; (281) 229-0862</p>
+<p class="disclaimer">Prices and availability are subject to change until booked.</p>
+</footer>
+
+<script>
+(function(){var u='Christina',d='PointMeToParadise.com';var el=document.getElementById('hdr-email');if(el)el.textContent=u+'@'+d;})();
+var selectedHotel=null,hotelPrice=0,hotelName='';
+function selectHotel(id,price,name){selectedHotel=id;hotelPrice=price;hotelName=name;document.querySelectorAll('.hotel-card').forEach(function(c){c.classList.remove('selected');});var card=document.getElementById('card-'+id);if(card)card.classList.add('selected');updateTotal();updateSummary();}
+function toggleDetails(e,id){e.stopPropagation();var btn=e.currentTarget;var panel=document.getElementById(id);if(!panel)return;var open=panel.classList.toggle('open');btn.classList.toggle('open',open);}
+function updateTotal(){
+  var total=hotelPrice;
+  var parts=hotelPrice>0?[hotelName+' ($'+hotelPrice.toLocaleString()+')']:(hotelName?[hotelName+' (price TBD)']:[]);
+  document.querySelectorAll('input[type="checkbox"]').forEach(function(cb){
+    if(cb.checked){var p=parseInt(cb.getAttribute('data-price'))||0;total+=p;var n=cb.getAttribute('data-name')||'Activity';parts.push(p>0?n+' ($'+p+')':n+' (price TBD)');}
+  });
+  var ph=document.querySelector('input[name="ph"]:checked');
+  if(ph){var p=parseInt(ph.getAttribute('data-price'))||0;total+=p;var n=ph.getAttribute('data-name')||'Pearl Harbor';parts.push(p>0?n:n+' (price TBD)');}
+  document.getElementById('total-amount').textContent=total>0?'$'+total.toLocaleString():'$0';
+  var bd=document.getElementById('total-breakdown');
+  bd.textContent=!hotelName&&parts.length===0?'Select a hotel to begin':parts.length+' item'+(parts.length!==1?'s':'')+' selected';
+  document.getElementById('hidden-total').value='$'+total.toLocaleString();
+  updateSummary();
+}
+function updateSummary(){
+  var box=document.getElementById('selection-summary');
+  if(!hotelName){box.classList.remove('visible');return;}
+  box.classList.add('visible');
+  document.getElementById('sel-hotel-name').textContent=hotelName;
+  var acts=[];
+  var ph=document.querySelector('input[name="ph"]:checked');if(ph)acts.push(ph.getAttribute('data-name'));
+  document.querySelectorAll('input[type="checkbox"]:checked').forEach(function(cb){acts.push(cb.getAttribute('data-name'));});
+  document.getElementById('sel-activities-list').textContent=acts.length?'Add-ons: '+acts.join(' · '):'No add-ons selected yet';
+  document.getElementById('hidden-hotel').value=hotelName;
+  document.getElementById('hidden-activities').value=acts.join(', ')||'None';
+  document.getElementById('form-subject').value='Hawaii Quote Selection - Sharon & Stacey - '+hotelName;
+}
+document.getElementById('quote-form').addEventListener('submit',async function(e){
+  e.preventDefault();
+  if(!selectedHotel){alert('Please select a hotel option before submitting.');return;}
+  var btn=document.getElementById('submit-btn');btn.disabled=true;btn.textContent='Sending...';
+  var obj={};new FormData(this).forEach(function(v,k){obj[k]=v;});
+  try{
+    var res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(obj)});
+    var data=await res.json();
+    if(data.success){document.getElementById('quote-content').style.display='none';document.getElementById('success-screen').style.display='block';window.scrollTo({top:0,behavior:'smooth'});}
+    else{btn.disabled=false;btn.textContent='Submit My Selection';alert('Something went wrong. Please try again or contact Christina directly.');}
+  }catch(err){btn.disabled=false;btn.textContent='Submit My Selection';alert('Connection error. Please try again or email Christina directly.');}
+});
+</script>
+</body>
+</html>
