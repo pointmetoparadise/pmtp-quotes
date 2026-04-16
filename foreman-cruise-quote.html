@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cruise Quote · Nancy Foreman · Point Me to Paradise Travel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:     #0d2b45;
+      --teal:     #1a7a7a;
+      --teal-lt:  #e6f4f4;
+      --gold:     #c5a55a;
+      --gold-lt:  #fdf7ec;
+      --sand:     #f9f5ef;
+      --text:     #1c1c1c;
+      --muted:    #6b7280;
+      --white:    #ffffff;
+      --border:   #ddd8d0;
+      --selected: #0d2b45;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--sand);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--navy);
+      color: var(--white);
+      padding: 36px 24px 28px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 60% 0%, rgba(26,122,122,0.25) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .agency-tag {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .agency-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(24px, 5vw, 38px);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      line-height: 1.1;
+    }
+    .header-sub {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-top: 6px;
+    }
+    .divider-gold {
+      width: 48px;
+      height: 1.5px;
+      background: var(--gold);
+      margin: 16px auto 0;
+    }
+
+    /* ── WRAPPER ── */
+    .wrapper {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+
+    /* ── INTRO CARD ── */
+    .intro-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-bottom: 28px;
+    }
+    .quote-ref {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .client-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+    .sailing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .sailing-item label {
+      display: block;
+      font-size: 9.5px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+    .sailing-item span {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--navy);
+    }
+    .intro-blurb {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #444;
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+      margin-top: 4px;
+    }
+
+    /* ── GOLD BADGE ── */
+    .gold-badge {
+      background: var(--gold-lt);
+      border: 1px solid var(--gold);
+      border-radius: 10px;
+      padding: 14px 20px;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .gold-badge .star { font-size: 20px; line-height: 1; }
+    .gold-badge-text strong {
+      display: block;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #7a5a1a;
+      margin-bottom: 3px;
+    }
+    .gold-badge-text p {
+      font-size: 13px;
+      color: #5a4010;
+      line-height: 1.5;
+    }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    /* ── OPTION CARDS ── */
+    .options-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; }
+
+    .option-card {
+      background: var(--white);
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+      overflow: hidden;
+      position: relative;
+    }
+    .option-card:hover {
+      border-color: var(--teal);
+      box-shadow: 0 4px 20px rgba(26,122,122,0.12);
+      transform: translateY(-1px);
+    }
+    .option-card.selected {
+      border-color: var(--navy);
+      box-shadow: 0 6px 28px rgba(13,43,69,0.15);
+    }
+    .option-card.selected .option-header { background: var(--navy); }
+    .option-card.selected .option-label,
+    .option-card.selected .option-badge { color: var(--white); }
+    .option-card.selected .option-badge { background: rgba(255,255,255,0.15); }
+
+    /* hidden radio */
+    .option-card input[type="radio"] {
+      position: absolute; opacity: 0; width: 0; height: 0;
+    }
+
+    .option-header {
+      background: #f0ede8;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.2s;
+    }
+    .option-label {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--navy);
+      transition: color 0.2s;
+    }
+    .option-badge {
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--teal-lt);
+      color: var(--teal);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+      transition: background 0.2s, color 0.2s;
+    }
+    .option-badge.gold { background: var(--gold-lt); color: #7a5a1a; }
+    .option-card.selected .option-badge.gold { background: rgba(197,165,90,0.3); color: var(--gold); }
+
+    .option-body {
+      padding: 18px 20px 20px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: start;
+    }
+    .cabin-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .cabin-detail {
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .option-perks {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .perk-tag {
+      font-size: 11px;
+      background: var(--sand);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2px 8px;
+      color: #555;
+    }
+    .price-block { text-align: right; min-width: 110px; }
+    .price-total {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1;
+    }
+    .price-note {
+      font-size: 10.5px;
+      color: var(--muted);
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+    .price-gold {
+      font-size: 11.5px;
+      color: #7a5a1a;
+      margin-top: 6px;
+      font-weight: 500;
+    }
+
+    /* check circle */
+    .check-circle {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      background: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.2s, border-color 0.2s;
+      margin-top: 2px;
+    }
+    .option-card.selected .check-circle {
+      background: var(--teal);
+      border-color: var(--teal);
+    }
+    .check-circle svg { display: none; }
+    .option-card.selected .check-circle svg { display: block; }
+
+    /* ── NOTES SECTION ── */
+    .notes-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 32px;
+    }
+    .notes-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      color: var(--navy);
+      margin-bottom: 14px;
+    }
+    .notes-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .notes-list li {
+      font-size: 13px;
+      color: #444;
+      line-height: 1.5;
+      padding-left: 16px;
+      position: relative;
+    }
+    .notes-list li::before {
+      content: '·';
+      position: absolute; left: 0;
+      color: var(--gold);
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    /* ── FORM ── */
+    .form-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 32px;
+    }
+    .form-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .form-card p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 22px;
+      line-height: 1.5;
+    }
+    .form-row { margin-bottom: 18px; }
+    .form-row label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .form-row input,
+    .form-row textarea,
+    .form-row select {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: var(--text);
+      background: var(--white);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .form-row input:focus,
+    .form-row textarea:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(26,122,122,0.08);
+    }
+    .form-row textarea { resize: vertical; min-height: 80px; }
+
+    /* selection summary */
+    .selection-summary {
+      background: var(--teal-lt);
+      border: 1px solid var(--teal);
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 22px;
+      font-size: 13.5px;
+      color: var(--teal);
+      display: none;
+    }
+    .selection-summary.visible { display: block; }
+    .selection-summary strong { color: var(--navy); }
+
+    .btn-submit {
+      width: 100%;
+      padding: 15px;
+      background: var(--navy);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-submit:hover { background: var(--teal); }
+    .btn-submit:active { transform: scale(0.99); }
+    .btn-submit:disabled { background: #aaa; cursor: not-allowed; }
+
+    .form-note {
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    /* ── SUCCESS ── */
+    .success-msg {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .success-msg .icon { font-size: 40px; margin-bottom: 14px; }
+    .success-msg h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .success-msg p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.55);
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+    footer strong { color: var(--gold); }
+    footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+
+    @media (max-width: 500px) {
+      .option-body { grid-template-columns: 1fr; }
+      .price-block { text-align: left; }
+      .intro-card, .form-card { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header>
+  <div class="agency-tag">Curated Journeys · Expert Advisors</div>
+  <div class="agency-name">Point Me to Paradise Travel</div>
+  <div class="header-sub">Cruise Quote · PMTP-20260401-5183</div>
+  <div class="divider-gold"></div>
+</header>
+
+<div class="wrapper">
+
+  <!-- ── INTRO ── -->
+  <div class="intro-card">
+    <div class="quote-ref">Prepared for</div>
+    <div class="client-name">Nancy Foreman</div>
+    <div class="sailing-grid">
+      <div class="sailing-item"><label>Cruise Line</label><span>MSC Cruises</span></div>
+      <div class="sailing-item"><label>Ship</label><span>MSC Seascape</span></div>
+      <div class="sailing-item"><label>Departure</label><span>May 24, 2026</span></div>
+      <div class="sailing-item"><label>Return</label><span>May 31, 2026</span></div>
+      <div class="sailing-item"><label>Duration</label><span>7 Nights</span></div>
+      <div class="sailing-item"><label>Embarkation</label><span>Galveston, TX</span></div>
+      <div class="sailing-item"><label>Itinerary</label><span>Costa Maya · Roatan · Cozumel</span></div>
+      <div class="sailing-item"><label>Guests</label><span>2 Adults, 1 Child (age 5)</span></div>
+    </div>
+    <div class="intro-blurb">
+      A week on the Western Caribbean with the family — sun-drenched beaches in Cozumel, the lush jungle shores of Roatan, and the Mayan ruins and reef at Costa Maya, all from the comfort of one of MSC's most impressive ships. Select the option that fits your family best, then send it over and we'll get you booked.
+    </div>
+  </div>
+
+  <!-- ── GOLD BADGE ── -->
+  <div class="gold-badge">
+    <div class="star">⭐</div>
+    <div class="gold-badge-text">
+      <strong>MSC Voyagers Club Gold Member Discount</strong>
+      <p>As a Gold Member, Nancy may be entitled to an additional 5% discount on her cruise fare. This is not yet reflected in the prices below — we will confirm eligibility and apply it at booking.</p>
+    </div>
+  </div>
+
+  <!-- ── OPTIONS ── -->
+  <div class="section-label">Select Your Preferred Option</div>
+  <div class="options-list" id="optionsList">
+
+    <!-- OPTION 1 -->
+    <label class="option-card" id="card1" onclick="selectOption(1)">
+      <input type="radio" name="cruiseOption" value="Option 1 · Fantastica Deluxe Balcony Deck 11–12 · $2,152" id="opt1" />
+      <div class="option-header">
+        <span class="option-label">Option 1 · Best Value</span>
+        <span class="option-badge">Fantastica</span>
+      </div>
+      <div class="option-body">
+        <div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div class="check-circle" id="chk1">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="cabin-name">Deluxe Balcony — Deck 11–12</div>
+          </div>
+          <div class="cabin-detail" style="margin-left:32px;">Cabin ≈ 172–183 ft² · Balcony ≈ 54–65 ft²</div>
+          <div class="option-perks" style="margin-left:32px;">
+            <span class="perk-tag">Fixed dinner seating</span>
+            <span class="perk-tag">Free continental breakfast</span>
+            <span class="perk-tag">Kids Club included</span>
+            <span class="perk-tag">Pools & waterpark</span>
+          </div>
+        </div>
+        <div class="price-block">
+          <div class="price-total">$2,152</div>
+          <div class="price-note">Family of 3<br>+gratuities onboard</div>
+        </div>
+      </div>
+    </label>
+
+    <!-- OPTION 2 -->
+    <label class="option-card" id="card2" onclick="selectOption(2)">
+      <input type="radio" name="cruiseOption" value="Option 2 · Fantastica Deluxe Balcony Deck 13–14 · $2,172" id="opt2" />
+      <div class="option-header">
+        <span class="option-label">Option 2 · Step Up</span>
+        <span class="option-badge">Fantastica</span>
+      </div>
+      <div class="option-body">
+        <div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div class="check-circle" id="chk2">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="cabin-name">Deluxe Balcony — Deck 13–14</div>
+          </div>
+          <div class="cabin-detail" style="margin-left:32px;">Cabin ≈ 172–183 ft² · Balcony ≈ 54–65 ft² · Higher deck, better views</div>
+          <div class="option-perks" style="margin-left:32px;">
+            <span class="perk-tag">Fixed dinner seating</span>
+            <span class="perk-tag">Free continental breakfast</span>
+            <span class="perk-tag">Kids Club included</span>
+            <span class="perk-tag">Higher deck placement</span>
+          </div>
+        </div>
+        <div class="price-block">
+          <div class="price-total">$2,172</div>
+          <div class="price-note">Family of 3<br>+gratuities onboard</div>
+          <div class="price-gold">$20 more than Option 1</div>
+        </div>
+      </div>
+    </label>
+
+    <!-- OPTION 3 -->
+    <label class="option-card" id="card3" onclick="selectOption(3)">
+      <input type="radio" name="cruiseOption" value="Option 3 · Fantastica Deluxe Balcony Deck 15 · $2,202" id="opt3" />
+      <div class="option-header">
+        <span class="option-label">Option 3 · Highest Deck</span>
+        <span class="option-badge">Fantastica</span>
+      </div>
+      <div class="option-body">
+        <div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div class="check-circle" id="chk3">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="cabin-name">Deluxe Balcony — Deck 15</div>
+          </div>
+          <div class="cabin-detail" style="margin-left:32px;">Cabin ≈ 183 ft² · Balcony ≈ 54–65 ft² · Top-of-ship Fantastica position</div>
+          <div class="option-perks" style="margin-left:32px;">
+            <span class="perk-tag">Fixed dinner seating</span>
+            <span class="perk-tag">Free continental breakfast</span>
+            <span class="perk-tag">Kids Club included</span>
+            <span class="perk-tag">Best Fantastica views</span>
+          </div>
+        </div>
+        <div class="price-block">
+          <div class="price-total">$2,202</div>
+          <div class="price-note">Family of 3<br>+gratuities onboard</div>
+        </div>
+      </div>
+    </label>
+
+    <!-- OPTION 4 -->
+    <label class="option-card" id="card4" onclick="selectOption(4)">
+      <input type="radio" name="cruiseOption" value="Option 4 · Aurea Premium Balcony Deck 9 · $3,052 (Gold discount may apply)" id="opt4" />
+      <div class="option-header">
+        <span class="option-label">Option 4 · Premium Pick</span>
+        <span class="option-badge gold">Aurea Experience ⭐</span>
+      </div>
+      <div class="option-body">
+        <div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div class="check-circle" id="chk4">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="cabin-name">Premium Balcony Aurea — Deck 9</div>
+          </div>
+          <div class="cabin-detail" style="margin-left:32px;">Cabin ≈ 183 ft² · Oversized balcony ≈ 172 ft² — nearly 3× standard size</div>
+          <div class="option-perks" style="margin-left:32px;">
+            <span class="perk-tag">Anytime flexible dining</span>
+            <span class="perk-tag">Priority boarding</span>
+            <span class="perk-tag">Welcome Prosecco & chocolate</span>
+            <span class="perk-tag">Bathrobes & pillow menu</span>
+            <span class="perk-tag">10% spa discount</span>
+            <span class="perk-tag">40% off spa packages</span>
+            <span class="perk-tag">Thermal Suite (adults 18+)</span>
+            <span class="perk-tag">Kids Club included</span>
+          </div>
+        </div>
+        <div class="price-block">
+          <div class="price-total">$3,052</div>
+          <div class="price-note">Family of 3<br>+gratuities onboard</div>
+          <div class="price-gold">Gold discount may reduce ~$153</div>
+        </div>
+      </div>
+    </label>
+
+  </div><!-- /options-list -->
+
+  <!-- ── IMPORTANT NOTES ── -->
+  <div class="notes-card">
+    <h3>Important Notes</h3>
+    <ul class="notes-list">
+      <li>Pricing reflects current quoted rates and is subject to change until booking is confirmed and deposit received.</li>
+      <li>Government taxes, port fees, and charges are not included — will be confirmed at booking.</li>
+      <li>MSC daily gratuities ($16–$20 per person/day) are charged onboard and are not included in any option.</li>
+      <li>Drinks packages are not included and must be purchased separately. Pre-cruise discounted packages are available.</li>
+      <li>Wi-Fi must be purchased separately at all experience levels.</li>
+      <li>The MSC Aurea Spa Thermal Suite and Solarium are restricted to guests 18 years and older.</li>
+      <li>Travel insurance is strongly recommended and available upon request.</li>
+      <li>Shore excursions and specialty dining can be quoted separately.</li>
+    </ul>
+  </div>
+
+  <!-- ── FORM ── -->
+  <div class="form-card" id="formSection">
+    <h3>Ready to Move Forward?</h3>
+    <p>Select an option above, then complete the short form below. Christina will be in touch within one business day to confirm availability and next steps.</p>
+
+    <!-- Selection Summary -->
+    <div class="selection-summary" id="selectionSummary">
+      ✓ You've selected: <strong id="summaryText"></strong>
+    </div>
+
+    <form id="quoteForm" action="https://api.web3forms.com/submit" method="POST">
+
+      <!-- Web3Forms access key — REPLACE with your actual key -->
+      <input type="hidden" name="access_key" value="7b40d437-1004-48e2-9031-171a8b0ef4f1" />
+
+      <!-- Hidden fields -->
+      <input type="hidden" name="subject" value="Cruise Quote Response — Nancy Foreman · PMTP-20260401-5183" />
+      <input type="hidden" name="from_name" value="Point Me to Paradise Quote Form" />
+      <input type="hidden" name="redirect" value="false" />
+      <input type="hidden" name="cruise_line" value="MSC Cruises — MSC Seascape" />
+      <input type="hidden" name="sailing_date" value="May 24–31, 2026" />
+      <input type="hidden" name="quote_reference" value="PMTP-20260401-5183" />
+      <input type="hidden" name="selected_option" id="hiddenOption" value="No option selected" />
+
+      <div class="form-row">
+        <label for="clientName">Your Name</label>
+        <input type="text" id="clientName" name="client_name" value="Nancy Foreman" required />
+      </div>
+
+      <div class="form-row">
+        <label for="clientEmail">Your Email</label>
+        <input type="email" id="clientEmail" name="client_email" placeholder="nancy@email.com" required />
+      </div>
+
+      <div class="form-row">
+        <label for="clientPhone">Phone (optional)</label>
+        <input type="tel" id="clientPhone" name="client_phone" placeholder="(000) 000-0000" />
+      </div>
+
+      <div class="form-row">
+        <label for="readyToBook">Are you ready to book, or do you have questions first?</label>
+        <select id="readyToBook" name="ready_to_book">
+          <option value="Ready to book!">Ready to book — let's do it!</option>
+          <option value="I have a few questions first">I have a few questions first</option>
+          <option value="I need more time to decide">I need more time to think it over</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="message">Questions or notes for Christina (optional)</label>
+        <textarea id="message" name="message" placeholder="Any questions about the options, add-ons, excursions, or insurance..."></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit" id="submitBtn">Send My Selection to Christina →</button>
+      <div class="form-note">Prices are subject to change until deposit is received. This form is not a booking confirmation.</div>
+    </form>
+
+    <!-- Success Message -->
+    <div class="success-msg" id="successMsg">
+      <div class="icon">🌴</div>
+      <h3>We've got it, Nancy!</h3>
+      <p>Christina will be in touch within one business day to confirm your selection and walk you through next steps.<br><br>Your paradise is out there — we're pointing you to it.</p>
+    </div>
+
+  </div><!-- /form-card -->
+
+</div><!-- /wrapper -->
+
+<!-- ── FOOTER ── -->
+<footer>
+  <strong>Point Me to Paradise Travel</strong><br>
+  Your Travel Advisor: Christina Garcia<br>
+  <a href="mailto:Christina@PointMeToParadise.com">Christina@PointMeToParadise.com</a> · (281) 229-0862<br><br>
+  <em>The world is your oyster. We are your pearl.</em>
+</footer>
+
+<script>
+  // ── OPTION SELECTION ──
+  function selectOption(num) {
+    for (let i = 1; i <= 4; i++) {
+      document.getElementById('card' + i).classList.remove('selected');
+    }
+    const card = document.getElementById('card' + num);
+    const radio = document.getElementById('opt' + num);
+    card.classList.add('selected');
+    radio.checked = true;
+
+    // Update hidden field
+    document.getElementById('hiddenOption').value = radio.value;
+
+    // Show summary
+    const summary = document.getElementById('selectionSummary');
+    const summaryText = document.getElementById('summaryText');
+    summaryText.textContent = radio.value;
+    summary.classList.add('visible');
+
+    // Scroll to form on mobile
+    if (window.innerWidth < 600) {
+      document.getElementById('formSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  // ── FORM SUBMISSION ──
+  document.getElementById('quoteForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    // Check an option was selected
+    const selected = document.querySelector('input[name="cruiseOption"]:checked');
+    if (!selected) {
+      alert('Please select one of the four cabin options above before submitting.');
+      document.getElementById('optionsList').scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
+
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    const formData = new FormData(this);
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      });
+      const data = await response.json();
+
+      if (data.success) {
+        document.getElementById('quoteForm').style.display = 'none';
+        document.getElementById('selectionSummary').style.display = 'none';
+        document.getElementById('successMsg').style.display = 'block';
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Send My Selection to Christina →';
+        alert('Something went wrong. Please try again or email Christina directly.');
+      }
+    } catch (err) {
+      btn.disabled = false;
+      btn.textContent = 'Send My Selection to Christina →';
+      alert('Could not connect. Please email Christina directly at Christina@PointMeToParadise.com');
+    }
+  });
+</script>
+</body>
+</html>
