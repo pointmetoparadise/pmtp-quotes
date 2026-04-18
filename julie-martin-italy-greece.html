@@ -1,0 +1,1960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Italy + Greece Anniversary | Julie Martin | Point Me to Paradise</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal: #75AFB1;
+  --teal-dark: #4F8A8C;
+  --teal-pale: #C4E4E1;
+  --gold: #DAC396;
+  --gold-dark: #B89E6A;
+  --cream: #E9DEC0;
+  --cream-light: #F5EFDF;
+  --ink: #2B2420;
+  --ink-soft: #5A524A;
+  --paper: #FBF9F4;
+  --paper-pure: #FFFFFF;
+  --line: #E5DED0;
+  --shadow: 0 4px 24px rgba(31, 43, 46, 0.08);
+  --shadow-lift: 0 12px 40px rgba(31, 43, 46, 0.14);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.65;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+/* ---------- Typography ---------- */
+.display { font-family: 'Playfair Display', serif; font-weight: 500; letter-spacing: -0.01em; }
+.italic { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400; }
+
+h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 500; line-height: 1.2; color: var(--ink); }
+h1 { font-size: clamp(2.4rem, 5vw, 4rem); letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.9rem, 3.5vw, 2.8rem); letter-spacing: -0.015em; margin-bottom: 0.4em; }
+h3 { font-size: clamp(1.3rem, 2vw, 1.6rem); margin-bottom: 0.3em; }
+h4 { font-size: 1.1rem; font-weight: 600; }
+
+p { margin-bottom: 1em; color: var(--ink-soft); }
+p.lead { font-size: 1.15rem; color: var(--ink); line-height: 1.7; }
+
+.eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--teal-dark);
+  display: inline-block;
+  margin-bottom: 1.2rem;
+}
+
+.gold-line {
+  display: block;
+  width: 42px;
+  height: 2px;
+  background: var(--gold-dark);
+  margin: 1.4rem 0;
+}
+
+/* ---------- Layout ---------- */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+.container-narrow {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+section { padding: 5rem 0; position: relative; }
+section.tight { padding: 3.5rem 0; }
+
+/* ---------- Header / Hero ---------- */
+.hero {
+  background:
+    linear-gradient(180deg, var(--cream-light) 0%, var(--paper) 100%);
+  color: var(--ink);
+  padding: 6rem 0 5rem;
+  position: relative;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--teal) 50%, var(--gold) 100%);
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 320px; height: 320px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  opacity: 0.25;
+  pointer-events: none;
+}
+.hero-inner {
+  position: relative;
+  z-index: 2;
+}
+.hero-decoration {
+  position: absolute;
+  bottom: -120px; left: -100px;
+  width: 280px; height: 280px;
+  border: 1px solid var(--teal);
+  border-radius: 50%;
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+.hero-brand {
+  position: absolute;
+  top: 2.2rem;
+  left: 2rem;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--teal-dark);
+  letter-spacing: 0.04em;
+  z-index: 3;
+}
+.hero-brand::before {
+  content: '✦';
+  margin-right: 0.5rem;
+  color: var(--gold-dark);
+  font-style: normal;
+}
+
+.hero h1 {
+  color: var(--ink);
+  max-width: 860px;
+  font-weight: 500;
+  font-size: clamp(2.6rem, 5.5vw, 4.4rem);
+  line-height: 1.1;
+}
+.hero h1 em {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--gold-dark);
+}
+.hero .sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.45rem;
+  color: var(--teal-dark);
+  margin-top: 1.2rem;
+  max-width: 680px;
+  line-height: 1.55;
+}
+.hero .eyebrow { color: var(--teal-dark); }
+.hero-names {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--gold-dark);
+  margin-top: 2.5rem;
+  letter-spacing: 0.02em;
+}
+.hero-names::before {
+  content: '—— ';
+  color: var(--gold-dark);
+}
+
+/* ---------- Intro ---------- */
+.intro {
+  background: var(--paper-pure);
+  padding-top: 5.5rem;
+}
+.intro p.lead {
+  font-size: 1.2rem;
+  line-height: 1.75;
+  color: var(--ink);
+  margin-bottom: 1.4em;
+}
+.intro-quote {
+  border-left: 2px solid var(--gold-dark);
+  padding-left: 1.6rem;
+  margin: 2.5rem 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.3rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+/* ---------- How this works ---------- */
+.how-it-works {
+  background: var(--cream-light);
+  padding: 4rem 0;
+}
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+}
+.step {
+  text-align: left;
+}
+.step-num {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 2.6rem;
+  color: var(--gold-dark);
+  line-height: 1;
+  margin-bottom: 0.8rem;
+}
+.step h4 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+.step p { font-size: 0.95rem; }
+
+/* ---------- Section headers ---------- */
+.section-header {
+  text-align: center;
+  max-width: 740px;
+  margin: 0 auto 3.5rem;
+}
+.section-header p.lead {
+  color: var(--ink-soft);
+  margin-top: 0.6rem;
+}
+.section-header .gold-line { margin: 1.4rem auto; }
+
+/* ---------- Selection Cards ---------- */
+.selection-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+}
+.selection-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.bases-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+}
+.islands-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+}
+/* Center the 7th island (Santorini) when it orphans on the last row */
+@media (min-width: 901px) {
+  .islands-grid > *:nth-child(7):last-child {
+    grid-column: 2;
+  }
+}
+.pairing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: var(--paper-pure);
+  border: 1.5px solid var(--line);
+  border-radius: 6px;
+  padding: 1.75rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ---------- Card images (3-per-card gallery) ---------- */
+.card-images {
+  margin: -1.75rem -1.75rem 1.25rem -1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: var(--line);
+}
+.card-hero {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  display: block;
+}
+.card-thumbs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+}
+.card-thumb {
+  width: 100%;
+  height: 115px;
+  object-fit: cover;
+  display: block;
+}
+.island-card .card-hero { height: 170px; }
+.island-card .card-thumb { height: 88px; }
+.card:hover {
+  border-color: var(--teal);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lift);
+}
+.card.selected {
+  border-color: var(--teal-dark);
+  background: linear-gradient(180deg, var(--paper-pure) 0%, var(--teal-pale) 100%);
+  box-shadow: var(--shadow-lift);
+}
+.card.selected::after {
+  content: '✓';
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 28px;
+  height: 28px;
+  background: var(--teal-dark);
+  color: var(--paper-pure);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.card-tag {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--ink);
+  padding: 3px 10px;
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 2px;
+  margin-bottom: 0.8rem;
+  align-self: flex-start;
+}
+.card-tag.lead { background: var(--teal-dark); color: var(--paper-pure); }
+.card-tag.alt { background: var(--cream); color: var(--ink); }
+
+.card h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+.card-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--teal-dark);
+  margin-bottom: 1rem;
+}
+.card p {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin-bottom: 0.8rem;
+}
+.card-facts {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.83rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+.card-facts strong { color: var(--ink); font-weight: 600; }
+.card-facts div { margin-bottom: 0.2rem; }
+
+.card-hotels {
+  background: var(--cream-light);
+  padding: 0.8rem 1rem;
+  margin-top: 0.8rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: var(--ink);
+  line-height: 1.5;
+}
+.card-hotels strong {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--teal-dark);
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+/* ---------- Island small cards ---------- */
+.island-card {
+  padding: 1.4rem;
+}
+.island-card h3 {
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.island-card .access {
+  font-size: 0.78rem;
+  padding: 2px 8px;
+  border-radius: 100px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+.access-flight { background: var(--teal-pale); color: var(--teal-dark); }
+.access-ferry { background: var(--cream); color: var(--ink); }
+
+/* ---------- Big decision toggle (Italy structure, Athens) ---------- */
+.toggle-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 920px;
+  margin: 0 auto;
+}
+.toggle-card {
+  background: var(--paper-pure);
+  border: 2px solid var(--line);
+  padding: 2.2rem 2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+}
+.toggle-card:hover {
+  border-color: var(--teal);
+  transform: translateY(-2px);
+}
+.toggle-card.selected {
+  border-color: var(--teal-dark);
+  background: linear-gradient(180deg, var(--paper-pure) 0%, var(--teal-pale) 100%);
+}
+.toggle-card.selected::after {
+  content: '✓';
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  width: 30px;
+  height: 30px;
+  background: var(--teal-dark);
+  color: var(--paper-pure);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+.toggle-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  margin-bottom: 0.2rem;
+}
+.toggle-card .nights {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--gold-dark);
+  margin-bottom: 1rem;
+}
+.toggle-card ul {
+  list-style: none;
+  margin-top: 1rem;
+}
+.toggle-card ul li {
+  position: relative;
+  padding-left: 1.2rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+.toggle-card ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--gold-dark);
+}
+
+/* ---------- Greece philosophy panel ---------- */
+.philosophy-panel {
+  background: var(--teal-pale);
+  color: var(--ink);
+  padding: 4.5rem 0;
+  position: relative;
+  border-top: 1px solid var(--teal);
+  border-bottom: 1px solid var(--teal);
+}
+.philosophy-panel h2 { color: var(--ink); }
+.philosophy-panel .eyebrow { color: var(--teal-dark); }
+.philosophy-panel p { color: var(--ink); font-size: 1.05rem; line-height: 1.75; }
+.philosophy-panel .italic { color: var(--gold-dark); font-size: 1.4rem; }
+
+.depth-vs-breadth {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+  margin-top: 2.5rem;
+}
+.depth-option {
+  background: var(--paper-pure);
+  border: 1px solid var(--teal);
+  padding: 1.6rem;
+  border-radius: 4px;
+}
+.depth-option h4 {
+  color: var(--teal-dark);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+.depth-option p { color: var(--ink); font-size: 0.93rem; line-height: 1.6; margin-bottom: 0; }
+
+/* ---------- Quick-pick pairing cards ---------- */
+.pairing-card {
+  background: var(--paper-pure);
+  border: 1.5px solid var(--line);
+  padding: 1.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.25s;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.pairing-card:hover {
+  border-color: var(--gold-dark);
+  transform: translateY(-3px);
+}
+.pairing-card.selected {
+  border-color: var(--gold-dark);
+  background: linear-gradient(180deg, var(--paper-pure) 0%, var(--cream-light) 100%);
+}
+.pairing-card.selected::after {
+  content: '✓';
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 28px;
+  height: 28px;
+  background: var(--gold-dark);
+  color: var(--paper-pure);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.pairing-card .tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--teal-dark);
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+.pairing-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+}
+.pairing-card .structure {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+  margin-bottom: 0.8rem;
+}
+.pairing-card p {
+  font-size: 0.93rem;
+  line-height: 1.55;
+}
+.pairing-card.featured {
+  border-color: var(--gold-dark);
+  background: var(--cream-light);
+}
+.pairing-card.featured .tag { color: var(--gold-dark); }
+
+/* ---------- Athens choice ---------- */
+.athens-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* ---------- Final preferences ---------- */
+.prefs-section {
+  background: var(--teal-pale);
+}
+.prefs-box {
+  background: var(--paper-pure);
+  padding: 2.5rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+.prefs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+.field { margin-bottom: 1.3rem; }
+.field label {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--teal-dark);
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+.field input,
+.field textarea,
+.field select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: var(--paper);
+  transition: border 0.2s;
+}
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  outline: none;
+  border-color: var(--teal);
+  background: var(--paper-pure);
+}
+.field textarea {
+  resize: vertical;
+  min-height: 110px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ---------- Summary panel (sticky) ---------- */
+.summary-panel {
+  background: var(--paper-pure);
+  color: var(--ink);
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1.5px solid var(--gold);
+  box-shadow: var(--shadow-lift);
+  position: sticky;
+  top: 2rem;
+}
+.summary-panel h4 {
+  color: var(--teal-dark);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 600;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--gold);
+}
+.summary-row {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+.summary-row:last-child { border-bottom: 0; }
+.summary-row .label {
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--teal-dark);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.summary-row .value {
+  color: var(--ink);
+  font-size: 0.98rem;
+  line-height: 1.45;
+}
+.summary-row .value.empty { color: var(--ink-soft); font-style: italic; opacity: 0.65; }
+.summary-nights {
+  padding: 1rem 0.8rem;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--teal-dark);
+  background: var(--cream-light);
+  border-radius: 4px;
+  margin-top: 1rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+/* ---------- Submit button ---------- */
+.btn-submit {
+  background: var(--teal-dark);
+  color: var(--paper-pure);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 1.05rem 2.5rem;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+.btn-submit:hover {
+  background: var(--teal);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(79, 138, 140, 0.35);
+}
+
+/* ---------- Service strip (top — after hero) ---------- */
+.service-strip {
+  background: var(--cream-light);
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--gold);
+  text-align: center;
+}
+.service-strip .eyebrow { color: var(--teal-dark); }
+.service-strip h2 {
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  margin-bottom: 0.6rem;
+}
+.service-strip p {
+  max-width: 680px;
+  margin: 1rem auto 0;
+  color: var(--ink);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+/* ---------- Service pillars (bottom — before form) ---------- */
+.service-pillars {
+  background: var(--paper-pure);
+  padding: 5rem 0;
+  border-top: 1px solid var(--line);
+}
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.pillar {
+  text-align: left;
+  padding: 1.5rem;
+  border-left: 2px solid var(--gold);
+}
+.pillar .roman {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--gold-dark);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+.pillar h4 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.6rem;
+  color: var(--ink);
+}
+.pillar p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin-bottom: 0;
+}
+footer {
+  background: var(--cream-light);
+  color: var(--ink);
+  padding: 4rem 0 3rem;
+  text-align: center;
+  border-top: 3px solid var(--gold);
+  position: relative;
+}
+footer::before {
+  content: '✦';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--cream-light);
+  color: var(--gold-dark);
+  font-size: 1.1rem;
+  width: 24px;
+  text-align: center;
+}
+footer h3 {
+  color: var(--ink);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  font-size: 1.7rem;
+}
+footer .advisor {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--teal-dark);
+  margin-bottom: 1.2rem;
+  font-weight: 600;
+}
+footer .contact-line {
+  font-size: 1rem;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+}
+footer .contact-line a {
+  color: var(--teal-dark);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+  transition: border 0.2s;
+}
+footer .contact-line a:hover { border-bottom-color: var(--gold-dark); }
+footer .tagline {
+  margin-top: 1.8rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--gold-dark);
+  font-size: 1.05rem;
+}
+
+/* ---------- Thanks state ---------- */
+.thanks-msg {
+  display: none;
+  background: var(--teal-pale);
+  border: 1.5px solid var(--teal);
+  padding: 2rem;
+  border-radius: 6px;
+  text-align: center;
+  margin-top: 2rem;
+}
+.thanks-msg.show { display: block; }
+.thanks-msg h3 { color: var(--teal-dark); margin-bottom: 0.5rem; }
+.thanks-msg p { color: var(--ink); margin: 0; }
+
+/* ============================================
+   RESPONSIVE — TABLET (≤ 900px)
+   ============================================ */
+@media (max-width: 900px) {
+  section { padding: 3.5rem 0; }
+  section.tight { padding: 2.5rem 0; }
+
+  .container, .container-narrow { padding: 0 1.5rem; }
+
+  /* Hero — contained, no overflow decorations extending off-screen */
+  .hero {
+    padding: 5rem 0 3rem;
+    min-height: auto;
+  }
+  .hero::after {
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+  }
+  .hero-decoration {
+    bottom: -80px; left: -80px;
+    width: 200px; height: 200px;
+  }
+  .hero-brand { top: 1.5rem; left: 1.5rem; font-size: 0.95rem; }
+  .hero-names { margin-top: 2rem; font-size: 1rem; }
+
+  /* Grids collapse */
+  .selection-grid-2, .bases-grid, .toggle-row, .athens-grid, .prefs-grid { grid-template-columns: 1fr; }
+  .selection-grid-3, .islands-grid, .pairing-grid, .steps-grid, .depth-vs-breadth { grid-template-columns: 1fr; gap: 1.25rem; }
+  .pillars-grid { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+
+  /* Form becomes single column — summary sits ABOVE the form on mobile
+     (reinforces what she just selected as she starts filling out the form) */
+  .form-layout { grid-template-columns: 1fr !important; gap: 1.75rem !important; }
+  .summary-panel {
+    position: static;
+    order: -1;
+    padding: 1.5rem;
+  }
+  .prefs-box { padding: 1.75rem 1.5rem; }
+
+  /* Section headers tighten */
+  .section-header { margin-bottom: 2.5rem; }
+
+  /* Card images sized correctly now that cards are wider */
+  .card-hero { height: 240px; }
+  .card-thumb { height: 130px; }
+  .island-card .card-hero { height: 220px; }
+  .island-card .card-thumb { height: 120px; }
+}
+
+/* ============================================
+   RESPONSIVE — PHONE (≤ 600px)
+   ============================================ */
+@media (max-width: 600px) {
+  html { font-size: 15px; }
+
+  section { padding: 3rem 0; }
+  section.tight { padding: 2rem 0; }
+
+  .container, .container-narrow { padding: 0 1.1rem; }
+
+  /* Hero — compact on phones */
+  .hero {
+    padding: 4.5rem 0 2.5rem;
+  }
+  .hero h1 {
+    font-size: clamp(2.1rem, 9vw, 2.8rem);
+    line-height: 1.15;
+  }
+  .hero .sub {
+    font-size: 1.15rem;
+    margin-top: 0.9rem;
+  }
+  .hero .eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+  }
+  .hero-brand {
+    position: static;
+    display: block;
+    margin-bottom: 2rem;
+    padding: 0 0 1rem;
+    border-bottom: 1px solid var(--gold);
+  }
+  .hero-inner { padding-top: 0; }
+  .hero::after, .hero-decoration { display: none; } /* Drop decorative circles on small phones */
+  .hero-names { font-size: 0.95rem; margin-top: 1.5rem; }
+
+  /* Typography scale */
+  h1 { font-size: clamp(2.1rem, 8vw, 2.8rem); }
+  h2 { font-size: clamp(1.6rem, 6.5vw, 2rem); line-height: 1.25; }
+  h3 { font-size: 1.2rem; }
+
+  p.lead { font-size: 1.02rem; }
+
+  /* How-it-works step numbers smaller */
+  .step-num { font-size: 2.2rem; }
+
+  /* Service strip tighter */
+  .service-strip { padding: 2.5rem 0; }
+  .service-strip p { font-size: 0.97rem; line-height: 1.65; }
+
+  /* Intro quote */
+  .intro-quote {
+    font-size: 1.15rem;
+    padding-left: 1.1rem;
+    margin: 2rem 0;
+  }
+
+  /* Toggle cards tighter padding */
+  .toggle-card {
+    padding: 1.6rem 1.3rem;
+  }
+  .toggle-card h3 { font-size: 1.35rem; }
+  .toggle-card .nights { font-size: 1.1rem; margin-bottom: 0.8rem; }
+  .toggle-card ul li { font-size: 0.9rem; }
+  .toggle-card.selected::after {
+    top: 1rem; right: 1rem;
+    width: 26px; height: 26px;
+    font-size: 0.8rem;
+  }
+
+  /* Selection cards — tighter padding, image size tuned for single column */
+  .card {
+    padding: 1.4rem;
+  }
+  .card-images {
+    margin: -1.4rem -1.4rem 1.1rem -1.4rem;
+  }
+  .card-hero { height: 220px; }
+  .card-thumb { height: 120px; }
+  .island-card .card-hero { height: 200px; }
+  .island-card .card-thumb { height: 110px; }
+  .card h3 { font-size: 1.4rem; }
+  .card-sub { font-size: 1.05rem; margin-bottom: 0.8rem; }
+  .card p { font-size: 0.94rem; }
+  .card-hotels { font-size: 0.84rem; padding: 0.75rem 0.9rem; }
+  .card-facts { font-size: 0.82rem; padding-top: 0.8rem; }
+  .card-tag { font-size: 0.63rem; letter-spacing: 0.12em; }
+
+  /* Philosophy panel */
+  .philosophy-panel { padding: 3.5rem 0; }
+  .philosophy-panel p { font-size: 1rem; }
+
+  /* Depth-vs-breadth cards */
+  .depth-option { padding: 1.3rem; }
+
+  /* Pairing cards */
+  .pairing-card {
+    padding: 1.4rem;
+  }
+  .pairing-card h3 { font-size: 1.35rem; }
+
+  /* Pillars grid — full single column on phones */
+  .pillars-grid { grid-template-columns: 1fr; gap: 1rem; margin-top: 2rem; }
+  .pillar { padding: 1.2rem 1.3rem; }
+  .pillar .roman { font-size: 1.2rem; }
+  .pillar h4 { font-size: 1.05rem; }
+  .pillar p { font-size: 0.9rem; }
+
+  /* Form */
+  .prefs-box { padding: 1.5rem 1.25rem; }
+  .field { margin-bottom: 1.1rem; }
+  .field input, .field textarea, .field select {
+    padding: 0.85rem 0.9rem;
+    font-size: 16px; /* prevents iOS zoom on focus */
+  }
+  .btn-submit {
+    padding: 1.1rem 1.5rem;
+    font-size: 0.88rem;
+    letter-spacing: 0.08em;
+  }
+
+  /* Summary panel more compact */
+  .summary-panel { padding: 1.4rem 1.2rem; }
+  .summary-panel h4 { font-size: 1.1rem; }
+  .summary-row { padding: 0.7rem 0; }
+  .summary-row .label { font-size: 0.62rem; }
+  .summary-row .value { font-size: 0.93rem; }
+  .summary-nights { font-size: 0.98rem; padding: 0.85rem 0.7rem; }
+
+  /* Footer */
+  footer { padding: 3rem 0 2.5rem; }
+  footer h3 { font-size: 1.5rem; }
+  footer .tagline { font-size: 0.98rem; margin-top: 1.4rem; padding: 0 1rem; }
+
+  /* Access badges - smaller on tiny screens */
+  .access { font-size: 0.72rem; padding: 2px 7px; }
+  .card-hotels strong { font-size: 0.65rem; }
+}
+
+/* ============================================
+   RESPONSIVE — TINY PHONES (≤ 380px)
+   ============================================ */
+@media (max-width: 380px) {
+  .hero h1 { font-size: 2rem; }
+  .hero .sub { font-size: 1.05rem; }
+  h2 { font-size: 1.5rem; }
+
+  .card-hero { height: 190px; }
+  .card-thumb { height: 105px; }
+  .island-card .card-hero { height: 175px; }
+  .island-card .card-thumb { height: 95px; }
+}
+
+/* ---------- Tiny dot nav marker ---------- */
+.anchor-dot {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+.anchor-dot::before {
+  content: '◆';
+  color: var(--gold-dark);
+  font-size: 0.7rem;
+  letter-spacing: 1.5em;
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-brand">Point Me to Paradise Travel</div>
+  <div class="hero-decoration"></div>
+  <div class="container hero-inner">
+    <div class="eyebrow">An Anniversary Along Two Coastlines</div>
+    <h1>Italy <em>&</em> Greece,<br>Shaped Around You</h1>
+    <p class="sub">Before we book a single night, let's decide together what this trip actually wants to be. A few thoughtful choices now create the anniversary you'll remember the rest of your lives.</p>
+    <div class="hero-names">Prepared for Julie Martin</div>
+  </div>
+</section>
+
+<!-- ============ SERVICE STRIP (top) ============ -->
+<section class="service-strip">
+  <div class="container-narrow">
+    <div class="eyebrow">The Point Me to Paradise Way</div>
+    <h2>We Handle Everything You Don't Want To</h2>
+    <span class="gold-line" style="margin: 1.2rem auto;"></span>
+    <p>Every PMTP trip is built from a blank page around the person taking it — never a template, never a package. Private transfers, vetted tour operators, guides we know by name, and custom self-guided routes when you'd rather explore on your own. Before you depart, your entire trip lives in a dedicated app you carry with you — every booking, every driver, every confirmation, accessible offline. On pricing: individual components in your quote — hotels, transfers, tours — are priced at publicly available rates, and in many cases lower than you'd find booking on your own. You don't need to worry about overpaying for a piece of your trip. What you're paying for is the architecture — the sequencing, the judgment, and the access that turns a list of bookings into a trip you'll remember.</p>
+  </div>
+</section>
+
+<!-- ============ INTRO ============ -->
+<section class="intro">
+  <div class="container-narrow">
+    <div class="eyebrow">A Note Before We Begin</div>
+    <h2>The Philosophy Behind This Trip</h2>
+    <span class="gold-line"></span>
+    <p class="lead">You asked for an Amalfi that feels less touristy, and for the Greek Islands "done right." Both are possible — but they require a few honest conversations most advisors skip.</p>
+
+    <p>The Amalfi Coast is famous <em class="italic">because</em> it's small. Thirty miles of coastline. A handful of villages. One winding road. There's no undiscovered Amalfi — but there's a meaningful difference between the Amalfi the day-trippers experience and the one the residents know. That difference isn't about finding secret villages. It's about choosing a base that filters the crowds out, timing activities to the rhythm locals use, and experiencing the coast from the water whenever possible.</p>
+
+    <p>Greece asks a different question. Most couples assume more islands means a better trip. The math usually disagrees. Every ferry day, every check-in, every airport transfer is a day you're <em class="italic">moving</em> instead of <em class="italic">being there</em>. For an anniversary trip especially, depth tends to beat breadth.</p>
+
+    <div class="intro-quote">
+      "The hardest thing about planning Europe isn't picking where to go. It's resisting the urge to add one more place."
+    </div>
+
+    <p>The page below walks through the real decisions. Each section gives you honest context, then asks you to mark what resonates. Your selections feed a summary panel at the end, which you'll send back to me with any notes. From there we firm up pricing, pace, and all the logistics.</p>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="how-it-works">
+  <div class="container">
+    <div class="section-header" style="margin-bottom:1.5rem;">
+      <div class="eyebrow">How This Works</div>
+      <h2>Three Questions, In Order</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h4>Choose the shape of Italy</h4>
+        <p>Do you want to begin in Rome with a few days of grandeur, or go straight to the coast and settle in? Both are legitimate answers.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h4>Choose your Amalfi home base</h4>
+        <p>Where you sleep determines how you experience the coast. We'll walk through five realistic options, each with a very different feel.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h4>Shape the Greek leg</h4>
+        <p>Athens or straight to the island? One island or two? Which one? Each answer trades something — we'll be honest about what.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 1: ITALY STRUCTURE ============ -->
+<section id="italy-structure">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">Question One</div>
+      <h2>How Do You Want Italy to Begin?</h2>
+      <span class="gold-line"></span>
+      <p class="lead">Rome is magnificent, but it's also its own trip. Three days in Rome gives you the Vatican, the Colosseum, one memorable dinner in Trastevere, and very little time for anything else. The alternative is to skip it entirely this trip — fly into Naples, drive straight to the coast, and let the whole Italy leg be about slowing down.</p>
+    </div>
+
+    <div class="toggle-row">
+      <div class="toggle-card" data-group="italy" data-value="amalfi-only" onclick="selectToggle(this, 'italy')">
+        <h3>Amalfi Deep Dive</h3>
+        <div class="nights">7 nights on the coast, no detours</div>
+        <p>Fly into Naples, drive straight to your Amalfi home base, and stay put. The trip becomes about one place, experienced deeply.</p>
+        <ul>
+          <li>Maximum time on the coast</li>
+          <li>One unpacking, no transfers</li>
+          <li>Room for slow mornings, long boat days, and unhurried dinners</li>
+          <li>Ideal if you've done Rome before or prefer single-destination trips</li>
+        </ul>
+      </div>
+
+      <div class="toggle-card" data-group="italy" data-value="rome-amalfi" onclick="selectToggle(this, 'italy')">
+        <h3>Rome First, Then Coast</h3>
+        <div class="nights">3 nights Rome + 4 nights Amalfi</div>
+        <p>Land in Rome, spend three days with the essentials, then take the train south and transfer to the coast for four nights.</p>
+        <ul>
+          <li>Vatican, Colosseum, and one great Trastevere night</li>
+          <li>High-speed train Rome → Naples (about 70 minutes), then private transfer to the coast</li>
+          <li>Trade-off: fewer full days in Amalfi</li>
+          <li>Best if it's your first time in Italy, or Rome is on the bucket list</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 2: AMALFI BASES ============ -->
+<section id="amalfi-bases" style="background: var(--paper-pure);">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">Question Two</div>
+      <h2>Your Amalfi Home Base</h2>
+      <span class="gold-line"></span>
+      <p class="lead">The Amalfi Coast is a string of villages, each with its own character. Where you wake up each morning shapes the entire trip. Here are five legitimate choices — read each, then mark the one that feels most like yours. You can always change your mind.</p>
+    </div>
+
+    <div class="bases-grid">
+
+      <!-- RAVELLO -->
+      <div class="card" data-group="base" data-value="Ravello" onclick="selectCard(this, 'base')">
+        <div class="card-images">
+          <img class="card-hero" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/ba/81/dd/caption.jpg?w=1200&h=-1&s=1" alt="Ravello cliffside view over the Amalfi Coast">
+          <div class="card-thumbs">
+            <img class="card-thumb" src="https://images.ng.ondaplatform.com/article/223/cover/ravello-amalfi-coast11.jpg/w800_h600_csmart_u1674552811.jpeg" alt="Ravello village streets and gardens">
+            <img class="card-thumb" src="https://iammeia.com/wp-content/uploads/2023/11/shutterstock_400677229.jpg" alt="Ravello terrace and Mediterranean sea view">
+          </div>
+        </div>
+        <span class="card-tag lead">Christina's Lead Recommendation</span>
+        <h3>Ravello</h3>
+        <div class="card-sub">The cliffside queen — above the crowds, literally</div>
+        <p>Ravello sits roughly 1,200 feet above the sea on a separate cliff from the coastal towns. The drive up filters out the day-trippers. What you get in return is a UNESCO-listed village of stone lanes, medieval villas, and gardens that have drawn artists and composers — Wagner, Gore Vidal, Jackie Kennedy — for more than a century. Mornings are quiet. Evenings are quieter. And because you're 5–8 degrees cooler than the coast, September here is honestly pleasant.</p>
+        <p>The trade-off: no walk-out-your-door beach. You'll descend to the water by private boat or driver — which is actually how the locals prefer to see the coast anyway.</p>
+        <div class="card-hotels">
+          <strong>Hotel Scene</strong>
+          Palazzo Avino, Belmond Hotel Caruso, and Hotel Villa Cimbrone — three of the most celebrated anniversary properties in Italy. All five-star. Rooms book 6–9 months out for September.
+        </div>
+        <div class="card-facts">
+          <div><strong>Best for:</strong> Couples who want Amalfi's soul without the crush</div>
+          <div><strong>Look elsewhere if:</strong> Walking to the beach every morning matters to you</div>
+        </div>
+      </div>
+
+      <!-- PRAIANO -->
+      <div class="card" data-group="base" data-value="Praiano" onclick="selectCard(this, 'base')">
+        <div class="card-images">
+          <img class="card-hero" src="https://dynamic-media.tacdn.com/media/photo-o/30/36/01/89/caption.jpg?w=700&h=500&s=1" alt="Praiano village along the Amalfi Coast">
+          <div class="card-thumbs">
+            <img class="card-thumb" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2f/a4/24/73/caption.jpg?w=500&h=400&s=1" alt="Praiano coastline and sea views">
+            <img class="card-thumb" src="https://cdn.getyourguide.com/img/tour/6981a41a4477d171dc886cac004c6670e1436a7827320c41b45f9a4c43df2b54.jpg/68.jpg" alt="Praiano scenic view">
+          </div>
+        </div>
+        <span class="card-tag alt">Quiet Alternative</span>
+        <h3>Praiano</h3>
+        <div class="card-sub">Between the hotspots, facing the sunset</div>
+        <p>Praiano sits on the road between Positano and Amalfi Town, which means you watch the coastline's two most famous villages from a distance while staying somewhere that still feels like a real fishing village. The geography matters: Praiano faces west, so you get the Amalfi Coast's best sunsets — something Positano itself doesn't have, because it faces east.</p>
+        <p>It's small, walkable, and has a handful of excellent restaurants. The pace is unhurried. You're 15 minutes from Positano by water taxi when you want the scene, and 10 minutes from Amalfi when you want the history.</p>
+        <div class="card-hotels">
+          <strong>Hotel Scene</strong>
+          Casa Angelina — a 37-room adults-only design hotel with a minimalist white aesthetic and a rooftop restaurant that catches the full sunset. A frequent anniversary choice.
+        </div>
+        <div class="card-facts">
+          <div><strong>Best for:</strong> Couples who want Positano views without Positano chaos</div>
+          <div><strong>Look elsewhere if:</strong> You want more than three or four restaurants within walking distance</div>
+        </div>
+      </div>
+
+      <!-- CONCA DEI MARINI -->
+      <div class="card" data-group="base" data-value="Conca dei Marini" onclick="selectCard(this, 'base')">
+        <div class="card-images">
+          <img class="card-hero" src="https://www.praianonline.com/wp-content/uploads/2020/09/conca-dei-marini-saraceno-hotel.jpg" alt="Conca dei Marini cliffside hotel and coastline">
+          <div class="card-thumbs">
+            <img class="card-thumb" src="https://www.sorrentoreview.com/uploads/2/6/3/6/26365745/conca-dei-marini-amalfi-coast-2_orig.jpg" alt="Conca dei Marini fishing harbor">
+            <img class="card-thumb" src="https://www.italyreview.com/uploads/2/6/3/6/26365745/conca-dei-marini-amalfi-coast-8.jpg" alt="Conca dei Marini coastal village view">
+          </div>
+        </div>
+        <span class="card-tag alt">Hotel-As-Destination</span>
+        <h3>Conca dei Marini</h3>
+        <div class="card-sub">A tiny fishing hamlet, defined by one hotel</div>
+        <p>Conca dei Marini is barely a village — a cluster of houses on a promontory between Amalfi and Positano. You don't come here for the town. You come for <em class="italic">Monastero Santa Rosa</em>: a 17th-century Dominican monastery converted into a 20-suite hotel with a Michelin-starred restaurant, four levels of terraced gardens, and a cliff-edge infinity pool that is one of the most photographed in Italy.</p>
+        <p>This is the choice when the hotel <em class="italic">is</em> the trip. You don't wander into town for dinner — you don't particularly need to. A complimentary shuttle handles trips to Amalfi; a private boat handles everything else.</p>
+        <div class="card-hotels">
+          <strong>Hotel Scene</strong>
+          Monastero Santa Rosa Hotel & Spa — adults-only, historic, and consistently on "world's best" lists. The experience is inseparable from the property.
+        </div>
+        <div class="card-facts">
+          <div><strong>Best for:</strong> Couples who want seclusion and a hotel that <em class="italic">is</em> the destination</div>
+          <div><strong>Look elsewhere if:</strong> You want village life outside your hotel door</div>
+        </div>
+      </div>
+
+      <!-- POSITANO -->
+      <div class="card" data-group="base" data-value="Positano" onclick="selectCard(this, 'base')">
+        <div class="card-images">
+          <img class="card-hero" src="https://www.travelandleisure.com/thmb/mfX-37MiYgCpRPbF8UuqsydIxH8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/TAL-getting-around-amalfi-coast-road-POSITANOVSCAPRI1125-d0aba189a7a74885a3959992d95c4b60.jpg" alt="Positano pastel cliffside village and harbor">
+          <div class="card-thumbs">
+            <img class="card-thumb" src="https://saltandwind.com/wp-content/uploads/2024/05/Best-Time-To-Go-To-Positano-Italy-scaled.jpg" alt="Positano beach and colorful buildings">
+            <img class="card-thumb" src="https://a0.muscache.com/im/pictures/INTERNAL/INTERNAL-ImageByPlaceId-ChIJG9IQp2iXOxMRMd7OYygL3ow-large_background/original/b385c4e3-af88-4ed7-8c53-175f7b5ac368.jpeg" alt="Positano coastline view">
+          </div>
+        </div>
+        <span class="card-tag">The Iconic Choice</span>
+        <h3>Positano</h3>
+        <div class="card-sub">The postcard — crowds, charm, and the most famous view in Italy</div>
+        <p>I'd be dishonest to skip it. Positano is the Amalfi Coast you see in every photograph: pastel houses tumbling down a cliff, boats bobbing in a crescent harbor, bougainvillea spilling from every terrace. It has the coast's best shopping, its most famous beach clubs, and its most glamorous nightlife.</p>
+        <p>It also has the crowds. Between 11am and 4pm in peak season, the main pedestrian stairways are shoulder-to-shoulder with day-trippers off ferries and cruise ships. The honest play: stay here, but <em class="italic">time your days around locals' rhythms</em> — beach early, village quiet time during lunch, come back out after 5pm when the tour buses leave.</p>
+        <div class="card-hotels">
+          <strong>Hotel Scene</strong>
+          Le Sirenuse (iconic, family-run), Il San Pietro (on its own bluff just outside town, private and quiet), Villa TreVille (former home of Franco Zeffirelli, just a few suites).
+        </div>
+        <div class="card-facts">
+          <div><strong>Best for:</strong> Couples who'd regret not experiencing the postcard in person</div>
+          <div><strong>Know that:</strong> This is the opposite of "non-touristy" — but it can still be magical if you work the timing</div>
+        </div>
+      </div>
+
+      <!-- SORRENTO -->
+      <div class="card" data-group="base" data-value="Sorrento" onclick="selectCard(this, 'base')">
+        <div class="card-images">
+          <img class="card-hero" src="https://images.ng.ondaplatform.com/article/1280/gallery/2.jpg/w736_h485_csmart_d1.6_u1674553360.webp" alt="Sorrento overlooking the Bay of Naples">
+          <div class="card-thumbs">
+            <img class="card-thumb" src="https://dynamic-media.tacdn.com/media/photo-o/30/4b/c2/9d/caption.jpg?f=webp&w=1000&h=700" alt="Sorrento harbor and cliffside view">
+            <img class="card-thumb" src="https://cdn.sanity.io/images/nxpteyfv/goguides/0b742f6f2acfaeb6b4a10913e1336e499bec31a4-1600x1066.jpg" alt="Sorrento town and coastline">
+          </div>
+        </div>
+        <span class="card-tag">Gateway Option</span>
+        <h3>Sorrento</h3>
+        <div class="card-sub">Not technically Amalfi — but it has advantages</div>
+        <p>Sorrento sits on the <em class="italic">other</em> side of the peninsula — facing Naples and Vesuvius rather than Amalfi. It has better road access (no hairpin mountain driving), better ferry connections (direct boats to Capri, Positano, Amalfi), and more dining and hotel variety. It's also a real, working Italian town, not a tourism-only village.</p>
+        <p>The trade-off: you're not <em class="italic">on</em> the Amalfi Coast. Most days become "go somewhere else" — Capri, Positano, Pompeii. It's a hub, not a home base. For some couples that's the right structure; for others it defeats the point.</p>
+        <div class="card-hotels">
+          <strong>Hotel Scene</strong>
+          Grand Hotel Excelsior Vittoria (clifftop, family-run since 1834) or Bellevue Syrene (a villa turned hotel on the cliff with direct sea elevator). Both deeply romantic and established.
+        </div>
+        <div class="card-facts">
+          <div><strong>Best for:</strong> Day-trip-oriented travelers who want logistical ease</div>
+          <div><strong>Look elsewhere if:</strong> You want to wake up on the Amalfi Coast</div>
+        </div>
+      </div>
+
+    </div>
+
+    <p style="text-align:center; margin-top:2rem; font-style:italic; color:var(--ink-soft); font-family:'Cormorant Garamond',serif; font-size:1.1rem;">
+      Click the card that resonates most. If you're torn between two, tell me in the notes at the end.
+    </p>
+  </div>
+</section>
+
+<!-- ============ GREECE PHILOSOPHY ============ -->
+<section class="philosophy-panel">
+  <div class="container-narrow">
+    <div class="eyebrow">Before We Talk Islands</div>
+    <h2>Depth vs. Breadth in Greece</h2>
+    <span class="gold-line"></span>
+    <p>Here's where most advisors fail their clients: they give you five islands on one trip and call it "comprehensive." What you actually get is five ferry days, five check-ins, and a blur of places you'll struggle to distinguish in photos a year later.</p>
+    <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.4rem; color:var(--gold-dark); margin:2rem 0;">Every move costs vacation time. A ferry day is a lost beach day. An early flight is a lost slow morning.</p>
+    <p>For a 14–15 night trip split between Italy and Greece, here's the real math:</p>
+
+    <div class="depth-vs-breadth">
+      <div class="depth-option">
+        <h4>One Island, Done Right</h4>
+        <p>1 night Athens + 5–6 nights island. You actually settle in. You have a favorite taverna by night three. You come home with a place, not a highlight reel.</p>
+      </div>
+      <div class="depth-option">
+        <h4>Two Islands, Split</h4>
+        <p>1 night Athens + 3 + 3 or 4. Two tastes, two check-ins, at least one ferry day. You trade depth for variety — and one full day to transit.</p>
+      </div>
+      <div class="depth-option">
+        <h4>Three+ Islands</h4>
+        <p>Don't. Not on this trip. Not on an anniversary. For that pace you need closer to three weeks of island time alone.</p>
+      </div>
+    </div>
+    <p style="margin-top:2.5rem;">A pattern we see often: <strong style="color:var(--teal-dark);">couples who pick one island and give it real time</strong> come home happier than those who did two. But if there's a specific reason to want two — a bucket-list beach, a restaurant, a photo you've seen — we'll make two work. You know you better than we do.</p>
+  </div>
+</section>
+
+<!-- ============ ATHENS YES/NO ============ -->
+<section id="athens-question">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">Question Three</div>
+      <h2>Athens: Yes or No?</h2>
+      <span class="gold-line"></span>
+      <p class="lead">You have to land somewhere. The question is whether Athens gets a proper night — with a sunset Acropolis visit and a memorable dinner in Plaka — or whether it's just a connection you push through on the way to the island.</p>
+    </div>
+
+    <div class="athens-grid">
+      <div class="toggle-card" data-group="athens" data-value="yes-athens" onclick="selectToggle(this, 'athens')">
+        <h3>One Night in Athens</h3>
+        <div class="nights">+ 1 night, before the island</div>
+        <p>Land, drop bags at a hotel near Syntagma or Plaka, see the Acropolis at golden hour (when the crowds thin), have one exceptional dinner, fly to the island the next morning rested.</p>
+        <ul>
+          <li>You'll have seen the Parthenon — a thing you'll always remember</li>
+          <li>Built-in buffer against flight delays to the island</li>
+          <li>Easier for first-time Greece travelers</li>
+          <li>Trade: one less night on the island</li>
+        </ul>
+      </div>
+
+      <div class="toggle-card" data-group="athens" data-value="skip-athens" onclick="selectToggle(this, 'athens')">
+        <h3>Straight to the Island</h3>
+        <div class="nights">Athens is a connection, not a stop</div>
+        <p>Same-day connection through Athens to the island. You land, change planes, and are in your island hotel by sunset. Every night of Greece is island time.</p>
+        <ul>
+          <li>Maximum island time</li>
+          <li>Works best if you've been to Athens before</li>
+          <li>Requires forgiving flight timing (morning arrival into ATH)</li>
+          <li>Trade: no Acropolis on this trip</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ISLAND OPTIONS ============ -->
+<section id="islands" style="background: var(--cream-light);">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">The Island Scope</div>
+      <h2>Seven Islands Worth Considering</h2>
+      <span class="gold-line"></span>
+      <p class="lead">Mykonos is intentionally not below — it's generally considered the wrong energy for an anniversary, and the party-island reputation is accurate rather than overblown. Santorini <em class="italic">is</em> here, with honest framing about September crowds. Every other Cycladic island worth an anniversary stay is below. Read through, see what pulls you.</p>
+    </div>
+
+    <div class="islands-grid">
+
+      <div class="card island-card" data-group="island" data-value="Milos" onclick="selectCard(this, 'island')">
+        <div class="card-images">
+          <img class="card-hero" src="https://finduslost.com/wp-content/uploads/2019/03/Milos-Travel-Guide-Find-Us-Lost-08321-edit.jpg" alt="Milos volcanic coastline and turquoise sea">
+          <div class="card-thumbs">
+            <img class="card-thumb" src="https://image.jimcdn.com/app/cms/image/transf/dimension=1920x400:format=jpg/path/sa6549607c78f5c11/image/ic9c85d751f3d69a1/version/1671359731/image.jpg" alt="Milos Sarakiniko lunar landscape">
+            <img class="card-thumb" src="https://www.greece-is.com/wp-content/uploads/2020/07/GettyImages-694032635-RF.jpg" alt="Milos Kleftiko sea caves">
+          </div>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:0.5rem; margin-bottom:0.4rem;">
+          <h3 style="margin:0;">Milos</h3>
+          <span class="access access-flight">40-min flight</span>
+        </div>
+        <div class="card-sub">The island that doesn't look like Greece</div>
+        <p>Milos is volcanic — white rock formations, lunar beaches like Sarakiniko that feel like another planet, and Kleftiko, a cluster of sea caves reachable only by boat. It has the Cyclades' most distinctive landscape. Luxury hotels arrived relatively recently, so the island still feels authentic.</p>
+        <div class="card-hotels">
+          <strong>Known Hotels</strong>
+          Milos Cove (42 suites, private beach), Domes White Coast Milos, Skinopi Lodge (minimalist, intimate)
+        </div>
+        <div class="card-facts">
+          <div><strong>Character:</strong> Dramatic volcanic landscape, swim spots, boat culture</div>
+        </div>
+      </div>
+
+      <div class="card island-card" data-group="island" data-value="Paros" onclick="selectCard(this, 'island')">
+        <div class="card-images">
+          <img class="card-hero" src="https://travelbinger.com/cdn-cgi/image/quality=80,format=auto/https://backend.travelbinger.com/wp-content/uploads/2024/03/shutterstock_2427882369-scaled.jpg" alt="Paros whitewashed village and harbor">
+          <div class="card-thumbs">
+            <img class="card-thumb" src="https://www.greeka.com/photos/cyclades/paros/hero/paros-greece-1920.jpg" alt="Paros Aegean coastline">
+            <img class="card-thumb" src="https://greeceinsiders.travel/wp-content/uploads/2025/06/Honeymoon-in-Paros_feature-scaled-1920x960-resized-q10.jpg" alt="Paros scenic view for couples">
+          </div>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:0.5rem; margin-bottom:0.4rem;">
+          <h3 style="margin:0;">Paros</h3>
+          <span class="access access-flight">40-min flight</span>
+        </div>
+        <div class="card-sub">Chic, walkable, polished</div>
+        <p>Paros has quietly become one of the Cyclades' most stylish islands. Naoussa is a harbor village of whitewashed chapels and waterfront tavernas that comes alive at dinner. Beaches are soft sand. The food scene is serious. The experience is more "designed" than wild.</p>
+        <div class="card-hotels">
+          <strong>Known Hotels</strong>
+          Cosme, a Luxury Collection Resort (40 suites on Naoussa Bay), Parilio (architectural, inland), Vione (adults-only)
+        </div>
+        <div class="card-facts">
+          <div><strong>Character:</strong> Restaurants, walkability, refined aesthetic, harbor life</div>
+        </div>
+      </div>
+
+      <div class="card island-card" data-group="island" data-value="Naxos" onclick="selectCard(this, 'island')">
+        <div class="card-images">
+          <img class="card-hero" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2d/42/41/18/caption.jpg?w=900&h=500&s=1" alt="Naxos coastline and Portara archway">
+          <div class="card-thumbs">
+            <img class="card-thumb" src="https://www.packthesuitcases.com/wp-content/uploads/2019/12/NaxosGreece.jpg" alt="Naxos village and landscape">
+            <img class="card-thumb" src="https://images.squarespace-cdn.com/content/v1/6324802d2fb2bb196e51937d/365d80cc-d634-428d-8e0d-6f9ba4d5bfd9/Naxos+Greece00024.jpg" alt="Naxos village and sea view">
+          </div>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:0.5rem; margin-bottom:0.4rem;">
+          <h3 style="margin:0;">Naxos</h3>
+          <span class="access access-flight">45-min flight</span>
+        </div>
+        <div class="card-sub">The Cyclades' beach island</div>
+        <p>Naxos has the <em class="italic">longest and widest sandy beaches in the Cyclades</em> — the western coast is roughly 40 kilometers of nearly continuous soft golden sand, from organized beaches like Agios Prokopios and Plaka to wild, undeveloped coves at Aliko and Pyrgaki. Most Cycladic islands have lovely but small coves; Naxos has actual stretches of beach. It's also the largest island in the group, with a mountainous green interior of hilltop villages, ancient temples, and a serious local food culture (cheese, honey, meat, olive oil).</p>
+        <div class="card-hotels">
+          <strong>Known Hotels</strong>
+          More villa-rental territory than big-brand resort territory. Naxian Collection, Tinomoti, and a number of boutique beachfront properties along the Agios Prokopios / Plaka coastline.
+        </div>
+        <div class="card-facts">
+          <div><strong>Character:</strong> Sand, space, mountain villages, authentic local life</div>
+          <div><strong>Trade:</strong> Fewer high-end anniversary hotel options than Paros or Milos</div>
+        </div>
+      </div>
+
+      <div class="card island-card" data-group="island" data-value="Sifnos" onclick="selectCard(this, 'island')">
+        <div class="card-images">
+          <img class="card-hero" src="https://www.greeka.com/photos/cyclades/sifnos/hero/sifnos-island-2-1920.jpg" alt="Sifnos island coastline">
+          <div class="card-thumbs">
+            <img class="card-thumb" src="https://www.greeka.com/photos/cyclades/sifnos/geography/hero/sifnos-geography-1920.jpg" alt="Sifnos landscape and villages">
+            <img class="card-thumb" src="https://www.thetravelmagazine.net/wp-content/uploads/Sifnos.jpg" alt="Sifnos whitewashed village and sea">
+          </div>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:0.5rem; margin-bottom:0.4rem;">
+          <h3 style="margin:0;">Sifnos</h3>
+          <span class="access access-ferry">Ferry only</span>
+        </div>
+        <div class="card-sub">The culinary capital of the Cyclades</div>
+        <p>Sifnos is where Greeks go when they want the best food. The island's tradition of slow-cooked clay-pot cooking (<em class="italic">mastelo</em>, <em class="italic">revithada</em>) gave Greek cuisine some of its foundational dishes. Beyond the food: pottery villages, cliff-edge chapels, and marked hiking trails between hilltop hamlets.</p>
+        <div class="card-hotels">
+          <strong>Known Hotels</strong>
+          Verina Astra (minimalist cliffside), Elies Resort (traditional village architecture)
+        </div>
+        <div class="card-facts">
+          <div><strong>Character:</strong> Food-forward, quiet, traditional Cycladic rhythm</div>
+          <div><strong>Trade:</strong> Ferry only (~2.5 hrs from Piraeus on fast boat), which complicates Italy pairing</div>
+        </div>
+      </div>
+
+      <div class="card island-card" data-group="island" data-value="Folegandros" onclick="selectCard(this, 'island')">
+        <div class="card-images">
+          <img class="card-hero" src="https://www.islands.com/img/gallery/one-of-greeces-most-underrated-islands-thrives-with-little-crowds-dazzling-hotels-and-quiet-beaches/l-intro-1750595165.jpg" alt="Folegandros cliffside and sea">
+          <div class="card-thumbs">
+            <img class="card-thumb" src="https://sea-u.com/wp-content/uploads/2023/02/sea-u-folegandros-dive-center-02-new-f.jpg" alt="Folegandros coastal waters and rocks">
+            <img class="card-thumb" src="https://www.lavienblog.com/wp-content/uploads/2018/09/folegandros-cyclades-greece-la-vie-en-blog-all-rights-reserved.jpg" alt="Folegandros Chora village perched on cliffs">
+          </div>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:0.5rem; margin-bottom:0.4rem;">
+          <h3 style="margin:0;">Folegandros</h3>
+          <span class="access access-ferry">Ferry only</span>
+        </div>
+        <div class="card-sub">Romantic through sheer remoteness</div>
+        <p>Folegandros is what Santorini looked like 40 years ago — a cliffside Chora perched above the sea, almost no cars, hiking trails across wild landscape, and until recently, nowhere luxurious to stay. That changed in 2024 with Gundari, the island's first five-star hotel. It's a genuine "get away from everything" island.</p>
+        <div class="card-hotels">
+          <strong>Known Hotels</strong>
+          Gundari (27 suites, opened May 2024 — seasonal May–Oct), Anemi
+        </div>
+        <div class="card-facts">
+          <div><strong>Character:</strong> Quiet, raw, cliffside beauty, few beaches</div>
+          <div><strong>Trade:</strong> Ferry-only, no airport. Reached via Milos, Santorini, or a 2.5–4 hour ferry from Athens</div>
+        </div>
+      </div>
+
+      <div class="card island-card" data-group="island" data-value="Antiparos" onclick="selectCard(this, 'island')">
+        <div class="card-images">
+          <img class="card-hero" src="https://greece-moments.com/wp-content/uploads/2024/02/Antiparos-Halbinsel-Faneromeni-Badebuchten.jpg" alt="Antiparos Faneromeni peninsula swimming bays">
+          <div class="card-thumbs">
+            <img class="card-thumb" src="https://greece-moments.com/wp-content/uploads/2024/02/Antiparos-Ausflug-Insel-Paros-Hafen.jpg" alt="Antiparos harbor view from Paros">
+            <img class="card-thumb" src="https://boardingpasstraveler.com/wp-content/uploads/2016/03/antiparos-beach-day.jpg" alt="Antiparos beach">
+          </div>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:0.5rem; margin-bottom:0.4rem;">
+          <h3 style="margin:0;">Antiparos</h3>
+          <span class="access access-ferry">Via Paros</span>
+        </div>
+        <div class="card-sub">The whisper-network island</div>
+        <p>Antiparos is a 10-minute ferry from Paros — a tiny island with a single main village, a handful of beaches, and an outsized reputation among people who prefer not to share their vacation spots. Tom Hanks has a house here. So does Madonna. You'd never know; the island does discretion well.</p>
+        <div class="card-hotels">
+          <strong>Known Hotels</strong>
+          The Rooster (Small Luxury Hotels of the World) — a destination-level retreat that's often the entire reason to come
+        </div>
+        <div class="card-facts">
+          <div><strong>Character:</strong> Tiny, private, understated. Typically paired with Paros rather than visited alone</div>
+        </div>
+      </div>
+
+      <div class="card island-card" data-group="island" data-value="Santorini" onclick="selectCard(this, 'island')">
+        <div class="card-images">
+          <img class="card-hero" src="https://www.travelandleisure.com/thmb/4YYl-GgviUARw6SYcd9szhqKE0c=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/TAL-santorini-lead-image-SANTORINIGR0424-c7151a6a233440ac871e0b99fd484467.jpg" alt="Santorini caldera cliffside villages">
+          <div class="card-thumbs">
+            <img class="card-thumb" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1d/81/30/3f/caption.jpg?w=1200&h=-1&s=1&cx=1846&cy=1833&chk=v1_6ae0a81ae3361e988707" alt="Santorini iconic view">
+            <img class="card-thumb" src="https://sothebysrealty.gr/wp-content/uploads/2016/11/Santorini-sunset-at-dawn-Greece-Sothebys-International-Realty.jpg" alt="Santorini sunset over the caldera">
+          </div>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:0.5rem; margin-bottom:0.4rem;">
+          <h3 style="margin:0;">Santorini</h3>
+          <span class="access access-flight">45–50 min flight</span>
+        </div>
+        <div class="card-sub">The famous one — caldera, crowds, and the photo you've seen</div>
+        <p>Santorini is Santorini. The caldera views are genuinely that remarkable, the white-and-blue villages are genuinely that photogenic, and no other island looks like it. It's also still crowded in September — cruise ships continue to disembark daily, and Oia at sunset is a scrum of phones regardless of season.</p>
+        <p>The honest workaround: stay in <em class="italic">Imerovigli</em> or <em class="italic">Pyrgos</em> (not Oia or Fira), pick a hotel with a private caldera view so you experience the famous scenery from your own terrace, photograph Oia at sunrise instead of sunset, and time beach and wine trips around cruise-ship schedules.</p>
+        <div class="card-hotels">
+          <strong>Known Hotels</strong>
+          Canaves Oia (clifftop, private pools), Grace Hotel Auberge (in Imerovigli), Mystique (Luxury Collection, Oia's quieter end), Vedema (Luxury Collection, in Megalochori near Pyrgos)
+        </div>
+        <div class="card-facts">
+          <div><strong>Character:</strong> Iconic, dramatic, visually unmatched</div>
+          <div><strong>Trade:</strong> September is shoulder season, not low season — expect cruise crowds at the top spots</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PAIRINGS -->
+    <div style="margin-top:5rem;">
+      <div class="section-header">
+        <div class="eyebrow">Or Pick a Pre-Built Shape</div>
+        <h2>Three Sample Trip Structures</h2>
+        <span class="gold-line"></span>
+        <p class="lead">If the a-la-carte version feels like too many decisions, here are three combinations that work logistically — each with a very different feel. None is better than the others; they're just <em class="italic">different trips</em>.</p>
+      </div>
+
+      <div class="pairing-grid">
+        <div class="pairing-card" data-group="pairing" data-value="lead-milos" onclick="selectCard(this, 'pairing')">
+          <span class="tag">Option One</span>
+          <h3>Milos, Deeply</h3>
+          <div class="structure">1 night Athens + 6 nights Milos</div>
+          <p>One island, real time. A private boat day to Kleftiko's sea caves. Sarakiniko at sunrise before the day-trippers arrive. Village dinners in Pollonia. The Greek leg becomes about settling somewhere genuinely extraordinary and letting it unfold.</p>
+        </div>
+
+        <div class="pairing-card" data-group="pairing" data-value="paros-polished" onclick="selectCard(this, 'pairing')">
+          <span class="tag">Option Two</span>
+          <h3>Paros, with Style</h3>
+          <div class="structure">1 night Athens + 6 nights Paros</div>
+          <p>Walkable Naoussa dinners, a real food scene, and a destination that's more "designed" than wild. Optional day-trip to Antiparos for lunch at The Rooster. Pool mornings. Sunset harbor walks. Infrastructure and ease throughout.</p>
+        </div>
+
+        <div class="pairing-card" data-group="pairing" data-value="two-island" onclick="selectCard(this, 'pairing')">
+          <span class="tag">Option Three</span>
+          <h3>Paros + Folegandros</h3>
+          <div class="structure">1 Athens + 4 Paros + 3 Folegandros</div>
+          <p>Infrastructure on Paros, wilderness on Folegandros. One ferry day between. Requires adding a night overall, or trimming Amalfi to 6. The two-island version if you want genuine contrast between them.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICE PILLARS (bottom, before form) ============ -->
+<section class="service-pillars">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">What's Included in Every PMTP Trip</div>
+      <h2>From Here, We Take Over</h2>
+      <span class="gold-line"></span>
+      <p class="lead">Sending your selections is the hard part. Everything below is already built into how we work.</p>
+    </div>
+
+    <div class="pillars-grid">
+      <div class="pillar">
+        <span class="roman">I</span>
+        <h4>Every Logistic, Handled</h4>
+        <p>Airport transfers, hotel-to-hotel connections, ferry reservations, cruise terminal transitions — all booked, confirmed, and sequenced before you leave home. You arrive in Naples knowing a driver is waiting with your name.</p>
+      </div>
+      <div class="pillar">
+        <span class="roman">II</span>
+        <h4>Curated Tours & Private Guides</h4>
+        <p>We don't pull tours from a booking site. We work with operators we've used for years — Amalfi boat captains, private Pompeii guides, Greek island sailors — the ones who arrive on time and know the stories the guidebooks don't. Prefer to explore alone? We design custom self-guided routes mapped just for you.</p>
+      </div>
+      <div class="pillar">
+        <span class="roman">III</span>
+        <h4>Your Dedicated Trip App</h4>
+        <p>Every reservation, transfer time, driver number, address, confirmation code, and my direct line — all loaded into a dedicated trip app before you depart. Offline-accessible, so nothing depends on hotel Wi-Fi or cellular signal. The trip runs smoothly even when the day doesn't.</p>
+      </div>
+      <div class="pillar">
+        <span class="roman">IV</span>
+        <h4>Pricing, Plainly Put</h4>
+        <p>Individual hotels, transfers, and tours in your quote are priced at publicly available rates — and in many cases lower than what you'd find on your own. You don't have to worry about overpaying for a piece of your trip. What you're paying for is the rest: the right rooms at the right property, operators we've used for years, the trip app, and a human who answers when something doesn't go to plan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PREFERENCES + CONTACT FORM ============ -->
+<section class="prefs-section" id="submit">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">From Here, It's My Turn</div>
+      <h2>Send Me Your Thoughts</h2>
+      <span class="gold-line"></span>
+      <p class="lead">The summary on the right captures your selections. Add anything I should know below — travel dates, budget, whether I'm handling flights, hotel rating preferences, any bucket-list items or deal-breakers. Within 48 hours of receiving this, I'll turn your outline into a full proposal with specific hotels, confirmed availability, pricing, and a day-by-day shape of the trip.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns: 1.6fr 1fr; gap: 2.5rem; align-items:start;" class="form-layout">
+      <!-- LEFT: Form -->
+      <div class="prefs-box">
+        <form id="tripForm">
+          <input type="hidden" name="access_key" value="7b40d437-1004-48e2-9031-171a8b0ef4f1">
+          <input type="hidden" name="subject" value="Julie Martin — Italy + Greece Anniversary Selections">
+          <input type="hidden" name="from_name" value="Julie Martin — PMTP Trip Form">
+          <input type="hidden" name="redirect" value="false">
+
+          <input type="hidden" name="Italy_Structure" id="hidden_italy">
+          <input type="hidden" name="Amalfi_Base" id="hidden_base">
+          <input type="hidden" name="Athens" id="hidden_athens">
+          <input type="hidden" name="Greek_Island" id="hidden_island">
+          <input type="hidden" name="Greek_Pairing" id="hidden_pairing">
+
+          <div class="prefs-grid">
+            <div class="field">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="Name" required>
+            </div>
+            <div class="field">
+              <label for="email">Your Email</label>
+              <input type="email" id="email" name="Email" required>
+            </div>
+          </div>
+
+          <div class="prefs-grid">
+            <div class="field">
+              <label for="dates">Travel Date Window</label>
+              <input type="text" id="dates" name="Travel_Dates" placeholder="e.g. late September 2026, or flexible">
+            </div>
+            <div class="field">
+              <label for="anniv">Anniversary Number</label>
+              <input type="text" id="anniv" name="Anniversary_Number" placeholder="e.g. 25th, 10th, etc.">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="budget">Budget Range (per person or total — whichever you think in)</label>
+            <input type="text" id="budget" name="Budget" placeholder="e.g. $12–15k total, or $8k per person excluding flights">
+          </div>
+
+          <div class="prefs-grid">
+            <div class="field">
+              <label for="flights">Am I Handling Your Flights?</label>
+              <select id="flights" name="Flights">
+                <option value="">— Select —</option>
+                <option>Yes — please include flights in my proposal</option>
+                <option>Yes — domestic transatlantic only (we have points / miles to use)</option>
+                <option>No — we'll handle flights ourselves</option>
+                <option>Not sure yet — let's discuss</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="hotelrating">Hotel Rating Preference</label>
+              <select id="hotelrating" name="Hotel_Rating">
+                <option value="">— Select —</option>
+                <option>5-star / luxury throughout</option>
+                <option>4-star and up, flexible</option>
+                <option>Character over category (boutique / historic preferred)</option>
+                <option>Mix — depends on location</option>
+                <option>Flexible — your recommendation</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="pace">Preferred Pace</label>
+            <select id="pace" name="Pace">
+              <option value="">— Select —</option>
+              <option>Slow — I'd rather do less and soak it in</option>
+              <option>Balanced — mix of active days and rest days</option>
+              <option>Full — I want to see and do as much as possible</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="musthaves">Must-Haves, Deal-Breakers, or Bucket-List Requests</label>
+            <textarea id="musthaves" name="Must_Haves" placeholder="Anything you've dreamed about — a specific restaurant, a villa, a boat day, a type of room. Anything you absolutely do NOT want — big crowds, long drives, etc."></textarea>
+          </div>
+
+          <div class="field">
+            <label for="notes">Anything else I should know?</label>
+            <textarea id="notes" name="Notes" placeholder="Dietary restrictions, mobility considerations, special celebrations, surprise elements, frequent flyer programs to use…"></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">Send My Selections to Christina</button>
+        </form>
+
+        <div id="thanksMsg" class="thanks-msg">
+          <h3>Received — thank you, Julie.</h3>
+          <p>I'll review your selections and follow up with pricing, specific hotel availability, and the shape of the full itinerary within 48 hours. If anything urgent comes up, call or text me at (281) 229-0862.</p>
+        </div>
+      </div>
+
+      <!-- RIGHT: Sticky summary -->
+      <div>
+        <div class="summary-panel">
+          <h4>Your Trip So Far</h4>
+          <div class="summary-row">
+            <span class="label">Italy Structure</span>
+            <span class="value empty" id="sum-italy">Not yet selected</span>
+          </div>
+          <div class="summary-row">
+            <span class="label">Amalfi Base</span>
+            <span class="value empty" id="sum-base">Not yet selected</span>
+          </div>
+          <div class="summary-row">
+            <span class="label">Athens</span>
+            <span class="value empty" id="sum-athens">Not yet selected</span>
+          </div>
+          <div class="summary-row">
+            <span class="label">Greek Island(s)</span>
+            <span class="value empty" id="sum-island">Not yet selected</span>
+          </div>
+          <div class="summary-row">
+            <span class="label">Pre-Built Pairing</span>
+            <span class="value empty" id="sum-pairing">Not yet selected</span>
+          </div>
+          <div class="summary-nights" id="sum-nights">Total nights: TBD</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container-narrow">
+    <div class="advisor">Your Travel Advisor</div>
+    <h3>Christina Garcia</h3>
+    <div class="contact-line">Point Me to Paradise Travel</div>
+    <div class="contact-line"><a href="#" id="emailLink">email</a> &nbsp;·&nbsp; <a href="tel:+12812290862">(281) 229-0862</a></div>
+    <div class="tagline">Every trip should feel like yours alone. That's the whole point.</div>
+  </div>
+</footer>
+
+<script>
+  // ============ Email assembly (avoid Cloudflare scrambling) ============
+  (function() {
+    var user = 'Christina';
+    var domain = 'PointMeToParadise.com';
+    var addr = user + '@' + domain;
+    var link = document.getElementById('emailLink');
+    if (link) {
+      link.href = 'mailto:' + addr;
+      link.textContent = addr;
+    }
+  })();
+
+  // ============ Selection state ============
+  var state = {
+    italy: null,
+    base: null,
+    athens: null,
+    island: null,
+    pairing: null
+  };
+
+  // Narrative labels for the summary
+  var labels = {
+    italy: {
+      'amalfi-only': '7 nights Amalfi (no Rome)',
+      'rome-amalfi': '3 nights Rome + 4 nights Amalfi'
+    },
+    athens: {
+      'yes-athens': '1 night in Athens (with Acropolis)',
+      'skip-athens': 'Skip Athens — straight to island'
+    },
+    pairing: {
+      'lead-milos': 'Milos Deeply — 1 Athens + 6 Milos',
+      'paros-polished': 'Paros Polished — 1 Athens + 6 Paros',
+      'two-island': 'Two-Island — 1 Athens + 4 Paros + 3 Folegandros'
+    }
+  };
+
+  // ============ Toggle (Italy structure, Athens) — single-select within group ============
+  function selectToggle(el, group) {
+    var peers = document.querySelectorAll('[data-group="' + group + '"]');
+    peers.forEach(function(p) { p.classList.remove('selected'); });
+    el.classList.add('selected');
+    state[group] = el.getAttribute('data-value');
+    updateSummary();
+  }
+
+  // ============ Cards (base, island, pairing) — single-select within group ============
+  function selectCard(el, group) {
+    var peers = document.querySelectorAll('[data-group="' + group + '"]');
+    peers.forEach(function(p) { p.classList.remove('selected'); });
+    el.classList.add('selected');
+    state[group] = el.getAttribute('data-value');
+
+    // If user selects a pre-built pairing, clear individual island pick (and vice versa)
+    if (group === 'pairing') {
+      document.querySelectorAll('[data-group="island"]').forEach(function(p) { p.classList.remove('selected'); });
+      state.island = null;
+    } else if (group === 'island') {
+      document.querySelectorAll('[data-group="pairing"]').forEach(function(p) { p.classList.remove('selected'); });
+      state.pairing = null;
+    }
+
+    updateSummary();
+  }
+
+  // ============ Summary panel ============
+  function updateSummary() {
+    setSumRow('sum-italy', state.italy ? labels.italy[state.italy] : null);
+    setSumRow('sum-base', state.base);
+    setSumRow('sum-athens', state.athens ? labels.athens[state.athens] : null);
+    setSumRow('sum-island', state.island);
+    setSumRow('sum-pairing', state.pairing ? labels.pairing[state.pairing] : null);
+
+    // Hidden form fields
+    document.getElementById('hidden_italy').value = state.italy ? labels.italy[state.italy] : '';
+    document.getElementById('hidden_base').value = state.base || '';
+    document.getElementById('hidden_athens').value = state.athens ? labels.athens[state.athens] : '';
+    document.getElementById('hidden_island').value = state.island || '';
+    document.getElementById('hidden_pairing').value = state.pairing ? labels.pairing[state.pairing] : '';
+
+    // Night math
+    updateNightCount();
+  }
+
+  function setSumRow(id, val) {
+    var el = document.getElementById(id);
+    if (val) {
+      el.textContent = val;
+      el.classList.remove('empty');
+    } else {
+      el.textContent = 'Not yet selected';
+      el.classList.add('empty');
+    }
+  }
+
+  function updateNightCount() {
+    var nights = 0;
+    var parts = [];
+
+    // Italy
+    if (state.italy === 'amalfi-only') { nights += 7; parts.push('7 Italy'); }
+    else if (state.italy === 'rome-amalfi') { nights += 7; parts.push('3 Rome + 4 Amalfi'); }
+
+    // Greece — prefer pairing total if selected, else island + athens
+    if (state.pairing === 'lead-milos') { nights += 7; parts.push('7 Greece'); }
+    else if (state.pairing === 'paros-polished') { nights += 7; parts.push('7 Greece'); }
+    else if (state.pairing === 'two-island') { nights += 8; parts.push('8 Greece'); }
+    else {
+      // Build from individual selections
+      var greeceNights = 0;
+      if (state.athens === 'yes-athens') greeceNights += 1;
+      if (state.island) greeceNights += 6; // default island stay
+      if (greeceNights > 0) { nights += greeceNights; parts.push(greeceNights + ' Greece'); }
+    }
+
+    var el = document.getElementById('sum-nights');
+    if (nights > 0) {
+      el.textContent = 'Total: ' + nights + ' nights (' + parts.join(' · ') + ')';
+    } else {
+      el.textContent = 'Total nights: TBD';
+    }
+  }
+
+  // ============ Form submit ============
+  document.getElementById('tripForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var form = e.target;
+    var data = new FormData(form);
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: data
+    })
+    .then(function(res) { return res.json(); })
+    .then(function(json) {
+      if (json.success) {
+        form.style.display = 'none';
+        document.getElementById('thanksMsg').classList.add('show');
+        window.scrollTo({ top: document.getElementById('thanksMsg').offsetTop - 100, behavior: 'smooth' });
+      } else {
+        alert('Something went wrong. Please email Christina directly or text (281) 229-0862.');
+      }
+    })
+    .catch(function() {
+      alert('Something went wrong. Please email Christina directly or text (281) 229-0862.');
+    });
+  });
+</script>
+
+</body>
+</html>
