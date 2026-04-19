@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>A Day in Tokyo · James &amp; Linda Griffeth · Point Me to Paradise Travel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: light;
+    --teal: #75AFB1;
+    --teal-dark: #4F8A8C;
+    --teal-pale: #C4E4E1;
+    --gold: #DAC396;
+    --gold-dark: #B89E6A;
+    --cream: #E9DEC0;
+    --cream-light: #F5EFDF;
+    --ink: #2B2420;
+    --ink-soft: #5A524A;
+    --paper: #FBF9F4;
+    --paper-pure: #FFFFFF;
+    --line: #E5DED0;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    background: var(--paper);
+  }
+
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.65;
+    font-size: 17px;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: var(--ink);
+    line-height: 1.2;
+    font-weight: 500;
+  }
+
+  .italic {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--gold-dark);
+  }
+
+  /* ──────────────────────── HEADER ──────────────────────── */
+  header {
+    background: linear-gradient(180deg, var(--cream-light) 0%, var(--paper) 100%);
+    padding: 44px 22px 48px;
+    text-align: center;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+
+  .tag {
+    font-size: 11px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--teal-dark);
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+
+  .agency {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(22px, 5vw, 28px);
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: .02em;
+    margin-bottom: 4px;
+  }
+
+  .advisor {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    color: var(--gold-dark);
+    font-size: 18px;
+    margin-bottom: 28px;
+  }
+
+  .gold-line {
+    width: 64px;
+    height: 1px;
+    background: var(--gold);
+    margin: 0 auto 28px;
+  }
+
+  .hero-title {
+    font-size: clamp(34px, 8vw, 54px);
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 10px;
+    letter-spacing: -.01em;
+  }
+
+  .hero-sub {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(19px, 4vw, 24px);
+    color: var(--gold-dark);
+    margin-bottom: 20px;
+  }
+
+  .hero-meta {
+    display: inline-block;
+    padding: 10px 22px;
+    background: var(--paper-pure);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    font-size: 14px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 6px;
+  }
+
+  /* ──────────────────────── MAIN LAYOUT ──────────────────────── */
+  main {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 32px 20px 60px;
+    background: var(--paper);
+  }
+
+  section {
+    margin-bottom: 44px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    color: var(--teal-dark);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .section-title {
+    font-size: clamp(24px, 5vw, 30px);
+    margin-bottom: 8px;
+    color: var(--teal-dark);
+  }
+
+  .section-intro {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink-soft);
+    margin-bottom: 22px;
+  }
+
+  /* ──────────────────────── OVERVIEW CARD ──────────────────────── */
+  .overview {
+    background: var(--paper-pure);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 28px 24px;
+  }
+
+  .overview h2 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    color: var(--teal-dark);
+  }
+
+  .overview p {
+    margin-bottom: 14px;
+    color: var(--ink);
+  }
+
+  .overview p:last-child {
+    margin-bottom: 0;
+  }
+
+  .route {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    align-items: center;
+    margin-top: 18px;
+    padding: 16px 18px;
+    background: var(--teal-pale);
+    border-radius: 3px;
+    font-size: 15px;
+  }
+
+  .route-item {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .route-arrow {
+    color: var(--teal-dark);
+    font-weight: 600;
+  }
+
+  /* ──────────────────────── BASE TOUR CARD ──────────────────────── */
+  .base-card {
+    background: var(--paper-pure);
+    border: 2px solid var(--teal);
+    border-radius: 4px;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .base-header {
+    background: var(--teal-pale);
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--teal);
+  }
+
+  .base-header .label {
+    font-size: 11px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--teal-dark);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .base-header .name {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--teal-dark);
+  }
+
+  .base-body {
+    padding: 24px;
+  }
+
+  .base-price {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+    border-bottom: 1px dashed var(--line);
+  }
+
+  .price-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    color: var(--teal-dark);
+    font-weight: 500;
+  }
+
+  .price-unit {
+    font-size: 15px;
+    color: var(--ink-soft);
+  }
+
+  .included-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .included-list li {
+    padding: 8px 0 8px 24px;
+    position: relative;
+    font-size: 16px;
+    color: var(--ink);
+  }
+
+  .included-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    color: var(--teal-dark);
+    font-weight: 600;
+  }
+
+  .not-included-note {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--line);
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  .not-included-note .ni-label {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 6px;
+  }
+
+  .not-included-note .ni-verifying {
+    display: block;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px dotted var(--line);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: 15.5px;
+    color: var(--gold-dark);
+    line-height: 1.55;
+  }
+
+  /* ──────────────────────── ITINERARY SIGHTS ──────────────────────── */
+  .sight {
+    background: var(--paper-pure);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 22px 22px 20px;
+    margin-bottom: 14px;
+    position: relative;
+  }
+
+  .sight-num {
+    position: absolute;
+    top: 22px;
+    left: 22px;
+    width: 30px;
+    height: 30px;
+    background: var(--gold);
+    color: var(--ink);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .sight-content {
+    padding-left: 46px;
+  }
+
+  .sight h3 {
+    font-size: 20px;
+    margin-bottom: 4px;
+    color: var(--teal-dark);
+  }
+
+  .sight .sight-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--gold-dark);
+    margin-bottom: 10px;
+  }
+
+  .sight p {
+    font-size: 15.5px;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  /* ──────────────────────── OPTIONAL EXPERIENCES ──────────────────────── */
+  .extras-intro {
+    background: var(--cream-light);
+    border-left: 3px solid var(--gold);
+    padding: 18px 20px;
+    margin-bottom: 22px;
+    border-radius: 2px;
+  }
+
+  .extras-intro p {
+    font-size: 15.5px;
+    color: var(--ink);
+    line-height: 1.65;
+  }
+
+  .extras-intro p + p {
+    margin-top: 10px;
+  }
+
+  .extra-card {
+    background: var(--paper-pure);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    margin-bottom: 14px;
+    transition: border-color .2s, background .2s;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  .extra-card.selected {
+    border-color: var(--teal-dark);
+    background: var(--teal-pale);
+  }
+
+  .extra-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 20px 22px;
+    cursor: pointer;
+    min-height: 56px;
+  }
+
+  .extra-label input[type="checkbox"] {
+    width: 22px;
+    height: 22px;
+    margin-top: 3px;
+    flex-shrink: 0;
+    cursor: pointer;
+    accent-color: var(--teal-dark);
+  }
+
+  .extra-text {
+    flex: 1;
+  }
+
+  .extra-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
+  }
+
+  .extra-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--teal-dark);
+  }
+
+  .extra-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    color: var(--teal-dark);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .extra-per {
+    font-size: 13px;
+    color: var(--ink-soft);
+    font-weight: 400;
+  }
+
+  .extra-desc {
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  .extra-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--ink);
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 2px;
+    margin-top: 8px;
+  }
+
+  /* ──────────────────────── RUNNING TOTAL ──────────────────────── */
+  .total-bar {
+    background: var(--cream-light);
+    border: 1px solid var(--gold);
+    border-top: 4px solid var(--gold);
+    padding: 26px 26px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 8px;
+  }
+
+  .total-bar .label {
+    font-size: 12px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--teal-dark);
+    font-weight: 600;
+  }
+
+  .total-bar .amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 500;
+    color: var(--teal-dark);
+  }
+
+  .total-note {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--ink-soft);
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  /* ──────────────────────── FORM ──────────────────────── */
+  .form-wrap {
+    background: var(--paper-pure);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 28px 22px;
+    margin-top: 8px;
+  }
+
+  .form-wrap h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+    color: var(--teal-dark);
+  }
+
+  .form-wrap .sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--gold-dark);
+    font-size: 17px;
+    margin-bottom: 22px;
+  }
+
+  .field {
+    margin-bottom: 16px;
+  }
+
+  .field label {
+    display: block;
+    font-size: 13px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  .field input,
+  .field textarea {
+    width: 100%;
+    font-size: 16px; /* iOS: prevents zoom on focus */
+    font-family: 'DM Sans', sans-serif;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    background: var(--paper);
+    color: var(--ink);
+    border-radius: 3px;
+    -webkit-appearance: none;
+  }
+
+  .field input:focus,
+  .field textarea:focus {
+    outline: none;
+    border-color: var(--teal-dark);
+    background: var(--paper-pure);
+  }
+
+  .field textarea {
+    min-height: 90px;
+    resize: vertical;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .submit-btn {
+    width: 100%;
+    background: var(--teal-dark);
+    color: var(--paper-pure);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: 16px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 6px;
+    min-height: 52px;
+    transition: background .15s;
+  }
+
+  .submit-btn:hover {
+    background: var(--teal);
+  }
+
+  .thanks {
+    display: none;
+    padding: 28px 22px;
+    background: var(--teal-pale);
+    border: 1px solid var(--teal);
+    border-radius: 4px;
+    text-align: center;
+  }
+
+  .thanks.show {
+    display: block;
+  }
+
+  .thanks h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+    color: var(--teal-dark);
+  }
+
+  .thanks p {
+    font-size: 15.5px;
+    color: var(--ink);
+  }
+
+  /* ──────────────────────── PRICING NOTE ──────────────────────── */
+  .pricing-note {
+    background: var(--cream-light);
+    border-radius: 3px;
+    padding: 18px 20px;
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+  }
+
+  .pricing-note strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* ──────────────────────── FOOTER ──────────────────────── */
+  footer {
+    background: var(--cream-light);
+    padding: 36px 22px 44px;
+    text-align: center;
+    border-top: 1px solid var(--line);
+    margin-top: 24px;
+  }
+
+  footer .f-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--teal-dark);
+    margin-bottom: 4px;
+  }
+
+  footer .f-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--gold-dark);
+    font-size: 16px;
+    margin-bottom: 18px;
+  }
+
+  footer .f-contact {
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.9;
+  }
+
+  footer .f-contact a {
+    color: var(--teal-dark);
+    text-decoration: none;
+    border-bottom: 1px solid var(--teal);
+  }
+
+  footer .f-agency {
+    font-size: 12px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 24px;
+  }
+
+  /* ──────────────────────── MOBILE TWEAKS ──────────────────────── */
+  @media (max-width: 480px) {
+    header { padding: 36px 18px 40px; }
+    main { padding: 24px 16px 50px; }
+    .overview, .base-body, .sight, .form-wrap { padding-left: 18px; padding-right: 18px; }
+    .sight-num { top: 20px; left: 18px; }
+    .sight-content { padding-left: 40px; }
+    .extra-label { padding: 18px 18px; }
+    .total-bar .amount { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="tag">Private Day Tour</div>
+  <div class="agency">Point Me to Paradise Travel</div>
+  <div class="advisor">Curated by Christina Garcia</div>
+  <div class="gold-line"></div>
+  <h1 class="hero-title">A Day in Tokyo</h1>
+  <div class="hero-sub">Ten hours, your private vehicle, the city at your pace</div>
+  <div class="hero-meta">James &amp; Linda Griffeth · May 6, 2026</div>
+</header>
+
+<main>
+
+  <!-- ── OVERVIEW ── -->
+  <section>
+    <div class="overview">
+      <div class="section-label">The Day</div>
+      <h2>From the ship to the Imperial — with Tokyo in between</h2>
+      <p>After you disembark <em>Oceania Riviera</em>, your English-speaking guide and private driver meet you at the cruise terminal with a 6-seater Alphard. You have up to ten hours before check-in at the Imperial Hotel, and this tour is built to make that window count — five iconic Tokyo sights, unhurried, on your schedule.</p>
+      <p>If you'd rather trade some sightseeing for a cultural experience — a kimono fitting, a tea ceremony, a sumo practice — those options are below. The tour flexes either way.</p>
+      <div class="route">
+        <span class="route-item">Tokyo Cruise Port</span>
+        <span class="route-arrow">→</span>
+        <span class="route-item">10 Hours of Tokyo</span>
+        <span class="route-arrow">→</span>
+        <span class="route-item">Imperial Hotel, Tokyo</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BASE TOUR ── -->
+  <section>
+    <div class="section-label">Included — Your Base Tour</div>
+    <h2 class="section-title">Private Charter · 10 Hours</h2>
+    <div class="section-intro">Driver, guide, vehicle, and the essentials handled.</div>
+
+    <div class="base-card">
+      <div class="base-header">
+        <div class="label">Tokyo Cruise Port → Sightseeing → Hotel</div>
+        <div class="name">6-Seater Alphard Minivan with Driver &amp; English-Speaking Guide</div>
+      </div>
+      <div class="base-body">
+        <div class="base-price">
+          <span class="price-num">$730</span>
+          <span class="price-unit">flat charter · up to 6 travelers · 10 hours</span>
+        </div>
+        <ul class="included-list">
+          <li>Private English-speaking guide for the full day</li>
+          <li>Dedicated driver &amp; 6-seater Alphard minivan</li>
+          <li>Pickup at the Tokyo-area cruise port, drop-off at the Imperial Hotel</li>
+          <li>Fuel, parking, tolls, and tax — all included</li>
+          <li>Itinerary flexes based on your pace and any add-ons below</li>
+        </ul>
+
+        <div class="not-included-note">
+          <span class="ni-label">Not Included</span>
+          Entry fees for certain attractions (for example, Shibuya Sky observation deck or Tokyo Tower) aren't included in the tour rate and are paid directly on the day. Your guide will help with tickets and timing.
+          <span class="ni-verifying">Christina's note: I'm finalizing the exact entry fees with the operator and will follow up shortly. Please don't wait on that to share your selections — the sumo slot and your May 6 charter are time-sensitive.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DEFAULT ITINERARY ── -->
+  <section>
+    <div class="section-label">Default Itinerary</div>
+    <h2 class="section-title">Five Sights, One City</h2>
+    <div class="section-intro">The standard route if no add-ons are selected. Your guide will pace the day around traffic and your energy.</div>
+
+    <div class="sight">
+      <div class="sight-num">1</div>
+      <div class="sight-content">
+        <h3>Tsukiji Outer Market</h3>
+        <div class="sight-sub">Food street, post-wholesale era</div>
+        <p>The famous tuna auction moved to Toyosu in 2018, but the outer market kept running — narrow lanes of sushi counters, tamagoyaki stalls, dashi vendors, and knife shops. A good first stop for breakfast-style bites and a real sense of how Tokyo eats before the rest of the city wakes up.</p>
+      </div>
+    </div>
+
+    <div class="sight">
+      <div class="sight-num">2</div>
+      <div class="sight-content">
+        <h3>Imperial Palace East Gardens</h3>
+        <div class="sight-sub">What remains of Edo Castle</div>
+        <p>The public-access gardens on the former inner grounds of Edo Castle, seat of the Tokugawa shogunate. Stone foundations of the old keep, seasonal plantings, and quiet paths in the middle of a city that otherwise doesn't pause. A working contrast to Tsukiji.</p>
+      </div>
+    </div>
+
+    <div class="sight">
+      <div class="sight-num">3</div>
+      <div class="sight-content">
+        <h3>Tokyo Tower</h3>
+        <div class="sight-sub">333 meters, Shiba district, 1958</div>
+        <p>Orange-and-white steel, Eiffel-inspired, still a working broadcast tower. Tokyo Tower is the older icon — less tall than the Skytree but more affectionately loved, and from here you get a classic mid-city vantage over Roppongi, Shiba Park, and the bay.</p>
+      </div>
+    </div>
+
+    <div class="sight">
+      <div class="sight-num">4</div>
+      <div class="sight-content">
+        <h3>Shibuya Crossing</h3>
+        <div class="sight-sub">The scramble</div>
+        <p>Up to 3,000 people moving across five crosswalks in a single light cycle. Your guide will position you for the best street-level view, and if the timing works, you'll cross it yourselves. The Hachiko statue is a few steps away.</p>
+      </div>
+    </div>
+
+    <div class="sight">
+      <div class="sight-num">5</div>
+      <div class="sight-content">
+        <h3>Shibuya Sky</h3>
+        <div class="sight-sub">Open-air rooftop, 229 meters up</div>
+        <p>The rooftop observation deck atop Shibuya Scramble Square — no glass overhead, full 360° view, and on a clear day, Mt. Fuji off to the southwest. Best late-afternoon into sunset when the light turns.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── OPTIONAL EXPERIENCES ── -->
+  <section>
+    <div class="section-label">Optional Add-Ons</div>
+    <h2 class="section-title">Cultural Experiences</h2>
+    <div class="section-intro">Pick any, all, or none. Pricing is per person unless noted.</div>
+
+    <div class="extras-intro">
+      <p><strong>An honest note on time.</strong> The base tour fills roughly 10 hours — driving, five sights, lunch, and a bit of breathing room. Every add-on below takes 45–90 minutes, which means a sight or two will likely come off the list. Your guide will work that out with you on the day.</p>
+      <p>Don't skip an experience that piques your interest just to keep all five sights. The trade is usually worth it — Shibuya Crossing is still there on a future trip; a sumo practice may not be.</p>
+      <p><strong>Want all three?</strong> We'll try to fit them into May 6. If the timing won't quite stretch that far, we'll move one to early morning on May 8 — your departure day — so nothing has to be cut.</p>
+    </div>
+
+    <div class="extra-card" id="card-kimono">
+      <label class="extra-label">
+        <input type="checkbox" id="chk-kimono" data-price="150" data-name="Kimono Experience" onclick="setTimeout(updateTotal,0)">
+        <div class="extra-text">
+          <div class="extra-title-row">
+            <span class="extra-title">Kimono Experience</span>
+            <span class="extra-price">$50–$100 <span class="extra-per">/ person</span></span>
+          </div>
+          <div class="extra-desc">Dressed in traditional kimono (with obi, tabi, and zori) at a studio by experienced dressers. Price varies by garment selection — the silk options sit at the higher end of the range. Photos included. Typically 45–60 minutes start to finish.</div>
+        </div>
+      </label>
+    </div>
+
+    <div class="extra-card" id="card-tea">
+      <label class="extra-label">
+        <input type="checkbox" id="chk-tea" data-price="80" data-name="Tea Ceremony" onclick="setTimeout(updateTotal,0)">
+        <div class="extra-text">
+          <div class="extra-title-row">
+            <span class="extra-title">Tea Ceremony (Chadō)</span>
+            <span class="extra-price">$40 <span class="extra-per">/ person</span></span>
+          </div>
+          <div class="extra-desc">A proper sit-down ceremony with a trained host — matcha whisked in front of you, paired with a seasonal wagashi sweet, and a quiet walk-through of the utensils and philosophy. Not a quick demo. About an hour.</div>
+        </div>
+      </label>
+    </div>
+
+    <div class="extra-card" id="card-sumo">
+      <label class="extra-label">
+        <input type="checkbox" id="chk-sumo" data-price="280" data-name="Sumo Practice (3pm)" onclick="setTimeout(updateTotal,0)">
+        <div class="extra-text">
+          <div class="extra-title-row">
+            <span class="extra-title">Sumo Practice Observation</span>
+            <span class="extra-price">$140 <span class="extra-per">/ person</span></span>
+          </div>
+          <div class="extra-desc">Observe rikishi training at a stable — visitors sit quietly at the edge of the practice ring while wrestlers run drills and sparring sessions. A rare inside look at a closed tradition.</div>
+          <div class="extra-badge">3pm slot · Limited availability</div>
+        </div>
+      </label>
+    </div>
+  </section>
+
+  <!-- ── TOTAL + FORM ── -->
+  <section>
+    <div class="section-label">Your Selections</div>
+    <h2 class="section-title">Running Total</h2>
+
+    <div class="total-bar">
+      <span class="label">Estimated Day Total</span>
+      <span class="amount">Est. $<span id="totalAmount">730</span></span>
+    </div>
+    <div class="total-note">Final pricing confirmed by Christina before booking. The kimono estimate uses the midpoint of the $50–$100/person range; actual cost depends on garment selection on the day.</div>
+  </section>
+
+  <!-- ── FORM ── -->
+  <section>
+    <div class="form-wrap" id="formWrap">
+      <h3>Share Your Selections</h3>
+      <div class="sub">Tap submit and I'll confirm the booking and final pricing.</div>
+
+      <form id="tripForm">
+        <input type="hidden" name="access_key" value="7b40d437-1004-48e2-9031-171a8b0ef4f1">
+        <input type="hidden" name="subject" value="James &amp; Linda Griffeth — Tokyo Tour Selections">
+        <input type="hidden" name="from_name" value="James &amp; Linda Griffeth — PMTP Tokyo Tour Form">
+        <input type="hidden" name="redirect" value="false">
+
+        <!-- Hidden fields capture selections -->
+        <input type="hidden" name="Selections" id="hidden_selections">
+        <input type="hidden" name="Estimated_Total" id="hidden_total">
+        <input type="hidden" name="Kimono_Selected" id="hidden_kimono">
+        <input type="hidden" name="Tea_Ceremony_Selected" id="hidden_tea">
+        <input type="hidden" name="Sumo_Practice_Selected" id="hidden_sumo">
+
+        <div class="field">
+          <label for="f-name">Your Name</label>
+          <input type="text" id="f-name" name="Name" required>
+        </div>
+
+        <div class="field">
+          <label for="f-email">Email</label>
+          <input type="email" id="f-email" name="Email" required>
+        </div>
+
+        <div class="field">
+          <label for="f-phone">Phone <span style="text-transform:none;font-size:12px;color:var(--ink-soft);letter-spacing:0;">(optional)</span></label>
+          <input type="tel" id="f-phone" name="Phone">
+        </div>
+
+        <div class="field">
+          <label for="f-notes">Questions or notes</label>
+          <textarea id="f-notes" name="Notes" placeholder="Anything you'd like to tell me about the day — dietary notes, mobility considerations, sight priorities, or questions."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Send My Selections</button>
+      </form>
+
+      <div class="thanks" id="thanksMsg">
+        <h3>Got it — thank you.</h3>
+        <p>I'll review your selections and circle back within one business day with confirmed pricing and next steps. If you need me before then, the numbers below both go straight to me.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRICING TRANSPARENCY ── -->
+  <section>
+    <div class="pricing-note">
+      <strong>A note on pricing.</strong> Individual hotels, transfers, and tours in your quote are priced at publicly available rates — and in many cases lower than what you'd find on your own. You don't have to worry about overpaying for a piece of your trip. What you're paying for is the rest: the right operator for the right experience, vetted guides we've used before, the trip app, and a human who answers when something doesn't go to plan.
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="f-name">Christina Garcia</div>
+  <div class="f-title">Travel Advisor · Point Me to Paradise Travel</div>
+  <div class="f-contact">
+    <a id="emailLink" href="#">loading…</a><br>
+    <a href="tel:+12812290862">(281) 229-0862</a>
+  </div>
+  <div class="f-agency">Point Me to Paradise Travel</div>
+</footer>
+
+<script>
+  // ─── Email assembly (avoids Cloudflare scrambling) ───
+  (function(){
+    var addr = 'Christina' + '@' + 'PointMeToParadise.com';
+    var link = document.getElementById('emailLink');
+    link.href = 'mailto:' + addr;
+    link.textContent = addr;
+  })();
+
+  // ─── Running total + selection capture ───
+  function updateTotal() {
+    var base = 730;
+    var extras = 0;
+    var selections = [];
+
+    var kimono = document.getElementById('chk-kimono');
+    var tea = document.getElementById('chk-tea');
+    var sumo = document.getElementById('chk-sumo');
+
+    // Kimono uses midpoint of $50–$100pp range ($75pp × 2 = $150)
+    if (kimono.checked) {
+      extras += 150;
+      selections.push('Kimono Experience (Est. $100–$200 for 2; midpoint $150)');
+      document.getElementById('card-kimono').classList.add('selected');
+      document.getElementById('hidden_kimono').value = 'Yes';
+    } else {
+      document.getElementById('card-kimono').classList.remove('selected');
+      document.getElementById('hidden_kimono').value = 'No';
+    }
+
+    if (tea.checked) {
+      extras += 80;
+      selections.push('Tea Ceremony ($80 for 2)');
+      document.getElementById('card-tea').classList.add('selected');
+      document.getElementById('hidden_tea').value = 'Yes';
+    } else {
+      document.getElementById('card-tea').classList.remove('selected');
+      document.getElementById('hidden_tea').value = 'No';
+    }
+
+    if (sumo.checked) {
+      extras += 280;
+      selections.push('Sumo Practice 3pm ($280 for 2)');
+      document.getElementById('card-sumo').classList.add('selected');
+      document.getElementById('hidden_sumo').value = 'Yes';
+    } else {
+      document.getElementById('card-sumo').classList.remove('selected');
+      document.getElementById('hidden_sumo').value = 'No';
+    }
+
+    var total = base + extras;
+    document.getElementById('totalAmount').textContent = total.toLocaleString();
+    document.getElementById('hidden_total').value = 'Est. $' + total.toLocaleString();
+
+    var summary = 'Base Tour ($730 flat)';
+    if (selections.length) {
+      summary += ' + ' + selections.join(' + ');
+    }
+    document.getElementById('hidden_selections').value = summary;
+  }
+
+  // Initialize hidden fields on load
+  updateTotal();
+
+  // ─── Form submission ───
+  document.getElementById('tripForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var form = e.target;
+    var data = new FormData(form);
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: data
+    })
+    .then(function(res) { return res.json(); })
+    .then(function(json) {
+      if (json.success) {
+        form.style.display = 'none';
+        document.getElementById('thanksMsg').classList.add('show');
+        window.scrollTo({ top: document.getElementById('formWrap').offsetTop - 40, behavior: 'smooth' });
+      } else {
+        alert('Something went wrong. Please email Christina directly or text (281) 229-0862.');
+      }
+    })
+    .catch(function() {
+      alert('Something went wrong. Please email Christina directly or text (281) 229-0862.');
+    });
+  });
+</script>
+
+</body>
+</html>
