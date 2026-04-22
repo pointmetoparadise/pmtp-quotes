@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ronnie Green — MSC Seascape Military Rates | Point Me to Paradise</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal: #75AFB1;
+  --teal-dark: #4F8A8C;
+  --teal-pale: #C4E4E1;
+  --gold: #DAC396;
+  --gold-dark: #B89E6A;
+  --cream: #E9DEC0;
+  --cream-light: #F5EFDF;
+  --ink: #2B2420;
+  --ink-soft: #5A524A;
+  --paper: #FBF9F4;
+  --paper-pure: #FFFFFF;
+  --line: #E5DED0;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Layout */
+.page { max-width: 920px; margin: 0 auto; padding: 0 20px; }
+.section { padding: 56px 0; border-bottom: 1px solid var(--line); }
+.section:last-child { border-bottom: none; }
+
+/* Typography */
+h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--ink); font-weight: 500; line-height: 1.2; }
+h1 { font-size: 2.4rem; margin-bottom: 12px; }
+h2 { font-size: 1.9rem; margin-bottom: 16px; }
+h3 { font-size: 1.4rem; margin-bottom: 10px; }
+h4 { font-size: 1.15rem; margin-bottom: 8px; }
+.accent-italic { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--gold-dark); font-size: 1.3rem; font-weight: 500; }
+
+p { margin-bottom: 14px; color: var(--ink); }
+.muted { color: var(--ink-soft); font-size: 0.95rem; }
+.tiny { font-size: 0.85rem; color: var(--ink-soft); }
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, var(--cream-light) 0%, var(--paper) 60%, var(--teal-pale) 100%);
+  padding: 64px 0 48px;
+  text-align: center;
+  border-bottom: 2px solid var(--gold);
+}
+.hero-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--teal-dark);
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.hero h1 { font-size: 2.6rem; margin-bottom: 12px; }
+.hero .subtitle { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--gold-dark); font-size: 1.4rem; }
+.hero-divider {
+  width: 60px; height: 2px; background: var(--gold);
+  margin: 24px auto;
+}
+.rate-badge {
+  display: inline-block;
+  background: var(--teal-dark); color: var(--paper-pure);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem; letter-spacing: 3px; text-transform: uppercase;
+  font-weight: 700;
+  padding: 10px 22px; border-radius: 3px;
+  margin-top: 14px; margin-bottom: 6px;
+  box-shadow: 0 2px 6px rgba(79,138,140,0.2);
+}
+.hero-meta {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 24px;
+  margin-top: 20px; color: var(--ink-soft); font-size: 0.95rem;
+}
+.hero-meta span { display: inline-flex; align-items: center; gap: 6px; }
+
+/* Welcome note */
+.welcome-note {
+  background: var(--paper-pure);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--teal);
+  padding: 28px 32px;
+  margin-top: 40px;
+  border-radius: 4px;
+}
+.welcome-note p { font-size: 1.02rem; }
+.welcome-note .signature {
+  font-family: 'Cormorant Garamond', serif; font-style: italic;
+  color: var(--gold-dark); font-size: 1.3rem; margin-top: 8px;
+}
+
+/* Section header */
+.section-label {
+  font-family: 'DM Sans', sans-serif; font-size: 0.8rem; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--teal-dark); font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* Itinerary */
+.itin-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 20px; }
+.itin-day {
+  display: grid; grid-template-columns: 80px 1fr auto; gap: 16px;
+  align-items: center; padding: 14px 18px;
+  background: var(--paper-pure); border: 1px solid var(--line); border-radius: 4px;
+}
+.itin-day .day { font-family: 'Playfair Display', serif; font-weight: 600; color: var(--teal-dark); font-size: 0.95rem; }
+.itin-day .port { font-weight: 500; }
+.itin-day .time { font-size: 0.88rem; color: var(--ink-soft); text-align: right; }
+
+/* Step cards */
+.step {
+  background: var(--paper-pure); border: 1px solid var(--line);
+  border-radius: 6px; padding: 28px; margin-top: 28px;
+}
+.step-heading {
+  display: flex; align-items: center; gap: 14px; margin-bottom: 20px;
+  padding-bottom: 16px; border-bottom: 1px solid var(--gold);
+}
+.step-num {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--teal-dark); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif; font-weight: 600; font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.step-heading h3 { margin-bottom: 0; }
+
+/* Full-bleed education section */
+.edu-section { background: var(--cream-light); }
+
+/* Selection cards (shared pattern) */
+.option-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+@media (min-width: 640px) {
+  .option-grid.two-col { grid-template-columns: 1fr 1fr; }
+}
+.option-card {
+  background: var(--paper); border: 2px solid var(--line);
+  border-radius: 6px; padding: 20px; cursor: pointer;
+  transition: all 0.18s ease; position: relative;
+  display: block;
+}
+.option-card:hover { border-color: var(--teal); background: var(--paper-pure); }
+.option-card input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
+.option-card.selected,
+.option-card input[type="radio"]:checked + .card-body,
+.option-card:has(input[type="radio"]:checked) {
+  border-color: var(--teal-dark);
+  background: var(--teal-pale);
+  box-shadow: 0 2px 8px rgba(79,138,140,0.12);
+}
+.option-card .check-indicator {
+  position: absolute; top: 14px; right: 14px;
+  width: 22px; height: 22px; border-radius: 50%;
+  border: 2px solid var(--line); background: white;
+  display: flex; align-items: center; justify-content: center;
+}
+.option-card:has(input[type="radio"]:checked) .check-indicator {
+  background: var(--teal-dark); border-color: var(--teal-dark);
+}
+.option-card:has(input[type="radio"]:checked) .check-indicator::after {
+  content: ""; width: 8px; height: 8px; background: white; border-radius: 50%;
+}
+
+/* Date cards */
+.date-card .date-line { display: block; font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--ink); font-weight: 600; }
+.date-card .date-sub { display: block; font-size: 0.9rem; color: var(--ink-soft); margin-top: 2px; }
+.date-card .date-price { display: block; margin-top: 10px; font-size: 0.95rem; color: var(--teal-dark); font-weight: 500; }
+
+/* Flex date card - distinct from specific dates */
+.flex-card {
+  margin-top: 12px;
+  border-color: var(--gold);
+  background: var(--cream-light);
+  padding: 20px 22px;
+}
+.flex-card:hover { border-color: var(--gold-dark); background: var(--paper-pure); }
+.flex-card .flex-title {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: 1.15rem; color: var(--ink); font-weight: 500;
+  display: block;
+}
+.flex-card .flex-sub {
+  font-size: 0.9rem; color: var(--ink-soft);
+  margin-top: 4px; display: block; line-height: 1.5;
+}
+
+/* Fare toggle cards */
+.fare-card .fare-name { display: block; font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 600; margin-bottom: 6px; }
+.fare-card .fare-tagline { display: block; font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--gold-dark); font-size: 1.05rem; margin-bottom: 12px; }
+.fare-card ul { list-style: none; padding: 0; }
+.fare-card li { padding-left: 18px; position: relative; font-size: 0.93rem; margin-bottom: 5px; line-height: 1.5; }
+.fare-card li::before { content: "✓"; position: absolute; left: 0; color: var(--teal-dark); font-weight: 600; }
+.fare-card li.no::before { content: "✗"; color: var(--gold-dark); }
+
+/* Experience comparison table */
+.exp-intro { background: var(--cream-light); padding: 24px; border-radius: 6px; margin-bottom: 24px; border-left: 3px solid var(--gold); }
+.exp-compare { overflow-x: auto; margin-top: 20px; }
+.exp-compare table { width: 100%; border-collapse: collapse; background: var(--paper-pure); font-size: 0.93rem; }
+.exp-compare th, .exp-compare td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--line); }
+.exp-compare th { background: var(--teal-pale); font-family: 'Playfair Display', serif; font-weight: 600; color: var(--ink); }
+.exp-compare td:first-child { font-weight: 500; width: 35%; }
+.exp-compare .yes { color: var(--teal-dark); font-weight: 600; }
+.exp-compare .no { color: var(--ink-soft); }
+
+.exp-honest {
+  background: var(--paper-pure); border: 1px solid var(--gold); border-radius: 6px;
+  padding: 20px 24px; margin-top: 20px;
+}
+.exp-honest h4 { color: var(--gold-dark); font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.2rem; }
+
+/* Cabin cards */
+.cabin-card { padding: 22px; padding-right: 48px; }
+.cabin-card .cabin-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+.cabin-card .cabin-name { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 600; color: var(--ink); }
+.cabin-card .exp-badge {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 3px; white-space: nowrap;
+}
+.exp-badge.aurea { background: var(--gold); color: var(--ink); }
+.exp-badge.fantastica { background: var(--teal); color: white; }
+.exp-badge.bella { background: var(--cream); color: var(--ink-soft); }
+
+.cabin-card .cabin-specs { font-size: 0.88rem; color: var(--ink-soft); margin-bottom: 10px; }
+.cabin-card .cabin-specs span { display: inline-block; margin-right: 14px; }
+.cabin-card .cabin-desc { font-size: 0.94rem; color: var(--ink); margin-bottom: 14px; line-height: 1.55; }
+.cabin-card .price-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding-top: 14px; border-top: 1px solid var(--gold);
+  margin-top: 12px;
+}
+.cabin-card .per-person {
+  font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: var(--teal-dark);
+}
+.cabin-card .pp-label { font-size: 0.78rem; color: var(--ink-soft); display: block; margin-top: 2px; }
+
+/* Cabin count picker */
+.count-picker { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.count-card { text-align: center; padding: 28px 16px; }
+.count-card .count-num { display: block; font-family: 'Playfair Display', serif; font-size: 2.6rem; font-weight: 600; color: var(--teal-dark); line-height: 1; }
+.count-card .count-label { display: block; font-size: 0.95rem; margin-top: 6px; }
+.count-card .count-sub { display: block; font-size: 0.82rem; color: var(--ink-soft); margin-top: 4px; }
+
+/* Summary box */
+.summary {
+  background: linear-gradient(135deg, var(--teal-pale) 0%, var(--cream-light) 100%);
+  border: 2px solid var(--teal);
+  border-radius: 6px; padding: 28px; margin-top: 28px;
+}
+.summary h3 { font-family: 'Playfair Display', serif; color: var(--teal-dark); margin-bottom: 18px; }
+.summary-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 8px 0; border-bottom: 1px dashed var(--gold);
+  font-size: 0.95rem;
+}
+.summary-row:last-of-type { border-bottom: none; }
+.summary-row .label { color: var(--ink-soft); }
+.summary-row .value { font-weight: 600; color: var(--ink); text-align: right; }
+.summary-total {
+  margin-top: 18px; padding-top: 18px; border-top: 2px solid var(--gold);
+  display: flex; justify-content: space-between; align-items: baseline;
+}
+.summary-total .total-label { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--ink); }
+.summary-total .total-value {
+  font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 600;
+  color: var(--teal-dark);
+}
+.summary-note {
+  font-size: 0.85rem; color: var(--ink-soft); font-style: italic;
+  margin-top: 14px; line-height: 1.5;
+}
+.summary .empty { text-align: center; color: var(--ink-soft); font-style: italic; padding: 20px; }
+
+/* Form */
+.form-intro { margin-bottom: 24px; }
+.form-group { margin-bottom: 18px; }
+.form-group label {
+  display: block; font-weight: 500; margin-bottom: 6px;
+  font-size: 0.92rem; color: var(--ink);
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+  width: 100%; padding: 12px 14px;
+  font-family: 'DM Sans', sans-serif; font-size: 16px;
+  border: 1px solid var(--line); border-radius: 4px;
+  background: var(--paper-pure); color: var(--ink);
+  transition: border-color 0.15s;
+}
+.form-group input:focus, .form-group textarea:focus {
+  outline: none; border-color: var(--teal-dark);
+}
+.form-group textarea { min-height: 90px; resize: vertical; }
+
+.btn-submit {
+  display: block; width: 100%; padding: 16px;
+  background: var(--teal-dark); color: white;
+  font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 500;
+  border: none; border-radius: 4px; cursor: pointer;
+  letter-spacing: 0.5px; transition: background 0.15s;
+}
+.btn-submit:hover { background: var(--ink); }
+.btn-submit:disabled { background: var(--line); color: var(--ink-soft); cursor: not-allowed; }
+
+.thanks-msg { display: none; text-align: center; padding: 48px 24px; background: var(--teal-pale); border-radius: 6px; }
+.thanks-msg.show { display: block; }
+.thanks-msg h3 { color: var(--teal-dark); margin-bottom: 10px; }
+
+/* Contact strip */
+.contact-strip {
+  background: var(--cream-light); padding: 32px 0; text-align: center;
+  border-top: 2px solid var(--gold); margin-top: 40px;
+}
+.contact-strip p { margin-bottom: 4px; }
+.contact-strip .advisor-name {
+  font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 600; color: var(--ink);
+}
+.contact-strip a { color: var(--teal-dark); text-decoration: none; font-weight: 500; }
+.contact-strip a:hover { text-decoration: underline; }
+
+/* Utility */
+.divider-dot {
+  text-align: center; color: var(--gold); font-size: 1.2rem;
+  letter-spacing: 8px; margin: 32px 0;
+}
+.highlight-box {
+  background: var(--paper-pure); border-left: 3px solid var(--gold);
+  padding: 16px 20px; border-radius: 4px; margin: 16px 0;
+  font-size: 0.93rem; line-height: 1.55;
+}
+
+.alert-box {
+  background: var(--paper-pure);
+  border: 1px solid var(--teal);
+  border-left: 4px solid var(--teal-dark);
+  padding: 20px 22px; border-radius: 4px;
+  margin: 20px 0 8px; font-size: 0.93rem; line-height: 1.55;
+}
+.alert-box .alert-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.08rem; font-weight: 600;
+  color: var(--teal-dark);
+  margin-bottom: 8px;
+}
+.alert-box p { margin-bottom: 10px; }
+
+/* Responsive tweaks */
+@media (max-width: 639px) {
+  .hero { padding: 44px 0 36px; }
+  .hero h1 { font-size: 1.9rem; }
+  h2 { font-size: 1.55rem; }
+  .section { padding: 40px 0; }
+  .step { padding: 20px; }
+  .welcome-note { padding: 22px 20px; }
+  .itin-day { grid-template-columns: 60px 1fr; }
+  .itin-day .time { grid-column: 2; text-align: left; font-size: 0.82rem; margin-top: 2px; }
+  .hero-meta { gap: 12px; font-size: 0.88rem; }
+
+  /* Restructure comparison table as stacked cards on mobile */
+  .exp-compare { overflow-x: visible; }
+  .exp-compare table { background: transparent; }
+  .exp-compare thead { display: none; }
+  .exp-compare tbody, .exp-compare tr, .exp-compare td { display: block; width: auto; }
+  .exp-compare tr {
+    background: var(--paper-pure);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+  }
+  .exp-compare td {
+    padding: 5px 0;
+    border-bottom: none;
+  }
+  .exp-compare td:first-child {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 1rem;
+    padding-bottom: 10px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--gold);
+    color: var(--ink);
+    width: 100%;
+  }
+  .exp-compare td:nth-child(2)::before { content: "Bella — "; font-weight: 600; color: var(--teal-dark); }
+  .exp-compare td:nth-child(3)::before { content: "Fantastica — "; font-weight: 600; color: var(--teal-dark); }
+  .exp-compare td:nth-child(4)::before { content: "Aurea — "; font-weight: 600; color: var(--teal-dark); }
+
+  /* Stack summary total vertically on mobile for long range values */
+  .summary-total {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .summary-total .total-value { font-size: 1.7rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="page">
+    <div class="hero-brand">Point Me to Paradise Travel</div>
+    <div class="rate-badge">⭐ Military Rates Quote</div>
+    <h1>Ronnie, let's plan your Western Caribbean</h1>
+    <div class="subtitle">MSC Seascape · 7 nights from Galveston · June 2026</div>
+    <div class="hero-divider"></div>
+    <div class="hero-meta">
+      <span>⚓ Galveston → Galveston</span>
+      <span>🌴 Costa Maya · Roatán · Cozumel</span>
+      <span>🛳 MSC Seascape</span>
+    </div>
+  </div>
+</header>
+
+<!-- WELCOME NOTE -->
+<div class="page">
+  <div class="alert-box" style="margin-top: 40px; margin-bottom: 20px;">
+    <div class="alert-title">🎖️ This is your Military Rates quote</div>
+    <p style="margin-bottom:0;">This version of the MSC Seascape quote is priced at <strong>MSC's military rate</strong> — available to active and retired U.S. and Canadian military personnel and their immediate family (spouses, parents, in-laws, dependent children) when traveling together. Rates shown throughout this page are discounted from the public pricing. A separate public-rate quote was sent earlier today if you'd like to compare.</p>
+  </div>
+  <div class="welcome-note">
+    <p>Hi Ronnie — this version of the quote reflects <strong>MSC's military rates</strong>. MSC's discount applies to active and retired U.S. and Canadian military (including Army, Air Force, Marine Corps, Navy, Coast Guard, National Guard, Reserve, and Department of Defense personnel), along with their immediate family — spouses, parents, in-laws, and dependent children — when traveling on the same booking. There are four June sail dates to pick from, and within each you have a ladder of balcony cabin choices across the Bella, Fantastica, and Aurea experience levels.</p>
+    <p>Below I've laid out each decision one at a time — <em>sail date, experience level, fare type, cabin choice, and how many cabins you need.</em> The running total updates as you go. When you're ready, the form at the bottom sends your picks straight to me and I'll confirm final pricing and hold the cabins for you.</p>
+    <p>I know having the group's cabins close together matters — once you narrow in on a sail date or a balcony category you like, I can go to work on locking down adjacent or connecting cabins so nobody's scattered across the ship. Letting me know your preference on either (date <em>or</em> room type) gives me what I need to start hunting the best layout for your group.</p>
+    <p><strong>A note on the military rate:</strong> MSC requires proof of service to lock in these rates. Generally accepted documents include a valid military ID, DD-214 (discharge papers), or retiree ID, along with a government-issued photo ID (driver's license or passport). When we book, I'll have 48 hours to submit documentation to MSC — I'll coordinate with each qualifying guest directly. The military rate is not combinable with MSC Voyagers Club or other promotions. If any cabin in your group doesn't have a military-eligible guest, let me know in the form and I'll adjust those to standard pricing.</p>
+    <p class="signature">— Christina</p>
+  </div>
+</div>
+
+<!-- THE SHIP + ITINERARY -->
+<section class="section">
+  <div class="page">
+    <div class="section-label">The Sailing</div>
+    <h2>Escape to Sea — 7 Nights, Western Caribbean</h2>
+    <p class="muted">The Seascape runs a consistent seven-night loop through June: two sea days to bookend the week, three port days in the middle. Afternoons in port, evenings on the ship.</p>
+
+    <div class="itin-grid">
+      <div class="itin-day"><span class="day">Day 1 · Sun</span><span class="port">Galveston, TX — Embarkation</span><span class="time">Depart 4:00 PM</span></div>
+      <div class="itin-day"><span class="day">Day 2 · Mon</span><span class="port">At sea</span><span class="time">Relaxed ship day</span></div>
+      <div class="itin-day"><span class="day">Day 3 · Tue</span><span class="port">Costa Maya, Mexico</span><span class="time">Morning arrival</span></div>
+      <div class="itin-day"><span class="day">Day 4 · Wed</span><span class="port">Isla de Roatán, Honduras</span><span class="time">Morning arrival</span></div>
+      <div class="itin-day"><span class="day">Day 5 · Thu</span><span class="port">Cozumel, Mexico</span><span class="time">Morning arrival</span></div>
+      <div class="itin-day"><span class="day">Day 6 · Fri</span><span class="port">At sea</span><span class="time">Relaxed ship day</span></div>
+      <div class="itin-day"><span class="day">Day 7 · Sat</span><span class="port">At sea</span><span class="time">Relaxed ship day</span></div>
+      <div class="itin-day"><span class="day">Day 8 · Sun</span><span class="port">Galveston, TX — Return</span><span class="time">Morning arrival</span></div>
+    </div>
+
+    <div class="highlight-box">
+      <strong>About the ship:</strong> MSC Seascape is one of MSC's newest ships — launched late 2022. 4,500+ guests, 19 decks, the full Western Caribbean setup with multiple pools, a waterpark, 11 dining venues, a Broadway-style theater, and the adults-only Top Exclusive Solarium on Deck 19 (which becomes important when we talk about the Aurea experience below).
+    </div>
+  </div>
+</section>
+
+<!-- STEP 1: DATE -->
+<section class="section">
+  <div class="page">
+    <div class="section-label">Step 1</div>
+    <h2>Choose your sail date</h2>
+    <p class="muted">Four Sunday departures this June. Pick a date below — then scroll down to see room options and rates for your sail date.</p>
+
+    <div class="step">
+      <div class="option-grid two-col">
+
+        <label class="option-card date-card">
+          <input type="radio" name="date" value="june-7" onchange="updateAll()">
+          <span class="check-indicator"></span>
+          <span class="date-line">June 7, 2026</span>
+          <span class="date-sub">Sunday departure</span>
+        </label>
+
+        <label class="option-card date-card">
+          <input type="radio" name="date" value="june-14" onchange="updateAll()">
+          <span class="check-indicator"></span>
+          <span class="date-line">June 14, 2026</span>
+          <span class="date-sub">Sunday departure</span>
+        </label>
+
+        <label class="option-card date-card">
+          <input type="radio" name="date" value="june-21" onchange="updateAll()">
+          <span class="check-indicator"></span>
+          <span class="date-line">June 21, 2026</span>
+          <span class="date-sub">Sunday departure</span>
+        </label>
+
+        <label class="option-card date-card">
+          <input type="radio" name="date" value="june-28" onchange="updateAll()">
+          <span class="check-indicator"></span>
+          <span class="date-line">June 28, 2026</span>
+          <span class="date-sub">Sunday departure</span>
+        </label>
+
+      </div>
+
+      <label class="option-card flex-card">
+        <input type="radio" name="date" value="flex" onchange="updateAll()">
+        <span class="check-indicator"></span>
+        <span class="flex-title">I'm flexible — any June date works</span>
+        <span class="flex-sub">Let me suggest the best sail date based on cabin availability, price, and how easily I can keep your group's rooms together.</span>
+      </label>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION: BELLA VS FANTASTICA VS AUREA -->
+<section class="section edu-section">
+  <div class="page">
+    <div class="section-label">Understanding your options</div>
+    <h2>Bella vs. Fantastica vs. Aurea</h2>
+    <p class="muted">MSC sells cruises in three "experience" tiers (plus the Yacht Club, which is a separate ship-within-a-ship concept and not part of this quote). All three include your cabin, all main meals, entertainment, and access to the ship's pools, gym, and amenities. The differences are about <em>where your cabin is, how flexible your dining is, and what extras you get on board.</em></p>
+
+    <div class="exp-intro">
+      <p style="margin-bottom:0;"><strong>Important distinction:</strong> In the US market, <em>none</em> of these experiences include a drinks package or WiFi. Those are separate add-ons — which is why you see two price columns in this quote ("Cruise Only" vs. "Drinks &amp; WiFi Included"). You pick your experience level <em>first</em>, then decide if you want to add drinks/WiFi on top.</p>
+    </div>
+
+    <div class="exp-compare">
+      <table>
+        <thead>
+          <tr><th>Perk</th><th>Bella</th><th>Fantastica</th><th>Aurea</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Choose your specific cabin location</td><td class="no">No — MSC assigns</td><td class="yes">Yes</td><td class="yes">Yes (best balcony locations)</td></tr>
+          <tr><td>Free continental breakfast delivered to cabin</td><td class="no">Small fee</td><td class="yes">Included</td><td class="yes">Included</td></tr>
+          <tr><td>24-hour room service (free delivery)</td><td class="no">Fee applies</td><td class="yes">Included</td><td class="yes">Included</td></tr>
+          <tr><td>Dining schedule</td><td>Assigned seating — early or late</td><td>Assigned seating — early or late</td><td class="yes">My Choice — dine any time</td></tr>
+          <tr><td>Thermal suite access (sauna, steam, heated loungers)</td><td class="no">Day pass only</td><td class="no">Day pass only</td><td class="yes">Unlimited, by reservation</td></tr>
+          <tr><td>Top Exclusive Solarium (Deck 19, adults-only)</td><td class="no">Not accessible</td><td class="no">Not accessible</td><td class="yes">Yes — private bar, whirlpools</td></tr>
+          <tr><td>Priority boarding &amp; luggage drop-off</td><td class="no">No</td><td class="no">No</td><td class="yes">Yes</td></tr>
+          <tr><td>Welcome Prosecco &amp; chocolate in cabin</td><td class="no">No</td><td class="no">No</td><td class="yes">Yes</td></tr>
+          <tr><td>Bathrobes, slippers, MED bath amenities, pillow menu</td><td class="no">No</td><td class="no">No</td><td class="yes">Yes</td></tr>
+          <tr><td>10% discount on spa treatments</td><td class="no">No</td><td class="no">No</td><td class="yes">Yes</td></tr>
+          <tr><td>One free cruise change (date/destination, T&amp;C apply)</td><td class="no">No</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+          <tr><td>Drinks package</td><td>Separate add-on</td><td>Separate add-on</td><td>Separate add-on</td></tr>
+          <tr><td>WiFi</td><td>Separate add-on</td><td>Separate add-on</td><td>Separate add-on</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="exp-honest">
+      <h4>The honest take for a couples group</h4>
+      <p><strong>Bella (lowest fare):</strong> You still get a balcony cabin — that part is the same. What you give up is the ability to pick your cabin's deck or position. MSC assigns it closer to sailing. Works fine if you don't care where you land and you're spending most of your time off exploring ports and the ship anyway.</p>
+      <p><strong>Fantastica (mid-tier):</strong> The sweet spot for most cruisers. You pick your deck and cabin, you get free room service, and you can request an early or late dining time. Worth the small bump up from Bella for the cabin choice alone — especially for a couples group where keeping everyone close matters.</p>
+      <p><strong>Aurea (premium tier):</strong> For a couples group, Aurea actually makes a lot of sense. The real value is two things — the thermal suite and the Top Exclusive Solarium on Deck 19. The solarium is adults-only, has a private bar, hot tubs, loungers, and rarely gets crowded because access is limited. If your group wants a quieter, adults-only space to unwind — no kids, no family-cruise bustle — that's what Aurea gets you. Plus My Choice dining means you're not locked to a 5:30 or 8:00 seating time — couples can come down to dinner whenever suits the day.</p>
+      <p style="margin-bottom:0;"><strong>What Aurea does NOT include in the US:</strong> drinks and WiFi. Those are separate. Don't pay for Aurea expecting all-inclusive — pay for Aurea if the spa, solarium, and dining flexibility matter to your group.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STEP 2: FARE TYPE -->
+<section class="section">
+  <div class="page">
+    <div class="section-label">Step 2</div>
+    <h2>Cruise only, or add drinks + WiFi?</h2>
+    <p class="muted">MSC lets you bundle the drinks package and WiFi in at booking for a flat rate, or book the cruise bare and pay à la carte onboard. Roughly $112/person/day for the bundle on this sailing.</p>
+
+    <div class="step">
+      <div class="option-grid two-col">
+
+        <label class="option-card fare-card">
+          <input type="radio" name="fare" value="cruiseOnly" onchange="updateAll()">
+          <span class="check-indicator"></span>
+          <span class="fare-name">Escape to Sea — Cruise Only</span>
+          <span class="fare-tagline">The base fare. Pay for drinks and WiFi as you go.</span>
+          <ul>
+            <li>All meals in main dining room and buffet</li>
+            <li>Live entertainment, pools, gym, and ship amenities</li>
+            <li>Water, tea, coffee, and juice at meals</li>
+            <li class="no">Alcoholic drinks, soft drinks, coffee bar — à la carte</li>
+            <li class="no">WiFi — purchase onboard or pre-cruise</li>
+          </ul>
+        </label>
+
+        <label class="option-card fare-card">
+          <input type="radio" name="fare" value="drinksWifi" onchange="updateAll()">
+          <span class="check-indicator"></span>
+          <span class="fare-name">Drinks + WiFi Included</span>
+          <span class="fare-tagline">Bundle everything in. ~$784 extra per person.</span>
+          <ul>
+            <li>Everything in Cruise Only, plus:</li>
+            <li>Unlimited drinks package (beer, wine by the glass, cocktails, sodas, specialty coffee)</li>
+            <li>Basic WiFi package for the full sailing</li>
+            <li>No signing checks, no surprise bar tab at the end</li>
+          </ul>
+        </label>
+
+      </div>
+      <p class="tiny" style="margin-top:14px; margin-bottom:0;">MSC drinks packages have per-glass price caps (typically $10–$12). Premium spirits and specialty wines may exceed the cap and run at 50% off. Christina will confirm the exact package details before you book.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STEP 3: CABIN -->
+<section class="section">
+  <div class="page">
+    <div class="section-label">Step 3</div>
+    <h2>Choose your cabin</h2>
+    <p class="muted">Seven cabin options, organized from highest-tier Aurea at the top to lowest-fare Bella at the bottom. All are balcony cabins — the differences are deck location, balcony size, and which experience tier the cabin books under.</p>
+    <p class="tiny" style="margin-bottom:20px;">Prices shown are <strong>per cabin, based on 2 adults.</strong> Select a date and fare type above to see live pricing.</p>
+
+    <div class="step">
+      <div class="option-grid" id="cabinGrid">
+        <!-- Cabin cards built by JS -->
+      </div>
+      <p class="tiny" style="margin-top:16px;">Select a sail date and fare type above to see pricing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STEP 4: CABIN COUNT -->
+<section class="section">
+  <div class="page">
+    <div class="section-label">Step 4</div>
+    <h2>How many cabins do you need?</h2>
+    <p class="muted">You mentioned you're weighing 2 vs. 3 cabins for your group. Pick one to see the total — you can always switch back and forth to compare.</p>
+
+    <div class="step">
+      <div class="count-picker">
+
+        <label class="option-card count-card">
+          <input type="radio" name="count" value="2" onchange="updateAll()">
+          <span class="check-indicator"></span>
+          <span class="count-num">2</span>
+          <span class="count-label">cabins</span>
+          <span class="count-sub">2 per cabin</span>
+        </label>
+
+        <label class="option-card count-card">
+          <input type="radio" name="count" value="3" onchange="updateAll()">
+          <span class="check-indicator"></span>
+          <span class="count-num">3</span>
+          <span class="count-label">cabins</span>
+          <span class="count-sub">2 per cabin</span>
+        </label>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUMMARY / RUNNING TOTAL -->
+<section class="section">
+  <div class="page">
+    <div class="section-label">Your Quote</div>
+    <h2>Running total</h2>
+
+    <div class="summary" id="summaryBox">
+      <h3>Your selections</h3>
+      <div id="summaryContent">
+        <div class="empty">Make your selections above and your total will appear here.</div>
+      </div>
+    </div>
+
+    <div class="highlight-box" style="margin-top:20px;">
+      <strong>About pricing:</strong> Individual hotels, cruise cabins, transfers, and tours in your quote are priced at publicly available rates — and in many cases lower than what you'd find on your own. What you're paying for is the rest: the right cabins in the right location, a cruise line relationship we've used for years, comprehensive pre-cruise guides so your group walks on board feeling confident about every detail, the trip app, and a human who answers when something doesn't go to plan.
+    </div>
+
+    <div class="alert-box">
+      <div class="alert-title">Heads up on gratuities — worth acting on</div>
+      <p>MSC is raising its daily gratuity rate (what they call the "Hotel Service Charge") on Caribbean sailings from <strong>$16 to $17 per person, per night starting May 11, 2026.</strong> The silver lining: MSC is honoring the current rate for anyone who <strong>prepays gratuities before the change</strong> — even for sailings that depart after May 11, like this one.</p>
+      <p style="margin-bottom:0;">I strongly recommend we add pre-paid gratuities to your booking to lock in the lower rate. Small money per head, but it adds up across 4–6 guests over 7 nights, and there's no reason to pay the increase if we don't have to. More on this when we book.</p>
+    </div>
+
+    <p class="tiny" style="margin-top:12px;">Because these sailings are within 90 days of departure, we're inside MSC's final payment window — full balance is due at booking rather than a low deposit. I can place a 24-hour courtesy hold while your group confirms and lines up payment.</p>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="section">
+  <div class="page">
+    <div class="section-label">Send Me Your Picks</div>
+    <h2>Ready to lock it in?</h2>
+    <div class="form-intro">
+      <p>Fill out the form below with your picks and anything on your mind. <strong>If you're not sure about something yet</strong> — sail date, cabin type, total headcount, whether you want 2 rooms or 3 — that's completely fine. Just share your thoughts and questions in the notes field and I'll work through it with you.</p>
+      <p>Once you've narrowed in, <strong>I can place a 24-hour complimentary courtesy hold</strong> on your cabins as soon as you send me the legal sailing names and dates of birth for each guest. That freezes the cabins and the rate while your group confirms — no payment needed just to hold.</p>
+    </div>
+
+    <form id="tripForm">
+      <input type="hidden" name="access_key" value="7b40d437-1004-48e2-9031-171a8b0ef4f1">
+      <input type="hidden" name="subject" value="Ronnie Green — MSC Seascape MILITARY Rates Selections">
+      <input type="hidden" name="from_name" value="Ronnie Green — PMTP Trip Form (Military)">
+      <input type="hidden" name="redirect" value="false">
+
+      <input type="hidden" name="Sail_Date" id="hidden_date" value="—">
+      <input type="hidden" name="Fare_Type" id="hidden_fare" value="—">
+      <input type="hidden" name="Cabin_Category" id="hidden_cabin" value="—">
+      <input type="hidden" name="Experience_Level" id="hidden_exp" value="—">
+      <input type="hidden" name="Number_of_Cabins" id="hidden_count" value="—">
+      <input type="hidden" name="Estimated_Total" id="hidden_total" value="—">
+      <input type="hidden" name="Per_Person_Rate" id="hidden_pp" value="—">
+
+      <div class="form-group">
+        <label for="fName">Your name</label>
+        <input type="text" id="fName" name="Name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="fEmail">Email</label>
+        <input type="email" id="fEmail" name="Email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="fPhone">Phone</label>
+        <input type="tel" id="fPhone" name="Phone">
+      </div>
+
+      <div class="form-group">
+        <label for="fGuests">Total guests in your group</label>
+        <input type="text" id="fGuests" name="Guest_Count" placeholder="e.g. 4 adults (2 rooms) or 6 adults (3 rooms) — or TBD">
+      </div>
+
+      <div class="form-group">
+        <label for="fNotes">Notes, questions, special requests</label>
+        <textarea id="fNotes" name="Notes" placeholder="Who in your group is military-eligible (active/retired U.S. or Canadian military, or spouse/parent/in-law/dependent of an eligible service member traveling with you), which couples are sharing which cabin, anniversaries or special occasions for the booking, dining preferences, dietary needs, anyone with mobility concerns, anything you're still figuring out..."></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit">Send My Selections to Christina</button>
+    </form>
+
+    <div class="thanks-msg" id="thanksMsg">
+      <h3>Got it, Ronnie — thank you!</h3>
+      <p>Your selections just landed in my inbox. I'll confirm pricing and availability and be in touch within 24 hours. If anything's urgent, text me at <strong>(281) 229-0862</strong>.</p>
+      <p class="signature" style="font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--gold-dark); font-size: 1.3rem; margin-top: 10px;">— Christina</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT STRIP -->
+<footer class="contact-strip">
+  <div class="page">
+    <p class="advisor-name">Christina Garcia</p>
+    <p><em>Travel Advisor · Point Me to Paradise Travel</em></p>
+    <p style="margin-top:10px;">
+      <a id="emailLink" href="#">loading…</a> &nbsp;·&nbsp;
+      <a href="tel:+12812290862" style="white-space:nowrap;">(281) 229-0862</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+// -------------------- DATA --------------------
+// NOTE: Military rates - these are TOTAL per cabin (2 adults), NOT per person
+const pricing = {
+  "june-7":  { date: "June 7, 2026",  cruiseOnly: {BGA:2137.38,BA:1831.38,BR4:1507.38,BR3:1489.38,BR2:1471.38,BR1:1453.38,BB:1327.38}, drinksWifi: {BGA:2842.98,BA:2536.98,BR4:2212.98,BR3:2194.98,BR2:2176.98,BR1:2158.98,BB:2032.98} },
+  "june-14": { date: "June 14, 2026", cruiseOnly: {BGA:2153.58,BA:1847.58,BR4:1523.58,BR3:1505.58,BR2:1487.58,BR1:1469.58,BB:1343.58}, drinksWifi: {BGA:2859.18,BA:2553.18,BR4:2229.18,BR3:2211.18,BR2:2193.18,BR1:2175.18,BB:2049.18} },
+  "june-21": { date: "June 21, 2026", cruiseOnly: {BGA:2218.38,BA:1912.38,BR4:1588.38,BR3:1570.38,BR2:1552.38,BR1:1534.38,BB:1408.38}, drinksWifi: {BGA:2866.38,BA:2560.38,BR4:2236.38,BR3:2218.38,BR2:2200.38,BR1:2182.38,BB:2056.38} },
+  "june-28": { date: "June 28, 2026", cruiseOnly: {BGA:2250.78,BA:1944.78,BR4:1620.78,BR3:1602.78,BR2:1584.78,BR1:1566.78,BB:1440.78}, drinksWifi: {BGA:2956.38,BA:2650.38,BR4:2326.38,BR3:2308.38,BR2:2290.38,BR1:2272.38,BB:2146.38} }
+};
+
+const cabins = [
+  { code:"BGA", name:"Premium Balcony Aurea — Deck 9", exp:"Aurea", badgeClass:"aurea",
+    specs:"~183 sq ft cabin · 172 sq ft oversized balcony · Deck 9",
+    desc:"The standout. A massive wraparound balcony nearly as big as the cabin itself — rare at any price point. Top Aurea location on the ship." },
+  { code:"BA", name:"Deluxe Balcony Aurea", exp:"Aurea", badgeClass:"aurea",
+    specs:"~183 sq ft cabin · 54–97 sq ft balcony · Decks 9–15",
+    desc:"Standard Aurea balcony at a friendlier price than the BGA. You still get all the Aurea perks (thermal suite, Deck 19 solarium, My Choice dining, priority boarding)." },
+  { code:"BR4", name:"Deluxe Balcony — Deck 15", exp:"Fantastica", badgeClass:"fantastica",
+    specs:"~183 sq ft cabin · 54–65 sq ft balcony · Deck 15",
+    desc:"Highest Fantastica deck. Top-of-ship location, close to the pool deck, buffet, and main outdoor action." },
+  { code:"BR3", name:"Deluxe Balcony — Decks 13–14", exp:"Fantastica", badgeClass:"fantastica",
+    specs:"~172–183 sq ft cabin · 54–65 sq ft balcony · Decks 13–14",
+    desc:"Upper Fantastica decks. Easy elevator access to both pools and main dining. A popular mid-tier choice." },
+  { code:"BR2", name:"Deluxe Balcony — Decks 11–12", exp:"Fantastica", badgeClass:"fantastica",
+    specs:"~172–183 sq ft cabin · 54–65 sq ft balcony · Decks 11–12",
+    desc:"Mid-ship Fantastica. Quieter than the upper decks, with decent proximity to everything. Solid balance of price and convenience." },
+  { code:"BR1", name:"Deluxe Balcony — Decks 9–10", exp:"Fantastica", badgeClass:"fantastica",
+    specs:"~172–183 sq ft cabin · 54–97 sq ft balcony · Decks 9–10",
+    desc:"Lowest Fantastica tier. Some cabins on these decks have the oversized 97 sq ft balcony — worth asking about when booking." },
+  { code:"BB", name:"Balcony Bella — Guaranteed Stateroom", exp:"Bella", badgeClass:"bella",
+    specs:"Balcony cabin · MSC assigns specific cabin before sailing",
+    desc:"Lowest balcony fare. You get a balcony cabin somewhere on the ship — MSC picks the exact deck and position closer to sailing. No perks, but also no premium." }
+];
+
+// -------------------- BUILD CABIN CARDS --------------------
+function buildCabinCards() {
+  const grid = document.getElementById('cabinGrid');
+  grid.innerHTML = cabins.map(c => `
+    <label class="option-card cabin-card" data-cabin="${c.code}">
+      <input type="radio" name="cabin" value="${c.code}" onchange="updateAll()">
+      <span class="check-indicator"></span>
+      <div class="cabin-top">
+        <div class="cabin-name">${c.name}</div>
+        <span class="exp-badge ${c.badgeClass}">${c.exp}</span>
+      </div>
+      <div class="cabin-specs">${c.specs}</div>
+      <div class="cabin-desc">${c.desc}</div>
+      <div class="price-row">
+        <div>
+          <div class="per-person" id="price-${c.code}">—</div>
+          <div class="pp-label">per cabin (2 guests)</div>
+        </div>
+      </div>
+    </label>
+  `).join('');
+}
+buildCabinCards();
+
+// -------------------- UPDATE LOGIC --------------------
+function currentSelection() {
+  const d = document.querySelector('input[name="date"]:checked');
+  const f = document.querySelector('input[name="fare"]:checked');
+  const c = document.querySelector('input[name="cabin"]:checked');
+  const n = document.querySelector('input[name="count"]:checked');
+  return {
+    date: d ? d.value : null,
+    fare: f ? f.value : null,
+    cabin: c ? c.value : null,
+    count: n ? parseInt(n.value, 10) : null
+  };
+}
+
+function getFlexRange(fare, cabinCode) {
+  const dates = ["june-7", "june-14", "june-21", "june-28"];
+  const prices = dates.map(d => pricing[d][fare][cabinCode]);
+  return { min: Math.min(...prices), max: Math.max(...prices) };
+}
+
+function updateCabinPrices() {
+  const s = currentSelection();
+  const fmt = (n) => '$' + n.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+  cabins.forEach(c => {
+    const el = document.getElementById('price-' + c.code);
+    if (!s.fare) { el.textContent = '—'; return; }
+    if (s.date === 'flex') {
+      const r = getFlexRange(s.fare, c.code);
+      el.textContent = fmt(r.min) + ' – ' + fmt(r.max);
+    } else if (s.date && pricing[s.date]) {
+      const price = pricing[s.date][s.fare][c.code];
+      el.textContent = fmt(price);
+    } else {
+      el.textContent = '—';
+    }
+  });
+}
+
+function updateSummary() {
+  const s = currentSelection();
+  const box = document.getElementById('summaryContent');
+
+  if (!s.date || !s.fare || !s.cabin || !s.count) {
+    box.innerHTML = '<div class="empty">Make your selections above and your total will appear here.</div>';
+    const dateLabelEmpty = s.date === 'flex' ? 'Flexible — any June date' : (s.date ? pricing[s.date].date : '—');
+    document.getElementById('hidden_date').value = dateLabelEmpty;
+    document.getElementById('hidden_fare').value = s.fare ? (s.fare === 'cruiseOnly' ? 'Cruise Only' : 'Drinks + WiFi Included') : '—';
+    document.getElementById('hidden_cabin').value = s.cabin ? cabins.find(c=>c.code===s.cabin).name : '—';
+    document.getElementById('hidden_exp').value = s.cabin ? cabins.find(c=>c.code===s.cabin).exp : '—';
+    document.getElementById('hidden_count').value = s.count ? s.count : '—';
+    document.getElementById('hidden_pp').value = '—';
+    document.getElementById('hidden_total').value = '—';
+    return;
+  }
+
+  const dateLabel = s.date === 'flex' ? 'Flexible — any June date' : pricing[s.date].date;
+  const fareLabel = s.fare === 'cruiseOnly' ? 'Cruise Only (Escape to Sea)' : 'Drinks + WiFi Included';
+  const cabin = cabins.find(c => c.code === s.cabin);
+
+  const fmt = (n) => '$' + n.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+  let ppDisplay, perCabinDisplay, totalDisplay, noteText;
+
+  if (s.date === 'flex') {
+    const r = getFlexRange(s.fare, s.cabin);
+    // r.min and r.max are PER-CABIN totals (2 adults)
+    const ppMin = r.min / 2, ppMax = r.max / 2;
+    const totalMin = r.min * s.count, totalMax = r.max * s.count;
+    ppDisplay = fmt(ppMin) + ' – ' + fmt(ppMax);
+    perCabinDisplay = fmt(r.min) + ' – ' + fmt(r.max);
+    totalDisplay = 'Est. ' + fmt(totalMin) + ' – ' + fmt(totalMax);
+    noteText = 'Range reflects the four June sail dates (June 7, 14, 21, 28) with military pricing. Exact price confirmed once we pick a specific date and verify military eligibility — usually the earlier June dates are lower.';
+    document.getElementById('hidden_pp').value = ppDisplay;
+    document.getElementById('hidden_total').value = totalDisplay;
+  } else {
+    // Per-cabin total for 2 adults
+    const perCabin = pricing[s.date][s.fare][s.cabin];
+    const pricePerPerson = perCabin / 2;
+    const total = perCabin * s.count;
+    ppDisplay = fmt(pricePerPerson);
+    perCabinDisplay = fmt(perCabin);
+    totalDisplay = 'Est. ' + fmt(total);
+    noteText = 'Military rates shown — requires proof of service from at least one eligible guest per cabin (valid military ID, DD-214, or retiree ID, plus a government-issued photo ID). Documentation is typically due to MSC within 48 hours of booking. Price reflects 2 adults per cabin. Final pricing confirmed by Christina before booking.';
+    document.getElementById('hidden_pp').value = ppDisplay;
+    document.getElementById('hidden_total').value = totalDisplay;
+  }
+
+  box.innerHTML = `
+    <div class="summary-row"><span class="label">Sail date</span><span class="value">${dateLabel}</span></div>
+    <div class="summary-row"><span class="label">Experience level</span><span class="value">${cabin.exp}</span></div>
+    <div class="summary-row"><span class="label">Cabin</span><span class="value">${cabin.name}</span></div>
+    <div class="summary-row"><span class="label">Fare type</span><span class="value">${fareLabel}</span></div>
+    <div class="summary-row"><span class="label">Per cabin (2 adults, military rate)</span><span class="value">${perCabinDisplay}</span></div>
+    <div class="summary-row"><span class="label">Per person (based on 2 per cabin)</span><span class="value">${ppDisplay}</span></div>
+    <div class="summary-row"><span class="label">Number of cabins</span><span class="value">${s.count}</span></div>
+    <div class="summary-total">
+      <span class="total-label">Estimated total</span>
+      <span class="total-value">${totalDisplay}</span>
+    </div>
+    <p class="summary-note">${noteText}</p>
+  `;
+
+  document.getElementById('hidden_date').value = dateLabel;
+  document.getElementById('hidden_fare').value = fareLabel;
+  document.getElementById('hidden_cabin').value = cabin.name;
+  document.getElementById('hidden_exp').value = cabin.exp;
+  document.getElementById('hidden_count').value = s.count;
+}
+
+function updateSelectedClasses() {
+  // Reliable cross-browser fallback for :has() selected state
+  document.querySelectorAll('.option-card').forEach(card => {
+    const radio = card.querySelector('input[type="radio"]');
+    if (radio && radio.checked) {
+      card.classList.add('selected');
+    } else {
+      card.classList.remove('selected');
+    }
+  });
+}
+
+function updateAll() {
+  updateSelectedClasses();
+  updateCabinPrices();
+  updateSummary();
+}
+
+// -------------------- EMAIL ASSEMBLY --------------------
+(function(){
+  var addr = 'Christina' + '@' + 'PointMeToParadise.com';
+  var link = document.getElementById('emailLink');
+  link.href = 'mailto:' + addr;
+  link.textContent = addr;
+})();
+
+// -------------------- FORM SUBMIT --------------------
+document.getElementById('tripForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var form = e.target;
+  var data = new FormData(form);
+
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    body: data
+  })
+  .then(function(res) { return res.json(); })
+  .then(function(json) {
+    if (json.success) {
+      form.style.display = 'none';
+      document.getElementById('thanksMsg').classList.add('show');
+      window.scrollTo({ top: document.getElementById('thanksMsg').offsetTop - 60, behavior: 'smooth' });
+    } else {
+      alert('Something went wrong. Please email Christina directly or text (281) 229-0862.');
+    }
+  })
+  .catch(function() {
+    alert('Something went wrong. Please email Christina directly or text (281) 229-0862.');
+  });
+});
+</script>
+
+</body>
+</html>
