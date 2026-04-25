@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joey & Family — Icon of the Seas | July 11, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal: #75AFB1;
+  --teal-dark: #4F8A8C;
+  --teal-pale: #C4E4E1;
+  --gold: #DAC396;
+  --gold-dark: #B89E6A;
+  --cream: #E9DEC0;
+  --cream-light: #F5EFDF;
+  --ink: #2B2420;
+  --ink-soft: #5A524A;
+  --paper: #FBF9F4;
+  --paper-pure: #FFFFFF;
+  --line: #E5DED0;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.65;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+  color: var(--ink);
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 600; }
+h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); }
+h3 { font-size: clamp(1.2rem, 2.5vw, 1.55rem); }
+h4 { font-size: 1.1rem; font-weight: 600; }
+
+.italic-accent {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--gold-dark);
+}
+
+a { color: var(--teal-dark); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ===== HERO ===== */
+.hero {
+  background: linear-gradient(160deg, var(--cream-light) 0%, var(--paper) 50%, var(--teal-pale) 100%);
+  padding: 64px 24px 56px;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, var(--gold) 0%, transparent 70%);
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: -120px;
+  left: -120px;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, var(--teal) 0%, transparent 70%);
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+.hero-inner { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+
+.eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.78rem;
+  color: var(--teal-dark);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.hero h1 { margin-bottom: 12px; color: var(--ink); }
+
+.hero-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  color: var(--gold-dark);
+  margin-bottom: 28px;
+}
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.meta-pill {
+  background: var(--paper-pure);
+  border: 1px solid var(--line);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+.meta-pill strong { color: var(--ink); font-weight: 600; }
+
+/* ===== SECTIONS ===== */
+section { padding: 56px 0; }
+section.alt { background: var(--cream-light); }
+section.pale { background: var(--teal-pale); }
+
+.section-head { text-align: center; margin-bottom: 40px; }
+.section-head .eyebrow { margin-bottom: 8px; }
+.section-head h2 { margin-bottom: 8px; }
+.section-head .lead {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--ink-soft);
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* ===== AT-A-GLANCE GRID ===== */
+.glance-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.glance-card {
+  background: var(--paper-pure);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 22px 20px;
+  text-align: center;
+}
+
+.glance-card .label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--teal-dark);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.glance-card .value {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  color: var(--ink);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+/* ===== ITINERARY ===== */
+.itinerary { max-width: 780px; margin: 0 auto; }
+
+.day-row {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: start;
+}
+
+.day-row:last-child { border-bottom: none; }
+
+.day-marker {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--teal-dark);
+  text-align: right;
+}
+
+.day-marker .day-num {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.day-content h4 { margin-bottom: 4px; font-family: 'Playfair Display', serif; font-weight: 600; }
+.day-content .times {
+  font-size: 0.85rem;
+  color: var(--gold-dark);
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+  margin-bottom: 6px;
+}
+.day-content p { color: var(--ink-soft); font-size: 0.95rem; }
+
+/* ===== EDUCATIONAL: NEIGHBORHOODS ===== */
+.neighborhoods {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.neighborhood-card {
+  background: var(--paper-pure);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 22px 20px;
+  border-top: 3px solid var(--teal);
+}
+
+.neighborhood-card.featured {
+  border-top-color: var(--gold-dark);
+  background: var(--cream-light);
+}
+
+.neighborhood-card h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+  color: var(--ink);
+}
+
+.neighborhood-card .who {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--gold-dark);
+  margin-bottom: 10px;
+}
+
+.neighborhood-card p { font-size: 0.9rem; color: var(--ink-soft); }
+
+/* ===== KIDS CALLOUT ===== */
+.kids-callout {
+  background: var(--paper-pure);
+  border: 1px solid var(--gold);
+  border-left: 4px solid var(--gold-dark);
+  border-radius: 8px;
+  padding: 28px 30px;
+  margin: 0 auto;
+  max-width: 820px;
+}
+
+.kids-callout h3 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 14px;
+}
+
+.kids-callout ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 14px;
+}
+
+.kids-callout li {
+  padding: 8px 0 8px 24px;
+  position: relative;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+.kids-callout li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--teal-dark);
+  font-weight: 700;
+}
+
+.kids-callout li strong { color: var(--ink); font-weight: 600; }
+
+/* ===== STATEROOM CARDS ===== */
+.cabin-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .cabin-grid { grid-template-columns: repeat(2, 1fr); gap: 22px; }
+}
+
+.cabin-card {
+  background: var(--paper-pure);
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  padding: 26px 24px;
+  position: relative;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.cabin-card:hover { border-color: var(--teal); }
+
+.cabin-card.selected {
+  border-color: var(--teal-dark);
+  background: var(--paper-pure);
+  box-shadow: 0 4px 20px rgba(79, 138, 140, 0.15);
+}
+
+.cabin-card.selected::after {
+  content: "✓";
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  background: var(--teal-dark);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.cabin-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--teal-dark);
+  background: var(--teal-pale);
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+  align-self: flex-start;
+}
+
+.cabin-tag.value { background: var(--gold); color: var(--ink); }
+.cabin-tag.family { background: var(--gold); color: var(--ink); }
+
+.cabin-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  margin-bottom: 6px;
+  color: var(--ink);
+  padding-right: 40px;
+}
+
+.cabin-meta {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--gold-dark);
+  margin-bottom: 14px;
+}
+
+.cabin-card p {
+  font-size: 0.93rem;
+  color: var(--ink-soft);
+  margin-bottom: 12px;
+}
+
+.cabin-features {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 18px;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+
+.cabin-features li {
+  padding: 5px 0 5px 18px;
+  position: relative;
+  font-size: 0.88rem;
+  color: var(--ink);
+}
+
+.cabin-features li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--teal-dark);
+  font-weight: 700;
+}
+
+.cabin-honest {
+  background: var(--cream-light);
+  border-left: 3px solid var(--gold-dark);
+  padding: 12px 14px;
+  font-size: 0.85rem;
+  color: var(--ink);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.cabin-honest strong {
+  font-family: 'DM Sans', sans-serif;
+  font-style: normal;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold-dark);
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.cabin-price {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.cabin-price .total-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+
+.cabin-price .total-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: var(--teal-dark);
+}
+
+.cabin-price .total-note {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* ===== INCLUSIONS ===== */
+.inclusions {
+  background: var(--paper-pure);
+  border: 1px solid var(--gold);
+  border-radius: 12px;
+  padding: 28px;
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.inclusions h3 {
+  margin-bottom: 16px;
+  color: var(--gold-dark);
+}
+
+.inclusions-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.inclusion-pill {
+  background: var(--cream-light);
+  border: 1px solid var(--gold);
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* ===== ADD-ONS ===== */
+.addon-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+@media (min-width: 700px) {
+  .addon-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.addon-card {
+  background: var(--paper-pure);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 24px;
+}
+
+.addon-card h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  margin-bottom: 6px;
+}
+
+.addon-card .addon-amount {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--gold-dark);
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.addon-card p { font-size: 0.9rem; color: var(--ink-soft); margin-bottom: 14px; }
+
+.addon-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.addon-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--cream-light);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.15s ease;
+}
+
+.addon-option:hover { border-color: var(--teal); }
+
+.addon-option input[type="radio"], .addon-option input[type="checkbox"] {
+  margin-top: 3px;
+  accent-color: var(--teal-dark);
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.addon-option-text { flex: 1; }
+.addon-option-text strong { display: block; color: var(--ink); margin-bottom: 2px; }
+.addon-option-text span { color: var(--ink-soft); font-size: 0.85rem; }
+
+/* ===== BOOKING NOTES ===== */
+.booking-notes {
+  background: var(--paper-pure);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--teal-dark);
+  border-radius: 0 10px 10px 0;
+  padding: 24px 28px;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.booking-notes h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  margin-bottom: 14px;
+  color: var(--teal-dark);
+}
+
+.booking-notes ul {
+  list-style: none;
+  padding: 0;
+}
+
+.booking-notes li {
+  padding: 8px 0 8px 22px;
+  position: relative;
+  font-size: 0.93rem;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+.booking-notes li::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  color: var(--teal-dark);
+  font-weight: 700;
+  font-size: 1.1rem;
+  top: 5px;
+}
+
+.booking-notes li strong { color: var(--ink); }
+
+/* ===== SUMMARY / RUNNING TOTAL ===== */
+.summary-card {
+  background: linear-gradient(160deg, var(--paper-pure) 0%, var(--cream-light) 100%);
+  border: 2px solid var(--teal);
+  border-radius: 14px;
+  padding: 28px;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.summary-card h3 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 18px;
+}
+
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.95rem;
+}
+
+.summary-line:last-of-type { border-bottom: none; }
+
+.summary-line .label { color: var(--ink-soft); }
+.summary-line .value { font-weight: 600; color: var(--ink); }
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 18px 0 8px;
+  border-top: 2px solid var(--teal-dark);
+  margin-top: 14px;
+}
+
+.summary-total .label {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.summary-total .value {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--teal-dark);
+}
+
+.summary-note {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.92rem;
+  color: var(--gold-dark);
+  text-align: center;
+  margin-top: 14px;
+}
+
+/* ===== PRICING DISCLAIMER ===== */
+.pricing-disclaimer {
+  background: var(--cream-light);
+  border-left: 3px solid var(--gold);
+  padding: 22px 26px;
+  max-width: 820px;
+  margin: 0 auto;
+  font-size: 0.93rem;
+  color: var(--ink);
+  line-height: 1.65;
+  border-radius: 0 6px 6px 0;
+}
+
+.pricing-disclaimer .label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--gold-dark);
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* ===== FORM ===== */
+.form-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  background: var(--paper-pure);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 32px 28px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+@media (min-width: 600px) {
+  .form-row.two-col { grid-template-columns: 1fr 1fr; }
+}
+
+label.field-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+textarea,
+select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px; /* iOS no-zoom */
+  background: var(--paper);
+  color: var(--ink);
+  transition: border-color 0.15s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--teal-dark);
+  background: var(--paper-pure);
+}
+
+textarea { min-height: 100px; resize: vertical; }
+
+.submit-btn {
+  background: var(--teal-dark);
+  color: white;
+  border: none;
+  padding: 15px 32px;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 12px;
+  transition: background 0.15s ease;
+  min-height: 50px;
+}
+
+.submit-btn:hover { background: #3F7779; }
+
+.thanks-msg {
+  display: none;
+  text-align: center;
+  padding: 40px 20px;
+  background: var(--teal-pale);
+  border-radius: 12px;
+  color: var(--ink);
+}
+
+.thanks-msg.show { display: block; }
+
+.thanks-msg h3 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 10px;
+  color: var(--teal-dark);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--cream-light);
+  border-top: 1px solid var(--line);
+  padding: 40px 24px 32px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.footer-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: var(--ink);
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.footer-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--gold-dark);
+  margin-bottom: 18px;
+}
+
+.footer-contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 24px;
+  font-size: 0.93rem;
+  color: var(--ink);
+}
+
+.footer-contact a { color: var(--teal-dark); font-weight: 500; }
+
+.footer-tag {
+  margin-top: 22px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+/* ===== UTILITY ===== */
+.center { text-align: center; }
+.mt-md { margin-top: 24px; }
+.mt-lg { margin-top: 36px; }
+
+/* ===== MOBILE ===== */
+@media (max-width: 600px) {
+  section { padding: 44px 0; }
+  .hero { padding: 48px 20px 44px; }
+  .day-row { grid-template-columns: 80px 1fr; gap: 14px; }
+  .day-marker { font-size: 1rem; text-align: left; }
+  .form-wrap { padding: 24px 20px; }
+  .summary-card, .booking-notes, .pricing-disclaimer, .kids-callout, .inclusions { padding: 22px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Custom Quote · Point Me to Paradise Travel</div>
+    <h1>Joey & Family — Icon of the Seas</h1>
+    <p class="hero-subtitle">7-night Eastern Caribbean from Miami · July 11–18, 2026</p>
+    <div class="hero-meta">
+      <div class="meta-pill"><strong>3 guests</strong> · 2 adults + 1 child (age 4)</div>
+      <div class="meta-pill"><strong>Royal Caribbean</strong> · Icon of the Seas</div>
+      <div class="meta-pill"><strong>4 cabin options</strong> to compare</div>
+    </div>
+  </div>
+</header>
+
+<!-- AT A GLANCE -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Trip at a Glance</div>
+      <h2>The shape of your week</h2>
+      <p class="lead">Three island days, three sea days for the ship to do its work, and a Saturday-to-Saturday rhythm that makes flights easy.</p>
+    </div>
+    <div class="glance-grid">
+      <div class="glance-card">
+        <div class="label">Departs</div>
+        <div class="value">Sat July 11<br><span style="font-size:0.85rem;color:var(--ink-soft);font-family:'DM Sans';font-weight:400;">Miami · 4:30 PM</span></div>
+      </div>
+      <div class="glance-card">
+        <div class="label">Returns</div>
+        <div class="value">Sat July 18<br><span style="font-size:0.85rem;color:var(--ink-soft);font-family:'DM Sans';font-weight:400;">Miami · 6:00 AM</span></div>
+      </div>
+      <div class="glance-card">
+        <div class="label">Ports of Call</div>
+        <div class="value">St. Maarten<br>St. Thomas<br>CocoCay</div>
+      </div>
+      <div class="glance-card">
+        <div class="label">Sea Days</div>
+        <div class="value">3 days<br><span style="font-size:0.85rem;color:var(--ink-soft);font-family:'DM Sans';font-weight:400;">to enjoy the ship</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ITINERARY -->
+<section class="alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Day-by-Day</div>
+      <h2>Your week at sea</h2>
+      <p class="lead">Times below are scheduled call times — Royal Caribbean reserves the right to adjust if conditions require.</p>
+    </div>
+    <div class="itinerary">
+
+      <div class="day-row">
+        <div class="day-marker"><span class="day-num">Day 1</span>Sat 7/11</div>
+        <div class="day-content">
+          <h4>Miami, Florida — Embarkation</h4>
+          <div class="times">Depart 4:30 PM</div>
+          <p>Board Icon of the Seas at PortMiami. Plan to arrive at the terminal mid-afternoon. Sail-away at sunset, then ease into ship life — first dinner, walk the Royal Promenade, get the lay of the land.</p>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-marker"><span class="day-num">Day 2</span>Sun 7/12</div>
+        <div class="day-content">
+          <h4>At Sea</h4>
+          <div class="times">All day · Caribbean cruising</div>
+          <p>The first proper ship day. With a 4-year-old in the family, this is a great day to scout Surfside, register for Adventure Ocean, find your favorite pool, and figure out how the ship flows.</p>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-marker"><span class="day-num">Day 3</span>Mon 7/13</div>
+        <div class="day-content">
+          <h4>At Sea</h4>
+          <div class="times">All day · Heading southeast</div>
+          <p>Second sea day on the way to St. Maarten. Showtime evenings hit their stride mid-cruise — AquaTheater, Royal Theater productions, ice skating shows.</p>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-marker"><span class="day-num">Day 4</span>Tue 7/14</div>
+        <div class="day-content">
+          <h4>Philipsburg, St. Maarten</h4>
+          <div class="times">Arrive 8:00 AM · Depart 5:00 PM</div>
+          <p>The Dutch side of a half-Dutch, half-French island. Great Bay Beach is walkable from the pier — easy with a young child. Maho Beach (planes landing overhead) is a short drive if you want a memorable photo. Strong Caribbean cuisine reputation.</p>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-marker"><span class="day-num">Day 5</span>Wed 7/15</div>
+        <div class="day-content">
+          <h4>Charlotte Amalie, St. Thomas</h4>
+          <div class="times">Arrive 7:00 AM · Depart 2:30 PM</div>
+          <p>U.S. Virgin Islands — no passport stamp required, U.S. dollar in use. Magens Bay is one of the Caribbean's most photographed beaches, calm and shallow and well-suited to a 4-year-old. Shorter port day, so plan one thing, not three.</p>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-marker"><span class="day-num">Day 6</span>Thu 7/16</div>
+        <div class="day-content">
+          <h4>At Sea</h4>
+          <div class="times">All day · Heading back northwest</div>
+          <p>Final sea day. A natural day to book a specialty dinner, finally try the Category 6 waterpark, or claim chairs at a quieter pool. Pack-up for tomorrow's CocoCay morning.</p>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-marker"><span class="day-num">Day 7</span>Fri 7/17</div>
+        <div class="day-content">
+          <h4>Perfect Day at CocoCay, Bahamas</h4>
+          <div class="times">Arrive 8:30 AM · Depart 5:00 PM</div>
+          <p>Royal Caribbean's private island and consistently the highlight day for families. Splashaway Bay (free) is purpose-built for young children. Oasis Lagoon is the largest freshwater pool in the Bahamas. Thrill Waterpark (extra cost) holds the tallest waterslide in the Caribbean, but the free side of the island is plenty for a family with a small child.</p>
+        </div>
+      </div>
+
+      <div class="day-row">
+        <div class="day-marker"><span class="day-num">Day 8</span>Sat 7/18</div>
+        <div class="day-content">
+          <h4>Miami, Florida — Debark</h4>
+          <div class="times">Arrive 6:00 AM</div>
+          <p>Back into PortMiami. Self-debark groups can be off the ship by 7:00 AM if you carry your own bags; assigned debark groups roll through the morning. Don't book a flight before noon to give yourself room.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT THE SHIP -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Your Ship</div>
+      <h2>Icon of the Seas, in plain English</h2>
+      <p class="lead">Royal Caribbean's flagship, in service since January 2024. The world's largest cruise ship by gross tonnage at launch — and built around the idea of eight distinct neighborhoods so it doesn't feel like one giant crowd.</p>
+    </div>
+
+    <div class="neighborhoods">
+
+      <div class="neighborhood-card featured">
+        <h4>Surfside</h4>
+        <p class="who">Where your family will spend the most time.</p>
+        <p>The family-focused neighborhood, on Decks 7–8. Splashaway Bay (kids' splash pad and slides), Surfside Eatery (casual all-day dining), Pier 7 carousel, mini-golf, and a dedicated family pool. Everything sized and themed for young kids.</p>
+      </div>
+
+      <div class="neighborhood-card">
+        <h4>Thrill Island</h4>
+        <p class="who">For the adrenaline crew.</p>
+        <p>Home of Category 6, the largest waterpark at sea, with six slides. Also the FlowRider surf simulator and Crown's Edge skywalk. Older kids and teens gravitate here.</p>
+      </div>
+
+      <div class="neighborhood-card">
+        <h4>Chill Island</h4>
+        <p class="who">Sun, pools, slow afternoons.</p>
+        <p>Three pools across this neighborhood including the largest pool at sea, plus Swim & Tonic — the longest swim-up bar at sea. The relaxed, lay-flat side of the ship.</p>
+      </div>
+
+      <div class="neighborhood-card">
+        <h4>Central Park</h4>
+        <p class="who">Open-air dining hub.</p>
+        <p>An open-air park in the middle of the ship with real plants. Most of the upscale dining sits here — Chops Grille, Giovanni's Italian Kitchen, Empire Supper Club.</p>
+      </div>
+
+      <div class="neighborhood-card">
+        <h4>Royal Promenade</h4>
+        <p class="who">The main street.</p>
+        <p>A two-deck indoor avenue with shops, bars, casual dining, and the central atrium. The crossroads of the ship — you'll pass through it constantly.</p>
+      </div>
+
+      <div class="neighborhood-card">
+        <h4>AquaDome</h4>
+        <p class="who">Forward-facing showpiece.</p>
+        <p>A glass-domed venue at the front of the ship. Home of the AquaTheater (high-dive shows over a stage-pool) and the Overlook bar with floor-to-ceiling forward views.</p>
+      </div>
+
+      <div class="neighborhood-card">
+        <h4>Hideaway</h4>
+        <p class="who">Adults only — note for planning.</p>
+        <p>An 18+ neighborhood with its own infinity pool and DJ scene. Off-limits to your 4-year-old, but useful to know if grandparents or other relatives ever join a future trip.</p>
+      </div>
+
+      <div class="neighborhood-card">
+        <h4>Suite Neighborhood</h4>
+        <p class="who">Private suite-only zone.</p>
+        <p>A private area with its own pool, restaurant, and lounge — accessible only to suite-class guests. None of the four cabins quoted include this access.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- KIDS CALLOUT -->
+<section class="alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">For your 4-year-old</div>
+      <h2>What's actually built for a small child</h2>
+    </div>
+    <div class="kids-callout">
+      <h3>The kid-specific things worth knowing</h3>
+      <p>Icon was designed with families in mind, and several features matter specifically for a 4-year-old:</p>
+      <ul>
+        <li><strong>Adventure Ocean (free until 10 PM):</strong> Royal Caribbean's complimentary kids program. On Icon specifically, the program is split into AO Babies, AO Juniors, and AO Kids — at age 4, your child slots into <strong>AO Juniors (3–5 years)</strong>. Drop-off play, themed activities, supervised by trained staff. Available daily, port days included. Hourly fee applies after 10 PM if you want to keep them later.</li>
+        <li><strong>Splashaway Bay (free):</strong> A kid-scaled water play area in Surfside with slides, fountains, and shallow splash zones. Designed for ages roughly 3–8.</li>
+        <li><strong>Heads up — potty-training requirement:</strong> AO Juniors requires kids to be fully potty trained (no diapers or pull-ups). For most 4-year-olds this is a non-issue, but worth flagging. The Royal Babies & Tots Nursery (6mo–36mo) is the alternative for kids in diapers — your child has aged past that.</li>
+        <li><strong>Surfside Eatery:</strong> Free, casual, all-day. Counter-service food a 4-year-old will actually eat — chicken tenders, pizza, fruit, ice cream. The single most useful dining option for parents on day one.</li>
+        <li><strong>Pier 7 carousel & mini-golf:</strong> Free, included, in Surfside. Easy 30-minute breaks when you need a low-key activity.</li>
+        <li><strong>Cabins matter for proximity:</strong> The Surfside Family Balcony option below puts you steps from all of the above. Worth flagging as you compare.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- STATEROOM OPTIONS -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Your Stateroom Options</div>
+      <h2>Four cabins, four trade-offs</h2>
+      <p class="lead">Tap any card to select it. The grand total at the bottom updates as you choose. All four include the same booking promo: free Soda Package and $100 onboard credit.</p>
+    </div>
+
+    <div class="cabin-grid">
+
+      <!-- OPTION 1: QUAD GUARANTEE -->
+      <div class="cabin-card" data-cabin="quad-guarantee" data-price="6003.91" data-name="Quad Oceanview Balcony Guarantee">
+        <span class="cabin-tag value">Best Value</span>
+        <h3>Quad Oceanview Balcony Guarantee</h3>
+        <div class="cabin-meta">Category XQ · Specific cabin assigned by Royal Caribbean</div>
+        <p>You're guaranteed a balcony stateroom in a four-guest configuration — but the specific cabin and deck are assigned by Royal Caribbean, anywhere from booking through the day of sailing.</p>
+        <ul class="cabin-features">
+          <li>Guaranteed balcony category, location TBD</li>
+          <li>Sleeps up to 4 (you have 3 — fits comfortably)</li>
+          <li>Lowest price of the four options</li>
+          <li>Could land anywhere from Decks 7–12, mid-ship to forward/aft</li>
+        </ul>
+        <div class="cabin-honest">
+          <strong>Honest trade</strong>
+          The view <em>may be obstructed</em> (lifeboats, structural pieces) — the category description says so explicitly. You're trading the ability to choose your location for the lowest balcony price on the ship. Good fit if you'll spend most of the day out of the room anyway.
+        </div>
+        <div class="cabin-price">
+          <div>
+            <div class="total-label">Cabin Total</div>
+            <div class="total-note">3 guests, taxes included · gratuities additional</div>
+          </div>
+          <div class="total-value">Est. $6,004</div>
+        </div>
+      </div>
+
+      <!-- OPTION 2: SURFSIDE FAMILY BALCONY -->
+      <div class="cabin-card" data-cabin="surfside-family" data-price="6110.91" data-name="Surfside Family Balcony">
+        <span class="cabin-tag family">Best for Families</span>
+        <h3>Surfside Family Balcony</h3>
+        <div class="cabin-meta">Inside the Surfside neighborhood · Decks 7–8</div>
+        <p>Located inside Surfside itself, the family neighborhood. You walk out of your cabin and you're already where your 4-year-old wants to spend the day.</p>
+        <ul class="cabin-features">
+          <li>Steps from Splashaway Bay, Surfside Eatery, Pier 7 carousel</li>
+          <li>Private balcony, ocean view</li>
+          <li>Designed and themed for families with young children</li>
+          <li>You know your specific deck and location at booking</li>
+        </ul>
+        <div class="cabin-honest">
+          <strong>Honest trade</strong>
+          Only $107 more than the guarantee, and you trade unknown placement for being inside the family hub of the ship. With a 4-year-old, that proximity is the real value here — naps, snack runs, and meltdown recoveries are all 30 seconds away.
+        </div>
+        <div class="cabin-price">
+          <div>
+            <div class="total-label">Cabin Total</div>
+            <div class="total-note">3 guests, taxes included · gratuities additional</div>
+          </div>
+          <div class="total-value">Est. $6,111</div>
+        </div>
+      </div>
+
+      <!-- OPTION 3: STANDARD OCEAN VIEW BALCONY -->
+      <div class="cabin-card" data-cabin="ocean-view-balcony" data-price="6723.91" data-name="Ocean View Balcony Stateroom">
+        <span class="cabin-tag">Pick Your Deck</span>
+        <h3>Ocean View Balcony Stateroom</h3>
+        <div class="cabin-meta">Category D5 · Decks 7–12 · 204 sq ft + 50 sq ft balcony</div>
+        <p>The standard balcony cabin on Icon. You choose your specific deck and location at booking — mid-ship vs. forward/aft, higher vs. lower, port vs. starboard.</p>
+        <ul class="cabin-features">
+          <li>Available on Decks 7, 8, 9, 10, 11, and 12</li>
+          <li>204 sq ft cabin + 50 sq ft private balcony</li>
+          <li>Two twin beds convertible to a Royal King, plus sofa for third guest</li>
+          <li>Full bathroom with bench-equipped shower</li>
+        </ul>
+        <div class="cabin-honest">
+          <strong>Honest trade</strong>
+          You pay roughly $720 more than the guarantee for the certainty of choosing your exact location. Worth it if a specific deck matters to you — being close to a particular pool, near a destination elevator, away from late-night noise zones — but the cabin itself is the same size as a balcony elsewhere.
+        </div>
+        <div class="cabin-price">
+          <div>
+            <div class="total-label">Cabin Total</div>
+            <div class="total-note">3 guests, taxes included · gratuities additional</div>
+          </div>
+          <div class="total-value">Est. $6,724</div>
+        </div>
+      </div>
+
+      <!-- OPTION 4: PANORAMIC OCEAN VIEW (NOT A BALCONY) -->
+      <div class="cabin-card" data-cabin="panoramic" data-price="6808.91" data-name="Panoramic Ocean View Stateroom">
+        <span class="cabin-tag">Largest Room</span>
+        <h3>Panoramic Ocean View Stateroom</h3>
+        <div class="cabin-meta">Category L5 · Deck 14 · 258 sq ft</div>
+        <p>A premium stateroom on Deck 14 with floor-to-ceiling panoramic windows and an extended seating area built into the room. The largest of the four options by square footage.</p>
+        <ul class="cabin-features">
+          <li>258 sq ft — about 27% larger than a standard balcony cabin</li>
+          <li>Panoramic floor-to-ceiling windows with extended seating area</li>
+          <li>High up on Deck 14, dramatic views</li>
+          <li>Two twin beds convertible to Royal King + sofa</li>
+        </ul>
+        <div class="cabin-honest">
+          <strong>Important — read this honestly</strong>
+          This category is <em>not</em> a balcony. The view is through panoramic windows, but you can't step outside. The trade is more square footage and a more dramatic vantage point in exchange for fresh air and the ability to sit outside. If having a balcony for the kid (toddler-safe with the door closed, of course) matters more than room size, options 1, 2, or 3 are better fits.
+        </div>
+        <div class="cabin-price">
+          <div>
+            <div class="total-label">Cabin Total</div>
+            <div class="total-note">3 guests, taxes included · gratuities additional</div>
+          </div>
+          <div class="total-value">Est. $6,809</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- INCLUSIONS -->
+<section class="alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Included on All Four Options</div>
+      <h2>Two booking promos applied</h2>
+    </div>
+    <div class="inclusions">
+      <h3>What's already in every option above</h3>
+      <p style="color:var(--ink-soft);">These come with whichever cabin you pick — no choice between them, both apply.</p>
+      <div class="inclusions-list">
+        <div class="inclusion-pill">✓ Free Soda Package</div>
+        <div class="inclusion-pill">✓ $100 Onboard Credit</div>
+      </div>
+      <p style="color:var(--ink-soft); font-size:0.88rem; margin-top:18px; font-style:italic; font-family:'Cormorant Garamond', serif;">
+        Onboard credit can be applied to specialty dining, drink upgrades, spa, excursions, or anything else billed to your stateroom.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ADD-ONS -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Add-Ons & Choices</div>
+      <h2>Two more decisions to make</h2>
+      <p class="lead">Both are optional but expected — gratuities are charged either way; insurance is your call.</p>
+    </div>
+
+    <div class="addon-grid">
+
+      <!-- GRATUITIES -->
+      <div class="addon-card">
+        <h4>Gratuities — Prepay or Pay Onboard</h4>
+        <div class="addon-amount">$388.50 total ($18.50 per guest, per night)</div>
+        <p>Royal Caribbean's standard gratuity covers your stateroom attendant, dining room staff, and behind-the-scenes crew. The cabin totals above do <em>not</em> include gratuities — you choose how to handle them. Either way it's the same $388.50.</p>
+        <div class="addon-options">
+          <label class="addon-option">
+            <input type="radio" name="gratuities" value="prepaid" data-amount="388.50" onclick="setTimeout(updateTotal,0)">
+            <div class="addon-option-text">
+              <strong>Pre-pay now — adds $388.50 to your booking total</strong>
+              <span>Locked in at booking, nothing extra to think about onboard. Adds to the total below.</span>
+            </div>
+          </label>
+          <label class="addon-option">
+            <input type="radio" name="gratuities" value="onboard" data-amount="0" onclick="setTimeout(updateTotal,0)" checked>
+            <div class="addon-option-text">
+              <strong>Pay onboard — billed to your stateroom on the ship</strong>
+              <span>Same $388.50, charged to your stateroom folio nightly during the cruise. Not added to the booking total below — you pay it on the ship instead.</span>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- INSURANCE -->
+      <div class="addon-card">
+        <h4>Travel Protection</h4>
+        <div class="addon-amount">Quoted separately based on coverage level</div>
+        <p>Highly recommended for a cruise this close to sailing. Covers trip cancellation, medical evacuation, lost luggage, and trip interruption — all of which are amplified once you're on a ship that's left the country.</p>
+        <div class="addon-options">
+          <label class="addon-option">
+            <input type="checkbox" name="insurance_interest" value="yes" onclick="setTimeout(updateTotal,0)">
+            <div class="addon-option-text">
+              <strong>Yes — quote me travel insurance</strong>
+              <span>Christina will pull quotes from her preferred carriers and send a side-by-side. Typical range is 5–10% of trip cost depending on coverage tier and ages.</span>
+            </div>
+          </label>
+          <label class="addon-option">
+            <input type="checkbox" name="insurance_decline" value="yes" onclick="setTimeout(updateTotal,0)">
+            <div class="addon-option-text">
+              <strong>No thanks — I'll skip insurance</strong>
+              <span>Acknowledged. We'll note that you declined and proceed with booking.</span>
+            </div>
+          </label>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING NOTES -->
+<section class="alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Important Timing</div>
+      <h2>Within 90 days of sailing — here's what that means</h2>
+    </div>
+    <div class="booking-notes">
+      <h3>How booking works at this point</h3>
+      <ul>
+        <li><strong>Full payment is required at booking.</strong> Royal Caribbean's deposit window has closed for this sailing. There's no $200–$500 deposit option — it's pay-in-full or nothing.</li>
+        <li><strong>A 1–3 day complimentary hold is generally available.</strong> If you need a beat to decide between options or coordinate with anyone, Christina can usually place a no-obligation courtesy hold for 1–3 days. To set that up, she'll need <strong>full legal names and dates of birth</strong> for all three guests (yes, including the 4-year-old).</li>
+        <li><strong>Pricing is live and not locked.</strong> The four totals on this page reflect what Royal Caribbean is showing right now. Cabin categories sell out and prices move daily this close to sailing — once you decide, faster is better.</li>
+        <li><strong>Insurance has a 14-day window.</strong> If you want pre-existing condition waivers (often included in higher-tier policies), most carriers require purchase within 14 days of your initial trip deposit/payment. Worth flagging now if anyone in the party has a relevant condition.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING DISCLAIMER -->
+<section>
+  <div class="container">
+    <div class="pricing-disclaimer">
+      <span class="label">A note on pricing</span>
+      <p>Individual hotels, transfers, and tours in your quote are priced at publicly available rates — and in many cases lower than what you'd find on your own. You don't have to worry about overpaying for a piece of your trip. What you're paying for is the rest: the right rooms at the right property, operators we've used for years, the trip app, and a human who answers when something doesn't go to plan.</p>
+      <p style="margin-top:12px;"><em>All totals on this page are estimates pending final confirmation by Christina at booking. Final pricing is what's confirmed at the time of payment.</em></p>
+    </div>
+  </div>
+</section>
+
+<!-- SUMMARY / RUNNING TOTAL -->
+<section class="pale">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Your Running Selection</div>
+      <h2>What you've chosen so far</h2>
+    </div>
+    <div class="summary-card">
+      <h3>Selection Summary</h3>
+      <div class="summary-line">
+        <span class="label">Stateroom</span>
+        <span class="value" id="summary-cabin">— select a cabin above —</span>
+      </div>
+      <div class="summary-line">
+        <span class="label">Pre-paid gratuities</span>
+        <span class="value" id="summary-gratuities">Pay onboard</span>
+      </div>
+      <div class="summary-line">
+        <span class="label">Travel insurance</span>
+        <span class="value" id="summary-insurance">Not selected</span>
+      </div>
+      <div class="summary-total">
+        <span class="label">Estimated Total</span>
+        <span class="value" id="summary-total">Est. $0</span>
+      </div>
+      <p class="summary-note">Final pricing is confirmed by Christina before booking. Insurance, when selected, is quoted separately and not yet included in this total.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Send Your Selections</div>
+      <h2>Ready to lock it in?</h2>
+      <p class="lead">Submit below and Christina will reach out within a few hours to confirm details, place a courtesy hold (or proceed straight to booking), and answer any questions.</p>
+    </div>
+
+    <div class="form-wrap">
+      <form id="tripForm">
+        <input type="hidden" name="access_key" value="7b40d437-1004-48e2-9031-171a8b0ef4f1">
+        <input type="hidden" name="subject" value="Joey & Family — Icon of the Seas July 11 Selections">
+        <input type="hidden" name="from_name" value="Joey & Family — PMTP Icon of the Seas Quote">
+        <input type="hidden" name="redirect" value="false">
+
+        <!-- Hidden fields capture selections -->
+        <input type="hidden" name="Selected_Cabin" id="hidden_cabin">
+        <input type="hidden" name="Selected_Gratuities" id="hidden_gratuities">
+        <input type="hidden" name="Insurance_Interest" id="hidden_insurance">
+        <input type="hidden" name="Estimated_Total" id="hidden_total">
+
+        <div class="form-row two-col">
+          <div>
+            <label class="field-label" for="name">Your Name</label>
+            <input type="text" id="name" name="Name" required>
+          </div>
+          <div>
+            <label class="field-label" for="email">Email</label>
+            <input type="email" id="email" name="Email" required>
+          </div>
+        </div>
+
+        <div class="form-row two-col">
+          <div>
+            <label class="field-label" for="phone">Phone</label>
+            <input type="tel" id="phone" name="Phone">
+          </div>
+          <div>
+            <label class="field-label" for="best-time">Best time to reach you</label>
+            <select id="best-time" name="Best_Time">
+              <option value="">Anytime is fine</option>
+              <option>Morning (8 AM–12 PM CT)</option>
+              <option>Midday (12 PM–3 PM CT)</option>
+              <option>Afternoon (3 PM–6 PM CT)</option>
+              <option>Evening (6 PM–9 PM CT)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div>
+            <label class="field-label" for="legal-names">Full Legal Names & DOBs (for hold or booking)</label>
+            <textarea id="legal-names" name="Legal_Names_DOBs" placeholder="As they appear on passports/IDs. Example:&#10;Joey Smith — 03/15/1988&#10;Jane Smith — 06/22/1989&#10;Charlie Smith — 11/04/2021"></textarea>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div>
+            <label class="field-label" for="notes">Notes, questions, or special requests</label>
+            <textarea id="notes" name="Notes" placeholder="Any preferences on cabin location, accessibility needs, dietary restrictions, occasion you're celebrating, dining time preference (early/late seating), etc."></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn">Send My Selections to Christina</button>
+      </form>
+
+      <div id="thanksMsg" class="thanks-msg">
+        <h3>Got it — thanks!</h3>
+        <p>Your selections are on their way to Christina. You'll hear back within a few hours during business hours, or first thing next business morning if you're sending late.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Christina Garcia</div>
+  <div class="footer-title">Travel Advisor · Point Me to Paradise Travel</div>
+  <div class="footer-contact">
+    <span>📧 <a id="emailLink" href="#">loading…</a></span>
+    <span>📱 <a href="tel:+12812290862">(281) 229-0862</a></span>
+  </div>
+  <div class="footer-tag">A custom quote built for Joey & family · April 2026</div>
+</footer>
+
+<script>
+// ===== EMAIL ASSEMBLY (Cloudflare workaround) =====
+(function() {
+  var addr = 'Christina' + '@' + 'PointMeToParadise.com';
+  var link = document.getElementById('emailLink');
+  if (link) {
+    link.href = 'mailto:' + addr;
+    link.textContent = addr;
+  }
+})();
+
+// ===== CABIN SELECTION =====
+var selectedCabin = null;
+var cabinCards = document.querySelectorAll('.cabin-card');
+
+cabinCards.forEach(function(card) {
+  card.addEventListener('click', function() {
+    cabinCards.forEach(function(c) { c.classList.remove('selected'); });
+    card.classList.add('selected');
+    selectedCabin = {
+      key: card.dataset.cabin,
+      name: card.dataset.name,
+      price: parseFloat(card.dataset.price)
+    };
+    updateTotal();
+  });
+});
+
+// ===== UPDATE TOTAL =====
+function updateTotal() {
+  var cabinPrice = selectedCabin ? selectedCabin.price : 0;
+  var cabinName = selectedCabin ? selectedCabin.name : '— select a cabin above —';
+
+  var gratuitiesEl = document.querySelector('input[name="gratuities"]:checked');
+  var gratuitiesValue = gratuitiesEl ? gratuitiesEl.value : 'onboard';
+  var gratuitiesText = gratuitiesValue === 'prepaid'
+    ? 'Pre-pay at booking (+$388.50)'
+    : 'Pay onboard ($388.50 billed on ship)';
+
+  var displayTotal = cabinPrice;
+  if (selectedCabin && gratuitiesValue === 'prepaid') {
+    displayTotal = cabinPrice + 388.50;
+  }
+
+  var insuranceInterest = document.querySelector('input[name="insurance_interest"]:checked');
+  var insuranceDecline = document.querySelector('input[name="insurance_decline"]:checked');
+  var insuranceText = 'Not selected';
+  if (insuranceInterest) insuranceText = 'Yes — quote me';
+  else if (insuranceDecline) insuranceText = 'Declined';
+
+  document.getElementById('summary-cabin').textContent = cabinName;
+  document.getElementById('summary-gratuities').textContent = gratuitiesText;
+  document.getElementById('summary-insurance').textContent = insuranceText;
+
+  if (selectedCabin) {
+    document.getElementById('summary-total').textContent = 'Est. $' + displayTotal.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+  } else {
+    document.getElementById('summary-total').textContent = 'Est. $0';
+  }
+
+  // Hidden fields
+  document.getElementById('hidden_cabin').value = cabinName;
+  document.getElementById('hidden_gratuities').value = gratuitiesText;
+  document.getElementById('hidden_insurance').value = insuranceText;
+  document.getElementById('hidden_total').value = selectedCabin ? 'Est. $' + displayTotal.toFixed(2) : 'Not selected';
+}
+
+// Init
+updateTotal();
+
+// ===== FORM SUBMIT =====
+document.getElementById('tripForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var form = e.target;
+  var data = new FormData(form);
+
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    body: data
+  })
+  .then(function(res) { return res.json(); })
+  .then(function(json) {
+    if (json.success) {
+      form.style.display = 'none';
+      document.getElementById('thanksMsg').classList.add('show');
+      window.scrollTo({ top: document.getElementById('thanksMsg').offsetTop - 80, behavior: 'smooth' });
+    } else {
+      alert('Something went wrong. Please email Christina directly at Christina@PointMeToParadise.com or text (281) 229-0862.');
+    }
+  })
+  .catch(function() {
+    alert('Something went wrong. Please email Christina directly at Christina@PointMeToParadise.com or text (281) 229-0862.');
+  });
+});
+</script>
+
+</body>
+</html>
