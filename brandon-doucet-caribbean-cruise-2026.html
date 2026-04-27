@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brandon Doucet — Caribbean Cruise Options | Point Me to Paradise Travel</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --teal: #75AFB1;
+    --teal-dark: #4F8A8C;
+    --teal-pale: #C4E4E1;
+    --gold: #DAC396;
+    --gold-dark: #B89E6A;
+    --cream: #E9DEC0;
+    --cream-light: #F5EFDF;
+    --ink: #2B2420;
+    --ink-soft: #5A524A;
+    --paper: #FBF9F4;
+    --paper-pure: #FFFFFF;
+    --line: #E5DED0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.6;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  .italic-accent {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--gold-dark);
+  }
+
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 22px; }
+
+  /* ========== HEADER ========== */
+  header.brand {
+    background: linear-gradient(180deg, var(--cream-light) 0%, var(--paper) 100%);
+    border-bottom: 1px solid var(--line);
+    padding: 36px 0 28px;
+    text-align: center;
+  }
+  .brand-logo {
+    max-width: 140px;
+    max-height: 140px;
+    width: auto;
+    height: auto;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  @media (max-width: 600px) {
+    .brand-logo { max-width: 110px; max-height: 110px; }
+  }
+  .brand-mark {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--teal-dark);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-bottom: 4px;
+  }
+  .brand-tag {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--gold-dark);
+    letter-spacing: 0.04em;
+  }
+
+  /* ========== HERO ========== */
+  .hero {
+    padding: 56px 0 44px;
+    text-align: center;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+  }
+  .hero-eyebrow {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--gold-dark);
+    margin-bottom: 14px;
+    letter-spacing: 0.03em;
+  }
+  .hero h1 {
+    font-size: 44px;
+    line-height: 1.1;
+    margin-bottom: 18px;
+    color: var(--teal-dark);
+  }
+  .hero-sub {
+    font-size: 18px;
+    color: var(--ink-soft);
+    max-width: 620px;
+    margin: 0 auto;
+  }
+  .hero-divider {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    margin: 24px auto;
+  }
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 32px; }
+  }
+
+  /* ========== INTRO ========== */
+  .intro {
+    padding: 44px 0;
+    background: var(--paper);
+  }
+  .intro p {
+    font-size: 18px;
+    margin-bottom: 18px;
+    color: var(--ink);
+  }
+  .intro p:last-child { margin-bottom: 0; }
+
+  .how-to {
+    background: var(--teal-pale);
+    border-left: 4px solid var(--teal-dark);
+    padding: 22px 26px;
+    margin-top: 28px;
+    border-radius: 4px;
+  }
+  .how-to h4 {
+    font-size: 17px;
+    margin-bottom: 8px;
+    color: var(--teal-dark);
+  }
+  .how-to p {
+    font-size: 16px;
+    margin: 0;
+    color: var(--ink);
+  }
+
+  .timing-tip {
+    background: var(--cream-light);
+    border: 1px solid var(--gold);
+    border-left: 4px solid var(--gold-dark);
+    padding: 20px 24px;
+    margin-top: 24px;
+    border-radius: 4px;
+  }
+  .timing-tip .tip-eyebrow {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--gold-dark);
+    letter-spacing: 0.03em;
+    margin-bottom: 6px;
+  }
+  .timing-tip h4 {
+    font-size: 18px;
+    color: var(--teal-dark);
+    margin-bottom: 8px;
+  }
+  .timing-tip p {
+    font-size: 15.5px;
+    color: var(--ink);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* ========== SECTION DIVIDER ========== */
+  .divider-band {
+    text-align: center;
+    padding: 32px 0 24px;
+    background: var(--paper);
+  }
+  .divider-band .ornament {
+    color: var(--gold-dark);
+    font-size: 18px;
+    letter-spacing: 0.5em;
+  }
+
+  /* ========== CRUISE CARD ========== */
+  .cruise-section {
+    padding: 28px 0 12px;
+    background: var(--paper);
+  }
+  .cruise-card {
+    background: var(--paper-pure);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 0;
+    margin-bottom: 36px;
+    overflow: hidden;
+    box-shadow: 0 2px 14px rgba(43,36,32,0.04);
+  }
+
+  .cruise-header {
+    background: var(--cream-light);
+    padding: 28px 28px 22px;
+    border-bottom: 2px solid var(--gold);
+  }
+  .cruise-header .eyebrow {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--gold-dark);
+    margin-bottom: 6px;
+    letter-spacing: 0.03em;
+  }
+  .cruise-header h2 {
+    font-size: 30px;
+    color: var(--teal-dark);
+    margin-bottom: 8px;
+    line-height: 1.15;
+  }
+  .cruise-header .ship-meta {
+    font-size: 16px;
+    color: var(--ink-soft);
+  }
+  @media (max-width: 600px) {
+    .cruise-header { padding: 22px 20px 18px; }
+    .cruise-header h2 { font-size: 24px; }
+  }
+
+  .cruise-body { padding: 28px; }
+  @media (max-width: 600px) {
+    .cruise-body { padding: 22px 20px; }
+  }
+
+  /* ========== ITINERARY ========== */
+  .itinerary {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 20px 22px;
+    margin-bottom: 24px;
+  }
+  .itinerary h4 {
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--teal-dark);
+    margin-bottom: 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+  .itin-day {
+    display: flex;
+    align-items: baseline;
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--line);
+    font-size: 16px;
+    gap: 22px;
+  }
+  .itin-day:last-child { border-bottom: none; }
+  .itin-day .label {
+    font-weight: 600;
+    color: var(--teal-dark);
+    min-width: 110px;
+    flex-shrink: 0;
+  }
+  .itin-day .place {
+    flex: 1;
+    color: var(--ink);
+  }
+  .itin-day .time {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 15px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+  @media (max-width: 600px) {
+    .itin-day { flex-wrap: wrap; gap: 8px 18px; padding: 14px 0; }
+    .itin-day .label { min-width: 100px; }
+    .itin-day .time { width: 100%; text-align: left; padding-left: 122px; margin-top: 0; }
+  }
+
+  /* ========== INCLUDED PERKS BANNER ========== */
+  .perks-banner {
+    background: var(--cream-light);
+    border: 1px solid var(--gold);
+    border-left: 4px solid var(--gold-dark);
+    border-radius: 4px;
+    padding: 18px 22px;
+    margin-bottom: 22px;
+  }
+  .perks-banner .perks-eyebrow {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--gold-dark);
+    letter-spacing: 0.04em;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .perks-banner ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 26px;
+    justify-content: center;
+  }
+  .perks-banner li {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .perks-banner li .icon {
+    width: 18px;
+    height: 18px;
+    color: var(--teal-dark);
+    flex-shrink: 0;
+  }
+  .perks-banner .perks-footer {
+    text-align: center;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--gold);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+  @media (max-width: 600px) {
+    .perks-banner ul { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .perks-banner { padding: 16px 18px; }
+  }
+
+  /* ========== SELECTOR ========== */
+  .selector-prompt {
+    font-size: 16px;
+    color: var(--ink);
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+
+  .option {
+    display: block;
+    border: 2px solid var(--line);
+    border-radius: 6px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    background: var(--paper-pure);
+    position: relative;
+  }
+  .option:hover { border-color: var(--teal); background: var(--paper); }
+  .option input[type="radio"], .option input[type="checkbox"] {
+    width: 22px;
+    height: 22px;
+    margin-right: 14px;
+    vertical-align: middle;
+    accent-color: var(--teal-dark);
+    cursor: pointer;
+  }
+  .option-content {
+    display: inline-block;
+    vertical-align: middle;
+    width: calc(100% - 40px);
+  }
+  .option-label-main {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ink);
+    display: block;
+  }
+  .option-sublabel {
+    font-size: 15px;
+    color: var(--ink-soft);
+    display: block;
+    margin-top: 4px;
+  }
+  .option-price {
+    float: right;
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--teal-dark);
+    font-family: 'Playfair Display', serif;
+  }
+  .option-price-note {
+    display: block;
+    font-size: 13px;
+    color: var(--ink-soft);
+    font-weight: 400;
+    font-family: 'DM Sans', sans-serif;
+    text-align: right;
+    margin-top: 2px;
+  }
+  .option:has(input:checked) {
+    border-color: var(--teal-dark);
+    background: var(--teal-pale);
+  }
+  @media (max-width: 600px) {
+    .option { padding: 16px; }
+    .option-price { float: none; display: block; margin-top: 8px; }
+    .option-price-note { text-align: left; }
+  }
+
+  /* ========== CABIN INFO BLOCK INSIDE OPTION ========== */
+  .cabin-detail {
+    margin-top: 12px;
+    padding: 14px 16px;
+    background: var(--cream-light);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 4px 4px 0;
+    font-size: 14.5px;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .cabin-detail strong { color: var(--teal-dark); }
+  .cabin-detail .specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+  .cabin-detail .specs span { white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; }
+  .cabin-detail .specs .icon {
+    width: 16px;
+    height: 16px;
+    color: var(--teal-dark);
+    flex-shrink: 0;
+  }
+
+  /* ========== GRATUITY BOX ========== */
+  .gratuity-box {
+    border: 2px solid var(--gold);
+    background: var(--cream-light);
+    border-radius: 6px;
+    padding: 18px 20px;
+    margin-top: 22px;
+  }
+  .gratuity-box .grat-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--gold-dark);
+    margin-bottom: 8px;
+    letter-spacing: 0.02em;
+  }
+
+  /* ========== SYMPHONY TEASER ========== */
+  .teaser-card {
+    background: var(--paper-pure);
+    border: 2px dashed var(--gold);
+    border-radius: 8px;
+    padding: 0;
+    margin-bottom: 36px;
+    overflow: hidden;
+  }
+  .teaser-card .cruise-header {
+    background: var(--cream-light);
+    border-bottom: 2px solid var(--gold);
+  }
+  .teaser-card .cruise-body { padding: 24px 28px; }
+  .teaser-card .teaser-prompt {
+    margin-top: 18px;
+    padding: 16px 18px;
+    background: var(--teal-pale);
+    border-radius: 6px;
+    font-size: 15.5px;
+    color: var(--ink);
+  }
+  .teaser-card .teaser-prompt strong { color: var(--teal-dark); }
+
+  .date-pill {
+    display: inline-block;
+    padding: 4px 12px;
+    background: var(--paper);
+    border: 1px solid var(--gold);
+    border-radius: 14px;
+    font-size: 14px;
+    color: var(--ink);
+    margin: 4px 6px 4px 0;
+    font-weight: 500;
+  }
+  @media (max-width: 600px) {
+    .teaser-card .cruise-body { padding: 22px 20px; }
+  }
+
+  /* ========== CATEGORY EDUCATION ========== */
+  .education {
+    padding: 48px 0 36px;
+    background: var(--cream-light);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .education h3 {
+    font-size: 26px;
+    color: var(--teal-dark);
+    margin-bottom: 8px;
+  }
+  .education .sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--gold-dark);
+    margin-bottom: 22px;
+  }
+  .ed-block {
+    background: var(--paper-pure);
+    border-left: 4px solid var(--teal);
+    padding: 18px 20px;
+    margin-bottom: 14px;
+    border-radius: 0 4px 4px 0;
+  }
+  .ed-block h4 {
+    font-size: 17px;
+    color: var(--teal-dark);
+    margin-bottom: 6px;
+  }
+  .ed-block p {
+    font-size: 15.5px;
+    color: var(--ink);
+    margin: 0;
+    line-height: 1.55;
+  }
+
+  /* ========== TOTAL ========== */
+  .total-section {
+    padding: 44px 0 36px;
+    background: var(--paper);
+  }
+  .total-box {
+    border: 2px solid var(--teal-dark);
+    border-radius: 8px;
+    padding: 28px 30px;
+    background: var(--paper-pure);
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(43,36,32,0.05);
+  }
+  .total-box .label {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--gold-dark);
+    margin-bottom: 6px;
+    letter-spacing: 0.03em;
+  }
+  .total-box .amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px;
+    font-weight: 600;
+    color: var(--teal-dark);
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+  .total-box .breakdown {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+  .total-box .pending {
+    font-style: italic;
+    color: var(--ink-soft);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+  }
+  .total-box .footnote {
+    margin-top: 14px;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    font-style: italic;
+    border-top: 1px dashed var(--line);
+    padding-top: 12px;
+  }
+  @media (max-width: 600px) {
+    .total-box { padding: 22px 20px; }
+    .total-box .amount { font-size: 34px; }
+  }
+
+  /* ========== PRICING TRANSPARENCY ========== */
+  .pricing-note {
+    background: var(--paper);
+    padding: 36px 0;
+    border-top: 1px solid var(--line);
+  }
+  .pricing-note .inner {
+    background: var(--cream-light);
+    border: 1px solid var(--gold);
+    border-radius: 8px;
+    padding: 26px 28px;
+  }
+  .pricing-note h4 {
+    font-size: 19px;
+    color: var(--teal-dark);
+    margin-bottom: 12px;
+  }
+  .pricing-note p {
+    font-size: 15.5px;
+    color: var(--ink);
+    margin-bottom: 12px;
+    line-height: 1.6;
+  }
+  .pricing-note p:last-child { margin-bottom: 0; }
+
+  /* ========== FORM ========== */
+  .form-section {
+    padding: 50px 0;
+    background: var(--cream-light);
+    border-top: 1px solid var(--line);
+  }
+  .form-section h2 {
+    font-size: 30px;
+    color: var(--teal-dark);
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .form-section .form-sub {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--gold-dark);
+    margin-bottom: 32px;
+  }
+  .form-card {
+    background: var(--paper-pure);
+    border-radius: 8px;
+    padding: 32px;
+    box-shadow: 0 4px 18px rgba(43,36,32,0.06);
+  }
+  @media (max-width: 600px) {
+    .form-card { padding: 24px 20px; }
+    .form-section h2 { font-size: 24px; }
+  }
+  .field { margin-bottom: 18px; }
+  .field label {
+    display: block;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .field input, .field textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1.5px solid var(--line);
+    border-radius: 5px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    color: var(--ink);
+    background: var(--paper);
+    -webkit-appearance: none;
+  }
+  .field input:focus, .field textarea:focus {
+    outline: none;
+    border-color: var(--teal-dark);
+    background: var(--paper-pure);
+  }
+  .field textarea { resize: vertical; min-height: 100px; }
+
+  .submit-btn {
+    width: 100%;
+    padding: 18px;
+    background: var(--teal-dark);
+    color: var(--paper-pure);
+    border: none;
+    border-radius: 5px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: background 0.15s;
+    margin-top: 8px;
+  }
+  .submit-btn:hover { background: var(--teal); }
+  .submit-btn:active { transform: translateY(1px); }
+
+  .thanks-msg {
+    display: none;
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--teal-dark);
+  }
+  .thanks-msg.show { display: block; }
+  .thanks-msg h3 {
+    font-size: 28px;
+    margin-bottom: 12px;
+    color: var(--teal-dark);
+  }
+  .thanks-msg p { font-size: 17px; color: var(--ink); margin-bottom: 8px; }
+
+  /* ========== PILLARS ========== */
+  .pillars {
+    padding: 56px 0;
+    background: var(--paper);
+  }
+  .pillars-title {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  .pillars-title .eyebrow {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--gold-dark);
+    margin-bottom: 4px;
+  }
+  .pillars-title h3 {
+    font-size: 28px;
+    color: var(--teal-dark);
+  }
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+  .pillar {
+    background: var(--cream-light);
+    border-top: 3px solid var(--teal);
+    padding: 22px 22px 20px;
+    border-radius: 4px;
+  }
+  .pillar .roman {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--gold-dark);
+    margin-bottom: 6px;
+    letter-spacing: 0.04em;
+  }
+  .pillar h4 {
+    font-size: 18px;
+    color: var(--teal-dark);
+    margin-bottom: 8px;
+  }
+  .pillar p {
+    font-size: 15px;
+    color: var(--ink);
+    line-height: 1.55;
+    margin: 0;
+  }
+  @media (max-width: 600px) {
+    .pillars-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ========== FOOTER ========== */
+  footer {
+    background: var(--cream-light);
+    padding: 36px 0 28px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+  }
+  footer .name {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--teal-dark);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  footer .agency {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--gold-dark);
+    margin-bottom: 18px;
+  }
+  footer .contact-line {
+    font-size: 16px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  footer a {
+    color: var(--teal-dark);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  footer a:hover { text-decoration: underline; }
+  footer .fineprint {
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid var(--gold);
+    font-size: 13px;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<header class="brand">
+  <div class="wrap">
+    <picture>
+      <source srcset="pmtp-logo.svg" type="image/svg+xml">
+      <img src="pmtp-logo.png" alt="Point Me to Paradise Travel" class="brand-logo" onerror="this.style.display='none';">
+    </picture>
+    <div class="brand-mark">Point Me to Paradise Travel</div>
+    <div class="brand-tag">— Your Personal Cruise Concierge —</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow">Prepared for Brandon Doucet</div>
+    <h1>Caribbean Cruise Options</h1>
+    <div class="hero-divider"></div>
+    <div class="hero-sub">Three Royal Caribbean sailings out of Galveston, Texas — August 2026. Pick the length, ports, and cabin that fit you best.</div>
+  </div>
+</section>
+
+<section class="intro">
+  <div class="wrap">
+    <p>Hi Brandon — here are three Royal Caribbean options out of Galveston, all in August 2026. Two have firm pricing for two adults; the third (Symphony of the Seas, 6 nights) is a teaser if you'd rather a bigger ship and a third port.</p>
+    <p>Each cruise has its own cabin choices below. Tap the cabin that fits you best, decide whether to prepay gratuities, and your estimated total updates live at the bottom. When you've narrowed it down, send me your selections with the form and I'll lock in pricing.</p>
+
+    <div class="how-to">
+      <h4>How this page works</h4>
+      <p>Three cruises below. Choose a cabin from <strong>one</strong> of them — the running total at the bottom updates automatically. Prepaid gratuities are optional but recommended (RC charges them onboard if not prepaid). When ready, fill out the form and submit.</p>
+    </div>
+
+    <div class="timing-tip">
+      <div class="tip-eyebrow">— a note on timing —</div>
+      <h4>Why August dates are the smart move</h4>
+      <p>Once schools are back in session — late August forward — Caribbean cruise rates from Galveston drop noticeably. Same ship, same ports, same warm water, without the summer-vacation premium. These late-August sailings sit in one of the best value windows of the entire year.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider-band">
+  <div class="ornament">✦ ✦ ✦</div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- CRUISE 1: MARINER 4-NIGHT, AUG 27 -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<section class="cruise-section">
+  <div class="wrap">
+
+    <div class="cruise-card">
+      <div class="cruise-header">
+        <div class="eyebrow">Option 1 — Short &amp; Sweet</div>
+        <h2>Mariner of the Seas — 4 Nights</h2>
+        <div class="ship-meta">August 27 → 31, 2026 · Galveston roundtrip · Cozumel</div>
+      </div>
+
+      <div class="cruise-body">
+
+        <div class="itinerary">
+          <h4>Itinerary</h4>
+          <div class="itin-day"><span class="label">Thu Aug 27</span><span class="place">Galveston, Texas</span><span class="time">Depart 3:00 PM</span></div>
+          <div class="itin-day"><span class="label">Fri Aug 28</span><span class="place">At sea</span><span class="time">Cruising</span></div>
+          <div class="itin-day"><span class="label">Sat Aug 29</span><span class="place">Cozumel, Mexico</span><span class="time">7:00 AM – 5:00 PM</span></div>
+          <div class="itin-day"><span class="label">Sun Aug 30</span><span class="place">At sea</span><span class="time">Cruising</span></div>
+          <div class="itin-day"><span class="label">Mon Aug 31</span><span class="place">Galveston, Texas</span><span class="time">Arrive 7:00 AM</span></div>
+        </div>
+
+        <div class="perks-banner">
+          <div class="perks-eyebrow">— Included with every cabin in this quote —</div>
+          <ul>
+            <li><svg class="icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h10l-1 11a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 5z"/><path d="M6 9h8"/><path d="M8 2v3M12 2v3"/></svg> Free soda package for 2 guests</li>
+            <li><svg class="icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7.5"/><path d="M10 5.5v9"/><path d="M12.5 7.5h-3.25a1.75 1.75 0 0 0 0 3.5h1.5a1.75 1.75 0 0 1 0 3.5H7.5"/></svg> $50 onboard credit</li>
+          </ul>
+          <div class="perks-footer">Courtesy of Point Me to Paradise Travel</div>
+        </div>
+
+        <div class="selector-prompt">Choose a cabin:</div>
+
+        <!-- Cabin A: 2D Ocean View Balcony -->
+        <label class="option">
+          <input type="radio" name="selection" value="c1-2d" data-price="1249.38" data-grats="148" data-cruise="Mariner 4-Night (Aug 27)" data-cabin="Ocean View Balcony 2D — mid-ship Deck 6" onclick="setTimeout(updateTotal,0)">
+          <div class="option-content">
+            <span class="option-label-main">Ocean View Balcony — Category 2D</span>
+            <span class="option-sublabel">Mid-ship, Deck 6</span>
+            <span class="option-price">$1,249.38</span>
+            <span class="option-price-note">total for 2 adults · gratuities below</span>
+            <div class="cabin-detail">
+              <div class="specs"><span><svg class="icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="14" height="14" rx="0.5"/><path d="M6 3v3M3 6h3"/></svg> 198 sq ft cabin</span><span><svg class="icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="8" r="2.5"/><path d="M2 13h16M2 16h16"/></svg> 46 sq ft balcony</span><span><svg class="icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7v10M2 12h16v5M5 12V9a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3"/></svg> King or two twins</span><span><svg class="icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v4M17 11v4M3 14h14M3 11a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1M5 10V8a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"/></svg> Sofa bed</span></div>
+              <strong>The standard balcony at the best price.</strong> Mid-ship Deck 6 is the most stable spot on the ship — least motion, quickest access to dining and the pool deck. A sofa, plenty of storage, and a 46 sq ft balcony with two chairs and a small table. The category 2D pricing tier is the value sweet spot: same room layout as higher categories, lower deck.
+            </div>
+          </div>
+        </label>
+
+        <!-- Cabin B: 2B Spacious Ocean View Balcony -->
+        <label class="option">
+          <input type="radio" name="selection" value="c1-2b" data-price="1672.28" data-grats="148" data-cruise="Mariner 4-Night (Aug 27)" data-cabin="Spacious Ocean View Balcony 2B — Decks 8 aft, 9, or 10" onclick="setTimeout(updateTotal,0)">
+          <div class="option-content">
+            <span class="option-label-main">Spacious Ocean View Balcony — Category 2B</span>
+            <span class="option-sublabel">Deck 8 aft, Deck 9, or Deck 10</span>
+            <span class="option-price">$1,672.28</span>
+            <span class="option-price-note">total for 2 adults · gratuities below</span>
+            <div class="cabin-detail">
+              <div class="specs"><span><svg class="icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="14" height="14" rx="0.5"/><path d="M6 3v3M3 6h3"/></svg> 203 sq ft cabin</span><span><svg class="icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="8" r="2.5"/><path d="M2 13h16M2 16h16"/></svg> 42 sq ft balcony</span><span><svg class="icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7v10M2 12h16v5M5 12V9a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3"/></svg> King or two twins</span><span><svg class="icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v4M17 11v4M3 14h14M3 11a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1M5 10V8a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"/></svg> Sofa bed</span></div>
+              <strong>Higher deck, slightly bigger room.</strong> Five extra square feet inside, four fewer on the balcony — a nudge toward indoor space. The real upgrade is the deck assignment: Deck 8 aft, 9, or 10 gives you closer access to the pool deck, the buffet, and the top-of-ship venues. Aft cabins on Deck 8 also get a wider wake view from the balcony.
+            </div>
+          </div>
+        </label>
+
+        <!-- Cabin C: J4 Junior Suite -->
+        <label class="option">
+          <input type="radio" name="selection" value="c1-j4" data-price="1786.28" data-grats="148" data-cruise="Mariner 4-Night (Aug 27)" data-cabin="Junior Suite J4 — mid-ship Deck 9" onclick="setTimeout(updateTotal,0)">
+          <div class="option-content">
+            <span class="option-label-main">Junior Suite — Category J4</span>
+            <span class="option-sublabel">Mid-ship, Deck 9</span>
+            <span class="option-price">$1,786.28</span>
+            <span class="option-price-note">total for 2 adults · gratuities below</span>
+            <div class="cabin-detail">
+              <div class="specs"><span><svg class="icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="14" height="14" rx="0.5"/><path d="M6 3v3M3 6h3"/></svg> 277 sq ft cabin</span><span><svg class="icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="8" r="2.5"/><path d="M2 13h16M2 16h16"/></svg> 46 sq ft balcony</span><span><svg class="icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 11h16v3a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3v-3z"/><path d="M5 11V6a1.5 1.5 0 0 1 1.5-1.5H8"/><circle cx="8" cy="6" r="0.8"/></svg> Bathtub</span><span><svg class="icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7v10M2 12h16v5M5 12V9a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3"/></svg> King or two twins</span></div>
+              <strong>Suite-level space without the suite-level price.</strong> Roughly 40% more interior square footage than the standard balcony cabins, plus the only category in this quote with a real bathtub instead of a shower. Mid-ship Deck 9 is prime real estate — high enough for view, central enough to avoid motion. Junior Suites get priority boarding and access to a dedicated suite breakfast, but not the full Suite Class amenities (no Coastal Kitchen access, no concierge lounge — those come with Grand Suites and above).
+            </div>
+          </div>
+        </label>
+
+        <div class="gratuity-box">
+          <div class="grat-label">Optional but recommended</div>
+          <label class="option" style="border: none; padding: 8px 0; margin: 0; background: transparent;">
+            <input type="checkbox" id="grats-c1" data-price="148" onclick="setTimeout(updateTotal,0)">
+            <div class="option-content">
+              <span class="option-label-main">Prepay Gratuities — $148</span>
+              <span class="option-sublabel">$18.50/person/night × 2 guests × 4 nights. Otherwise charged daily to your onboard account.</span>
+            </div>
+          </label>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- CRUISE 2: MARINER 5-NIGHT, AUG 22 -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<section class="cruise-section">
+  <div class="wrap">
+
+    <div class="cruise-card">
+      <div class="cruise-header">
+        <div class="eyebrow">Option 2 — Two Ports, More Time</div>
+        <h2>Mariner of the Seas — 5 Nights</h2>
+        <div class="ship-meta">August 22 → 27, 2026 · Galveston roundtrip · Costa Maya + Cozumel</div>
+      </div>
+
+      <div class="cruise-body">
+
+        <div class="itinerary">
+          <h4>Itinerary</h4>
+          <div class="itin-day"><span class="label">Sat Aug 22</span><span class="place">Galveston, Texas</span><span class="time">Depart 3:00 PM</span></div>
+          <div class="itin-day"><span class="label">Sun Aug 23</span><span class="place">At sea</span><span class="time">Cruising</span></div>
+          <div class="itin-day"><span class="label">Mon Aug 24</span><span class="place">Puerto Costa Maya, Mexico</span><span class="time">11:59 AM – 7:00 PM</span></div>
+          <div class="itin-day"><span class="label">Tue Aug 25</span><span class="place">Cozumel, Mexico</span><span class="time">7:00 AM – 5:00 PM</span></div>
+          <div class="itin-day"><span class="label">Wed Aug 26</span><span class="place">At sea</span><span class="time">Cruising</span></div>
+          <div class="itin-day"><span class="label">Thu Aug 27</span><span class="place">Galveston, Texas</span><span class="time">Arrive 7:00 AM</span></div>
+        </div>
+
+        <div class="perks-banner">
+          <div class="perks-eyebrow">— Included with every cabin in this quote —</div>
+          <ul>
+            <li><svg class="icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h10l-1 11a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 5z"/><path d="M6 9h8"/><path d="M8 2v3M12 2v3"/></svg> Free soda package for 2 guests</li>
+            <li><svg class="icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7.5"/><path d="M10 5.5v9"/><path d="M12.5 7.5h-3.25a1.75 1.75 0 0 0 0 3.5h1.5a1.75 1.75 0 0 1 0 3.5H7.5"/></svg> $50 onboard credit</li>
+          </ul>
+          <div class="perks-footer">Courtesy of Point Me to Paradise Travel</div>
+        </div>
+
+        <div class="selector-prompt">Choose a cabin:</div>
+
+        <!-- Cabin A: 2D Ocean View Balcony -->
+        <label class="option">
+          <input type="radio" name="selection" value="c2-2d" data-price="1666.36" data-grats="185" data-cruise="Mariner 5-Night (Aug 22)" data-cabin="Ocean View Balcony 2D — mid-ship Deck 6" onclick="setTimeout(updateTotal,0)">
+          <div class="option-content">
+            <span class="option-label-main">Ocean View Balcony — Category 2D</span>
+            <span class="option-sublabel">Mid-ship, Deck 6</span>
+            <span class="option-price">$1,666.36</span>
+            <span class="option-price-note">total for 2 adults · gratuities below</span>
+            <div class="cabin-detail">
+              <div class="specs"><span><svg class="icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="14" height="14" rx="0.5"/><path d="M6 3v3M3 6h3"/></svg> 198 sq ft cabin</span><span><svg class="icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="8" r="2.5"/><path d="M2 13h16M2 16h16"/></svg> 46 sq ft balcony</span><span><svg class="icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7v10M2 12h16v5M5 12V9a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3"/></svg> King or two twins</span><span><svg class="icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v4M17 11v4M3 14h14M3 11a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1M5 10V8a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"/></svg> Sofa bed</span></div>
+              <strong>Same standard balcony cabin as the 4-night, one extra night and an additional port.</strong> Mid-ship Deck 6 placement — quietest, most stable cabins on the ship. Costa Maya adds a half-day at a second port (the ship sits in port from noon to 7 PM), giving you a full afternoon ashore.
+            </div>
+          </div>
+        </label>
+
+        <!-- Cabin B: 4B Spacious Ocean View Balcony -->
+        <label class="option">
+          <input type="radio" name="selection" value="c2-4b" data-price="1782.36" data-grats="185" data-cruise="Mariner 5-Night (Aug 22)" data-cabin="Spacious Ocean View Balcony 4B — aft Deck 6" onclick="setTimeout(updateTotal,0)">
+          <div class="option-content">
+            <span class="option-label-main">Spacious Ocean View Balcony — Category 4B</span>
+            <span class="option-sublabel">Aft, Deck 6</span>
+            <span class="option-price">$1,782.36</span>
+            <span class="option-price-note">total for 2 adults · gratuities below</span>
+            <div class="cabin-detail">
+              <div class="specs"><span><svg class="icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="14" height="14" rx="0.5"/><path d="M6 3v3M3 6h3"/></svg> 203 sq ft cabin</span><span><svg class="icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="8" r="2.5"/><path d="M2 13h16M2 16h16"/></svg> 42 sq ft balcony</span><span><svg class="icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7v10M2 12h16v5M5 12V9a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3"/></svg> King or two twins</span><span><svg class="icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v4M17 11v4M3 14h14M3 11a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1M5 10V8a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"/></svg> Sofa bed</span></div>
+              <strong>Aft cabin on Deck 6 — the wake-view perk for $116 more.</strong> Same square footage as the 2B (203 sq ft + 42 sq ft balcony), and "4B" just means lower deck position than a "2B." The trade is: less elevation, but you're at the back of the ship looking straight down at the wake. Aft balconies tend to be the favorite of cruise regulars — the view is more dramatic, and there's no foot traffic above you on the balcony deck.
+            </div>
+          </div>
+        </label>
+
+        <div class="gratuity-box">
+          <div class="grat-label">Optional but recommended</div>
+          <label class="option" style="border: none; padding: 8px 0; margin: 0; background: transparent;">
+            <input type="checkbox" id="grats-c2" data-price="185" onclick="setTimeout(updateTotal,0)">
+            <div class="option-content">
+              <span class="option-label-main">Prepay Gratuities — $185</span>
+              <span class="option-sublabel">$18.50/person/night × 2 guests × 5 nights. Otherwise charged daily to your onboard account.</span>
+            </div>
+          </label>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- CRUISE 3: SYMPHONY OF THE SEAS — TEASER -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<section class="cruise-section">
+  <div class="wrap">
+
+    <div class="teaser-card">
+      <div class="cruise-header">
+        <div class="eyebrow">Option 3 — Bigger Ship, More Ports</div>
+        <h2>Symphony of the Seas — 6 Nights</h2>
+        <div class="ship-meta">August 2026 · Galveston roundtrip · Costa Maya + Roatan + Cozumel</div>
+      </div>
+
+      <div class="cruise-body">
+
+        <div class="itinerary">
+          <h4>Itinerary at a Glance</h4>
+          <div class="itin-day"><span class="label">Day 1</span><span class="place">Galveston, Texas</span><span class="time">Depart afternoon</span></div>
+          <div class="itin-day"><span class="label">Day 2</span><span class="place">At sea</span><span class="time">Cruising</span></div>
+          <div class="itin-day"><span class="label">Day 3</span><span class="place">Puerto Costa Maya, Mexico</span><span class="time">Port day</span></div>
+          <div class="itin-day"><span class="label">Day 4</span><span class="place">Roatan, Honduras</span><span class="time">Port day</span></div>
+          <div class="itin-day"><span class="label">Day 5</span><span class="place">Cozumel, Mexico</span><span class="time">Port day</span></div>
+          <div class="itin-day"><span class="label">Day 6</span><span class="place">At sea</span><span class="time">Cruising</span></div>
+          <div class="itin-day"><span class="label">Day 7</span><span class="place">Galveston, Texas</span><span class="time">Arrive morning</span></div>
+        </div>
+
+        <p style="font-size: 16px; color: var(--ink); margin-bottom: 14px;"><strong style="color: var(--teal-dark);">Why consider Symphony:</strong> It's an Oasis-class megaship — significantly larger than Mariner, with seven onboard "neighborhoods" including a Central Park with real trees, a Boardwalk with a carousel, the 10-story Ultimate Abyss dry slide, twin FlowRiders, an AquaTheater, and an ice rink. Bigger ship, more onboard activity, and a third port in Honduras (Roatan).</p>
+
+        <p style="font-size: 16px; color: var(--ink); margin-bottom: 14px;"><strong style="color: var(--teal-dark);">Best dates:</strong></p>
+        <div style="margin-bottom: 16px;">
+          <span class="date-pill">Aug 23, 2026</span>
+          <span class="date-pill">Aug 29, 2026</span>
+        </div>
+
+        <div class="teaser-prompt">
+          <strong>Want to see Symphony pricing?</strong> Flag this on the form below (note in your message which date you'd consider) and I'll pull cabin rates and add them as a separate option for you.
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- CATEGORY EDUCATION -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<section class="education">
+  <div class="wrap">
+    <h3>Reading Royal Caribbean's Cabin Categories</h3>
+    <div class="sub">— a quick translator for the codes you're seeing above —</div>
+
+    <div class="ed-block">
+      <h4>The number tells you the deck position, the letter tells you the cabin type</h4>
+      <p>Royal Caribbean numbers cabin categories from <strong>best location (lower number)</strong> to <strong>less prime (higher number)</strong>. The letter — D, B, J — is the cabin <em>style</em>. So a "2D" and a "4D" are the same physical room and balcony layout; the "2" just means it's on a more desirable deck.</p>
+    </div>
+
+    <div class="ed-block">
+      <h4>2D and 4D = "Ocean View Balcony" (the standard balcony)</h4>
+      <p>198 sq ft cabin + 46 sq ft balcony. King-size bed (or two twins), a sofa, full bathroom with shower. The classic Royal Caribbean balcony cabin — found on Decks 6 through 10. Some 4Ds on Deck 7 have lifeboats below that partially obstruct the view from the balcony, which is what brings the price down.</p>
+    </div>
+
+    <div class="ed-block">
+      <h4>2B and 4B = "Spacious Ocean View Balcony" (slightly larger room, smaller balcony)</h4>
+      <p>203 sq ft cabin + 42 sq ft balcony. Same basic layout as the standard balcony, but five extra square feet inside (four fewer on the balcony). Mostly a deck-position upgrade: 2Bs sit on better decks, 4Bs sit lower. The aft 4B on Deck 6 is a sleeper pick — same room as a 2B, with a wake view from the balcony.</p>
+    </div>
+
+    <div class="ed-block">
+      <h4>J4 = "Junior Suite" (significantly bigger, with a tub)</h4>
+      <p>277 sq ft cabin + 46 sq ft balcony. About 40% more interior space than a standard balcony, plus a real bathtub instead of a shower-only setup. Junior Suites get a few perks — priority boarding, dedicated suite breakfast — but not the full Suite Class lounge access (those come with Grand Suite categories and up). Found only on Decks 9 and 10.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- RUNNING TOTAL -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<section class="total-section">
+  <div class="wrap">
+    <div class="total-box">
+      <div class="label">Your Estimated Total</div>
+      <div class="amount" id="totalAmount"><span class="pending">Pick a cabin to see your total</span></div>
+      <div class="breakdown" id="totalBreakdown"></div>
+      <div class="footnote">All pricing is total for two adults. Final pricing is confirmed by Christina before booking.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- PRICING TRANSPARENCY -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<section class="pricing-note">
+  <div class="wrap">
+    <div class="inner">
+      <h4>How this pricing works</h4>
+      <p>Individual cabins, transfers, and cruise fares in your quote are priced at publicly available rates — and in many cases lower than what you'd find on your own. You don't have to worry about overpaying for a piece of your trip.</p>
+      <p>What you're paying for is the rest: the right cabin at the right deck, a sailing reviewed for itinerary fit, the trip app, and a human who answers when something doesn't go to plan.</p>
+      <p style="font-size: 14.5px; color: var(--ink-soft); font-style: italic;">$200–$500 low deposit holds your cabin · pay balance closer to sailing · cruises require payment in full 90 days prior to sailing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- FORM -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<section class="form-section">
+  <div class="wrap">
+    <h2>Send Me Your Selections</h2>
+    <div class="form-sub">— and we'll lock it in —</div>
+
+    <div class="form-card">
+      <form id="tripForm">
+        <input type="hidden" name="access_key" value="7b40d437-1004-48e2-9031-171a8b0ef4f1">
+        <input type="hidden" name="subject" value="Brandon Doucet — RC Caribbean Cruise Selections">
+        <input type="hidden" name="from_name" value="Brandon Doucet — PMTP Cruise Form">
+        <input type="hidden" name="redirect" value="false">
+
+        <input type="hidden" name="Selected_Cruise" id="hidden_cruise">
+        <input type="hidden" name="Selected_Cabin" id="hidden_cabin">
+        <input type="hidden" name="Cabin_Price" id="hidden_price">
+        <input type="hidden" name="Prepaid_Gratuities" id="hidden_grats">
+        <input type="hidden" name="Estimated_Total" id="hidden_total">
+        <input type="hidden" name="Included_Perks" value="Free soda package for 2 + $50 onboard credit (PMTP courtesy)">
+
+        <div class="field">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="Name" required>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="Email" required>
+        </div>
+
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="Phone" required>
+        </div>
+
+        <div class="field">
+          <label for="notes">Anything else? (Symphony interest, dining preferences, drink package questions, etc.)</label>
+          <textarea id="notes" name="Notes" placeholder="Optional — tell me about anything you're wondering or wanting to add."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Send My Selections</button>
+      </form>
+
+      <div class="thanks-msg" id="thanksMsg">
+        <h3>Got it, Brandon!</h3>
+        <p>Your selections are on their way to Christina.</p>
+        <p>Expect a reply within 24 hours — usually much sooner.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- SERVICE PILLARS -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<section class="pillars">
+  <div class="wrap">
+    <div class="pillars-title">
+      <div class="eyebrow">— what you're paying for —</div>
+      <h3>The PMTP Difference</h3>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar">
+        <div class="roman">I.</div>
+        <h4>The Right Cabin</h4>
+        <p>I read deck plans. I know which "2D" is mid-ship and stable and which one is over a noisy venue. The cabin I quote is the cabin I'd book for my own family.</p>
+      </div>
+      <div class="pillar">
+        <div class="roman">II.</div>
+        <h4>The Right Sailing</h4>
+        <p>Two cruises with the same itinerary aren't the same trip. Hurricane season, ship class, port time, and a hundred small details shape the experience. I help you read past the marketing.</p>
+      </div>
+      <div class="pillar">
+        <div class="roman">III.</div>
+        <h4>A Real Person</h4>
+        <p>Phone, text, email — answered. Not by a chatbot, not by a help desk five time zones away. By me, the person who booked your trip.</p>
+      </div>
+      <div class="pillar">
+        <div class="roman">IV.</div>
+        <h4>When Things Go Sideways</h4>
+        <p>Itinerary changes, weather diversions, missed connections, lost luggage. I've handled them. You'll have a number to call before the cruise line's hold music kicks in.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════ -->
+<!-- FOOTER -->
+<!-- ════════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="wrap">
+    <div class="name">Christina Garcia</div>
+    <div class="agency">Point Me to Paradise Travel</div>
+    <div class="contact-line"><a id="emailLink" href="#">loading…</a></div>
+    <div class="contact-line"><a href="tel:+12812290862">(281) 229-0862</a></div>
+    <div class="fineprint">
+      Quote prepared for Brandon Doucet · April 2026<br>
+      Pricing is total for two adults and is subject to availability until booked.<br>
+      Final pricing confirmed by Christina before booking.
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Email assembly (Cloudflare-safe)
+  (function() {
+    var addr = 'Christina' + '@' + 'PointMeToParadise.com';
+    var el = document.getElementById('emailLink');
+    if (el) {
+      el.href = 'mailto:' + addr;
+      el.textContent = addr;
+    }
+  })();
+
+  // Running total logic
+  function updateTotal() {
+    var radios = document.querySelectorAll('input[name="selection"]');
+    var selected = null;
+    radios.forEach(function(r) { if (r.checked) selected = r; });
+
+    var totalEl = document.getElementById('totalAmount');
+    var breakdownEl = document.getElementById('totalBreakdown');
+
+    if (!selected) {
+      totalEl.innerHTML = '<span class="pending">Pick a cabin to see your total</span>';
+      breakdownEl.innerHTML = '';
+      document.getElementById('hidden_cruise').value = '';
+      document.getElementById('hidden_cabin').value = '';
+      document.getElementById('hidden_price').value = '';
+      document.getElementById('hidden_grats').value = '';
+      document.getElementById('hidden_total').value = '';
+      return;
+    }
+
+    var cabinPrice = parseFloat(selected.getAttribute('data-price'));
+    var gratsAmount = parseFloat(selected.getAttribute('data-grats'));
+    var cruiseName = selected.getAttribute('data-cruise');
+    var cabinName = selected.getAttribute('data-cabin');
+
+    // Determine which gratuity checkbox to read (matched to selected cruise)
+    var gratsBox = null;
+    if (selected.value.indexOf('c1-') === 0) gratsBox = document.getElementById('grats-c1');
+    if (selected.value.indexOf('c2-') === 0) gratsBox = document.getElementById('grats-c2');
+
+    var gratsAdded = gratsBox && gratsBox.checked;
+    var total = cabinPrice + (gratsAdded ? gratsAmount : 0);
+
+    totalEl.innerHTML = 'Est. $' + total.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+    var breakdown = '<div style="margin-top: 4px;">' + cruiseName + '<br>' +
+                    cabinName + ' · $' + cabinPrice.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    if (gratsAdded) {
+      breakdown += '<br>Prepaid gratuities · $' + gratsAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+    breakdown += '<br><span style="color: var(--gold-dark); font-style: italic;">+ Free soda package for 2 &amp; $50 onboard credit (included)</span>';
+    breakdown += '</div>';
+    breakdownEl.innerHTML = breakdown;
+
+    // Update hidden form fields
+    document.getElementById('hidden_cruise').value = cruiseName;
+    document.getElementById('hidden_cabin').value = cabinName;
+    document.getElementById('hidden_price').value = '$' + cabinPrice.toFixed(2);
+    document.getElementById('hidden_grats').value = gratsAdded ? '$' + gratsAmount.toFixed(2) : 'Not added';
+    document.getElementById('hidden_total').value = '$' + total.toFixed(2);
+  }
+
+  // Form submission
+  document.getElementById('tripForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var form = e.target;
+    var data = new FormData(form);
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: data
+    })
+    .then(function(res) { return res.json(); })
+    .then(function(json) {
+      if (json.success) {
+        form.style.display = 'none';
+        document.getElementById('thanksMsg').classList.add('show');
+        window.scrollTo({ top: document.getElementById('thanksMsg').offsetTop - 100, behavior: 'smooth' });
+      } else {
+        alert('Something went wrong. Please email Christina directly or text (281) 229-0862.');
+      }
+    })
+    .catch(function() {
+      alert('Something went wrong. Please email Christina directly or text (281) 229-0862.');
+    });
+  });
+</script>
+
+</body>
+</html>
