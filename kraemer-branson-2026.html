@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kraemer Family · Branson, May 2026 — Point Me to Paradise</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --teal: #75AFB1;
+  --teal-dark: #4F8A8C;
+  --teal-pale: #C4E4E1;
+  --gold: #DAC396;
+  --gold-dark: #B89E6A;
+  --cream: #E9DEC0;
+  --cream-light: #F5EFDF;
+  --ink: #2B2420;
+  --ink-soft: #5A524A;
+  --paper: #FBF9F4;
+  --paper-pure: #FFFFFF;
+  --line: #E5DED0;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, var(--cream-light) 0%, var(--paper) 55%, var(--teal-pale) 100%);
+  padding: 80px 24px 60px;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand-wordmark {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--teal-dark);
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  font-size: clamp(34px, 6vw, 52px);
+  line-height: 1.15;
+  color: var(--ink);
+  margin-bottom: 18px;
+}
+
+.hero h1 em {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--teal-dark);
+}
+
+.hero .subline {
+  font-size: 17px;
+  color: var(--ink-soft);
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+.hero-meta {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 36px;
+  font-size: 14px;
+  color: var(--ink);
+}
+
+.hero-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero-meta-item svg {
+  color: var(--teal-dark);
+  flex-shrink: 0;
+}
+
+/* SECTIONS */
+section {
+  padding: 64px 0;
+}
+
+section.alt {
+  background: var(--cream-light);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.section-tag {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--gold-dark);
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.section-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  font-size: clamp(28px, 5vw, 38px);
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+
+.section-header .lede {
+  font-size: 16px;
+  color: var(--ink-soft);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* WELCOME */
+.welcome-letter {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 16.5px;
+  line-height: 1.85;
+  color: var(--ink);
+}
+
+.welcome-letter p {
+  margin-bottom: 18px;
+}
+
+.welcome-letter .signoff {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 19px;
+  margin-top: 28px;
+  color: var(--teal-dark);
+}
+
+/* PROPERTY CARDS */
+.cards {
+  display: grid;
+  gap: 30px;
+}
+
+.card {
+  background: var(--paper-pure);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card.selectable {
+  cursor: pointer;
+}
+
+.card.selectable:hover {
+  border-color: var(--teal);
+  box-shadow: 0 4px 16px rgba(75, 138, 140, 0.08);
+}
+
+.card.selectable.selected {
+  border-color: var(--teal-dark);
+  border-width: 2px;
+  box-shadow: 0 6px 24px rgba(75, 138, 140, 0.18);
+}
+
+.card-image {
+  width: 100%;
+  height: 280px;
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--line);
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--ink-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-body {
+  padding: 30px 28px;
+}
+
+.card-zone {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--gold-dark);
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.card h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  font-size: 26px;
+  margin-bottom: 14px;
+  color: var(--ink);
+  line-height: 1.25;
+}
+
+.card-desc {
+  font-size: 15px;
+  color: var(--ink-soft);
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+
+.card-features {
+  list-style: none;
+  margin-bottom: 22px;
+}
+
+.card-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--ink);
+  padding: 6px 0;
+  line-height: 1.5;
+}
+
+.card-features li svg {
+  color: var(--teal-dark);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.card-pricing {
+  background: var(--cream-light);
+  padding: 16px 20px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  border-left: 3px solid var(--gold);
+}
+
+.card-pricing .label {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--gold-dark);
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.card-pricing .value {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  color: var(--ink);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.select-btn {
+  width: 100%;
+  padding: 14px;
+  background: var(--paper-pure);
+  border: 1.5px solid var(--teal-dark);
+  color: var(--teal-dark);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.selected > .select-btn,
+.selected .select-btn {
+  background: var(--teal-dark);
+  color: var(--paper-pure);
+}
+
+/* SUB-OPTIONS (for Timber Ridge) */
+.suboption-divider {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--gold-dark);
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  font-size: 13px;
+  text-align: center;
+  margin: 8px 0 20px;
+  position: relative;
+  padding: 0 16px;
+}
+
+.suboption-divider::before,
+.suboption-divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: calc(50% - 110px);
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.5;
+}
+
+.suboption-divider::before { left: 0; }
+.suboption-divider::after { right: 0; }
+
+.suboption {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 24px 22px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.suboption:hover {
+  border-color: var(--teal);
+}
+
+.suboption.selected {
+  border-color: var(--teal-dark);
+  border-width: 2px;
+  background: var(--paper-pure);
+}
+
+.suboption h4 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  font-size: 19px;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.suboption .sub-tag {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--gold-dark);
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.suboption .sub-desc {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+
+.suboption .card-pricing {
+  margin-bottom: 14px;
+}
+
+.suboption .select-btn {
+  font-size: 13px;
+  padding: 12px;
+}
+
+/* ACTIVITY BLOCKS */
+.activity-grid {
+  display: grid;
+  gap: 24px;
+}
+
+.activity-block {
+  background: var(--paper-pure);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 30px 28px;
+}
+
+.activity-block h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  font-size: 22px;
+  color: var(--ink);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.activity-block h3 svg {
+  color: var(--teal-dark);
+  flex-shrink: 0;
+}
+
+.activity-block .intro {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--ink-soft);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.activity-list {
+  list-style: none;
+}
+
+.activity-list li {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.activity-list li:last-child {
+  border-bottom: none;
+}
+
+.activity-list li strong {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 4px;
+  color: var(--ink);
+  font-size: 14.5px;
+}
+
+.activity-list li span {
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+/* GUIDE PROMISE */
+.guide-promise {
+  background: var(--teal-pale);
+  border-radius: 8px;
+  padding: 40px 32px;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.guide-promise .promise-tag {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--teal-dark);
+  font-size: 15px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.guide-promise h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  font-size: 26px;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.guide-promise p {
+  font-size: 15.5px;
+  color: var(--ink);
+  max-width: 600px;
+  margin: 0 auto 14px;
+  line-height: 1.75;
+}
+
+.guide-promise p:last-child {
+  margin-bottom: 0;
+}
+
+/* FORM */
+form {
+  background: var(--paper-pure);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 36px 32px;
+}
+
+.field {
+  margin-bottom: 22px;
+}
+
+.field label {
+  display: block;
+  font-size: 13px;
+  color: var(--ink);
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="tel"],
+.field textarea {
+  width: 100%;
+  padding: 14px 16px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--paper);
+  color: var(--ink);
+  transition: border-color 0.2s;
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--teal);
+}
+
+.field textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.deposit-note {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--ink-soft);
+  text-align: center;
+  margin-bottom: 24px;
+  padding: 14px 18px;
+  background: var(--cream-light);
+  border-radius: 6px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 16px;
+  background: var(--teal-dark);
+  color: var(--paper-pure);
+  border: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s;
+  margin-top: 8px;
+}
+
+.submit-btn:hover {
+  background: var(--teal);
+}
+
+.thanks {
+  display: none;
+  background: var(--teal-pale);
+  padding: 36px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.thanks.show {
+  display: block;
+}
+
+.thanks h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  margin-bottom: 12px;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.thanks p {
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* FOOTER */
+footer {
+  background: var(--cream);
+  padding: 52px 24px 40px;
+  text-align: center;
+  border-top: 1px solid var(--line);
+}
+
+.advisor-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.advisor-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--teal-dark);
+  margin-bottom: 22px;
+  letter-spacing: 1.2px;
+}
+
+.contact-row {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  color: var(--ink);
+  margin-bottom: 28px;
+}
+
+.contact-row a {
+  color: var(--ink);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contact-row a:hover {
+  color: var(--teal-dark);
+}
+
+.contact-row svg {
+  color: var(--teal-dark);
+  flex-shrink: 0;
+}
+
+.fineprint {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.75;
+}
+
+@media (max-width: 600px) {
+  .hero { padding: 60px 20px 48px; }
+  section { padding: 52px 0; }
+  .container { padding: 0 18px; }
+  .card-body { padding: 24px 22px; }
+  form { padding: 28px 22px; }
+  .activity-block { padding: 26px 22px; }
+  .guide-promise { padding: 32px 22px; }
+  .contact-row { flex-direction: column; gap: 14px; }
+  .hero-meta { gap: 16px; }
+  .card-image { height: 220px; }
+  .suboption { padding: 20px 18px; }
+  .suboption-divider::before,
+  .suboption-divider::after { width: calc(50% - 90px); }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="brand-wordmark">Point Me to Paradise Travel</div>
+  <h1>The Kraemer Family<br><em>Three Nights in Branson</em></h1>
+  <p class="subline">A custom quote for four travelers · May 18 to 21, 2026</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="1.5"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="3" x2="8" y2="7"/><line x1="16" y1="3" x2="16" y2="7"/></svg>
+      May 18&ndash;21, 2026
+    </div>
+    <div class="hero-meta-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Branson, Missouri
+    </div>
+    <div class="hero-meta-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      4 travelers &middot; 2 rooms
+    </div>
+  </div>
+</header>
+
+<!-- WELCOME -->
+<section>
+  <div class="container">
+    <div class="welcome-letter">
+      <p>Branson sits in the foothills of the Ozarks, where Table Rock Lake bends through the limestone bluffs and a stretch of country theaters has somehow held its ground for fifty years. It's a place that rewards travelers who slow down &mdash; the lake at dawn, the hum of a Showboat dinner cruise, a long sunset from the deck at Top of the Rock.</p>
+      <p>Below are four properties for your stay. Two on Table Rock Lake at full-resort scale, a boutique lodge with a different personality entirely, and a vacation-club property where you can choose between two separate units or one larger villa for the four of you. Each one offers a different rhythm &mdash; pick the one that suits the trip you have in mind.</p>
+      <p>Tap a card to mark your favorite, then scroll on for what's worth doing while you're there.</p>
+      <p class="signoff">&mdash; Christina</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROPERTIES -->
+<section class="alt">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Where You'll Stay</div>
+      <h2>Four Branson Properties</h2>
+      <p class="lede">Each option is priced for the four of you across three nights. Tap any card to mark it as your favorite &mdash; or pick a couple of contenders and I'll dig deeper into rates and availability for the ones you're considering.</p>
+    </div>
+
+    <div class="cards">
+
+      <!-- BIG CEDAR -->
+      <div class="card selectable" data-property="Big Cedar Lodge" onclick="selectOption(this)">
+        <div class="card-image">
+          <img src="https://www.thehotelguru.com/_images/f6/58/f6587aa87cf38e30024dd8bdee041441/s1654x900.jpg" alt="Big Cedar Lodge">
+        </div>
+        <div class="card-body">
+          <div class="card-zone">Lakefront Resort &middot; 15 minutes south</div>
+          <h3>Big Cedar Lodge</h3>
+          <p class="card-desc">Bass Pro's flagship Ozark resort, set above Table Rock Lake on a property big enough to fill its own day. Multiple restaurants on site, a full spa, golf carts that ferry you between buildings, and the Top of the Rock complex right next door for sunset cocktails over the lake. The kind of place you arrive and don't need to leave.</p>
+          <ul class="card-features">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 17 V10 H22 V17"/><path d="M2 14 H22"/><path d="M5 10 V8 H11 V10"/><path d="M2 17 V20"/><path d="M22 17 V20"/></svg>
+              Two rooms in the main lodge buildings (Falls Lodge or Valley View Lodge)
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15 9 22 10 17 15 18 22 12 18 6 22 7 15 2 10 9 9"/></svg>
+              Restaurants, spa, lake access, and nature trails on the property
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Top of the Rock and Dogwood Canyon a short drive away
+            </li>
+          </ul>
+          <div class="card-pricing">
+            <div class="label">Estimated Pricing</div>
+            <div class="value">Christina is sourcing rates and room types</div>
+          </div>
+          <button type="button" class="select-btn" data-default="Select Big Cedar Lodge" data-active="Selected — Big Cedar Lodge">Select Big Cedar Lodge</button>
+        </div>
+      </div>
+
+      <!-- CHATEAU -->
+      <div class="card selectable" data-property="Chateau on the Lake" onclick="selectOption(this)">
+        <div class="card-image">
+          <img src="https://media-api.xogrp.com/images/7b232773-6655-4231-aea0-8c0eadea7565~sc_675.375?quality=90" alt="Chateau on the Lake">
+        </div>
+        <div class="card-body">
+          <div class="card-zone">Lakefront Resort &middot; 10 minutes south</div>
+          <h3>Chateau on the Lake</h3>
+          <p class="card-desc">A European-style hotel that rises ten stories above Table Rock Lake &mdash; open atrium lobby with a fountain and live piano in the evenings, a full-service spa, and the Chateau Grille for a serious dinner. Everything's under one roof, which makes it simple to navigate. A more relaxed pace than Big Cedar, and easier to settle into.</p>
+          <ul class="card-features">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 17 V10 H22 V17"/><path d="M2 14 H22"/><path d="M5 10 V8 H11 V10"/><path d="M2 17 V20"/><path d="M22 17 V20"/></svg>
+              Two rooms with lake or Ozark mountain views
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15 9 22 10 17 15 18 22 12 18 6 22 7 15 2 10 9 9"/></svg>
+              Indoor and outdoor pools, full spa, three on-site restaurants
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Single-tower layout &mdash; everything indoors and connected
+            </li>
+          </ul>
+          <div class="card-pricing">
+            <div class="label">Estimated Pricing</div>
+            <div class="value">Christina is sourcing rates and room types</div>
+          </div>
+          <button type="button" class="select-btn" data-default="Select Chateau on the Lake" data-active="Selected — Chateau on the Lake">Select Chateau on the Lake</button>
+        </div>
+      </div>
+
+      <!-- OZARKER -->
+      <div class="card selectable" data-property="The Ozarker Lodge" onclick="selectOption(this)">
+        <div class="card-image">
+          <img src="https://resortpass.com/cdn-cgi/image/quality=80,width=3840,dpr=2,format=auto/https://assets.resortpass.com/uploads/image/picture/46330/details_The-Ozarker-Lodge_bar.jpg" alt="The Ozarker Lodge">
+        </div>
+        <div class="card-body">
+          <div class="card-zone">Boutique Lodge &middot; In-Town Branson</div>
+          <h3>The Ozarker Lodge</h3>
+          <p class="card-desc">A retro-roadside lodge reimagined &mdash; mid-century bones, modern interiors, a poolside scene that feels more Palm Springs than Ozarks. The bar pours proper cocktails, the rooms have personality instead of carpet patterns, and the whole place reads less like a chain hotel and more like a place someone actually built with a point of view.</p>
+          <ul class="card-features">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 17 V10 H22 V17"/><path d="M2 14 H22"/><path d="M5 10 V8 H11 V10"/><path d="M2 17 V20"/><path d="M22 17 V20"/></svg>
+              Two design-forward rooms in a fully renovated lodge
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15 9 22 10 17 15 18 22 12 18 6 22 7 15 2 10 9 9"/></svg>
+              Pool and patio, on-site bar and restaurant
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Close to Highway 76 theaters and downtown Branson
+            </li>
+          </ul>
+          <div class="card-pricing">
+            <div class="label">Estimated Pricing</div>
+            <div class="value">Christina is sourcing rates and room types</div>
+          </div>
+          <button type="button" class="select-btn" data-default="Select The Ozarker Lodge" data-active="Selected — The Ozarker Lodge">Select The Ozarker Lodge</button>
+        </div>
+      </div>
+
+      <!-- TIMBER RIDGE -->
+      <div class="card">
+        <div class="card-image">
+          <img src="https://images.getaroom-cdn.com/image/upload/s--7AMpSKI2--/c_limit,e_improve,fl_lossy.immutable_cache,h_940,q_auto:good,w_940/v1676493309/5f132b1f06d3d53c35c6abcb276011368bc6f636?_a=BACAEuEv&atc=e7cd1cfa" alt="Hyatt Vacation Club at Timber Ridge">
+        </div>
+        <div class="card-body">
+          <div class="card-zone">Vacation Club Resort &middot; Branson</div>
+          <h3>Hyatt Vacation Club at Timber Ridge</h3>
+          <p class="card-desc">Villa-style accommodations on a wooded resort property &mdash; full kitchens, separate living areas, a lazy river, and pools that make the resort feel like its own little neighborhood. The kind of place where you settle in, cook breakfast in your own kitchen, and don't feel like you're stacked on top of each other. Two ways to play it for the four of you:</p>
+          <ul class="card-features">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15 9 22 10 17 15 18 22 12 18 6 22 7 15 2 10 9 9"/></svg>
+              Lazy river, multiple pools, on-site dining
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Quiet wooded setting, easy drive to theaters and the Landing
+            </li>
+          </ul>
+
+          <div class="suboption-divider">Choose Your Configuration</div>
+
+          <!-- SUB-OPTION A: Two 1BR Units -->
+          <div class="suboption selectable" data-property="Hyatt Vacation Club at Timber Ridge — Two 1-Bedroom Units" onclick="selectOption(this); event.stopPropagation();">
+            <div class="sub-tag">Most Privacy</div>
+            <h4>Two 1-Bedroom Units</h4>
+            <p class="sub-desc">Each couple in their own unit &mdash; separate kitchens, living rooms, and baths. Meet up at the pool or for dinner; retreat to your own space when you want quiet. The most space and privacy of the two options.</p>
+            <div class="card-pricing">
+              <div class="label">Estimated Pricing</div>
+              <div class="value">Christina is sourcing rates</div>
+            </div>
+            <button type="button" class="select-btn" data-default="Select This Option" data-active="Selected — Two 1-Bedroom Units">Select This Option</button>
+          </div>
+
+          <!-- SUB-OPTION B: 2BR Villa -->
+          <div class="suboption selectable" data-property="Hyatt Vacation Club at Timber Ridge — 2-Bedroom Villa" onclick="selectOption(this); event.stopPropagation();">
+            <div class="sub-tag">More Social</div>
+            <h4>One 2-Bedroom Villa</h4>
+            <p class="sub-desc">Both couples share a single villa &mdash; two private bedrooms with their own baths, a shared kitchen, dining area, and living room. Closer together, easier to coordinate mornings and evenings, and one home base for the whole group.</p>
+            <div class="card-pricing">
+              <div class="label">Estimated Pricing</div>
+              <div class="value">Christina is sourcing rates</div>
+            </div>
+            <button type="button" class="select-btn" data-default="Select This Option" data-active="Selected — 2-Bedroom Villa">Select This Option</button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BUILD YOUR DAYS -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Build Your Days</div>
+      <h2>What's Worth Doing in Branson</h2>
+      <p class="lede">A menu of what's available, organized by category. Nothing to check off here &mdash; let me know what catches your eye and I'll handle ticket sourcing, dinner reservations, and timing for whatever you choose.</p>
+    </div>
+
+    <div class="activity-grid">
+
+      <!-- SHOWS -->
+      <div class="activity-block">
+        <h3>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21 V8 C3 6, 5 4, 8 4 H16 C19 4, 21 6, 21 8 V21"/><path d="M3 21 H21"/><path d="M9 8 V21"/><path d="M15 8 V21"/></svg>
+          Shows &amp; Theater
+        </h3>
+        <p class="intro">Branson is built around its theaters &mdash; there's a show for every taste, from religious epics to dinner theater to country variety.</p>
+        <ul class="activity-list">
+          <li><strong>Sight &amp; Sound Theater</strong><span>Large-scale Bible-story productions with elaborate sets and live animals. Production values rival Broadway. Christina will confirm what's on stage during your dates.</span></li>
+          <li><strong>Showboat Branson Belle</strong><span>Dinner cruise on Table Rock Lake with a full variety show &mdash; music, comedy, dancing. Handles dinner and entertainment in one stop.</span></li>
+          <li><strong>Dolly Parton's Stampede</strong><span>Dinner theater with horses, stunts, and a four-course meal served family-style. Big, loud, very Branson.</span></li>
+          <li><strong>Million Dollar Quartet</strong><span>Jukebox musical built around the legendary 1956 Sun Records jam session &mdash; Elvis, Cash, Jerry Lee Lewis, Carl Perkins. Tight, music-forward, around 90 minutes.</span></li>
+          <li><strong>Classic country variety</strong><span>Pierce Arrow, Presleys' Country Jubilee, Clay Cooper Country Express, Hughes Brothers. The original Branson formula &mdash; country, gospel, comedy, and patriotic numbers in a two-hour show.</span></li>
+        </ul>
+      </div>
+
+      <!-- DAYTIME -->
+      <div class="activity-block">
+        <h3>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.93" y1="4.93" x2="7.05" y2="7.05"/><line x1="16.95" y1="16.95" x2="19.07" y2="19.07"/><line x1="4.93" y1="19.07" x2="7.05" y2="16.95"/><line x1="16.95" y1="7.05" x2="19.07" y2="4.93"/></svg>
+          Daytime in the Ozarks
+        </h3>
+        <p class="intro">The lake, the hills, and a few well-built attractions that reward an unhurried morning or afternoon.</p>
+        <ul class="activity-list">
+          <li><strong>Top of the Rock</strong><span>Even if you're not staying at Big Cedar, this is the sunset move. Lost Canyon Cave &amp; Nature Trail is a self-driven golf-cart loop through caves, waterfalls, and bluff overlooks. Cocktails after on the deck looking out over Table Rock Lake.</span></li>
+          <li><strong>Dogwood Canyon Nature Park</strong><span>A 10,000-acre private nature preserve. Tram tour past waterfalls, bison, elk, and trout streams &mdash; beautiful and tram-based, so you cover ground without effort.</span></li>
+          <li><strong>Branson Scenic Railway</strong><span>Vintage rail cars, 1&frac34;-hour round trip through the Ozark backcountry. Narrated, comfortable, and a calm afternoon.</span></li>
+          <li><strong>Silver Dollar City</strong><span>1880s-themed park with crafts demonstrations, festivals, and rides. A half-day or longer if any of you enjoy this kind of thing &mdash; the property is hilly, so leave time for breaks between rides.</span></li>
+          <li><strong>Table Rock Lake cruise</strong><span>A daytime sightseeing cruise &mdash; narrated, around two hours, runs out of the State Park marina.</span></li>
+          <li><strong>Ancient Ozarks Natural History Museum</strong><span>An underground museum at Top of the Rock &mdash; Native American artifacts, Civil War pieces, prehistoric fossils. More substantial than it sounds, and a useful rainy-day pivot.</span></li>
+        </ul>
+      </div>
+
+      <!-- DOWNTOWN -->
+      <div class="activity-block">
+        <h3>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8 H19 L20 21 H4 Z"/><path d="M9 8 V5 C9 3, 10 2, 12 2 C14 2, 15 3, 15 5 V8"/></svg>
+          Downtown &amp; Branson Landing
+        </h3>
+        <p class="intro">Strollable, manageable, free to wander. Easy to fold around a show or a slower morning.</p>
+        <ul class="activity-list">
+          <li><strong>Branson Landing</strong><span>Riverwalk along Lake Taneycomo with shops, restaurants, and the fountain show &mdash; ten minutes of fire, water, and music that runs hourly. Worth catching once.</span></li>
+          <li><strong>Historic Downtown Branson</strong><span>Just up from the Landing. Dick's Old-Time 5 &amp; 10, small antique shops, the Branson Centennial Museum. A walkable hour.</span></li>
+          <li><strong>Tanger Outlets Branson</strong><span>If outlet shopping is anyone's thing, the Tangers are a short drive west.</span></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- GUIDE PROMISE -->
+    <div class="guide-promise">
+      <div class="promise-tag">Included with Your Trip</div>
+      <h3>Your Custom Branson Trip Guide</h3>
+      <p>Once your selections are locked in, I build you a personalized step-by-step guide for the days you're not in a show. It pairs every stop with map links and a logical route &mdash; designed so you don't end up zigzagging across town or doubling back to the same stretch of road twice.</p>
+      <p>Each section is self-contained &mdash; cut, skip, or rearrange as the day actually unfolds. The goal is a guide that holds up when plans shift, not a rigid script.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="alt">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Next Step</div>
+      <h2>Tell Christina What You Like</h2>
+      <p class="lede">Mark a property above (or two), share which activities sound good, and I'll come back with firm rates and a draft itinerary.</p>
+    </div>
+
+    <form id="tripForm">
+      <input type="hidden" name="access_key" value="7b40d437-1004-48e2-9031-171a8b0ef4f1">
+      <input type="hidden" name="subject" value="Kraemer Family — Branson 2026 Selections">
+      <input type="hidden" name="from_name" value="Kraemer Family — PMTP Trip Form">
+      <input type="hidden" name="redirect" value="false">
+      <input type="hidden" name="Property_Selection" id="hidden_property" value="">
+
+      <div class="deposit-note">
+        $200&ndash;$500 low deposit holds the trip &mdash; pay the balance closer to your travel date.
+      </div>
+
+      <div class="field">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="Name" required>
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="Email" required>
+      </div>
+
+      <div class="field">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="Phone">
+      </div>
+
+      <div class="field">
+        <label for="activities">Activities &amp; Shows You're Interested In</label>
+        <textarea id="activities" name="Activities_Interest" placeholder="Showboat Branson Belle, Top of the Rock at sunset, Sight & Sound... whatever caught your eye"></textarea>
+      </div>
+
+      <div class="field">
+        <label for="notes">Anything Else I Should Know</label>
+        <textarea id="notes" name="Notes" placeholder="Food preferences, special occasions, things to skip, must-haves..."></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">Send My Selections</button>
+    </form>
+
+    <div class="thanks" id="thanksMsg">
+      <h3>Got it &mdash; thank you.</h3>
+      <p>Christina will be in touch within one business day with firm pricing and the next round of details.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="advisor-name">Christina Garcia</div>
+  <div class="advisor-title">Travel Advisor &middot; Point Me to Paradise Travel</div>
+  <div class="contact-row">
+    <a id="emailLink" href="#">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="1.5"/><path d="M2 7 L12 13 L22 7"/></svg>
+      <span id="emailText"></span>
+    </a>
+    <a href="tel:+12812290862">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      (281) 229-0862
+    </a>
+  </div>
+  <div class="fineprint">Individual hotels, transfers, and tours in your quote are priced at publicly available rates &mdash; and in many cases lower than what you'd find on your own. What you're paying for is the rest: the right rooms at the right property, operators we've used for years, the trip guide, and a human who answers when something doesn't go to plan.</div>
+</footer>
+
+<script>
+  // Email assembly to defeat Cloudflare obfuscation
+  (function() {
+    var addr = 'Christina' + '@' + 'PointMeToParadise.com';
+    document.getElementById('emailLink').href = 'mailto:' + addr;
+    document.getElementById('emailText').textContent = addr;
+  })();
+
+  // Single-select across all selectable elements (cards + sub-options)
+  function selectOption(el) {
+    document.querySelectorAll('.selectable').forEach(function(s) {
+      s.classList.remove('selected');
+      var btn = s.querySelector(':scope > .select-btn, :scope > .card-body > .select-btn');
+      // Fall back to any descendant select-btn if scope selector unsupported
+      if (!btn) btn = s.querySelector('.select-btn');
+      if (btn && btn.getAttribute('data-default')) {
+        btn.textContent = btn.getAttribute('data-default');
+      }
+    });
+    el.classList.add('selected');
+    document.getElementById('hidden_property').value = el.getAttribute('data-property');
+    var activeBtn = el.querySelector('.select-btn');
+    if (activeBtn && activeBtn.getAttribute('data-active')) {
+      activeBtn.textContent = activeBtn.getAttribute('data-active');
+    }
+  }
+
+  // Web3Forms submit handler
+  document.getElementById('tripForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var form = e.target;
+    var data = new FormData(form);
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: data
+    })
+    .then(function(res) { return res.json(); })
+    .then(function(json) {
+      if (json.success) {
+        form.style.display = 'none';
+        var thanks = document.getElementById('thanksMsg');
+        thanks.classList.add('show');
+        thanks.scrollIntoView({behavior: 'smooth', block: 'center'});
+      } else {
+        alert('Something went wrong. Please email Christina directly or text (281) 229-0862.');
+      }
+    })
+    .catch(function() {
+      alert('Something went wrong. Please email Christina directly or text (281) 229-0862.');
+    });
+  });
+</script>
+
+</body>
+</html>
