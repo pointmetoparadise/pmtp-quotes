@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>St. Lucia · June 2026 — The Kraemer Party</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --aqua-pale: #C4E4E1;
+  --aqua-mist: #EAF3F2;
+  --aqua: #75AFB1;
+  --aqua-dark: #4F8A8C;
+  --sand: #ECE7DC;
+  --sand-light: #F4F1E9;
+  --gold-whisper: #D6C8A8;
+  --white: #FFFFFF;
+  --paper: #FBFDFD;
+  --ink: #2B2420;
+  --ink-soft: #6B6359;
+  --line: #E5E9E8;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.65;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.container { max-width: 880px; margin: 0 auto; padding: 0 1.5rem; }
+.kicker {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--aqua-dark);
+  font-weight: 500;
+  margin-bottom: 0.6rem;
+}
+.hairline {
+  width: 40px;
+  height: 1px;
+  background: var(--gold-whisper);
+  margin: 1.5rem auto;
+}
+
+/* HERO */
+.hero {
+  padding: 5rem 0 3.5rem;
+  text-align: center;
+  background: var(--white);
+  border-bottom: 1px solid var(--aqua-mist);
+}
+.hero h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.4rem, 6vw, 3.75rem);
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+.hero .dates {
+  font-size: 1rem;
+  color: var(--ink-soft);
+  margin-top: 0.85rem;
+}
+.hero .prepared {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--aqua-dark);
+  margin-top: 0.4rem;
+}
+
+/* OVERVIEW STRIP */
+.overview {
+  background: var(--aqua-mist);
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--aqua-pale);
+}
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  text-align: center;
+}
+.overview-item { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; }
+.overview-item .icon { color: var(--aqua-dark); }
+.overview-item .label {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+.overview-item .value {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* INTRO */
+.intro {
+  padding: 3.5rem 0 1rem;
+  text-align: center;
+}
+.intro p {
+  max-width: 680px;
+  margin: 0 auto;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+}
+
+/* SECTION HEADER */
+.section-h { text-align: center; margin-bottom: 2.5rem; }
+.section-h h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 3.5vw, 2.1rem);
+  font-weight: 500;
+  color: var(--ink);
+}
+.section-h .lede {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--aqua-dark);
+  margin-top: 0.5rem;
+  max-width: 580px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* FLIGHTS */
+.flights-section { padding: 3rem 0 4rem; }
+.flight-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 2.25rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.flight-leg + .flight-leg {
+  margin-top: 1.75rem;
+  padding-top: 1.75rem;
+  border-top: 1px dashed var(--aqua-pale);
+}
+.leg-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1rem;
+}
+.leg-label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--aqua-dark);
+  font-weight: 500;
+}
+.leg-date {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+.leg-route {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.route-point { text-align: center; }
+.route-point .time {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.45rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+.route-point .airport {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--aqua-dark);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  margin-top: 0.15rem;
+}
+.route-point .city {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  margin-top: 0.1rem;
+}
+.route-line {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.7rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  min-width: 110px;
+}
+.route-line::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--aqua);
+  margin-bottom: 0.4rem;
+}
+.flight-detail {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  background: var(--aqua-mist);
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  line-height: 1.75;
+}
+.flight-pricing {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+}
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+.price-context-wrap { display: flex; flex-direction: column; }
+.price-context { font-size: 0.85rem; color: var(--ink-soft); }
+.price-context.sub { font-size: 0.75rem; margin-top: 2px; }
+.price-amount {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--aqua-dark);
+  white-space: nowrap;
+}
+.flight-confirm {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  background: var(--aqua-mist);
+  border-radius: 12px;
+  cursor: pointer;
+  user-select: none;
+  min-height: 56px;
+  transition: background 0.15s ease;
+}
+.flight-confirm:hover { background: var(--aqua-pale); }
+.flight-confirm input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  accent-color: var(--aqua-dark);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.flight-confirm span { font-size: 1rem; color: var(--ink); font-weight: 500; }
+
+/* RESORTS */
+.resorts-section { padding: 4rem 0; background: var(--aqua-mist); }
+.resort-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.resort-card:has(input[type="radio"]:checked) {
+  border-color: var(--aqua);
+  box-shadow: 0 0 0 4px var(--aqua-pale);
+}
+.resort-card:last-child { margin-bottom: 0; }
+.resort-header { text-align: center; margin-bottom: 1.5rem; }
+.resort-header h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-top: 0.4rem;
+}
+.resort-header .tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--aqua-dark);
+  margin-top: 0.4rem;
+}
+.resort-body p {
+  color: var(--ink-soft);
+  margin-bottom: 1rem;
+}
+.resort-body p:last-of-type { margin-bottom: 0; }
+
+.image-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 6px;
+  margin: 1.75rem 0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.image-strip img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.amenity-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin: 1.75rem 0;
+  padding: 1.25rem 1.5rem;
+  background: var(--sand-light);
+  border-radius: 12px;
+}
+.amenity {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+.amenity .icon { color: var(--aqua-dark); flex-shrink: 0; }
+.footnote {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  font-style: italic;
+  text-align: center;
+  margin-top: -0.5rem;
+}
+
+.room-section {
+  margin-top: 1.75rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--aqua-mist);
+}
+.room-section h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+.room-section > p {
+  color: var(--ink-soft);
+  margin-bottom: 1rem;
+}
+.upgrade-list {
+  margin: 1.5rem 0;
+  padding: 1.1rem 1.4rem;
+  background: var(--aqua-mist);
+  border-radius: 12px;
+}
+.upgrade-list .kicker { margin-bottom: 0.65rem; }
+.upgrade-list ul { list-style: none; padding: 0; }
+.upgrade-list li {
+  padding: 0.45rem 0;
+  font-size: 0.9rem;
+  color: var(--ink);
+  border-bottom: 1px dashed var(--aqua-pale);
+}
+.upgrade-list li:last-child { border-bottom: none; }
+.upgrade-list strong { color: var(--aqua-dark); font-weight: 500; }
+
+.resort-pricing {
+  margin-top: 1.5rem;
+  padding: 1.2rem 1.4rem;
+  background: var(--aqua-mist);
+  border-radius: 12px;
+}
+.resort-pricing .price-row { margin-bottom: 0.5rem; }
+.deposit-line {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  border-top: 1px dashed var(--aqua-pale);
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+}
+.transfer-note {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--aqua-dark);
+  text-align: center;
+  margin: 0.5rem 0 0;
+}
+
+.resort-select {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding: 1.05rem 1.5rem;
+  border: 1.5px solid var(--aqua);
+  border-radius: 999px;
+  cursor: pointer;
+  user-select: none;
+  min-height: 56px;
+  background: var(--white);
+  transition: all 0.15s ease;
+}
+.resort-select:hover { background: var(--aqua-mist); }
+.resort-card:has(input[type="radio"]:checked) .resort-select {
+  background: var(--aqua-dark);
+  border-color: var(--aqua-dark);
+}
+.resort-card:has(input[type="radio"]:checked) .resort-select span { color: var(--white); }
+.resort-select input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--aqua-dark);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.resort-select span {
+  font-size: 1rem;
+  color: var(--aqua-dark);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: color 0.15s ease;
+}
+
+/* NOTES */
+.notes-section { padding: 4rem 0 2rem; }
+.notes-section .container { max-width: 720px; text-align: center; }
+.notes-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.65rem;
+  font-weight: 500;
+}
+.notes-section > .container > p {
+  color: var(--ink-soft);
+  margin: 0.75rem auto 1.5rem;
+  max-width: 580px;
+}
+.notes-section textarea {
+  width: 100%;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--white);
+  color: var(--ink);
+  resize: vertical;
+  transition: border-color 0.15s ease;
+  line-height: 1.5;
+}
+.notes-section textarea:focus { outline: none; border-color: var(--aqua); }
+
+/* TOTAL BAR */
+.total-section { padding: 1rem 0 3rem; }
+.total-bar {
+  background: var(--aqua-pale);
+  border-radius: 18px;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+.total-label { display: flex; flex-direction: column; gap: 0.2rem; }
+.total-kicker {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--aqua-dark);
+  font-weight: 500;
+}
+.total-note {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+.total-amount {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--aqua-dark);
+  white-space: nowrap;
+}
+
+/* SUBMIT */
+.submit-section { padding: 0 0 4rem; }
+.submit-section .container { max-width: 640px; text-align: center; }
+.submit-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.65rem;
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+}
+#tripForm .form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  text-align: left;
+  margin-bottom: 1.25rem;
+}
+.form-field { display: flex; flex-direction: column; }
+.form-field.full { grid-column: 1 / -1; }
+.form-field label {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+}
+.form-field input {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--white);
+  color: var(--ink);
+  min-height: 48px;
+  transition: border-color 0.15s ease;
+}
+.form-field input:focus { outline: none; border-color: var(--aqua); }
+.submit-btn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 1.05rem 2.5rem;
+  background: var(--aqua-dark);
+  color: var(--white);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  min-height: 56px;
+  transition: background 0.15s ease;
+  width: 100%;
+  max-width: 320px;
+}
+.submit-btn:hover { background: var(--ink); }
+
+#thanksMsg {
+  display: none;
+  text-align: center;
+  background: var(--aqua-mist);
+  border-radius: 18px;
+  padding: 2.5rem 2rem;
+}
+#thanksMsg.show { display: block; }
+#thanksMsg .thanks-h {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.45rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.65rem;
+}
+#thanksMsg p { color: var(--ink-soft); }
+
+/* FOOTER */
+footer { background: var(--sand-light); padding: 3rem 0; text-align: center; }
+footer .footer-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+footer .footer-co {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--aqua-dark);
+  margin-top: 0.2rem;
+}
+footer .footer-contact {
+  font-size: 0.95rem;
+  color: var(--ink);
+  margin-top: 0.7rem;
+}
+footer .footer-contact a {
+  color: var(--aqua-dark);
+  text-decoration: none;
+  font-weight: 500;
+}
+footer .footer-contact a:hover { text-decoration: underline; }
+.pricing-disclosure {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  max-width: 580px;
+  margin: 0 auto;
+  line-height: 1.7;
+  text-align: left;
+}
+
+/* MOBILE */
+@media (max-width: 720px) {
+  .container { padding: 0 1.25rem; }
+  .hero { padding: 3.5rem 0 2.5rem; }
+  .overview-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .resorts-section { padding: 3rem 0; }
+  .resort-card { padding: 1.75rem 1.4rem; }
+  .amenity-grid { grid-template-columns: 1fr; }
+  .image-strip { grid-template-columns: 1fr; }
+  .image-strip img { height: 220px; }
+  .leg-route { grid-template-columns: 1fr; gap: 0.5rem; }
+  .route-line { width: 100%; }
+  .flight-card { padding: 1.5rem 1.25rem; }
+  .total-bar { flex-direction: column; align-items: flex-start; padding: 1.4rem 1.5rem; }
+  .total-amount { font-size: 1.75rem; }
+  #tripForm .form-grid { grid-template-columns: 1fr; }
+  .resort-header h3 { font-size: 1.4rem; }
+}
+/* PACKAGE PRICING */
+.package-pricing {
+  margin-top: 1.5rem;
+  padding: 1.4rem 1.6rem;
+  background: var(--aqua-pale);
+  border-radius: 14px;
+}
+.package-headline {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.55);
+  margin-bottom: 1rem;
+}
+.package-kicker {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--aqua-dark);
+  font-weight: 500;
+  display: block;
+}
+.package-numbers {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.15rem;
+  text-align: right;
+}
+.package-amount {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.85rem;
+  font-weight: 500;
+  color: var(--aqua-dark);
+  white-space: nowrap;
+  line-height: 1.05;
+}
+.package-pp {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+.package-label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--aqua-dark);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.package-includes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.package-includes li {
+  position: relative;
+  padding: 0.3rem 0 0.3rem 1.1rem;
+  font-size: 0.88rem;
+  color: var(--ink);
+  line-height: 1.55;
+}
+.package-includes li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--aqua-dark);
+}
+.package-meta {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  margin-top: 0.85rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(255,255,255,0.55);
+  line-height: 1.6;
+}
+
+/* FLIGHT INFO CARD (informational, no checkbox) */
+.flight-info-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 2.25rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.flight-info-note {
+  margin-top: 1.5rem;
+  padding: 0.95rem 1.25rem;
+  background: var(--aqua-mist);
+  border-radius: 12px;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--aqua-dark);
+}
+
+/* TOTAL PER-PERSON */
+.total-amount-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2rem;
+}
+.total-pp {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.92rem;
+  color: var(--ink);
+}
+
+@media (max-width: 720px) {
+  .package-pricing { padding: 1.2rem 1.25rem; }
+  .package-headline { flex-direction: column; align-items: flex-start; }
+  .package-numbers { align-items: flex-start; text-align: left; }
+  .package-amount { font-size: 1.55rem; }
+  .total-amount-wrap { align-items: flex-start; }
+  .flight-info-card { padding: 1.5rem 1.25rem; }
+}
+/* INSURANCE FIELD */
+.insurance-field {
+  text-align: left;
+  background: var(--aqua-mist);
+  padding: 1.25rem 1.4rem;
+  border-radius: 14px;
+  margin-bottom: 1.5rem;
+}
+.insurance-field-label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--aqua-dark);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.insurance-context {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+.insurance-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.insurance-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  padding: 0.85rem 1rem;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 0.9rem;
+  transition: border-color 0.15s ease, background 0.15s ease;
+  min-height: 48px;
+}
+.insurance-option:hover { border-color: var(--aqua); }
+.insurance-option:has(input[type="radio"]:checked) {
+  border-color: var(--aqua-dark);
+  background: var(--paper);
+}
+.insurance-option input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--aqua-dark);
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+  cursor: pointer;
+}
+.insurance-option span {
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+/* PLANE-FLANKED HEADING */
+.flights-h2 {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+}
+.plane-decor {
+  width: 22px;
+  height: 22px;
+  color: var(--aqua-dark);
+  opacity: 0.65;
+  flex-shrink: 0;
+}
+.plane-decor.flip { transform: scaleX(-1); }
+
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container">
+    <p class="kicker">Your custom trip</p>
+    <h1>St. Lucia</h1>
+    <p class="dates">Wednesday, June 24 – Wednesday, July 1, 2026 · 7 nights</p>
+    <p class="prepared">prepared for the Kraemer party</p>
+    <div class="hairline"></div>
+  </div>
+</header>
+
+<!-- OVERVIEW -->
+<section class="overview">
+  <div class="container">
+    <div class="overview-grid">
+      <div class="overview-item">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><circle cx="9" cy="7" r="3"/><circle cx="16" cy="7" r="3"/><path d="M2 21v-1a4 4 0 014-4h6a4 4 0 014 4v1"/><path d="M16 16h2a4 4 0 014 4v1"/></svg>
+        <span class="label">Travelers</span>
+        <span class="value">4 adults</span>
+      </div>
+      <div class="overview-item">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M3 18v-7a3 3 0 013-3h12a3 3 0 013 3v7"/><path d="M3 14h18"/><path d="M3 21v-3"/><path d="M21 21v-3"/><circle cx="8" cy="11" r="1.4"/></svg>
+        <span class="label">Rooms</span>
+        <span class="value">2</span>
+      </div>
+      <div class="overview-item">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M12 21s7-7 7-12a7 7 0 10-14 0c0 5 7 12 7 12z"/><circle cx="12" cy="9" r="2"/></svg>
+        <span class="label">Region</span>
+        <span class="value">Gros Islet</span>
+      </div>
+      <div class="overview-item">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M21 12l-6-1-7 8H6l3-7L4 9V8l4 1 1-4h1l3 4 7-3h1z"/></svg>
+        <span class="label">Flying from</span>
+        <span class="value">Houston (IAH)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="container">
+    <p>Three adults- or couples-only resorts on St. Lucia's northwest coast, presented as all-in package rates — flights, transfers, rooms, and resort extras bundled together. All three packages are priced for two rooms, four adults total.</p>
+  </div>
+</section>
+
+<!-- FLIGHTS -->
+<section class="flights-section">
+  <div class="container">
+    <div class="section-h">
+      <h2 class="flights-h2">
+        <svg class="plane-decor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12l-6-1-7 8H6l3-7L4 9V8l4 1 1-4h1l3 4 7-3h1z"/></svg>
+        <span>Your flights</span>
+        <svg class="plane-decor flip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12l-6-1-7 8H6l3-7L4 9V8l4 1 1-4h1l3 4 7-3h1z"/></svg>
+      </h2>
+      <p class="lede">Delta, one connection in Atlanta each way, all bags included</p>
+    </div>
+    <div class="flight-info-card">
+      <div class="flight-leg">
+        <div class="leg-header">
+          <span class="leg-label">Outbound</span>
+          <span class="leg-date">Wed, Jun 24</span>
+        </div>
+        <div class="leg-route">
+          <div class="route-point">
+            <span class="time">5:40 AM</span>
+            <span class="airport">IAH</span>
+            <span class="city">Houston</span>
+          </div>
+          <div class="route-line">7h 33m · 1 stop</div>
+          <div class="route-point">
+            <span class="time">2:13 PM</span>
+            <span class="airport">UVF</span>
+            <span class="city">St. Lucia</span>
+          </div>
+        </div>
+        <div class="flight-detail">
+          DL 1069 — IAH to ATL · 5:40 AM – 8:43 AM<br>
+          57 min connection in Atlanta<br>
+          DL 1860 — ATL to UVF · 9:40 AM – 2:13 PM
+        </div>
+      </div>
+      <div class="flight-leg">
+        <div class="leg-header">
+          <span class="leg-label">Return</span>
+          <span class="leg-date">Wed, Jul 1</span>
+        </div>
+        <div class="leg-route">
+          <div class="route-point">
+            <span class="time">3:33 PM</span>
+            <span class="airport">UVF</span>
+            <span class="city">St. Lucia</span>
+          </div>
+          <div class="route-line">8h 26m · 1 stop</div>
+          <div class="route-point">
+            <span class="time">11:59 PM</span>
+            <span class="airport">IAH</span>
+            <span class="city">Houston</span>
+          </div>
+        </div>
+        <div class="flight-detail">
+          DL 1785 — UVF to ATL · 3:33 PM – 8:30 PM<br>
+          2h 17m connection in Atlanta<br>
+          DL 1601 — ATL to IAH · 10:47 PM – 11:59 PM
+        </div>
+      </div>
+      <div class="flight-info-note">
+        these flights are included in every package below. I chose dates with the best air rates — want different days or times? mention it in the notes below or reach out directly, and I'll come back with options quickly.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESORTS -->
+<section class="resorts-section">
+  <div class="container">
+    <div class="section-h">
+      <h2>Choose your resort</h2>
+      <p class="lede">Three options on St. Lucia's northwest coast — all priced for two rooms, four adults total</p>
+    </div>
+
+    <!-- SECRETS -->
+    <article class="resort-card" id="card-secrets">
+      <header class="resort-header">
+        <p class="kicker">Option 1 · Adults-only (18+) · 2 rooms · 4 adults</p>
+        <h3>Secrets St. Lucia Resort &amp; Spa</h3>
+        <p class="tagline">a smaller, spa-forward all-inclusive on a quiet beach</p>
+      </header>
+      <div class="resort-body">
+        <p>Beachfront on Choc Bay just north of Castries, Secrets is the more intimate of the two. The mood leans spa-retreat — three pools and a swim-up bar, a seven-room spa with sauna and steam, and a strict 18+ policy that keeps the property quiet enough to actually hear the water at night.</p>
+        <p>All food and drink is included across the property — Le Jardin restaurant is the one exception (additional fee). Your private round-trip airport transfer between UVF and the resort is included in the package.</p>
+
+        <div class="image-strip">
+          <img src="https://trisept.widen.net/content/wtnopxe2id?w=675&amp;h=300&amp;crop=yes" alt="Secrets St. Lucia resort exterior" loading="lazy">
+          <img src="https://trisept.widen.net/content/giuzdi9fgr?w=675&amp;h=300&amp;crop=yes" alt="Secrets St. Lucia pool and beach" loading="lazy">
+          <img src="https://trisept.widen.net/content/oioilkddoa?w=675&amp;h=300&amp;crop=yes" alt="Secrets St. Lucia room interior" loading="lazy">
+        </div>
+
+        <div class="amenity-grid">
+          <div class="amenity">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><circle cx="9" cy="7" r="3"/><circle cx="16" cy="7" r="3"/><path d="M2 21v-1a4 4 0 014-4h6a4 4 0 014 4v1"/></svg>
+            <span>Adults only, 18+</span>
+          </div>
+          <div class="amenity">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M3 18c2-1 4-1 6 0s4 1 6 0 4-1 6 0"/><path d="M3 21c2-1 4-1 6 0s4 1 6 0 4-1 6 0"/><path d="M12 4v10"/><path d="M12 4c-3 0-5 2-6 4"/><path d="M12 4c3 0 5 2 6 4"/></svg>
+            <span>Private beach on Choc Bay</span>
+          </div>
+          <div class="amenity">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M3 18c2-1 4-1 6 0s4 1 6 0 4-1 6 0"/><path d="M3 21c2-1 4-1 6 0s4 1 6 0 4-1 6 0"/><path d="M7 14V5a2 2 0 014 0"/><path d="M17 14V5a2 2 0 00-4 0"/></svg>
+            <span>3 pools + swim-up bar</span>
+          </div>
+          <div class="amenity">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M12 4c-2 3-2 6 0 8 2-2 2-5 0-8z"/><path d="M5 11c0 4 3 6 7 6s7-2 7-6c-3 0-5 2-7 4-2-2-4-4-7-4z"/></svg>
+            <span>7-room Secrets Spa</span>
+          </div>
+          <div class="amenity">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M5 4v6c0 1 1 2 2 2v8"/><path d="M9 4v8"/><path d="M7 8h2"/><path d="M16 4c-2 0-3 2-3 4s1 4 3 4v8"/></svg>
+            <span>All food + drink included*</span>
+          </div>
+          <div class="amenity">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M21 12l-6-1-7 8H6l3-7L4 9V8l4 1 1-4h1l3 4 7-3h1z"/></svg>
+            <span>Round-trip UVF transfers included</span>
+          </div>
+        </div>
+        <p class="footnote">*Le Jardin restaurant carries an additional fee.</p>
+      </div>
+
+      <div class="room-section">
+        <h4>Two Tropical View King rooms · 2 adults per room · 30 sq m each</h4>
+        <p>King bed, premium bedding, in-room safe, garden views from the terrace. Comfortable for two; this is the entry category. Four upgrade categories sit above it.</p>
+
+        <div class="upgrade-list">
+          <p class="kicker">Upgrade options — ask Christina to price</p>
+          <ul>
+            <li><strong>Deluxe Partial Ocean View</strong> — same size, partial Caribbean views</li>
+            <li><strong>Deluxe Swim Out</strong> — direct pool access from the terrace</li>
+            <li><strong>Deluxe Ocean View</strong> — full ocean view</li>
+            <li><strong>Preferred Club Master Suite</strong> — 50 sq m, larger living area, choice of tropical, ocean, or swim-out positioning</li>
+          </ul>
+        </div>
+
+        <div class="package-pricing">
+          <div class="package-headline">
+            <span class="package-kicker">Package rate · all-in</span>
+            <div class="package-numbers">
+              <span class="package-amount">Est. $15,299</span>
+              <span class="package-pp">Est. $3,825 per person · 4 adults</span>
+            </div>
+          </div>
+          <p class="package-label">Includes</p>
+          <ul class="package-includes">
+            <li>Round-trip Delta flights from Houston (IAH–UVF), all bags included</li>
+            <li>Two Tropical View King rooms, 7 nights all-inclusive</li>
+            <li>Private round-trip airport transfers (UVF to resort and back)</li>
+            <li>In-room sparkling wine breakfast (one per room, per stay)</li>
+            <li>25% off spa treatments (one per person, per stay)</li>
+            <li>Complimentary bottle of wine, sparkling wine, rum, or tequila in-room</li>
+          </ul>
+          <p class="package-meta">$3,735.16 deposit by May 1, 2026 · $11,379.34 balance by May 10, 2026 · $184.80 payable at the resort</p>
+        </div>
+
+        <label class="resort-select">
+          <input type="radio" name="resort_choice" id="secrets_select" value="Secrets St. Lucia — Tropical View King × 2 rooms · Package $15,299" data-price="15299" onclick="setTimeout(updateTotal,0)">
+          <span>Choose Secrets St. Lucia</span>
+        </label>
+      </div>
+    </article>
+
+    <!-- SANDALS -->
+    <article class="resort-card" id="card-sandals">
+      <header class="resort-header">
+        <p class="kicker">Option 2 · Couples-only · 2 rooms · 4 adults</p>
+        <h3>Sandals Grande St. Lucian</h3>
+        <p class="tagline">a Caribbean classic on a peninsula in Rodney Bay</p>
+      </header>
+      <div class="resort-body">
+        <p>A few miles up the road from Secrets, Sandals Grande St. Lucian sits on its own peninsula in Rodney Bay — water on three sides, with the resort straddling a long beach and a calmer lagoon pool. Sandals is couples-only across the brand; no children at any of their resorts.</p>
+        <p>It's the larger, more activity-rich option: multiple bars and restaurants, watersports across the bay, the Red Lane Spa, and round-trip airport transfers included from either UVF or SLU. Premium spirits are included throughout the property.</p>
+
+        <div class="image-strip">
+          <img src="https://cdn.sandals.com/sandals/v13/images/EN/resorts/sgl/accommodations/large/sgl-205.jpg" alt="Lover's Lagoon Honeymoon Premium room interior" loading="lazy">
+          <img src="https://cdn.sandals.com/sandals/v13/images/EN/resorts/sgl/accommodations/large/sgl-206.jpg" alt="Lover's Lagoon Honeymoon Premium balcony view" loading="lazy">
+          <img src="https://cdn.sandals.com/sandals/v13/images/EN/resorts/sgl/accommodations/large/sgl-207.jpg" alt="Lover's Lagoon Honeymoon Premium bath" loading="lazy">
+        </div>
+
+        <div class="amenity-grid">
+          <div class="amenity">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M12 20s-7-4-7-10a4 4 0 017-3 4 4 0 017 3c0 6-7 10-7 10z"/></svg>
+            <span>Couples only</span>
+          </div>
+          <div class="amenity">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M3 18c2-1 4-1 6 0s4 1 6 0 4-1 6 0"/><path d="M3 21c2-1 4-1 6 0s4 1 6 0 4-1 6 0"/><path d="M12 4v10"/><path d="M12 4c-3 0-5 2-6 4"/><path d="M12 4c3 0 5 2 6 4"/></svg>
+            <span>Peninsula on Rodney Bay</span>
+          </div>
+          <div class="amenity">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M3 18c2-1 4-1 6 0s4 1 6 0 4-1 6 0"/><path d="M3 21c2-1 4-1 6 0s4 1 6 0 4-1 6 0"/><path d="M7 14V5a2 2 0 014 0"/><path d="M17 14V5a2 2 0 00-4 0"/></svg>
+            <span>Multiple pools + watersports</span>
+          </div>
+          <div class="amenity">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M12 4c-2 3-2 6 0 8 2-2 2-5 0-8z"/><path d="M5 11c0 4 3 6 7 6s7-2 7-6c-3 0-5 2-7 4-2-2-4-4-7-4z"/></svg>
+            <span>Red Lane Spa</span>
+          </div>
+          <div class="amenity">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M5 4v6c0 1 1 2 2 2v8"/><path d="M9 4v8"/><path d="M7 8h2"/><path d="M16 4c-2 0-3 2-3 4s1 4 3 4v8"/></svg>
+            <span>Premium spirits + dining included</span>
+          </div>
+          <div class="amenity">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M21 12l-6-1-7 8H6l3-7L4 9V8l4 1 1-4h1l3 4 7-3h1z"/></svg>
+            <span>Round-trip transfers included</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="room-section">
+        <h4>Two Lover's Lagoon Honeymoon Premium rooms · 2 adults per room</h4>
+        <p>Four-poster king bed, private balcony with outdoor seating, sitting area, and a stocked in-room bar with local beer, Robert Mondavi wines, juices, and sodas. Located in the Massade, Monchy, and Rodney Bay buildings on the second through fourth floors, with elevated views over the resort grounds and the lagoon pool.</p>
+
+        <div class="upgrade-list">
+          <p class="kicker">Other room categories — ask Christina to price</p>
+          <p style="font-size: 0.9rem; color: var(--ink); padding-top: 0.5rem; line-height: 1.55;">This is the room category quoted in the package above. Sandals offers several upgrade tiers — beachfront walkouts, butler-service suites, and rondoval villas. Christina can quote any of them.</p>
+        </div>
+
+        <div class="package-pricing">
+          <div class="package-headline">
+            <span class="package-kicker">Package rate · all-in</span>
+            <div class="package-numbers">
+              <span class="package-amount">Est. $16,466</span>
+              <span class="package-pp">Est. $4,117 per person · 4 adults</span>
+            </div>
+          </div>
+          <p class="package-label">Includes</p>
+          <ul class="package-includes">
+            <li>Round-trip Delta flights from Houston (IAH–UVF), all bags included</li>
+            <li>Two Lover's Lagoon Honeymoon Premium rooms, 7 nights all-inclusive</li>
+            <li>Round-trip airport transfers from UVF or SLU</li>
+            <li>Premium spirits, dining, and watersports across the resort</li>
+            <li>Stay at 1, Play at 3 — exchange privileges at two sister Sandals resorts</li>
+            <li>Stocked in-room bar (local beer, Mondavi wines, juices, sodas)</li>
+          </ul>
+          <p class="package-meta">$400 deposit · free cancellation through May 9, 2026 · estimated package; final supplier rate pending</p>
+        </div>
+
+        <label class="resort-select">
+          <input type="radio" name="resort_choice" id="sandals_select" value="Sandals Grande St. Lucian — Lover's Lagoon Honeymoon Premium × 2 rooms · Package $16,466" data-price="16466" onclick="setTimeout(updateTotal,0)">
+          <span>Choose Sandals Grande St. Lucian</span>
+        </label>
+      </div>
+    </article>
+
+    <!-- SANDALS LA TOC -->
+    <article class="resort-card" id="card-latoc">
+      <header class="resort-header">
+        <p class="kicker">Option 3 · Couples-only · 2 rooms · 4 adults</p>
+        <h3>Sandals Regency La Toc</h3>
+        <p class="tagline">a 220-acre hillside estate above its own crescent beach</p>
+      </header>
+      <div class="resort-body">
+        <p>About 15 minutes south of Secrets, Sandals Regency La Toc spreads across a 220-acre estate above a half-mile crescent beach in Castries. It's the largest of the three resorts here — more on offer, more variety, more ground to cover. Couples-only, like all Sandals.</p>
+        <p>What sets it apart is multi-resort access. Sandals St. Lucia guests get full exchange privileges at two sister resorts a short shuttle away — 27 restaurants total across the three properties, which is more dining variety than most all-inclusives offer. Golf at Cap Estate (green fees and transfers) is included, as are PADI scuba certification, Hobie Cats, kayaking, snorkeling, and pickleball. Round-trip UVF transfers come with the room.</p>
+
+        <div class="image-strip">
+          <img src="https://cdn.sandals.com/sandals/v13/images/EN/resorts/slu/accommodations/large/slu-305.jpg" alt="Oceanview Club Level Junior Suite room interior" loading="lazy">
+          <img src="https://cdn.sandals.com/sandals/v13/images/EN/resorts/slu/accommodations/large/slu-306.jpg" alt="Oceanview Club Level Junior Suite terrace with soaking tub" loading="lazy">
+          <img src="https://cdn.sandals.com/sandals/v13/images/EN/resorts/slu/accommodations/large/slu-307.jpg" alt="Oceanview Club Level Junior Suite bath" loading="lazy">
+        </div>
+
+        <div class="amenity-grid">
+          <div class="amenity">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M12 20s-7-4-7-10a4 4 0 017-3 4 4 0 017 3c0 6-7 10-7 10z"/></svg>
+            <span>Couples only</span>
+          </div>
+          <div class="amenity">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M3 19l5-8 4 5 3-3 6 6"/><path d="M3 21h18"/></svg>
+            <span>220-acre hillside estate</span>
+          </div>
+          <div class="amenity">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M5 4v6c0 1 1 2 2 2v8"/><path d="M9 4v8"/><path d="M7 8h2"/><path d="M16 4c-2 0-3 2-3 4s1 4 3 4v8"/></svg>
+            <span>10 restaurants + 8 bars on-site</span>
+          </div>
+          <div class="amenity">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><circle cx="6" cy="7" r="2"/><circle cx="18" cy="7" r="2"/><circle cx="12" cy="18" r="2"/><path d="M7.5 8.5l3 8"/><path d="M16.5 8.5l-3 8"/><path d="M8 7h8"/></svg>
+            <span>Stay at 1, Play at 3 access</span>
+          </div>
+          <div class="amenity">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M9 4v16"/><path d="M9 4l8 3-8 3"/><ellipse cx="11" cy="20" rx="5" ry="1"/></svg>
+            <span>Golf + watersports included</span>
+          </div>
+          <div class="amenity">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M21 12l-6-1-7 8H6l3-7L4 9V8l4 1 1-4h1l3 4 7-3h1z"/></svg>
+            <span>Round-trip UVF transfers</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="room-section">
+        <h4>Two Oceanview Club Level Junior Suite rooms · 2 adults per room</h4>
+        <p>Bigger than a standard room, with a private terrace facing the Caribbean and the resort's gardens. The terrace includes a Tranquility Soaking Tub for two with privacy curtains and a bistro dining set. Inside, mahogany king bed, stone floors, and a dedicated sitting area.</p>
+        <p>As a Club Level room, you also get access to the Club Sandals Lounge, private check-in and check-out, a dedicated concierge for tours and dining reservations, and a fully stocked in-room bar with premium liquors and Mondavi wines. Twenty-four-hour room service is included.</p>
+
+        <div class="upgrade-list">
+          <p class="kicker">Other room categories — ask Christina to price</p>
+          <p style="font-size: 0.9rem; color: var(--ink); padding-top: 0.5rem; line-height: 1.55;">This is the room category quoted in the package above. La Toc has several upgrade tiers above this — butler-service suites, oceanfront walkouts, and the higher-floor penthouse categories. Christina can quote any of them.</p>
+        </div>
+
+        <div class="package-pricing">
+          <div class="package-headline">
+            <span class="package-kicker">Package rate · all-in</span>
+            <div class="package-numbers">
+              <span class="package-amount">Est. $16,248</span>
+              <span class="package-pp">Est. $4,062 per person · 4 adults</span>
+            </div>
+          </div>
+          <p class="package-label">Includes</p>
+          <ul class="package-includes">
+            <li>Round-trip Delta flights from Houston (IAH–UVF), all bags included</li>
+            <li>Two Oceanview Club Level Junior Suite rooms, 7 nights all-inclusive</li>
+            <li>Round-trip UVF airport transfers</li>
+            <li>Club Sandals Lounge access, private check-in, dedicated concierge</li>
+            <li>Stay at 1, Play at 3 — exchange privileges at two sister Sandals resorts</li>
+            <li>Golf at Cap Estate, PADI scuba certification, all watersports</li>
+          </ul>
+          <p class="package-meta">$400 deposit · free cancellation through May 9, 2026 · estimated package; final supplier rate pending</p>
+        </div>
+
+        <label class="resort-select">
+          <input type="radio" name="resort_choice" id="latoc_select" value="Sandals Regency La Toc — Oceanview Club Level Junior Suite × 2 rooms · Package $16,248" data-price="16248" onclick="setTimeout(updateTotal,0)">
+          <span>Choose Sandals Regency La Toc</span>
+        </label>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- NOTES -->
+<section class="notes-section">
+  <div class="container">
+    <h2>Anything I should know?</h2>
+    <p>Special occasion, dietary needs, room placement preferences (high floor, away from elevator, two rooms close together), seat preferences on the flights — anything you mention here, I'll factor in when I book.</p>
+    <textarea name="Notes" id="notesField" rows="4" placeholder="Optional — birthday, anniversary, allergies, room preferences, etc."></textarea>
+  </div>
+</section>
+
+<!-- TOTAL -->
+<section class="total-section">
+  <div class="container">
+    <div class="total-bar">
+      <div class="total-label">
+        <span class="total-kicker">Estimated package total</span>
+        <span class="total-note">Final pricing confirmed by Christina before booking</span>
+      </div>
+      <div class="total-amount-wrap">
+        <span class="total-amount" id="totalAmount">Est. $0</span>
+        <span class="total-pp" id="totalPP"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUBMIT -->
+<section class="submit-section">
+  <div class="container">
+    <h2>Send your selections</h2>
+    <form id="tripForm">
+      <input type="hidden" name="access_key" value="7b40d437-1004-48e2-9031-171a8b0ef4f1">
+      <input type="hidden" name="subject" value="Kraemer Party — St. Lucia June 2026 Selections">
+      <input type="hidden" name="from_name" value="Kraemer Party — PMTP Trip Form">
+      <input type="hidden" name="redirect" value="false">
+      <input type="hidden" name="Resort_Choice" id="hidden_resort">
+      <input type="hidden" name="Estimated_Total" id="hidden_total">
+      <input type="hidden" name="Trip_Notes" id="hidden_notes">
+
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="formName">Your name</label>
+          <input type="text" id="formName" name="Name" required>
+        </div>
+        <div class="form-field">
+          <label for="formEmail">Email</label>
+          <input type="email" id="formEmail" name="Email" required>
+        </div>
+        <div class="form-field full">
+          <label for="formPhone">Phone (optional)</label>
+          <input type="tel" id="formPhone" name="Phone">
+        </div>
+      </div>
+      <div class="insurance-field">
+        <span class="insurance-field-label">Travel insurance · required</span>
+        <p class="insurance-context">Travel insurance protects your investment if something goes sideways — trip cancellation, medical emergencies, baggage delays, or unforeseen events that force you to change plans. We strongly recommend it for international travel of this size.</p>
+        <div class="insurance-options">
+          <label class="insurance-option">
+            <input type="radio" name="Insurance_Choice" value="Yes — please send me a travel insurance quote" required>
+            <span>Yes, please send me a travel insurance quote alongside the trip pricing</span>
+          </label>
+          <label class="insurance-option">
+            <input type="radio" name="Insurance_Choice" value="No — I decline travel insurance and accept the risks of traveling without coverage" required>
+            <span>No, I decline travel insurance and understand the risks of traveling without coverage (cancellation penalties, medical expenses abroad, no refund for missed travel days)</span>
+          </label>
+        </div>
+      </div>
+      <button type="submit" class="submit-btn">Send my selections</button>
+    </form>
+    <div id="thanksMsg">
+      <p class="thanks-h">Got it — thank you.</p>
+      <p>I'll review your selections and follow up within one business day with confirmed pricing and the next steps. If you need me sooner, text me at (281) 229-0862.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p class="footer-name">Christina Garcia</p>
+    <p class="footer-co">Point Me to Paradise Travel</p>
+    <p class="footer-contact"><a id="emailLink"></a> · (281) 229-0862</p>
+    <div class="hairline"></div>
+    <p class="pricing-disclosure">Individual hotels, transfers, and tours in your quote are priced at publicly available rates — and in many cases lower than what you'd find on your own. You don't have to worry about overpaying for a piece of your trip. What you're paying for is the rest: the right rooms at the right property, operators we've used for years, the trip app, and a human who answers when something doesn't go to plan.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var addr = 'Christina' + '@' + 'PointMeToParadise.com';
+  var link = document.getElementById('emailLink');
+  if (link) { link.href = 'mailto:' + addr; link.textContent = addr; }
+})();
+
+function updateTotal() {
+  var total = 0;
+  var resortRadios = document.getElementsByName('resort_choice');
+  var resortVal = '';
+  for (var i = 0; i < resortRadios.length; i++) {
+    if (resortRadios[i].checked) {
+      total += parseInt(resortRadios[i].dataset.price, 10) || 0;
+      resortVal = resortRadios[i].value;
+    }
+  }
+
+  var formatted = 'Est. $' + total.toLocaleString();
+  var pp = total > 0 ? 'Est. $' + Math.round(total / 4).toLocaleString() + ' per person · 4 adults' : '';
+
+  document.getElementById('totalAmount').textContent = formatted;
+  document.getElementById('totalPP').textContent = pp;
+  document.getElementById('hidden_resort').value = resortVal || 'No resort selected';
+  document.getElementById('hidden_total').value = formatted;
+}
+
+document.getElementById('tripForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  document.getElementById('hidden_notes').value = document.getElementById('notesField').value || '(none)';
+
+  var form = e.target;
+  var data = new FormData(form);
+
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    body: data
+  })
+  .then(function(res) { return res.json(); })
+  .then(function(json) {
+    if (json.success) {
+      form.style.display = 'none';
+      var thanks = document.getElementById('thanksMsg');
+      thanks.classList.add('show');
+      window.scrollTo({ top: thanks.offsetTop - 80, behavior: 'smooth' });
+    } else {
+      alert('Something went wrong. Please email Christina directly at Christina@PointMeToParadise.com or text (281) 229-0862.');
+    }
+  })
+  .catch(function() {
+    alert('Something went wrong. Please email Christina directly at Christina@PointMeToParadise.com or text (281) 229-0862.');
+  });
+});
+
+updateTotal();
+</script>
+</body>
+</html>
