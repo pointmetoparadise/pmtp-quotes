@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mac Haik Italy Incentive — Flight Selection</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --aqua-pale: #C4E4E1; --aqua-mist: #EAF3F2; --aqua: #75AFB1; --aqua-dark: #4F8A8C;
+  --sand: #ECE7DC; --sand-light: #F4F1E9; --gold-whisper: #D6C8A8;
+  --white: #FFFFFF; --paper: #FBFDFD; --ink: #2B2420; --ink-soft: #6B6359; --line: #E5E9E8;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'DM Sans', sans-serif; font-weight: 400; color: var(--ink); background: var(--paper); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+.container { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 500; color: var(--ink); margin: 0; }
+
+/* HERO */
+.hero { padding: 80px 24px 60px; text-align: center; background: var(--white); border-bottom: 1px solid var(--line); }
+.hero .kicker { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--aqua-dark); margin-bottom: 18px; font-weight: 500; }
+.hero h1 { font-size: clamp(38px, 5.5vw, 60px); letter-spacing: -0.5px; line-height: 1.05; }
+.hero .dates { font-size: 13px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--ink-soft); margin-top: 22px; }
+.hero .prepared { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 22px; color: var(--aqua-dark); margin-top: 18px; }
+.hero .gold-rule { width: 60px; height: 1px; background: var(--gold-whisper); margin: 26px auto 0; }
+
+/* OVERVIEW */
+.overview { background: var(--aqua-mist); padding: 36px 24px; }
+.overview-grid { max-width: 980px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center; }
+.overview-item { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.overview-item svg { width: 22px; height: 22px; color: var(--aqua-dark); }
+.overview-item .label { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--ink-soft); }
+.overview-item .value { font-size: 14px; font-weight: 500; color: var(--ink); }
+
+/* INTRO */
+.intro { padding: 48px 24px 24px; }
+.intro p { font-size: 16px; max-width: 780px; margin: 0 auto 14px; }
+.intro .compare-strip { max-width: 780px; margin: 22px auto 0; padding: 16px 20px; background: var(--sand-light); border-left: 2px solid var(--gold-whisper); font-size: 13px; }
+.intro .compare-strip strong { display: block; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--aqua-dark); margin-bottom: 6px; font-weight: 500; }
+
+/* SECTION HEAD */
+.section-head { display: flex; align-items: center; justify-content: center; gap: 18px; margin: 48px 0 28px; padding: 0 24px; }
+.section-head svg { width: 22px; height: 22px; color: var(--aqua-dark); opacity: 0.65; flex-shrink: 0; }
+.section-head h2 { font-size: clamp(26px, 3.5vw, 34px); text-align: center; }
+
+/* FLIGHT CARDS */
+.flight-grid { display: flex; flex-direction: column; gap: 28px; padding-bottom: 32px; }
+.flight-card { background: var(--white); border: 1px solid var(--line); border-radius: 6px; padding: 32px 36px; transition: border-color 0.2s, box-shadow 0.2s; position: relative; }
+.flight-card:has(input[type="radio"]:checked) { border-color: var(--aqua-dark); box-shadow: 0 0 0 1px var(--aqua-dark); }
+.flight-card.recommended { border-color: var(--aqua-dark); border-top-width: 3px; }
+
+.recommended-tag {
+  position: absolute;
+  top: -3px; right: 28px;
+  background: var(--aqua-dark);
+  color: var(--white);
+  padding: 7px 18px 6px;
+  border-radius: 0 0 5px 5px;
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.recommended-tag svg { width: 12px; height: 12px; }
+
+.flight-kicker { font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--aqua-dark); margin-bottom: 8px; font-weight: 500; }
+.flight-card h3 { font-size: clamp(24px, 3vw, 30px); line-height: 1.2; }
+.flight-card .tagline { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px; color: var(--ink-soft); margin-top: 6px; }
+
+/* QUICK STATS */
+.quick-stats { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 1px; margin: 22px 0 4px; background: var(--line); border-radius: 4px; overflow: hidden; }
+.quick-stat { background: var(--aqua-mist); padding: 16px 20px; }
+.quick-stat .label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--aqua-dark); font-weight: 500; }
+.quick-stat .value { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 500; margin-top: 6px; line-height: 1.15; }
+.quick-stat .sub { font-size: 11px; color: var(--ink-soft); margin-top: 4px; line-height: 1.4; }
+
+/* HEADS-UP */
+.heads-up { background: var(--sand-light); padding: 14px 18px; border-left: 2px solid var(--gold-whisper); font-size: 13px; color: var(--ink); margin-top: 18px; line-height: 1.55; }
+.heads-up strong { font-weight: 500; color: var(--aqua-dark); }
+
+/* SCHEDULE (always visible) */
+.schedule-section { margin-top: 24px; }
+.schedule-leg { padding: 18px 22px; background: var(--paper); border: 1px solid var(--line); border-radius: 6px; margin-bottom: 12px; }
+.schedule-leg-header { display: flex; align-items: center; gap: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--gold-whisper); margin-bottom: 14px; }
+.schedule-leg-header svg { width: 18px; height: 18px; color: var(--aqua-dark); flex-shrink: 0; }
+.schedule-leg-header .leg-title { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 500; flex: 1; }
+.schedule-leg-header .leg-duration { font-size: 11px; color: var(--aqua-dark); letter-spacing: 1.5px; text-transform: uppercase; font-weight: 500; }
+
+/* Flight row in timeline format */
+.flight-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 16px;
+  align-items: stretch;
+  padding: 8px 0;
+}
+.flight-endpoint { display: flex; flex-direction: column; gap: 3px; }
+.flight-endpoint.right { text-align: right; align-items: flex-end; }
+.endpoint-label { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--aqua-dark); font-weight: 500; }
+.endpoint-airport { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 500; line-height: 1; margin-top: 2px; }
+.endpoint-city { font-size: 11px; color: var(--ink-soft); letter-spacing: 0.5px; margin-top: 2px; }
+.endpoint-time { font-size: 14px; font-weight: 500; margin-top: 8px; }
+.endpoint-date { font-size: 12px; color: var(--ink-soft); margin-top: 1px; }
+.endpoint-terminal { font-size: 11px; color: var(--ink-soft); letter-spacing: 0.5px; text-transform: uppercase; margin-top: 4px; }
+.endpoint-nextday { display: inline-block; background: var(--aqua-pale); color: var(--aqua-dark); font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 500; padding: 2px 8px; border-radius: 3px; margin-top: 4px; }
+
+.flight-middle { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 4px; min-width: 140px; }
+.flight-middle svg.plane { width: 18px; height: 18px; color: var(--aqua-dark); margin-bottom: 4px; }
+.flight-middle .flight-no { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--aqua-dark); font-weight: 500; }
+.flight-middle .line-track { width: 100%; height: 1px; background: var(--aqua); margin: 8px 0; position: relative; }
+.flight-middle .line-track::after { content: ''; position: absolute; right: 0; top: -3px; width: 7px; height: 7px; border-top: 1px solid var(--aqua); border-right: 1px solid var(--aqua); transform: rotate(45deg); }
+.flight-middle .duration { font-size: 12px; color: var(--ink-soft); margin-top: 2px; }
+
+.flight-aircraft-row { padding: 10px 0 4px; font-size: 12px; color: var(--ink-soft); text-align: center; }
+.flight-aircraft-row strong { color: var(--ink); font-weight: 500; }
+
+/* LAYOVER ROW between schedule legs */
+.layover-block { display: flex; align-items: center; gap: 10px; padding: 12px 18px; background: var(--aqua-mist); border-radius: 6px; margin: 12px 0; font-size: 13px; }
+.layover-block svg { width: 16px; height: 16px; color: var(--aqua-dark); flex-shrink: 0; }
+.layover-block .layover-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--aqua-dark); font-weight: 500; }
+.layover-block .layover-detail { color: var(--ink); }
+.layover-block .layover-detail strong { font-weight: 500; }
+.layover-block.tight { background: var(--sand-light); }
+.layover-block.tight svg, .layover-block.tight .layover-label { color: var(--ink); }
+
+/* Connection separator within a leg (between legs of the same direction) */
+.connection-stop { display: flex; align-items: center; gap: 12px; padding: 10px 18px; background: var(--sand-light); border-left: 2px solid var(--gold-whisper); font-size: 12px; color: var(--ink-soft); margin: 8px 0; border-radius: 0 4px 4px 0; }
+.connection-stop svg { width: 14px; height: 14px; color: var(--aqua-dark); flex-shrink: 0; }
+.connection-stop strong { color: var(--ink); font-weight: 500; }
+
+/* PRICING */
+.pricing-box { background: var(--aqua-pale); padding: 22px 26px; margin-top: 22px; border-radius: 4px; }
+.pricing-includes-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--aqua-dark); margin-bottom: 8px; font-weight: 500; }
+.pricing-includes ul { margin: 0; padding-left: 20px; font-size: 13px; }
+.pricing-includes li { margin-bottom: 4px; }
+.pricing-fine { font-size: 11px; color: var(--ink-soft); margin-top: 12px; line-height: 1.55; padding-top: 12px; border-top: 1px solid rgba(43, 36, 32, 0.12); }
+
+/* SET SELECTION */
+.set-selection { margin-top: 24px; padding: 20px 24px; background: var(--paper); border: 1px solid var(--line); border-radius: 6px; text-align: center; }
+.set-selection .label { font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--aqua-dark); font-weight: 500; margin-bottom: 12px; }
+.set-buttons { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.set-buttons input { position: absolute; opacity: 0; pointer-events: none; }
+.set-buttons label { display: inline-flex; align-items: center; gap: 8px; padding: 12px 26px; border: 1.5px solid var(--aqua-dark); border-radius: 999px; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--aqua-dark); cursor: pointer; background: var(--white); transition: all 0.2s; font-weight: 500; min-height: 48px; flex: 0 1 auto; }
+.set-buttons label:hover { background: var(--aqua-mist); }
+.set-buttons input:checked + label { background: var(--aqua-dark); color: var(--white); }
+.set-buttons input:checked + label::before { content: '✓ '; font-weight: 600; }
+.set-buttons input:disabled + label { opacity: 0.25; cursor: not-allowed; pointer-events: none; }
+.set-buttons input:disabled + label:hover { background: var(--white); }
+
+/* NOTES */
+.notes-section { margin-top: 48px; padding: 0 24px; }
+.notes-section .label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 10px; font-weight: 500; }
+.notes-section textarea { width: 100%; min-height: 100px; padding: 14px; font-family: 'DM Sans', sans-serif; font-size: 16px; border: 1px solid var(--line); border-radius: 4px; background: var(--white); color: var(--ink); resize: vertical; }
+.notes-section textarea:focus { outline: none; border-color: var(--aqua-dark); }
+
+/* PROGRESS */
+.progress-bar { background: var(--aqua-mist); padding: 18px 24px; margin: 24px auto 0; max-width: 932px; border-radius: 6px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.progress-icon { width: 40px; height: 40px; border-radius: 50%; background: var(--white); border: 2px solid var(--aqua-dark); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 500; font-size: 16px; color: var(--aqua-dark); flex-shrink: 0; transition: all 0.2s; }
+.progress-bar.complete .progress-icon { background: var(--aqua-dark); color: var(--white); }
+.progress-text { flex: 1; min-width: 180px; }
+.progress-main { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 500; }
+.progress-sub { font-size: 12px; color: var(--ink-soft); margin-top: 2px; }
+.progress-bar.complete .progress-main { color: var(--aqua-dark); }
+
+/* TOTAL BAR */
+.total-bar { background: var(--aqua-pale); padding: 26px 32px; margin: 16px auto 0; max-width: 932px; border-radius: 6px; }
+.total-bar .header { font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--aqua-dark); font-weight: 500; margin-bottom: 16px; text-align: center; }
+.total-row { display: grid; grid-template-columns: auto 1fr auto; gap: 16px; align-items: baseline; padding: 12px 0; border-bottom: 1px solid rgba(43, 36, 32, 0.1); }
+.total-row:last-of-type { border-bottom: none; }
+.total-row .set-label { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 500; color: var(--aqua-dark); white-space: nowrap; }
+.total-row .set-choice { font-size: 13px; color: var(--ink); }
+.total-row .set-amount { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 500; text-align: right; white-space: nowrap; }
+.total-combined { margin-top: 14px; padding-top: 16px; border-top: 1.5px solid var(--aqua-dark); display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px; }
+.total-combined .label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--aqua-dark); font-weight: 500; }
+.total-combined .label-detail { font-size: 12px; color: var(--ink-soft); display: block; margin-top: 3px; letter-spacing: 0; text-transform: none; }
+.total-combined .amount { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 500; line-height: 1; }
+
+/* SUBMIT */
+.submit-section { margin: 28px auto 0; padding: 36px; background: var(--white); border: 1px solid var(--line); border-radius: 6px; max-width: 932px; }
+.submit-section h3 { font-size: 24px; margin-bottom: 8px; }
+.submit-section .subtitle { color: var(--ink-soft); font-size: 14px; margin-bottom: 24px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-grid .full { grid-column: 1 / -1; }
+.form-field { display: flex; flex-direction: column; gap: 6px; }
+.form-field label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; }
+.form-field input { padding: 14px 16px; font-family: 'DM Sans', sans-serif; font-size: 16px; border: 1px solid var(--line); border-radius: 4px; background: var(--white); color: var(--ink); min-height: 48px; }
+.form-field input:focus { outline: none; border-color: var(--aqua-dark); }
+.insurance-block { margin-top: 26px; padding: 20px 22px; background: var(--aqua-mist); border-radius: 6px; }
+.insurance-block .label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--aqua-dark); margin-bottom: 12px; font-weight: 500; }
+.insurance-option { display: flex; align-items: center; gap: 12px; padding: 14px 18px; background: var(--white); border: 1.5px solid var(--line); border-radius: 4px; margin-bottom: 10px; cursor: pointer; font-size: 14px; min-height: 48px; transition: border-color 0.15s; }
+.insurance-option:has(input:checked) { border-color: var(--aqua-dark); background: var(--paper); }
+.insurance-option input { flex-shrink: 0; }
+.submit-btn { display: block; width: 100%; padding: 18px; margin-top: 26px; background: var(--aqua-dark); color: var(--white); border: none; border-radius: 4px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase; cursor: pointer; min-height: 56px; transition: all 0.2s; }
+.submit-btn:hover:not(:disabled) { background: var(--aqua); }
+.submit-btn:disabled { background: var(--ink-soft); cursor: not-allowed; opacity: 0.4; }
+.thanks-msg { display: none; text-align: center; padding: 36px 24px; background: var(--aqua-mist); border-radius: 6px; margin: 28px auto 0; max-width: 932px; }
+.thanks-msg.show { display: block; }
+.thanks-msg h3 { font-size: 22px; margin-bottom: 10px; }
+.thanks-msg p { color: var(--ink-soft); font-size: 14px; }
+
+/* VALIDATION BANNER */
+.validation-banner { display: none; margin: 16px auto 0; max-width: 932px; padding: 14px 22px; background: var(--sand-light); border-left: 3px solid var(--aqua-dark); font-size: 13px; color: var(--ink); border-radius: 0 4px 4px 0; }
+.validation-banner.show { display: block; }
+.validation-banner strong { color: var(--aqua-dark); font-weight: 500; }
+
+/* FOOTER */
+footer { background: var(--sand-light); padding: 52px 24px; margin-top: 64px; }
+.footer-content { max-width: 760px; margin: 0 auto; text-align: center; }
+.footer-name { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 4px; font-weight: 500; }
+.footer-role { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--aqua-dark); font-size: 17px; margin-bottom: 18px; }
+.footer-contact { font-size: 14px; }
+.footer-contact a { color: var(--aqua-dark); text-decoration: none; font-weight: 500; }
+.footer-contact a:hover { text-decoration: underline; }
+.footer-divider { width: 60px; height: 1px; background: var(--gold-whisper); margin: 24px auto; }
+.footer-disclosure { font-size: 12px; color: var(--ink-soft); line-height: 1.65; }
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .container { padding: 0 16px; }
+  .hero { padding: 56px 16px 44px; }
+  .overview-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+  .intro { padding: 36px 16px 20px; }
+  .flight-card { padding: 24px 20px; }
+  .recommended-tag { right: 16px; }
+  .quick-stats { grid-template-columns: 1fr; }
+  .quick-stat { padding: 14px 18px; }
+  .schedule-leg { padding: 16px 18px; }
+  .flight-row { grid-template-columns: 1fr; gap: 14px; }
+  .flight-endpoint, .flight-endpoint.right { align-items: flex-start; text-align: left; }
+  .flight-middle { padding: 6px 0; min-width: 0; flex-direction: row; gap: 8px; justify-content: flex-start; flex-wrap: wrap; }
+  .flight-middle svg.plane { margin-bottom: 0; }
+  .flight-middle .line-track { display: none; }
+  .form-grid { grid-template-columns: 1fr; }
+  .progress-bar { margin-left: 16px; margin-right: 16px; }
+  .total-bar { padding: 22px; margin-left: 16px; margin-right: 16px; }
+  .total-row { grid-template-columns: 1fr; gap: 4px; padding: 14px 0; }
+  .total-row .set-amount { text-align: left; font-size: 18px; }
+  .total-combined { flex-direction: column; align-items: flex-start; }
+  .submit-section { padding: 28px 22px; margin-left: 16px; margin-right: 16px; }
+  .pricing-box { padding: 20px; }
+  .set-buttons { flex-direction: column; }
+  .set-buttons label { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="container">
+    <div class="kicker">Mac Haik Italy Incentive · Air-Only Quote</div>
+    <h1>Choose Your Flights</h1>
+    <div class="dates">Houston · Rome · Naples · Sep 17 – 25, 2026</div>
+    <div class="prepared">prepared for sixteen travelers, two groups of eight</div>
+    <div class="gold-rule"></div>
+  </div>
+</section>
+
+<section class="overview">
+  <div class="overview-grid">
+    <div class="overview-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg><span class="label">Travelers</span><span class="value">16 · two sets of 8</span></div>
+    <div class="overview-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18"/><path d="M3 6h18"/><path d="M3 18h18"/></svg><span class="label">Trip Type</span><span class="value">Multi-City Air</span></div>
+    <div class="overview-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="label">Region</span><span class="value">Italy</span></div>
+    <div class="overview-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><span class="label">Departing</span><span class="value">Houston (IAH)</span></div>
+  </div>
+</section>
+
+<section class="container intro">
+  <p>Air-only quote for the Mac Haik Italy incentive — sixteen travelers in two groups of eight, all flying Houston to Rome on Thursday, Sep 17, and returning from Naples on Friday, Sep 25.</p>
+  <p><strong>How to use this page:</strong> Each card shows the full flight schedule — every departure, layover, and arrival with times and terminals. Pick a schedule for Set 1 and a different schedule for Set 2 — each option holds 8 business class seats, so the two groups must fly different routings. Submit at the bottom once both groups are assigned.</p>
+  <div class="compare-strip">
+    <strong>What's actually different across these</strong>
+    The price spread isn't the seat — every option is business class up front. The differences are connection style, flexibility (changes/cancellations), and which alliance carries you. None of it changes the in-flight experience.
+  </div>
+</section>
+
+<div class="container">
+  <div class="section-head">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+    <h2>Lowest fare to highest</h2>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="transform: scaleX(-1);"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+  </div>
+  
+  <div class="flight-grid">
+    
+    <!-- ============ OPTION 1: LUFTHANSA — LOWEST FARE ============ -->
+    <div class="flight-card">
+      <div class="flight-kicker">Option 1 · Lowest fare · Star Alliance · 1 stop each way</div>
+      <h3>Lufthansa via Frankfurt</h3>
+      <div class="tagline">Boeing 747 upper-deck business across the Atlantic — cheapest of the five</div>
+      <div class="quick-stats">
+        <div class="quick-stat"><div class="label">Per traveler</div><div class="value">Est. $7,095.00</div><div class="sub">8 travelers · $56,760.00/set</div></div>
+        <div class="quick-stat"><div class="label">Rome arrival</div><div class="value">Fri 12:30pm</div><div class="sub">via Frankfurt</div></div>
+        <div class="quick-stat"><div class="label">Houston return</div><div class="value">TBD</div><div class="sub">return schedule pending</div></div>
+      </div>
+      <div class="heads-up"><strong>Heads up — two cautions:</strong> (1) Lufthansa flagged the IAH–Frankfurt leg as occasionally delayed 30+ minutes, which can tighten the 2h 25m FRA connection. (2) The return schedule (typically NAP → FRA → IAH on Lufthansa) is being confirmed by the supplier — Christina will provide exact times within 24 hours of selection.</div>
+      
+      <div class="schedule-section">
+        <div class="schedule-leg">
+          <div class="schedule-leg-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="leg-title">Outbound · Thursday, Sep 17</div><div class="leg-duration">13h 55m total</div></div>
+          <div class="flight-row">
+            <div class="flight-endpoint"><div class="endpoint-label">Depart</div><div class="endpoint-airport">IAH</div><div class="endpoint-city">Houston, TX</div><div class="endpoint-time">3:35 PM</div><div class="endpoint-date">Thu, Sep 17</div><div class="endpoint-terminal">Terminal D</div></div>
+            <div class="flight-middle"><svg class="plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="flight-no">LH 441</div><div class="line-track"></div><div class="duration">9h 40m</div></div>
+            <div class="flight-endpoint right"><div class="endpoint-label">Arrive</div><div class="endpoint-airport">FRA</div><div class="endpoint-city">Frankfurt</div><div class="endpoint-time">8:15 AM</div><div class="endpoint-date">Fri, Sep 18</div><div class="endpoint-nextday">+1 day</div></div>
+          </div>
+          <div class="flight-aircraft-row"><strong>Boeing 747-400</strong> · Lufthansa Business (lie-flat) · meal · 2 checked bags</div>
+        </div>
+        
+        <div class="layover-block">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <div><div class="layover-label">Connection at FRA</div><div class="layover-detail"><strong>2h 25m layover</strong> · same airport · Lufthansa Business/Senator Lounge access</div></div>
+        </div>
+        
+        <div class="schedule-leg">
+          <div class="schedule-leg-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="leg-title">Continuation · FRA → FCO</div><div class="leg-duration">1h 50m</div></div>
+          <div class="flight-row">
+            <div class="flight-endpoint"><div class="endpoint-label">Depart</div><div class="endpoint-airport">FRA</div><div class="endpoint-city">Frankfurt</div><div class="endpoint-time">10:40 AM</div><div class="endpoint-date">Fri, Sep 18</div></div>
+            <div class="flight-middle"><svg class="plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="flight-no">LH 232</div><div class="line-track"></div><div class="duration">1h 50m</div></div>
+            <div class="flight-endpoint right"><div class="endpoint-label">Arrive</div><div class="endpoint-airport">FCO</div><div class="endpoint-city">Rome Fiumicino</div><div class="endpoint-time">12:30 PM</div><div class="endpoint-date">Fri, Sep 18</div></div>
+          </div>
+          <div class="flight-aircraft-row"><strong>Airbus A320</strong> · Lufthansa Business (intra-Europe) · 2 checked bags</div>
+        </div>
+        
+        <div class="schedule-leg" style="margin-top: 24px; border-style: dashed;">
+          <div class="schedule-leg-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="transform: scaleX(-1);"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="leg-title">Return · Friday, Sep 25 · pending supplier confirmation</div></div>
+          <div style="padding: 6px 4px 4px; font-size: 13px; color: var(--ink); line-height: 1.65;">
+            Lufthansa typically routes <strong>Naples → Frankfurt → Houston</strong> on the return, all in business class with two checked bags. Christina will confirm the exact flight numbers, departure times, and Houston arrival time within 24 hours of selection. Final pricing locks once the return is confirmed.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pricing-box">
+        <div class="pricing-includes-label">Includes</div>
+        <ul class="pricing-includes">
+          <li>Round-trip Lufthansa Business (lie-flat outbound) · 2 checked bags · meals</li>
+          <li>Lufthansa Business/Senator Lounge access at FRA</li>
+          <li>Lowest per-person rate of all five options</li>
+        </ul>
+        <div class="pricing-fine">Return schedule pending supplier confirmation. Final pricing confirmed by Christina before booking; fare and seat availability subject to change until ticketed.</div>
+      </div>
+      
+      <div class="set-selection">
+        <div class="label">Assign this schedule to</div>
+        <div class="set-buttons">
+          <input type="radio" name="set1_choice" id="opt5_set1" value="Option 1: Lufthansa via Frankfurt | $7,095.00 pp | Outbound IAH-FRA-FCO | Return TBD" data-price="7095.00" data-label="Option 1 · Lufthansa via Frankfurt">
+          <label for="opt5_set1">Group of 8 · Set 1</label>
+          <input type="radio" name="set2_choice" id="opt5_set2" value="Option 1: Lufthansa via Frankfurt | $7,095.00 pp | Outbound IAH-FRA-FCO | Return TBD" data-price="7095.00" data-label="Option 1 · Lufthansa via Frankfurt">
+          <label for="opt5_set2">Group of 8 · Set 2</label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- ============ OPTION 2: BRITISH AIRWAYS ============ -->
+    <div class="flight-card">
+      <div class="flight-kicker">Option 2 · BA Club World hardware · 1 stop each way</div>
+      <h3>British Airways via London Heathrow</h3>
+      <div class="tagline">lie-flat London long-haul, then a short hop to Rome</div>
+      <div class="quick-stats">
+        <div class="quick-stat"><div class="label">Per traveler</div><div class="value">Est. $7,248.23</div><div class="sub">8 travelers · $57,985.84/set</div></div>
+        <div class="quick-stat"><div class="label">Rome arrival</div><div class="value">Fri 2:20pm</div><div class="sub">via London Heathrow</div></div>
+        <div class="quick-stat"><div class="label">Houston return</div><div class="value">Fri 7:15pm</div><div class="sub">via London Heathrow</div></div>
+      </div>
+      <div class="heads-up"><strong>Heads up:</strong> Sold as Business Promo (fare class I) — same Club World/Club Suite seat, lounge, bags, and meals as full-fare business. The savings sit in fare flexibility (changes/cancellations restricted), not the cabin.</div>
+      
+      <div class="schedule-section">
+        <div class="schedule-leg">
+          <div class="schedule-leg-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="leg-title">Outbound · Thursday, Sep 17</div><div class="leg-duration">15h 40m total</div></div>
+          
+          <div class="flight-row">
+            <div class="flight-endpoint">
+              <div class="endpoint-label">Depart</div>
+              <div class="endpoint-airport">IAH</div>
+              <div class="endpoint-city">Houston, TX</div>
+              <div class="endpoint-time">3:40 PM</div>
+              <div class="endpoint-date">Thu, Sep 17</div>
+              <div class="endpoint-terminal">Terminal E</div>
+            </div>
+            <div class="flight-middle">
+              <svg class="plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+              <div class="flight-no">BA 194</div>
+              <div class="line-track"></div>
+              <div class="duration">9h 10m</div>
+            </div>
+            <div class="flight-endpoint right">
+              <div class="endpoint-label">Arrive</div>
+              <div class="endpoint-airport">LHR</div>
+              <div class="endpoint-city">London Heathrow</div>
+              <div class="endpoint-time">6:50 AM</div>
+              <div class="endpoint-date">Fri, Sep 18</div>
+              <div class="endpoint-nextday">+1 day</div>
+              <div class="endpoint-terminal">Terminal 5</div>
+            </div>
+          </div>
+          <div class="flight-aircraft-row"><strong>Boeing 787-10</strong> · Club World Suite (lie-flat) · meal · 2 checked bags</div>
+        </div>
+        
+        <div class="layover-block">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <div><div class="layover-label">Connection at LHR</div><div class="layover-detail"><strong>3h 50m layover</strong> · same terminal · Galleries Lounge access</div></div>
+        </div>
+        
+        <div class="schedule-leg">
+          <div class="schedule-leg-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="leg-title">Continuation · LHR → FCO</div><div class="leg-duration">2h 40m</div></div>
+          <div class="flight-row">
+            <div class="flight-endpoint"><div class="endpoint-label">Depart</div><div class="endpoint-airport">LHR</div><div class="endpoint-city">London Heathrow</div><div class="endpoint-time">10:40 AM</div><div class="endpoint-date">Fri, Sep 18</div><div class="endpoint-terminal">Terminal 5</div></div>
+            <div class="flight-middle"><svg class="plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="flight-no">BA 552</div><div class="line-track"></div><div class="duration">2h 40m</div></div>
+            <div class="flight-endpoint right"><div class="endpoint-label">Arrive</div><div class="endpoint-airport">FCO</div><div class="endpoint-city">Rome Fiumicino</div><div class="endpoint-time">2:20 PM</div><div class="endpoint-date">Fri, Sep 18</div><div class="endpoint-terminal">Terminal 3</div></div>
+          </div>
+          <div class="flight-aircraft-row"><strong>Airbus A320</strong> · Club Europe (intra-Europe business) · meal · 2 checked bags</div>
+        </div>
+        
+        <div class="schedule-leg" style="margin-top: 24px;">
+          <div class="schedule-leg-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="transform: scaleX(-1);"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="leg-title">Return · Friday, Sep 25</div><div class="leg-duration">18h 35m total</div></div>
+          <div class="flight-row">
+            <div class="flight-endpoint"><div class="endpoint-label">Depart</div><div class="endpoint-airport">NAP</div><div class="endpoint-city">Naples</div><div class="endpoint-time">7:40 AM</div><div class="endpoint-date">Fri, Sep 25</div></div>
+            <div class="flight-middle"><svg class="plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="flight-no">BA 531</div><div class="line-track"></div><div class="duration">3h 05m</div></div>
+            <div class="flight-endpoint right"><div class="endpoint-label">Arrive</div><div class="endpoint-airport">LHR</div><div class="endpoint-city">London Heathrow</div><div class="endpoint-time">9:45 AM</div><div class="endpoint-date">Fri, Sep 25</div><div class="endpoint-terminal">Terminal 5</div></div>
+          </div>
+          <div class="flight-aircraft-row"><strong>Airbus A320</strong> · meal · 2 checked bags</div>
+        </div>
+        
+        <div class="layover-block">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <div><div class="layover-label">Connection at LHR</div><div class="layover-detail"><strong>5h 00m layover</strong> · long connection · time for the lounge</div></div>
+        </div>
+        
+        <div class="schedule-leg">
+          <div class="schedule-leg-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="transform: scaleX(-1);"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="leg-title">Continuation · LHR → IAH</div><div class="leg-duration">10h 30m</div></div>
+          <div class="flight-row">
+            <div class="flight-endpoint"><div class="endpoint-label">Depart</div><div class="endpoint-airport">LHR</div><div class="endpoint-city">London Heathrow</div><div class="endpoint-time">2:45 PM</div><div class="endpoint-date">Fri, Sep 25</div><div class="endpoint-terminal">Terminal 5</div></div>
+            <div class="flight-middle"><svg class="plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="flight-no">BA 197</div><div class="line-track"></div><div class="duration">10h 30m</div></div>
+            <div class="flight-endpoint right"><div class="endpoint-label">Arrive</div><div class="endpoint-airport">IAH</div><div class="endpoint-city">Houston, TX</div><div class="endpoint-time">7:15 PM</div><div class="endpoint-date">Fri, Sep 25</div><div class="endpoint-terminal">Terminal E</div></div>
+          </div>
+          <div class="flight-aircraft-row"><strong>Boeing 777-300ER</strong> · Club World Suite (lie-flat) · meal · 2 checked bags</div>
+        </div>
+      </div>
+      
+      <div class="pricing-box">
+        <div class="pricing-includes-label">Includes</div>
+        <ul class="pricing-includes">
+          <li>Round-trip Club World business · 2 checked bags · meal service</li>
+          <li>Galleries Lounge access at LHR Terminal 5</li>
+          <li>Lowest per-person rate of the four options</li>
+        </ul>
+        <div class="pricing-fine">Promo fare class — change/cancellation restrictions apply. Final pricing confirmed by Christina before booking; fare and seat availability subject to change until ticketed.</div>
+      </div>
+      
+      <div class="set-selection">
+        <div class="label">Assign this schedule to</div>
+        <div class="set-buttons">
+          <input type="radio" name="set1_choice" id="opt1_set1" value="Option 1: British Airways via London Heathrow | $7,248.23 pp" data-price="7248.23" data-label="Option 1 · British Airways via London Heathrow">
+          <label for="opt1_set1">Group of 8 · Set 1</label>
+          <input type="radio" name="set2_choice" id="opt1_set2" value="Option 1: British Airways via London Heathrow | $7,248.23 pp" data-price="7248.23" data-label="Option 1 · British Airways via London Heathrow">
+          <label for="opt1_set2">Group of 8 · Set 2</label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- ============ OPTION 2: DELTA + AIR FRANCE — RECOMMENDED ============ -->
+    <div class="flight-card recommended">
+      <div class="recommended-tag">
+        <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Recommended
+      </div>
+      <div class="flight-kicker" style="margin-top: 8px;">Option 3 · Earliest Houston return · 1 stop each way</div>
+      <h3>Delta One out, Air France return — via JFK and Paris</h3>
+      <div class="tagline">wheels down at Houston by 1:40pm Friday — full afternoon home</div>
+      <div class="quick-stats">
+        <div class="quick-stat"><div class="label">Per traveler</div><div class="value">Est. $7,614.33</div><div class="sub">8 travelers · $60,914.64/set</div></div>
+        <div class="quick-stat"><div class="label">Rome arrival</div><div class="value">Fri 10:05am</div><div class="sub">via JFK</div></div>
+        <div class="quick-stat"><div class="label">Houston return</div><div class="value">Fri 1:40pm</div><div class="sub">via Paris CDG</div></div>
+      </div>
+      <div class="heads-up"><strong>Heads up:</strong> Earliest Houston return of the four — but it requires a 6:05am Naples departure (hotel pickup ~4:15am). The CDG layover is an airside walk between Terminals 2F and 2E, not an airport change.</div>
+      
+      <div class="schedule-section">
+        <div class="schedule-leg">
+          <div class="schedule-leg-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="leg-title">Outbound · Thursday, Sep 17 · Delta One</div><div class="leg-duration">14h 10m total</div></div>
+          <div class="flight-row">
+            <div class="flight-endpoint"><div class="endpoint-label">Depart</div><div class="endpoint-airport">IAH</div><div class="endpoint-city">Houston, TX</div><div class="endpoint-time">12:55 PM</div><div class="endpoint-date">Thu, Sep 17</div><div class="endpoint-terminal">Terminal A</div></div>
+            <div class="flight-middle"><svg class="plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="flight-no">Delta 3102</div><div class="line-track"></div><div class="duration">3h 30m</div></div>
+            <div class="flight-endpoint right"><div class="endpoint-label">Arrive</div><div class="endpoint-airport">JFK</div><div class="endpoint-city">New York</div><div class="endpoint-time">5:25 PM</div><div class="endpoint-date">Thu, Sep 17</div><div class="endpoint-terminal">Terminal 4</div></div>
+          </div>
+          <div class="flight-aircraft-row"><strong>Airbus A220-100</strong> · Delta One · lunch · 2 checked bags</div>
+        </div>
+        
+        <div class="layover-block">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <div><div class="layover-label">Connection at JFK</div><div class="layover-detail"><strong>2h 00m layover</strong> · same terminal · Sky Club access</div></div>
+        </div>
+        
+        <div class="schedule-leg">
+          <div class="schedule-leg-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="leg-title">Continuation · JFK → FCO</div><div class="leg-duration">8h 40m</div></div>
+          <div class="flight-row">
+            <div class="flight-endpoint"><div class="endpoint-label">Depart</div><div class="endpoint-airport">JFK</div><div class="endpoint-city">New York</div><div class="endpoint-time">7:25 PM</div><div class="endpoint-date">Thu, Sep 17</div><div class="endpoint-terminal">Terminal 4</div></div>
+            <div class="flight-middle"><svg class="plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="flight-no">Delta 230</div><div class="line-track"></div><div class="duration">8h 40m</div></div>
+            <div class="flight-endpoint right"><div class="endpoint-label">Arrive</div><div class="endpoint-airport">FCO</div><div class="endpoint-city">Rome Fiumicino</div><div class="endpoint-time">10:05 AM</div><div class="endpoint-date">Fri, Sep 18</div><div class="endpoint-nextday">+1 day</div><div class="endpoint-terminal">Terminal 3</div></div>
+          </div>
+          <div class="flight-aircraft-row"><strong>Airbus A330-300</strong> · Delta One (lie-flat suite) · dinner · 2 checked bags</div>
+        </div>
+        
+        <div class="schedule-leg" style="margin-top: 24px;">
+          <div class="schedule-leg-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="transform: scaleX(-1);"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="leg-title">Return · Friday, Sep 25 · Air France business</div><div class="leg-duration">14h 35m total</div></div>
+          <div class="flight-row">
+            <div class="flight-endpoint"><div class="endpoint-label">Depart</div><div class="endpoint-airport">NAP</div><div class="endpoint-city">Naples</div><div class="endpoint-time">6:05 AM</div><div class="endpoint-date">Fri, Sep 25</div></div>
+            <div class="flight-middle"><svg class="plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="flight-no">AF 1579</div><div class="line-track"></div><div class="duration">2h 25m</div></div>
+            <div class="flight-endpoint right"><div class="endpoint-label">Arrive</div><div class="endpoint-airport">CDG</div><div class="endpoint-city">Paris Charles de Gaulle</div><div class="endpoint-time">8:30 AM</div><div class="endpoint-date">Fri, Sep 25</div><div class="endpoint-terminal">Terminal 2F</div></div>
+          </div>
+          <div class="flight-aircraft-row"><strong>Airbus A320</strong> · Air France business · 2 checked bags</div>
+        </div>
+        
+        <div class="layover-block">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <div><div class="layover-label">Connection at CDG</div><div class="layover-detail"><strong>1h 40m layover</strong> · airside walk between Terminal 2F → 2E (not an airport change)</div></div>
+        </div>
+        
+        <div class="schedule-leg">
+          <div class="schedule-leg-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="transform: scaleX(-1);"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="leg-title">Continuation · CDG → IAH</div><div class="leg-duration">10h 30m</div></div>
+          <div class="flight-row">
+            <div class="flight-endpoint"><div class="endpoint-label">Depart</div><div class="endpoint-airport">CDG</div><div class="endpoint-city">Paris Charles de Gaulle</div><div class="endpoint-time">10:10 AM</div><div class="endpoint-date">Fri, Sep 25</div><div class="endpoint-terminal">Terminal 2E</div></div>
+            <div class="flight-middle"><svg class="plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="flight-no">AF 98</div><div class="line-track"></div><div class="duration">10h 30m</div></div>
+            <div class="flight-endpoint right"><div class="endpoint-label">Arrive</div><div class="endpoint-airport">IAH</div><div class="endpoint-city">Houston, TX</div><div class="endpoint-time">1:40 PM</div><div class="endpoint-date">Fri, Sep 25</div><div class="endpoint-terminal">Terminal D</div></div>
+          </div>
+          <div class="flight-aircraft-row"><strong>Boeing 777-300ER</strong> · Air France business (lie-flat suite) · meal · 2 checked bags</div>
+        </div>
+      </div>
+      
+      <div class="pricing-box">
+        <div class="pricing-includes-label">Includes</div>
+        <ul class="pricing-includes">
+          <li>Delta One out · Air France business return · 2 bags · meals</li>
+          <li>Sky Club at JFK · Air France lounge at CDG</li>
+          <li>Earliest Houston return of any option (1:40pm)</li>
+        </ul>
+        <div class="pricing-fine">Final pricing confirmed by Christina before booking; fare and seat availability subject to change until ticketed.</div>
+      </div>
+      
+      <div class="set-selection">
+        <div class="label">Assign this schedule to</div>
+        <div class="set-buttons">
+          <input type="radio" name="set1_choice" id="opt2_set1" value="Option 2: Delta + Air France via JFK / CDG | $7,614.33 pp" data-price="7614.33" data-label="Option 2 · Delta + Air France via JFK / CDG">
+          <label for="opt2_set1">Group of 8 · Set 1</label>
+          <input type="radio" name="set2_choice" id="opt2_set2" value="Option 2: Delta + Air France via JFK / CDG | $7,614.33 pp" data-price="7614.33" data-label="Option 2 · Delta + Air France via JFK / CDG">
+          <label for="opt2_set2">Group of 8 · Set 2</label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- ============ OPTION 3: AIR FRANCE / KLM ============ -->
+    <div class="flight-card">
+      <div class="flight-kicker">Option 4 · SkyTeam business · 1 stop each way</div>
+      <h3>Air France and KLM via JFK and Atlanta</h3>
+      <div class="tagline">SkyTeam codeshare flown on Delta hardware — generous Atlanta connection</div>
+      <div class="quick-stats">
+        <div class="quick-stat"><div class="label">Per traveler</div><div class="value">Est. $10,475.23</div><div class="sub">8 travelers · $83,801.84/set</div></div>
+        <div class="quick-stat"><div class="label">Rome arrival</div><div class="value">Fri 10:05am</div><div class="sub">via JFK</div></div>
+        <div class="quick-stat"><div class="label">Houston return</div><div class="value">Fri 6:52pm</div><div class="sub">via Atlanta</div></div>
+      </div>
+      <div class="heads-up"><strong>Heads up:</strong> Sold under Air France/KLM flight numbers but operated by Delta — same plane and crew you'd find on a direct Delta booking. Generous 3h 04m at ATL gives buffer for US re-entry/customs. <strong>Note:</strong> outbound is the same metal as Option 2.</div>
+      
+      <div class="schedule-section">
+        <div class="schedule-leg">
+          <div class="schedule-leg-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="leg-title">Outbound · Thursday, Sep 17</div><div class="leg-duration">14h 10m total</div></div>
+          <div class="flight-row">
+            <div class="flight-endpoint"><div class="endpoint-label">Depart</div><div class="endpoint-airport">IAH</div><div class="endpoint-city">Houston, TX</div><div class="endpoint-time">12:55 PM</div><div class="endpoint-date">Thu, Sep 17</div><div class="endpoint-terminal">Terminal A</div></div>
+            <div class="flight-middle"><svg class="plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="flight-no">AF 5948</div><div class="line-track"></div><div class="duration">3h 30m</div></div>
+            <div class="flight-endpoint right"><div class="endpoint-label">Arrive</div><div class="endpoint-airport">JFK</div><div class="endpoint-city">New York</div><div class="endpoint-time">5:25 PM</div><div class="endpoint-date">Thu, Sep 17</div><div class="endpoint-terminal">Terminal 4</div></div>
+          </div>
+          <div class="flight-aircraft-row"><strong>Airbus A220-100</strong> · operated by Delta · business · 2 checked bags</div>
+        </div>
+        
+        <div class="layover-block">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <div><div class="layover-label">Connection at JFK</div><div class="layover-detail"><strong>2h 00m layover</strong> · same terminal</div></div>
+        </div>
+        
+        <div class="schedule-leg">
+          <div class="schedule-leg-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="leg-title">Continuation · JFK → FCO</div><div class="leg-duration">8h 40m</div></div>
+          <div class="flight-row">
+            <div class="flight-endpoint"><div class="endpoint-label">Depart</div><div class="endpoint-airport">JFK</div><div class="endpoint-city">New York</div><div class="endpoint-time">7:25 PM</div><div class="endpoint-date">Thu, Sep 17</div><div class="endpoint-terminal">Terminal 4</div></div>
+            <div class="flight-middle"><svg class="plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="flight-no">AF 3561</div><div class="line-track"></div><div class="duration">8h 40m</div></div>
+            <div class="flight-endpoint right"><div class="endpoint-label">Arrive</div><div class="endpoint-airport">FCO</div><div class="endpoint-city">Rome Fiumicino</div><div class="endpoint-time">10:05 AM</div><div class="endpoint-date">Fri, Sep 18</div><div class="endpoint-nextday">+1 day</div><div class="endpoint-terminal">Terminal 3</div></div>
+          </div>
+          <div class="flight-aircraft-row"><strong>Airbus A330-300</strong> · operated by Delta · business (lie-flat suite) · 2 checked bags</div>
+        </div>
+        
+        <div class="schedule-leg" style="margin-top: 24px;">
+          <div class="schedule-leg-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="transform: scaleX(-1);"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="leg-title">Return · Friday, Sep 25</div><div class="leg-duration">16h 47m total</div></div>
+          <div class="flight-row">
+            <div class="flight-endpoint"><div class="endpoint-label">Depart</div><div class="endpoint-airport">NAP</div><div class="endpoint-city">Naples</div><div class="endpoint-time">9:05 AM</div><div class="endpoint-date">Fri, Sep 25</div></div>
+            <div class="flight-middle"><svg class="plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="flight-no">KLM 6179</div><div class="line-track"></div><div class="duration">11h 31m</div></div>
+            <div class="flight-endpoint right"><div class="endpoint-label">Arrive</div><div class="endpoint-airport">ATL</div><div class="endpoint-city">Atlanta, GA</div><div class="endpoint-time">2:36 PM</div><div class="endpoint-date">Fri, Sep 25</div><div class="endpoint-terminal">Terminal I</div></div>
+          </div>
+          <div class="flight-aircraft-row"><strong>Airbus A330-200</strong> · operated by Delta · business · 2 checked bags</div>
+        </div>
+        
+        <div class="layover-block">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <div><div class="layover-label">Connection at ATL</div><div class="layover-detail"><strong>3h 04m layover</strong> · terminal change I → S · plenty of time for US customs</div></div>
+        </div>
+        
+        <div class="schedule-leg">
+          <div class="schedule-leg-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="transform: scaleX(-1);"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="leg-title">Continuation · ATL → IAH</div><div class="leg-duration">2h 12m</div></div>
+          <div class="flight-row">
+            <div class="flight-endpoint"><div class="endpoint-label">Depart</div><div class="endpoint-airport">ATL</div><div class="endpoint-city">Atlanta, GA</div><div class="endpoint-time">5:40 PM</div><div class="endpoint-date">Fri, Sep 25</div><div class="endpoint-terminal">Terminal S</div></div>
+            <div class="flight-middle"><svg class="plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="flight-no">KLM 5229</div><div class="line-track"></div><div class="duration">2h 12m</div></div>
+            <div class="flight-endpoint right"><div class="endpoint-label">Arrive</div><div class="endpoint-airport">IAH</div><div class="endpoint-city">Houston, TX</div><div class="endpoint-time">6:52 PM</div><div class="endpoint-date">Fri, Sep 25</div><div class="endpoint-terminal">Terminal A</div></div>
+          </div>
+          <div class="flight-aircraft-row"><strong>Airbus A320</strong> · operated by Delta · business · 2 checked bags</div>
+        </div>
+      </div>
+      
+      <div class="pricing-box">
+        <div class="pricing-includes-label">Includes</div>
+        <ul class="pricing-includes">
+          <li>Round-trip business across all four flights · 2 bags · meals</li>
+          <li>SkyTeam lounge access at JFK and ATL</li>
+          <li>Generous 3h+ ATL connection on return</li>
+        </ul>
+        <div class="pricing-fine">Final pricing confirmed by Christina before booking; fare and seat availability subject to change until ticketed.</div>
+      </div>
+      
+      <div class="set-selection">
+        <div class="label">Assign this schedule to</div>
+        <div class="set-buttons">
+          <input type="radio" name="set1_choice" id="opt3_set1" value="Option 3: Air France / KLM via JFK and Atlanta | $10,475.23 pp" data-price="10475.23" data-label="Option 3 · Air France / KLM via JFK and Atlanta">
+          <label for="opt3_set1">Group of 8 · Set 1</label>
+          <input type="radio" name="set2_choice" id="opt3_set2" value="Option 3: Air France / KLM via JFK and Atlanta | $10,475.23 pp" data-price="10475.23" data-label="Option 3 · Air France / KLM via JFK and Atlanta">
+          <label for="opt3_set2">Group of 8 · Set 2</label>
+        </div>
+      </div>
+    </div>
+    
+    <!-- ============ OPTION 4: UNITED ============ -->
+    <div class="flight-card">
+      <div class="flight-kicker">Option 5 · Most flexible fare · 1 stop each way</div>
+      <h3>United Polaris via Washington Dulles and Newark</h3>
+      <div class="tagline">United's full-fare business — easiest changes if plans shift</div>
+      <div class="quick-stats">
+        <div class="quick-stat"><div class="label">Per traveler</div><div class="value">Est. $10,569.23</div><div class="sub">8 travelers · $84,553.84/set</div></div>
+        <div class="quick-stat"><div class="label">Rome arrival</div><div class="value">Fri 1:15pm</div><div class="sub">via Washington Dulles</div></div>
+        <div class="quick-stat"><div class="label">Houston return</div><div class="value">Fri 10:40pm</div><div class="sub">via Newark</div></div>
+      </div>
+      <div class="heads-up"><strong>Heads up:</strong> Most flexible fare class of the four — best for groups that might need to change tickets. Trade-off is the tightest connection on the return (1h 27m at Newark) and the latest Houston arrival (10:40pm Friday).</div>
+      
+      <div class="schedule-section">
+        <div class="schedule-leg">
+          <div class="schedule-leg-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="leg-title">Outbound · Thursday, Sep 17</div><div class="leg-duration">15h 28m total</div></div>
+          <div class="flight-row">
+            <div class="flight-endpoint"><div class="endpoint-label">Depart</div><div class="endpoint-airport">IAH</div><div class="endpoint-city">Houston, TX</div><div class="endpoint-time">2:47 PM</div><div class="endpoint-date">Thu, Sep 17</div><div class="endpoint-terminal">Terminal C</div></div>
+            <div class="flight-middle"><svg class="plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="flight-no">UA 1478</div><div class="line-track"></div><div class="duration">3h 10m</div></div>
+            <div class="flight-endpoint right"><div class="endpoint-label">Arrive</div><div class="endpoint-airport">IAD</div><div class="endpoint-city">Washington Dulles</div><div class="endpoint-time">6:57 PM</div><div class="endpoint-date">Thu, Sep 17</div><div class="endpoint-terminal">Terminal 3</div></div>
+          </div>
+          <div class="flight-aircraft-row"><strong>Boeing 737-900</strong> · United business · meal · 2 checked bags</div>
+        </div>
+        
+        <div class="layover-block">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <div><div class="layover-label">Connection at IAD</div><div class="layover-detail"><strong>3h 18m layover</strong> · terminal change · United Polaris Lounge access</div></div>
+        </div>
+        
+        <div class="schedule-leg">
+          <div class="schedule-leg-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="leg-title">Continuation · IAD → FCO</div><div class="leg-duration">9h 00m</div></div>
+          <div class="flight-row">
+            <div class="flight-endpoint"><div class="endpoint-label">Depart</div><div class="endpoint-airport">IAD</div><div class="endpoint-city">Washington Dulles</div><div class="endpoint-time">10:15 PM</div><div class="endpoint-date">Thu, Sep 17</div><div class="endpoint-terminal">Terminal C</div></div>
+            <div class="flight-middle"><svg class="plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="flight-no">UA 126</div><div class="line-track"></div><div class="duration">9h 00m</div></div>
+            <div class="flight-endpoint right"><div class="endpoint-label">Arrive</div><div class="endpoint-airport">FCO</div><div class="endpoint-city">Rome Fiumicino</div><div class="endpoint-time">1:15 PM</div><div class="endpoint-date">Fri, Sep 18</div><div class="endpoint-nextday">+1 day</div><div class="endpoint-terminal">Terminal 3</div></div>
+          </div>
+          <div class="flight-aircraft-row"><strong>Boeing 767-300</strong> · United Polaris (lie-flat) · meal · 2 checked bags</div>
+        </div>
+        
+        <div class="schedule-leg" style="margin-top: 24px;">
+          <div class="schedule-leg-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="transform: scaleX(-1);"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="leg-title">Return · Friday, Sep 25</div><div class="leg-duration">15h 40m total</div></div>
+          <div class="flight-row">
+            <div class="flight-endpoint"><div class="endpoint-label">Depart</div><div class="endpoint-airport">NAP</div><div class="endpoint-city">Naples</div><div class="endpoint-time">2:00 PM</div><div class="endpoint-date">Fri, Sep 25</div></div>
+            <div class="flight-middle"><svg class="plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="flight-no">UA 967</div><div class="line-track"></div><div class="duration">10h 20m</div></div>
+            <div class="flight-endpoint right"><div class="endpoint-label">Arrive</div><div class="endpoint-airport">EWR</div><div class="endpoint-city">Newark</div><div class="endpoint-time">6:20 PM</div><div class="endpoint-date">Fri, Sep 25</div><div class="endpoint-terminal">Terminal C</div></div>
+          </div>
+          <div class="flight-aircraft-row"><strong>Boeing 767-300</strong> · United Polaris (lie-flat) · meal · 2 checked bags</div>
+        </div>
+        
+        <div class="layover-block tight">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <div><div class="layover-label">Connection at EWR · Tight</div><div class="layover-detail"><strong>1h 27m layover</strong> · same terminal · includes US re-entry/customs · brisk move required</div></div>
+        </div>
+        
+        <div class="schedule-leg">
+          <div class="schedule-leg-header"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="transform: scaleX(-1);"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="leg-title">Continuation · EWR → IAH</div><div class="leg-duration">3h 53m</div></div>
+          <div class="flight-row">
+            <div class="flight-endpoint"><div class="endpoint-label">Depart</div><div class="endpoint-airport">EWR</div><div class="endpoint-city">Newark</div><div class="endpoint-time">7:47 PM</div><div class="endpoint-date">Fri, Sep 25</div><div class="endpoint-terminal">Terminal C</div></div>
+            <div class="flight-middle"><svg class="plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg><div class="flight-no">UA 2127</div><div class="line-track"></div><div class="duration">3h 53m</div></div>
+            <div class="flight-endpoint right"><div class="endpoint-label">Arrive</div><div class="endpoint-airport">IAH</div><div class="endpoint-city">Houston, TX</div><div class="endpoint-time">10:40 PM</div><div class="endpoint-date">Fri, Sep 25</div><div class="endpoint-terminal">Terminal C</div></div>
+          </div>
+          <div class="flight-aircraft-row"><strong>Boeing 737 MAX 9</strong> · United business · meal · 2 checked bags</div>
+        </div>
+      </div>
+      
+      <div class="pricing-box">
+        <div class="pricing-includes-label">Includes</div>
+        <ul class="pricing-includes">
+          <li>Round-trip Polaris business · 2 bags · meals</li>
+          <li>Polaris lounge access at IAD and EWR</li>
+          <li>Most flexible fare class of the four · easiest changes</li>
+        </ul>
+        <div class="pricing-fine">Final pricing confirmed by Christina before booking; fare and seat availability subject to change until ticketed.</div>
+      </div>
+      
+      <div class="set-selection">
+        <div class="label">Assign this schedule to</div>
+        <div class="set-buttons">
+          <input type="radio" name="set1_choice" id="opt4_set1" value="Option 4: United Polaris via Washington Dulles and Newark | $10,569.23 pp" data-price="10569.23" data-label="Option 4 · United Polaris via Dulles and Newark">
+          <label for="opt4_set1">Group of 8 · Set 1</label>
+          <input type="radio" name="set2_choice" id="opt4_set2" value="Option 4: United Polaris via Washington Dulles and Newark | $10,569.23 pp" data-price="10569.23" data-label="Option 4 · United Polaris via Dulles and Newark">
+          <label for="opt4_set2">Group of 8 · Set 2</label>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<section class="container notes-section">
+  <div class="label">Group preferences or questions (optional)</div>
+  <textarea id="trip_notes" placeholder="Anything you want Christina to know — preferred seat layouts, dietary restrictions, who's in which group, etc."></textarea>
+</section>
+
+<div class="progress-bar" id="progressBar">
+  <div class="progress-icon" id="progressIcon">0</div>
+  <div class="progress-text">
+    <div class="progress-main" id="progressMain">0 of 16 travelers assigned</div>
+    <div class="progress-sub" id="progressSub">Pick a flight schedule for Set 1 and Set 2 above</div>
+  </div>
+</div>
+
+<div class="total-bar" id="totalBar">
+  <div class="header">Your selections</div>
+  <div class="total-row" id="row1">
+    <div class="set-label">Set 1 · 8 travelers</div>
+    <div class="set-choice" id="set1Choice" style="color:var(--ink-soft);font-style:italic;">— not yet selected —</div>
+    <div class="set-amount" id="set1Amount">—</div>
+  </div>
+  <div class="total-row" id="row2">
+    <div class="set-label">Set 2 · 8 travelers</div>
+    <div class="set-choice" id="set2Choice" style="color:var(--ink-soft);font-style:italic;">— not yet selected —</div>
+    <div class="set-amount" id="set2Amount">—</div>
+  </div>
+  <div class="total-combined">
+    <div>
+      <span class="label">Combined group total</span>
+      <span class="label-detail">all 16 travelers · all-in air package</span>
+    </div>
+    <div class="amount" id="combinedAmount">—</div>
+  </div>
+</div>
+
+<div class="validation-banner" id="validationBanner">
+  <strong>Almost there.</strong> <span id="validationMsg">Please pick a schedule for both Set 1 and Set 2 before submitting.</span>
+</div>
+
+<div class="submit-section">
+  <h3>Submit your selections</h3>
+  <p class="subtitle">One submission covers both groups. Christina will confirm schedules and lock pricing within one business day.</p>
+  
+  <form id="tripForm">
+    <input type="hidden" name="access_key" value="7b40d437-1004-48e2-9031-171a8b0ef4f1">
+    <input type="hidden" name="subject" value="Mac Haik Italy — Flight Schedule Selection (16 travelers)">
+    <input type="hidden" name="from_name" value="Mac Haik Italy — PMTP Flight Selection">
+    <input type="hidden" name="redirect" value="false">
+    <input type="hidden" name="Set_1_Choice" id="hidden_set1">
+    <input type="hidden" name="Set_1_Per_Person" id="hidden_set1_pp">
+    <input type="hidden" name="Set_1_Total" id="hidden_set1_total">
+    <input type="hidden" name="Set_2_Choice" id="hidden_set2">
+    <input type="hidden" name="Set_2_Per_Person" id="hidden_set2_pp">
+    <input type="hidden" name="Set_2_Total" id="hidden_set2_total">
+    <input type="hidden" name="Combined_Total" id="hidden_combined">
+    <input type="hidden" name="Trip_Notes" id="hidden_notes">
+    
+    <div class="form-grid">
+      <div class="form-field"><label for="contact_name">Submitter Name</label><input type="text" id="contact_name" name="Name" required></div>
+      <div class="form-field"><label for="contact_role">Role / Title</label><input type="text" id="contact_role" name="Role" placeholder="e.g. Group Coordinator"></div>
+      <div class="form-field"><label for="contact_email">Email</label><input type="email" id="contact_email" name="Email" required></div>
+      <div class="form-field"><label for="contact_phone">Phone</label><input type="tel" id="contact_phone" name="Phone"></div>
+      <div class="form-field full"><label for="dealership">Dealership / Division</label><input type="text" id="dealership" name="Dealership" placeholder="Which Mac Haik dealership or division?"></div>
+    </div>
+    
+    <button type="submit" class="submit-btn" id="submitBtn" disabled>Submit our flight selections</button>
+  </form>
+</div>
+
+<div class="thanks-msg" id="thanksMsg">
+  <h3>Selections received.</h3>
+  <p>Christina will confirm schedules and lock pricing within one business day. Watch for an email from <span id="thanksEmail">Christina@PointMeToParadise.com</span> — and feel free to text (281) 229-0862 if anything changes in the meantime.</p>
+</div>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-name">Christina Garcia</div>
+    <div class="footer-role">Travel Advisor · Point Me to Paradise Travel</div>
+    <div class="footer-contact"><a id="emailLink" href="#">loading...</a> · <a href="tel:+12812290862">(281) 229-0862</a></div>
+    <div class="footer-divider"></div>
+    <p class="footer-disclosure">Individual hotels, transfers, and tours in your quote are priced at publicly available rates — and in many cases lower than what you'd find on your own. You don't have to worry about overpaying for a piece of your trip. What you're paying for is the rest: the right rooms at the right property, operators we've used for years, the trip app, and a human who answers when something doesn't go to plan.</p>
+  </div>
+</footer>
+
+<script>
+(function() {
+  var addr = 'Christina' + '@' + 'PointMeToParadise.com';
+  var link = document.getElementById('emailLink');
+  if (link) { link.href = 'mailto:' + addr; link.textContent = addr; }
+  var thanksEmail = document.getElementById('thanksEmail');
+  if (thanksEmail) thanksEmail.textContent = addr;
+})();
+
+function fmt(n) { return '$' + n.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}); }
+
+function updateSetAvailability() {
+  // Reset: enable all set buttons
+  document.querySelectorAll('input[name="set1_choice"], input[name="set2_choice"]').forEach(function(input) {
+    input.disabled = false;
+  });
+  
+  var set1 = document.querySelector('input[name="set1_choice"]:checked');
+  var set2 = document.querySelector('input[name="set2_choice"]:checked');
+  
+  // If Set 1 is on a card, disable Set 2 on the same card
+  if (set1) {
+    var card = set1.closest('.flight-card');
+    if (card) {
+      var sameCardSet2 = card.querySelector('input[name="set2_choice"]');
+      if (sameCardSet2) sameCardSet2.disabled = true;
+    }
+  }
+  
+  // If Set 2 is on a card, disable Set 1 on the same card
+  if (set2) {
+    var card = set2.closest('.flight-card');
+    if (card) {
+      var sameCardSet1 = card.querySelector('input[name="set1_choice"]');
+      if (sameCardSet1) sameCardSet1.disabled = true;
+    }
+  }
+}
+
+function updateAll() {
+  updateSetAvailability();
+  
+  var set1 = document.querySelector('input[name="set1_choice"]:checked');
+  var set2 = document.querySelector('input[name="set2_choice"]:checked');
+  
+  var set1ChoiceEl = document.getElementById('set1Choice');
+  var set1AmountEl = document.getElementById('set1Amount');
+  var set2ChoiceEl = document.getElementById('set2Choice');
+  var set2AmountEl = document.getElementById('set2Amount');
+  var combinedEl = document.getElementById('combinedAmount');
+  var progressIconEl = document.getElementById('progressIcon');
+  var progressMainEl = document.getElementById('progressMain');
+  var progressSubEl = document.getElementById('progressSub');
+  var progressBarEl = document.getElementById('progressBar');
+  var submitBtn = document.getElementById('submitBtn');
+  
+  var combinedTotal = 0;
+  var assignedTravelers = 0;
+  
+  if (set1) {
+    var p1 = parseFloat(set1.dataset.price);
+    var t1 = p1 * 8;
+    combinedTotal += t1;
+    assignedTravelers += 8;
+    set1ChoiceEl.textContent = set1.dataset.label;
+    set1ChoiceEl.style.color = '';
+    set1ChoiceEl.style.fontStyle = '';
+    set1AmountEl.textContent = 'Est. ' + fmt(t1);
+    document.getElementById('hidden_set1').value = set1.value;
+    document.getElementById('hidden_set1_pp').value = fmt(p1);
+    document.getElementById('hidden_set1_total').value = fmt(t1);
+  } else {
+    set1ChoiceEl.textContent = '— not yet selected —';
+    set1ChoiceEl.style.color = 'var(--ink-soft)';
+    set1ChoiceEl.style.fontStyle = 'italic';
+    set1AmountEl.textContent = '—';
+    document.getElementById('hidden_set1').value = '';
+    document.getElementById('hidden_set1_pp').value = '';
+    document.getElementById('hidden_set1_total').value = '';
+  }
+  
+  if (set2) {
+    var p2 = parseFloat(set2.dataset.price);
+    var t2 = p2 * 8;
+    combinedTotal += t2;
+    assignedTravelers += 8;
+    set2ChoiceEl.textContent = set2.dataset.label;
+    set2ChoiceEl.style.color = '';
+    set2ChoiceEl.style.fontStyle = '';
+    set2AmountEl.textContent = 'Est. ' + fmt(t2);
+    document.getElementById('hidden_set2').value = set2.value;
+    document.getElementById('hidden_set2_pp').value = fmt(p2);
+    document.getElementById('hidden_set2_total').value = fmt(t2);
+  } else {
+    set2ChoiceEl.textContent = '— not yet selected —';
+    set2ChoiceEl.style.color = 'var(--ink-soft)';
+    set2ChoiceEl.style.fontStyle = 'italic';
+    set2AmountEl.textContent = '—';
+    document.getElementById('hidden_set2').value = '';
+    document.getElementById('hidden_set2_pp').value = '';
+    document.getElementById('hidden_set2_total').value = '';
+  }
+  
+  if (set1 && set2) {
+    combinedEl.textContent = 'Est. ' + fmt(combinedTotal);
+    document.getElementById('hidden_combined').value = fmt(combinedTotal);
+    progressIconEl.textContent = '✓';
+    progressMainEl.textContent = '16 of 16 travelers assigned';
+    progressSubEl.textContent = 'Ready to submit';
+    progressBarEl.classList.add('complete');
+    submitBtn.disabled = false;
+  } else {
+    combinedEl.textContent = '—';
+    document.getElementById('hidden_combined').value = '';
+    progressIconEl.textContent = assignedTravelers;
+    progressMainEl.textContent = assignedTravelers + ' of 16 travelers assigned';
+    progressSubEl.textContent = (assignedTravelers === 0) ? 'Pick a flight schedule for Set 1 and Set 2 above' : 'Assign ' + (16 - assignedTravelers) + ' more before submitting';
+    progressBarEl.classList.remove('complete');
+    submitBtn.disabled = true;
+  }
+}
+
+document.querySelectorAll('input[name="set1_choice"], input[name="set2_choice"]').forEach(function(input) {
+  input.addEventListener('change', function() { setTimeout(updateAll, 0); });
+});
+document.querySelectorAll('.set-buttons label').forEach(function(label) {
+  label.addEventListener('click', function() { setTimeout(updateAll, 0); });
+});
+
+var notesField = document.getElementById('trip_notes');
+if (notesField) {
+  notesField.addEventListener('input', function() {
+    document.getElementById('hidden_notes').value = notesField.value;
+  });
+}
+
+document.getElementById('tripForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var banner = document.getElementById('validationBanner');
+  var validationMsg = document.getElementById('validationMsg');
+  var set1 = document.querySelector('input[name="set1_choice"]:checked');
+  var set2 = document.querySelector('input[name="set2_choice"]:checked');
+  
+  if (!set1 || !set2) {
+    banner.classList.add('show');
+    var missing = [];
+    if (!set1) missing.push('Set 1');
+    if (!set2) missing.push('Set 2');
+    validationMsg.textContent = 'Please pick a schedule for ' + missing.join(' and ') + ' before submitting.';
+    banner.scrollIntoView({behavior: 'smooth', block: 'center'});
+    return;
+  }
+  banner.classList.remove('show');
+  document.getElementById('hidden_notes').value = notesField.value || '';
+  
+  var form = e.target;
+  var data = new FormData(form);
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST', body: data
+  })
+  .then(function(res) { return res.json(); })
+  .then(function(json) {
+    if (json.success) {
+      form.parentElement.style.display = 'none';
+      document.getElementById('progressBar').style.display = 'none';
+      document.getElementById('totalBar').style.display = 'none';
+      document.getElementById('thanksMsg').classList.add('show');
+      document.getElementById('thanksMsg').scrollIntoView({behavior: 'smooth'});
+    } else {
+      alert('Something went wrong. Please email Christina directly or text (281) 229-0862.');
+    }
+  })
+  .catch(function() {
+    alert('Something went wrong. Please email Christina directly or text (281) 229-0862.');
+  });
+});
+
+updateAll();
+</script>
+
+</body>
+</html>
